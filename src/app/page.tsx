@@ -246,253 +246,301 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── 3. POURQUOI CHOISIR ──────────────────────────── */}
+        {/* ── 3. TÉMOIGNAGES ───────────────────────────────── */}
         <section className="bg-[#F1F8EA]">
           <div className="max-w-7xl mx-auto px-8 py-24">
 
             {/* En-tête */}
-            <div className="mb-14">
-              <Badge><span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />Nos engagements</Badge>
+            <div className="mb-14 text-center flex flex-col items-center">
+              <Badge><span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />Avis clients</Badge>
               <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mt-4">
-                Pourquoi choisir<br />
-                <span className="text-turquoise-500">JSA Expertise&nbsp;?</span>
+                Ils nous font confiance
               </h2>
+              <p className="text-xl text-gray-500 mt-4">
+                Plus de 150 freelances et indépendants accompagnés
+              </p>
             </div>
 
-            {/* Cards */}
-            <div className="grid md:grid-cols-3 gap-6">
+            {/* Cards témoignages */}
+            <div className="grid md:grid-cols-3 gap-6 mb-16">
               {[
                 {
-                  icon: (
-                    <svg className="w-7 h-7 text-turquoise-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  ),
-                  title: "Réactivité garantie",
-                  desc: "Réponse sous 24h ouvrées, sans délai d'attente absurde. Un interlocuteur direct, joignable par email, téléphone ou visio.",
-                  points: ["Réponse sous 24h", "Interlocuteur dédié", "Joignable par visio"],
+                  text: "Enfin un cabinet qui répond le jour même. En 3 ans, pas une seule échéance manquée et des conseils vraiment adaptés à mon activité de consultant.",
+                  name: "Thomas M.",
+                  role: "Consultant IT indépendant",
+                  initiale: "T",
                 },
                 {
-                  icon: (
-                    <svg className="w-7 h-7 text-turquoise-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-2" />
-                    </svg>
-                  ),
-                  title: "100% Digital avec Tiime",
-                  desc: "Zéro papier, zéro déplacement. Tiime centralise vos documents et vous donne une vision claire de votre trésorerie en temps réel.",
-                  points: ["Zéro papier", "Accès 24h/24"],
+                  text: "JSA Expertise m'a accompagné dans la création de ma SASU et le suivi comptable depuis. Tout est clair, digital, et je n'ai plus à me soucier de rien.",
+                  name: "Sarah K.",
+                  role: "Designer freelance",
+                  initiale: "S",
                 },
                 {
-                  icon: (
-                    <svg className="w-7 h-7 text-turquoise-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                  ),
-                  title: "Sérénité totale",
-                  desc: "Déclarations, liasses fiscales, bilan — tout est géré dans les délais. Vous restez informé à chaque étape, sans avoir à demander.",
-                  points: ["Délais respectés", "Suivi proactif", "Zéro surprise"],
+                  text: "Le passage de micro-entreprise à SASU s'est fait sans stress. L'optimisation fiscale a été immédiate et significative.",
+                  name: "Romain D.",
+                  role: "Développeur freelance",
+                  initiale: "R",
                 },
-              ].map((card) => (
-                <div key={card.title} className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-14 h-14 bg-turquoise-50 rounded-2xl flex items-center justify-center mb-6">
-                    {card.icon}
-                  </div>
-                  <h3 className="text-xl font-extrabold text-gray-900 mb-3">{card.title}</h3>
-                  <p className="text-gray-500 text-base leading-relaxed mb-6">{card.desc}</p>
-                  <ul className="space-y-2.5">
-                    {card.points.map((p) => (
-                      <li key={p} className="flex items-center gap-2 text-sm font-medium text-gray-700">
-                        <span className="w-5 h-5 rounded-full border-2 border-turquoise-500 flex items-center justify-center flex-shrink-0">
-                          <Check small />
-                        </span>
-                        {p}
-                      </li>
+              ].map((t) => (
+                <div key={t.name} className="bg-white rounded-2xl p-8 flex flex-col gap-5 shadow-sm">
+                  {/* Étoiles */}
+                  <div className="flex gap-1">
+                    {[1,2,3,4,5].map((i) => (
+                      <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
                     ))}
-                  </ul>
+                  </div>
+                  {/* Citation */}
+                  <p className="text-gray-700 text-base leading-relaxed flex-1">
+                    &ldquo;{t.text}&rdquo;
+                  </p>
+                  {/* Auteur */}
+                  <div className="flex items-center gap-3 pt-2 border-t border-gray-200">
+                    <div className="w-10 h-10 rounded-full bg-turquoise-500 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                      {t.initiale}
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-gray-900">{t.name}</p>
+                      <p className="text-xs text-gray-500">{t.role}</p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
 
-            {/* CTA */}
-            <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 bg-white rounded-2xl px-8 py-6 shadow-sm">
-              <div>
-                <p className="text-xl font-extrabold text-gray-900">Prêt à déléguer votre comptabilité&nbsp;?</p>
-                <p className="text-gray-500 mt-1">Premier échange gratuit · Sans engagement · Réponse sous 24h</p>
-              </div>
-              <a
-                href="#contact"
-                className="flex-shrink-0 bg-gradient-to-r from-turquoise-500 to-turquoise-700 hover:from-turquoise-700 hover:to-turquoise-900 text-white font-bold text-lg px-8 py-4 rounded-full transition-all whitespace-nowrap shadow-lg shadow-turquoise-500/30"
-              >
-                Prendre RDV gratuitement →
-              </a>
+            {/* Chiffres clés */}
+            <div className="grid grid-cols-3 gap-6">
+              {[
+                { chiffre: "150+", label: "clients accompagnés" },
+                { chiffre: "10 ans", label: "d'expérience" },
+                { chiffre: "24h", label: "délai de réponse garanti" },
+              ].map((s) => (
+                <div key={s.label} className="text-center py-8 border-r border-gray-200 last:border-r-0">
+                  <p className="text-5xl md:text-6xl font-extrabold text-turquoise-500 leading-none">{s.chiffre}</p>
+                  <p className="text-gray-500 text-base mt-3">{s.label}</p>
+                </div>
+              ))}
             </div>
 
           </div>
         </section>
 
-        {/* ── 4. NOS SERVICES ──────────────────────────────── */}
-        <section id="outils" className="bg-white py-24 px-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <p className="text-turquoise-500 font-semibold text-sm uppercase tracking-widest mb-3">
-                Ce qu&apos;on fait
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Nos services</h2>
-              <p className="text-gray-500 mt-3 max-w-xl mx-auto">
-                Un accompagnement sur-mesure, adapté à votre statut et vos ambitions.
+        {/* ── 4. TIIME ─────────────────────────────────────── */}
+        <section className="bg-white">
+          <div className="max-w-7xl mx-auto px-8 py-24">
+
+            {/* En-tête */}
+            <div className="mb-14 text-center flex flex-col items-center">
+              <Badge><span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />Nos outils</Badge>
+              <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mt-4">
+                L&apos;application Tiime,<br />
+                <span className="text-turquoise-500">la référence des entrepreneurs</span>
+              </h2>
+              <p className="text-xl text-gray-600 leading-relaxed mt-6 max-w-2xl">
+                Gérez votre société en toute simplicité depuis votre smartphone.
+                Tiime est l&apos;application plébiscitée par les freelances pour sa simplicité
+                et son efficacité. Synchronisation bancaire, facturation en quelques clics,
+                notes de frais... tout est centralisé.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* 4 features en encadrés */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-12 max-w-3xl mx-auto">
               {[
                 {
-                  emoji: "💼",
-                  title: "Comptabilité freelances",
-                  desc: "Tenue comptable, déclarations TVA, liasse fiscale et bilan annuel pour micro-entrepreneurs, SASU et EURL.",
-                  tags: ["Bilan annuel", "TVA", "Liasse fiscale"],
+                  icon: (
+                    <svg className="w-5 h-5 text-turquoise-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  ),
+                  label: "Facturation illimitée",
                 },
                 {
-                  emoji: "🚀",
-                  title: "Création d'entreprise",
-                  desc: "Choix du statut juridique, rédaction des statuts, immatriculation et mise en place des outils dès le premier jour.",
-                  tags: ["Statuts", "Immatriculation", "Conseil"],
+                  icon: (
+                    <svg className="w-5 h-5 text-turquoise-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                    </svg>
+                  ),
+                  label: "Synchronisation bancaire",
                 },
                 {
-                  emoji: "🎯",
-                  title: "Optimisation fiscale",
-                  desc: "Analyse de votre situation, arbitrages IS/IR, rémunération optimale et stratégies d'économies fiscales légales.",
-                  tags: ["IS / IR", "Dividendes", "Rémunération"],
+                  icon: (
+                    <svg className="w-5 h-5 text-turquoise-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z" />
+                    </svg>
+                  ),
+                  label: "Notes de frais",
                 },
                 {
-                  emoji: "🏢",
-                  title: "Accompagnement agences",
-                  desc: "Comptabilité multi-projets, gestion de la trésorerie, refacturation inter-sociétés et accompagnement croissance.",
-                  tags: ["Multi-projets", "Trésorerie", "Croissance"],
+                  icon: (
+                    <svg className="w-5 h-5 text-turquoise-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  ),
+                  label: "Tableaux de bord",
                 },
-              ].map((s) => (
-                <div
-                  key={s.title}
-                  className="group border border-gray-200 rounded-2xl p-7 hover:border-turquoise-500 hover:shadow-lg transition-all"
-                >
-                  <div className="text-4xl mb-4">{s.emoji}</div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{s.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed mb-5">{s.desc}</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {s.tags.map((t) => (
-                      <span key={t} className="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">
-                        {t}
-                      </span>
-                    ))}
+              ].map((f) => (
+                <div key={f.label} className="flex items-center gap-2 bg-[#F1F8EA] border border-turquoise-200 rounded-lg px-3 py-2.5 shadow-sm">
+                  <div className="w-7 h-7 bg-white rounded-md flex items-center justify-center flex-shrink-0 shadow-sm">
+                    {f.icon}
                   </div>
+                  <span className="font-semibold text-gray-900 text-sm leading-tight">{f.label}</span>
                 </div>
               ))}
+            </div>
+
+            {/* Image centrée grande */}
+            <div className="flex justify-center">
+              <div className="relative w-full max-w-4xl">
+                <div className="absolute -inset-8 bg-turquoise-500/10 rounded-3xl blur-3xl" />
+                <Image
+                  src="/images/tiime-mobile.png"
+                  alt="Application Tiime sur mobile"
+                  width={900}
+                  height={600}
+                  className="relative w-full drop-shadow-2xl"
+                />
+              </div>
             </div>
           </div>
         </section>
 
         {/* ── 5. TARIFS ────────────────────────────────────── */}
-        <section className="bg-[#F1F8EA] py-24 px-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <p className="text-turquoise-500 font-semibold text-sm uppercase tracking-widest mb-3">
+        <section className="bg-[#F1F8EA]">
+          <div className="max-w-7xl mx-auto px-8 py-24">
+
+            {/* En-tête */}
+            <div className="mb-14 text-center flex flex-col items-center">
+              <Badge><span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />Nos formules</Badge>
+              <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mt-4">
                 Nos formules
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Tarification transparente</h2>
-              <p className="text-gray-500 mt-3 max-w-xl mx-auto">
+              </h2>
+              <p className="text-xl text-gray-500 mt-4 max-w-xl">
                 Chaque situation est unique. Demandez un devis gratuit adapté à votre activité.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                {
-                  name: "Création d'entreprise",
-                  popular: false,
-                  desc: "Lancez votre activité sur des bases solides.",
-                  features: [
-                    "Choix du statut juridique",
-                    "Rédaction des statuts",
-                    "Immatriculation complète",
-                    "Ouverture de compte conseillé",
-                    "Mise en place Tiime",
-                    "Accompagnement 1 mois inclus",
-                  ],
-                },
-                {
-                  name: "Offre Freelance",
-                  popular: true,
-                  desc: "Idéal pour les indépendants et consultants.",
-                  features: [
-                    "Tenue comptable mensuelle",
-                    "Déclarations TVA",
-                    "Liasse fiscale & bilan annuel",
-                    "Bulletins de paie dirigeant",
-                    "Accès Tiime Premium",
-                    "Conseils fiscaux illimités",
-                  ],
-                },
-                {
-                  name: "À la carte",
-                  popular: false,
-                  desc: "Pour les besoins ponctuels ou spécifiques.",
-                  features: [
-                    "Audit comptable",
-                    "Optimisation fiscale ponctuelle",
-                    "Accompagnement levée de fonds",
-                    "Refacturation inter-sociétés",
-                    "Déclarations spécifiques",
-                    "Conseil juridique ponctuel",
-                  ],
-                },
-              ].map((plan) => (
-                <div
-                  key={plan.name}
-                  className={`relative bg-white rounded-2xl p-8 flex flex-col ${
-                    plan.popular
-                      ? "ring-2 ring-turquoise-500 shadow-xl scale-105"
-                      : "border border-gray-200 shadow-sm"
-                  }`}
-                >
-                  {plan.popular && (
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                      <span className="bg-turquoise-500 text-white text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap">
-                        ⭐ Le plus populaire
-                      </span>
-                    </div>
-                  )}
+            {/* Cards */}
+            <div className="grid md:grid-cols-3 gap-6 items-stretch">
 
-                  <div className="mb-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                    <p className="text-gray-500 text-sm">{plan.desc}</p>
-                  </div>
-
-                  <ul className="space-y-3 flex-1 mb-8">
-                    {plan.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-sm text-gray-700">
-                        <Check />
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <a
-                    href="#contact"
-                    className={`block text-center font-semibold py-3 rounded-xl transition-colors ${
-                      plan.popular
-                        ? "bg-turquoise-500 hover:bg-turquoise-700 text-white"
-                        : "border-2 border-turquoise-500 text-turquoise-500 hover:bg-turquoise-50"
-                    }`}
+              {/* Création d'entreprise */}
+              <div className="relative bg-white rounded-2xl p-8 flex flex-col border border-gray-200 shadow-sm overflow-hidden">
+                {/* Bandeau coin haut droite */}
+                <div className="absolute top-0 right-0 w-32 h-32 overflow-hidden rounded-tr-2xl pointer-events-none">
+                  <div className="absolute bg-amber-400 text-white text-xs font-extrabold text-center leading-tight"
+                    style={{
+                      width: "160px",
+                      top: "28px",
+                      right: "-36px",
+                      transform: "rotate(45deg)",
+                      padding: "6px 0",
+                    }}
                   >
-                    Demander un devis
-                  </a>
+                    Offre lancement
+                  </div>
                 </div>
-              ))}
+
+                <div className="mb-6">
+                  <h3 className="text-xl font-extrabold text-gray-900 mb-2">Création d&apos;entreprise</h3>
+                  <p className="text-gray-500 text-sm">Lancez votre activité sur des bases solides.</p>
+                </div>
+
+                <ul className="space-y-3 flex-1 mb-8">
+                  {[
+                    "Choix de la structure juridique",
+                    "Rédaction des statuts",
+                    "Documents juridiques",
+                    "Dépôt auprès du Greffe et suivi",
+                    "Réception du Kbis",
+                  ].map((f) => (
+                    <li key={f} className="flex items-start gap-2 text-sm text-gray-700">
+                      <span className="w-5 h-5 rounded-full border-2 border-turquoise-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check small />
+                      </span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <a href="#contact" className="block text-center font-bold py-3.5 rounded-xl border-2 border-turquoise-500 text-turquoise-500 hover:bg-turquoise-50 transition-colors">
+                  Demander un devis
+                </a>
+              </div>
+
+              {/* Offre Freelance — mise en avant */}
+              <div className="relative bg-white rounded-2xl p-8 flex flex-col ring-2 ring-turquoise-500 shadow-xl scale-105 z-10">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                  <span className="bg-turquoise-500 text-white text-xs font-bold px-5 py-1.5 rounded-full whitespace-nowrap shadow-lg">
+                    ⭐ Le plus populaire
+                  </span>
+                </div>
+
+                <div className="mb-6">
+                  <h3 className="text-xl font-extrabold text-gray-900 mb-2">Offre Freelance</h3>
+                  <p className="text-gray-500 text-sm">Idéal pour les indépendants et consultants.</p>
+                </div>
+
+                <ul className="space-y-3 flex-1 mb-8">
+                  {[
+                    "Tenue comptable complète",
+                    "Déclarations de TVA",
+                    "Bilan & Liasse fiscale",
+                    "Conseil illimité",
+                    "Accès application Tiime inclus",
+                    "Optimisation fiscale",
+                  ].map((f) => (
+                    <li key={f} className="flex items-start gap-2 text-sm text-gray-700">
+                      <span className="w-5 h-5 rounded-full bg-turquoise-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <a href="#contact" className="block text-center font-bold text-lg py-3.5 rounded-xl bg-turquoise-500 hover:bg-turquoise-700 text-white transition-colors shadow-lg shadow-turquoise-500/30">
+                  Demander un devis
+                </a>
+              </div>
+
+              {/* À la carte */}
+              <div className="relative bg-white rounded-2xl p-8 flex flex-col border border-gray-200 shadow-sm">
+                <div className="mb-6">
+                  <h3 className="text-xl font-extrabold text-gray-900 mb-2">À la carte</h3>
+                  <p className="text-gray-500 text-sm">Pour les besoins ponctuels ou spécifiques.</p>
+                </div>
+
+                <ul className="space-y-3 flex-1 mb-8">
+                  {[
+                    "Juridique annuel",
+                    "Bulletins de paie",
+                    "Transfert de siège",
+                    "Prévisionnel d'activité",
+                  ].map((f) => (
+                    <li key={f} className="flex items-start gap-2 text-sm text-gray-700">
+                      <span className="w-5 h-5 rounded-full border-2 border-turquoise-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check small />
+                      </span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <a href="#contact" className="block text-center font-bold py-3.5 rounded-xl border-2 border-turquoise-500 text-turquoise-500 hover:bg-turquoise-50 transition-colors">
+                  Demander un devis
+                </a>
+              </div>
+
             </div>
           </div>
         </section>
 
         {/* ── 6. FAQ ───────────────────────────────────────── */}
-        <section className="bg-white py-24 px-8">
+        <section className="bg-[#F1F8EA] py-24 px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
               <p className="text-turquoise-500 font-semibold text-sm uppercase tracking-widest mb-3">

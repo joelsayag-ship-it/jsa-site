@@ -604,10 +604,10 @@ export default function Home() {
                 Basé à Paris, accessible partout en France.
               </p>
               <a
-                href="mailto:contact@jsaexpertise.com"
+                href="mailto:joel.sayag@jsaexpertise.com"
                 className="text-turquoise-400 hover:text-turquoise-300 text-sm font-medium transition-colors"
               >
-                contact@jsaexpertise.com
+                joel.sayag@jsaexpertise.com
               </a>
             </div>
 

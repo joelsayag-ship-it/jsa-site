@@ -64,50 +64,17 @@ export default function ContactSection() {
     "w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-turquoise-500 focus:border-transparent";
 
   return (
-    <section id="contact" className="bg-[#F1F8EA] py-24 px-8">
+    <section id="contact" className="bg-[#F1F8EA] py-16 md:py-24 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-3 leading-[1.1] tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-3 leading-[1.1] tracking-tight">
             Prenons rendez-vous
           </h2>
-          <p className="text-gray-600 text-xl mt-4 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-600 text-base md:text-xl mt-4 max-w-2xl mx-auto leading-relaxed">
             Que vous soyez en création d&apos;activité, en transition depuis un autre cabinet
             ou simplement à la recherche d&apos;un expert-comptable réactif, nous sommes là
             pour vous accompagner. Le premier rendez-vous est gratuit et sans engagement.
           </p>
-        </div>
-
-        {/* Coordonnées directes */}
-        <div className="flex flex-wrap justify-center gap-6 mb-10">
-          <a
-            href="tel:+33660735546"
-            className="inline-flex items-center gap-3 bg-white border border-gray-200 hover:border-turquoise-500 hover:shadow-md rounded-2xl px-6 py-4 transition-all group"
-          >
-            <div className="w-10 h-10 bg-turquoise-50 group-hover:bg-turquoise-500 rounded-xl flex items-center justify-center transition-colors flex-shrink-0">
-              <svg className="w-5 h-5 text-turquoise-500 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-xs text-gray-400 font-medium">Appelez directement</p>
-              <p className="text-sm font-extrabold text-gray-900 tracking-wide">06 60 73 55 46</p>
-            </div>
-          </a>
-
-          <a
-            href="mailto:joel.sayag@jsaexpertise.com"
-            className="inline-flex items-center gap-3 bg-white border border-gray-200 hover:border-turquoise-500 hover:shadow-md rounded-2xl px-6 py-4 transition-all group"
-          >
-            <div className="w-10 h-10 bg-turquoise-50 group-hover:bg-turquoise-500 rounded-xl flex items-center justify-center transition-colors flex-shrink-0">
-              <svg className="w-5 h-5 text-turquoise-500 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-xs text-gray-400 font-medium">Écrivez-nous</p>
-              <p className="text-sm font-extrabold text-gray-900">joel.sayag@jsaexpertise.com</p>
-            </div>
-          </a>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 items-stretch">
@@ -128,9 +95,19 @@ export default function ContactSection() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4 flex flex-col flex-1">
-                <h3 className="text-xl font-extrabold text-gray-900 mb-6">Envoyer un message</h3>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 bg-turquoise-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-extrabold text-gray-900 leading-tight">Envoyer un message</h3>
+                    <p className="text-xs text-turquoise-500 font-semibold tracking-wide uppercase">Réponse sous 24h</p>
+                  </div>
+                </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
                       Nom complet *
@@ -224,17 +201,56 @@ export default function ContactSection() {
                 >
                   {status === "loading" ? "Envoi en cours…" : "Envoyer le message"}
                 </button>
+
+                <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                  <a
+                    href="tel:+33660735546"
+                    className="flex-1 inline-flex items-center gap-3 bg-[#F1F8EA] border border-gray-200 hover:border-turquoise-500 hover:shadow-md rounded-2xl px-4 py-3 transition-all group"
+                  >
+                    <div className="w-9 h-9 bg-white group-hover:bg-turquoise-500 rounded-xl flex items-center justify-center transition-colors flex-shrink-0">
+                      <svg className="w-4 h-4 text-turquoise-500 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-400 font-medium">Appelez directement</p>
+                      <p className="text-sm font-extrabold text-gray-900 tracking-wide">06 60 73 55 46</p>
+                    </div>
+                  </a>
+
+                  <a
+                    href="mailto:joel.sayag@jsaexpertise.com"
+                    className="flex-1 inline-flex items-center gap-3 bg-[#F1F8EA] border border-gray-200 hover:border-turquoise-500 hover:shadow-md rounded-2xl px-4 py-3 transition-all group"
+                  >
+                    <div className="w-9 h-9 bg-white group-hover:bg-turquoise-500 rounded-xl flex items-center justify-center transition-colors flex-shrink-0">
+                      <svg className="w-4 h-4 text-turquoise-500 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-xs text-gray-400 font-medium">Écrivez-nous</p>
+                      <p className="text-sm font-extrabold text-gray-900 break-all">joel.sayag@jsaexpertise.com</p>
+                    </div>
+                  </a>
+                </div>
               </form>
             )}
           </div>
 
           {/* Calendly */}
           <div className="bg-white rounded-2xl overflow-hidden shadow-xl">
-            <div className="p-6 border-b border-gray-100">
-              <h3 className="text-xl font-extrabold text-gray-900">Réserver un créneau</h3>
-              <p className="text-sm text-gray-500 mt-1">
-                Consultation gratuite de 30 minutes avec Joël
-              </p>
+            <div className="p-6 border-b border-gray-100 bg-gradient-to-r from-turquoise-500 to-turquoise-700">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl font-extrabold text-white leading-tight">Réserver un créneau</h3>
+                  <p className="text-xs text-white/80 font-semibold tracking-wide uppercase">Consultation gratuite · 30 min · avec Joël</p>
+                </div>
+              </div>
             </div>
             <iframe
               src="https://calendly.com/joel-sayag-jsaexpertise/30min?hide_gdpr_banner=1&primary_color=00B6DE"

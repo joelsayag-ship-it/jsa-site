@@ -33,7 +33,7 @@ export default function Home() {
           id="offre"
           className="min-h-screen bg-[#F1F8EA] pt-16 flex items-center"
         >
-          <div className="max-w-7xl mx-auto px-8 py-24 grid md:grid-cols-2 gap-16 items-center w-full">
+          <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-16 items-center w-full">
             {/* Left */}
             <div className="space-y-8">
               <div className="flex flex-wrap gap-2">
@@ -84,7 +84,7 @@ export default function Home() {
                 </a>
               </div>
 
-              <div className="flex items-stretch gap-0 bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden w-fit">
+              <div className="flex flex-wrap items-stretch gap-0 bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden w-fit max-w-full">
                 {/* Stat 1 */}
                 <div className="flex items-center gap-3 px-5 py-3.5">
                   <div className="w-8 h-8 rounded-full bg-turquoise-500 flex items-center justify-center flex-shrink-0">
@@ -157,7 +157,7 @@ export default function Home() {
 
         {/* ── 2. JOËL SAYAG ────────────────────────────────── */}
         <section className="bg-white">
-          <div className="max-w-7xl mx-auto px-8 py-24 grid md:grid-cols-2 gap-16 items-center">
+          <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-16 items-center">
 
             {/* Left — text */}
             <div className="order-2 md:order-1 space-y-8">
@@ -249,7 +249,7 @@ export default function Home() {
 
         {/* ── 3. TÉMOIGNAGES ───────────────────────────────── */}
         <section className="bg-[#F1F8EA]">
-          <div className="max-w-7xl mx-auto px-8 py-24">
+          <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24">
 
             {/* En-tête */}
             <div className="mb-14 text-center flex flex-col items-center">
@@ -312,13 +312,13 @@ export default function Home() {
             </div>
 
             {/* Chiffres clés */}
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {[
                 { chiffre: "150+", label: "clients accompagnés" },
                 { chiffre: "10 ans", label: "d'expérience" },
                 { chiffre: "24h", label: "délai de réponse garanti" },
               ].map((s) => (
-                <div key={s.label} className="text-center py-8 border-r border-gray-200 last:border-r-0">
+                <div key={s.label} className="text-center py-8 border-b sm:border-b-0 sm:border-r border-gray-200 last:border-0">
                   <p className="text-5xl md:text-6xl font-extrabold text-turquoise-500 leading-none">{s.chiffre}</p>
                   <p className="text-gray-500 text-base mt-3">{s.label}</p>
                 </div>
@@ -330,7 +330,7 @@ export default function Home() {
 
         {/* ── 4. TIIME ─────────────────────────────────────── */}
         <section className="bg-white">
-          <div className="max-w-7xl mx-auto px-8 py-24">
+          <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24">
 
             {/* En-tête */}
             <div className="mb-14 text-center flex flex-col items-center">
@@ -410,7 +410,7 @@ export default function Home() {
 
         {/* ── 5. TARIFS ────────────────────────────────────── */}
         <section className="bg-[#F1F8EA]">
-          <div className="max-w-7xl mx-auto px-8 py-24">
+          <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24">
 
             {/* En-tête */}
             <div className="mb-14 text-center flex flex-col items-center">
@@ -471,7 +471,7 @@ export default function Home() {
               </div>
 
               {/* Offre Freelance — mise en avant */}
-              <div className="relative bg-white rounded-2xl p-8 flex flex-col ring-2 ring-turquoise-500 shadow-xl scale-105 z-10">
+              <div className="relative bg-white rounded-2xl p-8 flex flex-col ring-2 ring-turquoise-500 shadow-xl md:scale-105 z-10">
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                   <span className="bg-turquoise-500 text-white text-xs font-bold px-5 py-1.5 rounded-full whitespace-nowrap shadow-lg">
                     ⭐ Le plus populaire
@@ -558,7 +558,7 @@ export default function Home() {
             }),
           }}
         />
-        <section className="bg-white py-24 px-8">
+        <section className="bg-white py-16 md:py-24 px-4 md:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="mb-14 text-center flex flex-col items-center">
               <Badge><span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />Questions fréquentes</Badge>
@@ -590,7 +590,7 @@ export default function Home() {
       </main>
 
       {/* ── FOOTER ───────────────────────────────────────── */}
-      <footer className="bg-gray-900 text-gray-400 py-12 px-8">
+      <footer className="bg-gray-900 text-gray-400 py-12 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-10">
             {/* Brand */}

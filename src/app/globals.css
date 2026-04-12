@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+
+  --color-jsa-blue: #00B6DE;
+  --color-jsa-blue-dark: #0081A5;
+  --color-jsa-green: #F1F8EA;
+
+  --color-turquoise-50: #e0f7fd;
+  --color-turquoise-100: #b3ecf9;
+  --color-turquoise-200: #80dff4;
+  --color-turquoise-300: #4dd2ee;
+  --color-turquoise-400: #26c7e8;
+  --color-turquoise-500: #00B6DE;
+  --color-turquoise-600: #009ec0;
+  --color-turquoise-700: #0081A5;
+  --color-turquoise-800: #006480;
+  --color-turquoise-900: #004d60;
+  --color-turquoise-950: #002f3a;
+}
+
+body {
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+@keyframes float {
+  0%   { transform: translateY(0px) rotate(0deg) scale(1); }
+  30%  { transform: translateY(-10px) rotate(0.4deg) scale(1.005); }
+  60%  { transform: translateY(-6px) rotate(-0.2deg) scale(1.003); }
+  100% { transform: translateY(0px) rotate(0deg) scale(1); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+
+.animate-bounce-soft {
+  animation: bounce-soft 3s ease-in-out infinite;
+}

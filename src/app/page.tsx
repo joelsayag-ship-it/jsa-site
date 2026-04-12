@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Header from "./components/Header";
 import FAQ from "./components/FAQ";
+import { FAQS } from "./components/faq-data";
 import ContactSection from "./components/ContactSection";
 
 /* ─── reusable badge ─────────────────────────────────────── */
@@ -173,7 +174,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-xl text-gray-600 leading-relaxed">
                 Chez JSA Expertise, chaque dossier est suivi avec rigueur et réactivité.
                 L&apos;objectif est simple : optimiser vos charges, sécuriser vos obligations fiscales
                 et vous permettre de vous rémunérer à votre juste valeur. Un cabinet qui comprend
@@ -540,14 +541,29 @@ export default function Home() {
         </section>
 
         {/* ── 6. FAQ ───────────────────────────────────────── */}
-        <section className="bg-[#F1F8EA] py-24 px-8">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": FAQS.map((faq) => ({
+                "@type": "Question",
+                "name": faq.q,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": faq.a,
+                },
+              })),
+            }),
+          }}
+        />
+        <section className="bg-white py-24 px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <p className="text-turquoise-500 font-semibold text-sm uppercase tracking-widest mb-3">
-                Questions fréquentes
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">FAQ</h2>
-              <p className="text-gray-500 mt-3">
+            <div className="mb-14 text-center flex flex-col items-center">
+              <Badge><span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />Questions fréquentes</Badge>
+              <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mt-4">FAQ</h2>
+              <p className="text-xl text-gray-500 mt-4">
                 Tout ce que vous voulez savoir sur la comptabilité freelance.
               </p>
             </div>

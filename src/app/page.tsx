@@ -155,20 +155,29 @@ export default function Home() {
         </section>
 
         {/* ── 2. JOËL SAYAG ────────────────────────────────── */}
-        <section className="bg-white py-20 px-6">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <section className="bg-white">
+          <div className="max-w-7xl mx-auto px-8 py-24 grid md:grid-cols-2 gap-16 items-center">
+
             {/* Left — text */}
-            <div className="space-y-6 order-2 md:order-1">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Joël Sayag</h2>
-              <p className="text-turquoise-500 font-semibold text-lg">
-                Expert-comptable • 10 ans d&apos;expérience
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                Diplômé d&apos;expertise comptable et passionné par l&apos;entrepreneuriat, j&apos;ai fondé
-                JSA Expertise pour offrir aux freelances et agences un accompagnement
-                comptable à la hauteur de leurs ambitions. Mon credo : être disponible,
-                proactif et technophile — pour que la comptabilité ne soit plus jamais un
-                frein à votre développement.
+            <div className="order-2 md:order-1 space-y-8">
+
+              <div>
+                <div className="mb-4">
+                  <Badge><span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />Qui suis-je ?</Badge>
+                </div>
+                <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight">
+                  Joël Sayag
+                </h2>
+                <p className="text-xl text-turquoise-500 font-semibold mt-3">
+                  Expert-comptable · 10 ans d&apos;expérience
+                </p>
+              </div>
+
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Chez JSA Expertise, chaque dossier est suivi avec rigueur et réactivité.
+                L&apos;objectif est simple : optimiser vos charges, sécuriser vos obligations fiscales
+                et vous permettre de vous rémunérer à votre juste valeur. Un cabinet qui comprend
+                votre réalité d&apos;indépendant et s&apos;adapte à votre activité.
               </p>
 
               <div className="flex flex-wrap gap-2">
@@ -176,27 +185,27 @@ export default function Home() {
                   "Comptabilité freelance",
                   "Création d'entreprise",
                   "Optimisation fiscale",
-                  "Accompagnement agences",
+                  "Optimisation rémunération",
                 ].map((s) => (
                   <Badge key={s}>{s}</Badge>
                 ))}
               </div>
 
-              <div className="flex flex-wrap gap-4 pt-2">
+              <div className="flex flex-wrap gap-4">
                 <a
                   href="https://www.linkedin.com/in/jo%C3%ABl-sayag-expert-comptable-912795106/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border-2 border-gray-300 hover:border-turquoise-500 text-gray-700 hover:text-turquoise-500 font-semibold px-5 py-2.5 rounded-full transition-colors"
+                  className="inline-flex items-center gap-2 border-2 border-gray-200 hover:border-turquoise-500 text-gray-700 hover:text-turquoise-500 font-bold text-lg px-7 py-3.5 rounded-full transition-colors"
                 >
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                   </svg>
                   LinkedIn
                 </a>
                 <a
                   href="#contact"
-                  className="bg-turquoise-500 hover:bg-turquoise-700 text-white font-semibold px-6 py-2.5 rounded-full transition-colors"
+                  className="bg-turquoise-500 hover:bg-turquoise-700 text-white font-bold text-lg px-8 py-3.5 rounded-full transition-colors"
                 >
                   Prendre RDV
                 </a>
@@ -205,42 +214,52 @@ export default function Home() {
 
             {/* Right — photo */}
             <div className="order-1 md:order-2 flex justify-center md:justify-end">
-              <div className="bg-[#F1F8EA] rounded-3xl p-6 relative">
+              <div className="relative">
+                {/* fond décoratif */}
+                <div className="absolute inset-0 bg-[#F1F8EA] rounded-3xl scale-105 -rotate-2" />
                 <Image
                   src="/images/joel.png"
                   alt="Joël Sayag, expert-comptable"
-                  width={380}
-                  height={460}
-                  className="rounded-2xl object-cover"
+                  width={420}
+                  height={500}
+                  className="relative rounded-3xl object-cover shadow-xl"
                 />
-                <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg px-4 py-3 flex items-center gap-3">
-                  <div className="w-10 h-10 bg-turquoise-50 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-turquoise-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                    </svg>
+                {/* badge flottant */}
+                <div className="absolute -bottom-5 -right-5 bg-white rounded-2xl shadow-xl px-5 py-3.5 flex items-center gap-3 border border-gray-100">
+                  <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+                    <Image
+                      src="/images/logo ordre carré.png"
+                      alt="Ordre des Experts-Comptables"
+                      width={40}
+                      height={40}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-gray-900">Expert-comptable</p>
-                    <p className="text-xs text-gray-500">Inscrit à l&apos;Ordre</p>
+                    <p className="text-sm font-bold text-gray-900 leading-none">Inscrit à l&apos;Ordre</p>
+                    <p className="text-xs text-gray-400 mt-0.5">Experts-Comptables</p>
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
         </section>
 
         {/* ── 3. POURQUOI CHOISIR ──────────────────────────── */}
-        <section className="bg-[#F1F8EA] py-20 px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <p className="text-turquoise-500 font-semibold text-sm uppercase tracking-widest mb-3">
-                Nos engagements
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Pourquoi choisir JSA Expertise&nbsp;?
+        <section className="bg-[#F1F8EA]">
+          <div className="max-w-7xl mx-auto px-8 py-24">
+
+            {/* En-tête */}
+            <div className="mb-14">
+              <Badge><span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />Nos engagements</Badge>
+              <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mt-4">
+                Pourquoi choisir<br />
+                <span className="text-turquoise-500">JSA Expertise&nbsp;?</span>
               </h2>
             </div>
 
+            {/* Cards */}
             <div className="grid md:grid-cols-3 gap-6">
               {[
                 {
@@ -250,7 +269,7 @@ export default function Home() {
                     </svg>
                   ),
                   title: "Réactivité garantie",
-                  desc: "Réponse à chaque question sous 24h ouvrées. Un interlocuteur dédié, joignable par email, téléphone ou visio — sans délai d'attente absurde.",
+                  desc: "Réponse sous 24h ouvrées, sans délai d'attente absurde. Un interlocuteur direct, joignable par email, téléphone ou visio.",
                   points: ["Réponse sous 24h", "Interlocuteur dédié", "Joignable par visio"],
                 },
                 {
@@ -260,8 +279,8 @@ export default function Home() {
                     </svg>
                   ),
                   title: "100% Digital avec Tiime",
-                  desc: "Pas de papier, pas de déplacement. Tiime centralise vos documents, automatise la saisie et vous donne une vision claire de votre trésorerie en temps réel.",
-                  points: ["Zéro papier", "Saisie automatique", "Accès 24h/24"],
+                  desc: "Zéro papier, zéro déplacement. Tiime centralise vos documents et vous donne une vision claire de votre trésorerie en temps réel.",
+                  points: ["Zéro papier", "Accès 24h/24"],
                 },
                 {
                   icon: (
@@ -275,27 +294,45 @@ export default function Home() {
                 },
               ].map((card) => (
                 <div key={card.title} className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-14 h-14 bg-turquoise-50 rounded-2xl flex items-center justify-center mb-5">
+                  <div className="w-14 h-14 bg-turquoise-50 rounded-2xl flex items-center justify-center mb-6">
                     {card.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{card.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed mb-5">{card.desc}</p>
-                  <ul className="space-y-2">
+                  <h3 className="text-xl font-extrabold text-gray-900 mb-3">{card.title}</h3>
+                  <p className="text-gray-500 text-base leading-relaxed mb-6">{card.desc}</p>
+                  <ul className="space-y-2.5">
                     {card.points.map((p) => (
-                      <li key={p} className="flex items-center gap-2 text-sm text-gray-700">
-                        <Check />{p}
+                      <li key={p} className="flex items-center gap-2 text-sm font-medium text-gray-700">
+                        <span className="w-5 h-5 rounded-full border-2 border-turquoise-500 flex items-center justify-center flex-shrink-0">
+                          <Check small />
+                        </span>
+                        {p}
                       </li>
                     ))}
                   </ul>
                 </div>
               ))}
             </div>
+
+            {/* CTA */}
+            <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 bg-white rounded-2xl px-8 py-6 shadow-sm">
+              <div>
+                <p className="text-xl font-extrabold text-gray-900">Prêt à déléguer votre comptabilité&nbsp;?</p>
+                <p className="text-gray-500 mt-1">Premier échange gratuit · Sans engagement · Réponse sous 24h</p>
+              </div>
+              <a
+                href="#contact"
+                className="flex-shrink-0 bg-gradient-to-r from-turquoise-500 to-turquoise-700 hover:from-turquoise-700 hover:to-turquoise-900 text-white font-bold text-lg px-8 py-4 rounded-full transition-all whitespace-nowrap shadow-lg shadow-turquoise-500/30"
+              >
+                Prendre RDV gratuitement →
+              </a>
+            </div>
+
           </div>
         </section>
 
         {/* ── 4. NOS SERVICES ──────────────────────────────── */}
-        <section id="outils" className="bg-white py-20 px-6">
-          <div className="max-w-6xl mx-auto">
+        <section id="outils" className="bg-white py-24 px-8">
+          <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
               <p className="text-turquoise-500 font-semibold text-sm uppercase tracking-widest mb-3">
                 Ce qu&apos;on fait
@@ -354,8 +391,8 @@ export default function Home() {
         </section>
 
         {/* ── 5. TARIFS ────────────────────────────────────── */}
-        <section className="bg-[#F1F8EA] py-20 px-6">
-          <div className="max-w-6xl mx-auto">
+        <section className="bg-[#F1F8EA] py-24 px-8">
+          <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
               <p className="text-turquoise-500 font-semibold text-sm uppercase tracking-widest mb-3">
                 Nos formules
@@ -455,8 +492,8 @@ export default function Home() {
         </section>
 
         {/* ── 6. FAQ ───────────────────────────────────────── */}
-        <section className="bg-white py-20 px-6">
-          <div className="max-w-3xl mx-auto">
+        <section className="bg-white py-24 px-8">
+          <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
               <p className="text-turquoise-500 font-semibold text-sm uppercase tracking-widest mb-3">
                 Questions fréquentes
@@ -466,17 +503,19 @@ export default function Home() {
                 Tout ce que vous voulez savoir sur la comptabilité freelance.
               </p>
             </div>
-            <FAQ />
-            <div className="text-center mt-10">
-              <p className="text-gray-500 text-sm mb-4">
-                Vous ne trouvez pas la réponse ?
-              </p>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 bg-turquoise-500 hover:bg-turquoise-700 text-white font-semibold px-6 py-3 rounded-full transition-colors"
-              >
-                Posez votre question →
-              </a>
+            <div className="max-w-3xl mx-auto">
+              <FAQ />
+              <div className="text-center mt-10">
+                <p className="text-gray-500 text-sm mb-4">
+                  Vous ne trouvez pas la réponse ?
+                </p>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 bg-turquoise-500 hover:bg-turquoise-700 text-white font-semibold px-6 py-3 rounded-full transition-colors"
+                >
+                  Posez votre question →
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -487,8 +526,8 @@ export default function Home() {
       </main>
 
       {/* ── FOOTER ───────────────────────────────────────── */}
-      <footer className="bg-gray-900 text-gray-400 py-12 px-6">
-        <div className="max-w-6xl mx-auto">
+      <footer className="bg-gray-900 text-gray-400 py-12 px-8">
+        <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-10">
             {/* Brand */}
             <div className="md:col-span-2">

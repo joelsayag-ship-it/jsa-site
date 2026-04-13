@@ -89,9 +89,21 @@ export default function ContactSection() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-extrabold text-gray-900 mb-2">Demande envoyée !</h3>
-                <p className="text-gray-500 leading-relaxed">
+                <p className="text-gray-500 leading-relaxed mb-6">
                   ✅ Votre demande a bien été envoyée. Nous vous répondons sous 24h&nbsp;!
                 </p>
+                <button
+                  onClick={() => {
+                    setStatus("idle");
+                    setForm({ nom: "", email: "", telephone: "", statut: "", message: "" });
+                  }}
+                  className="inline-flex items-center gap-2 text-sm font-medium text-turquoise-500 hover:text-turquoise-700 border border-turquoise-200 hover:border-turquoise-500 rounded-full px-4 py-2 transition-colors"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                  Envoyer un autre message
+                </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4 flex flex-col flex-1">
@@ -163,10 +175,8 @@ export default function ContactSection() {
                   >
                     <option value="">Sélectionnez votre statut</option>
                     <option>Micro-entreprise</option>
-                    <option>SASU</option>
-                    <option>EURL</option>
-                    <option>SAS</option>
-                    <option>SARL</option>
+                    <option>SASU / SAS</option>
+                    <option>EURL / SARL</option>
                     <option>EI</option>
                     <option>En cours de création</option>
                     <option>Autre</option>

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Header from "./components/Header";
 import FAQ from "./components/FAQ";
 import { FAQS } from "./components/faq-data";
 import ContactSection from "./components/ContactSection";
@@ -25,7 +24,6 @@ function Check({ small }: { small?: boolean }) {
 export default function Home() {
   return (
     <>
-      <Header />
       <main>
 
         {/* ── 1. HERO ──────────────────────────────────────── */}
@@ -130,9 +128,9 @@ export default function Home() {
                   <Image
                     src="/images/ordre.png"
                     alt="Inscrit à l'Ordre des Experts-Comptables"
-                    width={110}
-                    height={32}
-                    className="h-7 w-auto object-contain"
+                    width={999}
+                    height={129}
+                    className="h-8 w-auto object-contain"
                   />
                 </div>
               </div>
@@ -595,9 +593,14 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8 mb-10">
             {/* Brand */}
             <div className="md:col-span-2">
-              <div className="flex items-center gap-1 mb-3">
-                <span className="text-xl font-bold text-turquoise-500">JSA</span>
-                <span className="text-xl font-bold text-white"> Expertise</span>
+              <div className="mb-3">
+                <Image
+                  src="/images/logo.png.png"
+                  alt="JSA Expertise"
+                  width={140}
+                  height={56}
+                  className="h-14 w-auto object-contain"
+                />
               </div>
               <p className="text-sm leading-relaxed max-w-xs mb-4">
                 Cabinet comptable 100% digital pour les freelances, consultants et agences.
@@ -635,9 +638,9 @@ export default function Home() {
                 <Image
                   src="/images/ordre.png"
                   alt="Ordre des Experts-Comptables"
-                  width={160}
-                  height={48}
-                  className="opacity-80 hover:opacity-100 transition-opacity rounded"
+                  width={999}
+                  height={129}
+                  className="h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
                 />
               </div>
               <a
@@ -657,8 +660,8 @@ export default function Home() {
           <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs">
             <p>© {new Date().getFullYear()} JSA Expertise. Tous droits réservés.</p>
             <div className="flex gap-5">
-              <a href="#" className="hover:text-turquoise-400 transition-colors">Mentions légales</a>
-              <a href="#" className="hover:text-turquoise-400 transition-colors">Politique de confidentialité</a>
+              <a href="/mentions-legales" className="hover:text-turquoise-400 transition-colors">Mentions légales</a>
+              <a href="/politique-confidentialite" className="hover:text-turquoise-400 transition-colors">Politique de confidentialité</a>
             </div>
           </div>
         </div>

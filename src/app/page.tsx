@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import FAQ from "./components/FAQ";
 import { FAQS } from "./components/faq-data";
 import ContactSection from "./components/ContactSection";
+
+export const metadata: Metadata = {
+  title: "Expert-comptable freelance Paris & Val-de-Marne — JSA Expertise",
+  description: "JSA Expertise, cabinet d'expertise comptable 100% digital spécialisé pour les freelances et agences. Basé à Charenton-le-Pont, on accompagne les indépendants à Paris, Vincennes, Saint-Mandé et partout en France.",
+};
 
 /* ─── reusable badge ─────────────────────────────────────── */
 function Badge({ children }: { children: React.ReactNode }) {

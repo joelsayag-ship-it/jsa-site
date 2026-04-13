@@ -27,6 +27,25 @@ export default function RootLayout({
           gtag('js', new Date());
           gtag('config', 'G-SPXNG4LWZC');
         `}} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AccountingService",
+            "name": "JSA Expertise",
+            "url": "https://www.jsaexpertise.com",
+            "telephone": "+33660735546",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "10 rue du Président Kennedy",
+              "addressLocality": "Charenton-le-Pont",
+              "postalCode": "94220",
+              "addressCountry": "FR"
+            },
+            "areaServed": ["Paris", "Charenton-le-Pont", "Vincennes", "Saint-Mandé", "Saint-Maurice"],
+            "priceRange": "££"
+          })}}
+        />
       </head>
       <body className="font-sans antialiased">
           <Header />

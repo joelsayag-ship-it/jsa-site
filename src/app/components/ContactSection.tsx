@@ -227,9 +227,9 @@ export default function ContactSection() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </div>
-                    <div className="min-w-0">
+                    <div>
                       <p className="text-xs text-gray-400 font-medium">Écrivez-nous</p>
-                      <p className="text-sm font-extrabold text-gray-900 break-all">joel.sayag@jsaexpertise.com</p>
+                      <p className="text-sm font-extrabold text-gray-900">Par email</p>
                     </div>
                   </a>
                 </div>

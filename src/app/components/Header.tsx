@@ -5,23 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const NAV_ITEMS = [
-  {
-    label: "Offre",
-    children: [
-      { label: "Comptabilité freelance", href: "/comptabilite-freelance", desc: "Externalisez votre compta sereinement" },
-      { label: "Création d'entreprise", href: "/creation-entreprise", desc: "Lancez votre structure au bon statut" },
-      { label: "Optimisation fiscale", href: "/optimisation-fiscale", desc: "Réduisez vos impôts légalement" },
-      { label: "Accompagnement agences", href: "/agences", desc: "Offrez l'expertise comptable à vos clients" },
-    ],
-  },
-  {
-    label: "Outils",
-    children: [
-      { label: "Simulateur rémunération", href: "/simulateur-remuneration", desc: "Comparez SASU vs EURL en temps réel" },
-      { label: "Simulateur URSSAF", href: "/simulateur-charges", desc: "Calculez vos cotisations" },
-      { label: "Application Tiime", href: "/tiime", desc: "Gérez votre compta en temps réel" },
-    ],
-  },
+  { label: "Simulateur URSSAF", href: "/simulateur-charges" },
   { label: "Tarifs", href: "/#tarifs" },
   { label: "Qui sommes-nous ?", href: "/qui-sommes-nous" },
   { label: "Blog", href: "/blog" },

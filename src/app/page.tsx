@@ -321,7 +321,7 @@ export default function Home() {
               {[
                 { chiffre: "150+", label: "clients accompagnés" },
                 { chiffre: "10 ans", label: "d'expérience" },
-                { chiffre: "24h", label: "délai de réponse garanti" },
+                { chiffre: "24h", label: "délai de réponse" },
               ].map((s) => (
                 <div key={s.label} className="text-center py-8 border-b sm:border-b-0 sm:border-r border-gray-200 last:border-0">
                   <p className="text-5xl md:text-6xl font-extrabold text-turquoise-500 leading-none">{s.chiffre}</p>

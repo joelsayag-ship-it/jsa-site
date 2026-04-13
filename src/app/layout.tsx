@@ -19,6 +19,15 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr" className={`${geist.variable} scroll-smooth`}>
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-SPXNG4LWZC"></script>
+        <script dangerouslySetInnerHTML={{ __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-SPXNG4LWZC');
+        `}} />
+      </head>
       <body className="font-sans antialiased">
           <Header />
           {children}

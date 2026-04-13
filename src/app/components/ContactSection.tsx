@@ -6,7 +6,7 @@ const API_URL = "https://jsa-contact-6h1i0r3a9-joelsayag-3015s-projects.vercel.a
 
 type Status = "idle" | "loading" | "success" | "error";
 
-export default function ContactSection() {
+export default function ContactSection({ className }: { className?: string }) {
   const [form, setForm] = useState({
     nom: "",
     email: "",
@@ -64,7 +64,7 @@ export default function ContactSection() {
     "w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-turquoise-500 focus:border-transparent";
 
   return (
-    <section id="contact" className="bg-[#F1F8EA] py-16 md:py-24 px-4 md:px-8">
+    <section id="contact" className={`${className ?? "bg-[#F1F8EA]"} py-16 md:py-24 px-4 md:px-8`}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-3 leading-[1.1] tracking-tight">

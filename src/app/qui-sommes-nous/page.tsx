@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ContactSection from "../components/ContactSection";
+import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
   title: "Qui sommes-nous — JSA Expertise, expert-comptable freelances Paris",
@@ -23,7 +24,7 @@ export default function QuiSommesNous() {
       <main>
 
         {/* ── JOËL SAYAG ──────────────────────────────────── */}
-        <section className="bg-white pt-24 pb-16 md:pt-32 md:pb-24">
+        <section className="bg-white pt-32 pb-16 md:pt-40 md:pb-24">
           <div className="max-w-7xl mx-auto px-4 md:px-8 grid md:grid-cols-2 gap-16 items-center">
 
             {/* Left — texte */}
@@ -193,27 +194,11 @@ export default function QuiSommesNous() {
         </section>
 
         {/* ── CONTACT ─────────────────────────────────────── */}
-        <ContactSection />
+        <ContactSection className="bg-white" />
 
       </main>
 
-      {/* ── FOOTER ───────────────────────────────────────── */}
-      <footer className="bg-gray-900 text-gray-400 py-8 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
-          <Image
-            src="/images/logo.png.png"
-            alt="JSA Expertise"
-            width={999}
-            height={129}
-            className="h-7 w-auto object-contain"
-          />
-          <p>© {new Date().getFullYear()} JSA Expertise. Tous droits réservés.</p>
-          <div className="flex gap-5">
-            <Link href="/mentions-legales" className="hover:text-turquoise-400 transition-colors">Mentions légales</Link>
-            <Link href="/politique-confidentialite" className="hover:text-turquoise-400 transition-colors">Politique de confidentialité</Link>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }

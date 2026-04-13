@@ -8,30 +8,23 @@ const NAV_ITEMS = [
   {
     label: "Offre",
     children: [
-      { label: "Comptabilité freelance", href: "/comptabilite-freelance", desc: "Externalise ta compta sereinement" },
-      { label: "Création d'entreprise", href: "/creation-entreprise", desc: "Lance ta structure au bon statut" },
-      { label: "Optimisation fiscale", href: "/optimisation-fiscale", desc: "Réduis tes impôts légalement" },
-      { label: "Accompagnement agences", href: "/agences", desc: "Offre expertise-comptable à tes clients" },
+      { label: "Comptabilité freelance", href: "/comptabilite-freelance", desc: "Externalisez votre compta sereinement" },
+      { label: "Création d'entreprise", href: "/creation-entreprise", desc: "Lancez votre structure au bon statut" },
+      { label: "Optimisation fiscale", href: "/optimisation-fiscale", desc: "Réduisez vos impôts légalement" },
+      { label: "Accompagnement agences", href: "/agences", desc: "Offrez l'expertise comptable à vos clients" },
     ],
   },
   {
     label: "Outils",
     children: [
-      { label: "Application Tiime", href: "/tiime", desc: "Gestion compta en temps réel" },
-      { label: "Simulateur de charges", href: "/simulateur-charges", desc: "Calcule tes cotisations" },
-      { label: "Comparateur de statuts", href: "/comparateur-statuts", desc: "SASU, EI, EURL… lequel choisir ?" },
+      { label: "Simulateur rémunération", href: "/simulateur-remuneration", desc: "Comparez SASU vs EURL en temps réel" },
+      { label: "Simulateur URSSAF", href: "/simulateur-charges", desc: "Calculez vos cotisations" },
+      { label: "Application Tiime", href: "/tiime", desc: "Gérez votre compta en temps réel" },
     ],
   },
-  {
-    label: "Ressources",
-    children: [
-      { label: "Blog", href: "/blog", desc: "Articles pour freelances" },
-      { label: "FAQ", href: "/faq", desc: "Tes questions, nos réponses" },
-      { label: "Guide du freelance", href: "/guide-freelance", desc: "Tout ce qu'il faut savoir" },
-    ],
-  },
-  { label: "Tarifs", href: "/tarifs" },
+  { label: "Tarifs", href: "/#tarifs" },
   { label: "Qui sommes-nous ?", href: "/qui-sommes-nous" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/#contact" },
 ] as const;
 

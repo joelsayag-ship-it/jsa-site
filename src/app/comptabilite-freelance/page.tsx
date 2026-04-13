@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Comptabilité freelance Paris & Val-de-Marne — JSA Expertise",
+  title: "Comptabilité freelance Paris & Val-de-Marne | JSA Expertise",
   description:
     "Cabinet comptable 100% digital spécialisé freelances. Tenue comptable, TVA, bilan, conseil illimité. Basé à Charenton-le-Pont, on accompagne les indépendants à Paris, Vincennes, Saint-Mandé.",
 };
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const FAQS = [
   {
     q: "Combien coûte un expert-comptable pour freelance ?",
-    a: "Le tarif dépend de votre structure juridique et de votre chiffre d'affaires. Pour un freelance en SASU ou EURL, comptez en général entre 150 € et 350 € HT par mois. Nous proposons des devis sur mesure et gratuits — sans engagement.",
+    a: "Le tarif dépend de votre structure juridique et de votre chiffre d'affaires. Pour un freelance en SASU ou EURL, comptez en général entre 150 € et 350 € HT par mois. On vous propose un devis sur mesure, gratuit et sans engagement.",
   },
   {
     q: "Quand faut-il faire appel à un expert-comptable ?",
@@ -53,11 +53,11 @@ export default function ComptabiliteFreelance() {
               <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-6">
                 Comptabilité freelance à{" "}
                 <span className="text-turquoise-500">Paris & Val-de-Marne</span>
-                {" "}— JSA Expertise
+                {" "}· JSA Expertise
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed mb-10 max-w-2xl">
                 Un cabinet comptable 100% digital pensé pour les indépendants. On prend en charge
-                toute votre comptabilité — tenue des comptes, TVA, bilan, optimisation fiscale —
+                toute votre comptabilité : tenue des comptes, TVA, bilan, optimisation fiscale.
                 pour que vous vous concentriez sur votre activité.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -68,7 +68,7 @@ export default function ComptabiliteFreelance() {
                   Prendre RDV gratuitement
                 </Link>
                 <Link
-                  href="/#offre"
+                  href="/#tarifs"
                   className="border-2 border-turquoise-500 text-turquoise-500 hover:bg-turquoise-50 font-bold text-lg px-8 py-4 rounded-full transition-colors"
                 >
                   Voir nos formules
@@ -191,7 +191,7 @@ export default function ComptabiliteFreelance() {
                   <div className="absolute -inset-6 bg-turquoise-500/10 rounded-3xl blur-2xl" />
                   <Image
                     src="/images/tiime-dashboard.png"
-                    alt="Application Tiime — tableau de bord comptable freelance"
+                    alt="Application Tiime, tableau de bord comptable freelance"
                     width={600}
                     height={420}
                     className="relative rounded-2xl shadow-xl w-full"

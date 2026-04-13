@@ -31,6 +31,7 @@ const NAV_ITEMS = [
     ],
   },
   { label: "Tarifs", href: "/tarifs" },
+  { label: "Qui sommes-nous ?", href: "/qui-sommes-nous" },
   { label: "Contact", href: "/#contact" },
 ] as const;
 

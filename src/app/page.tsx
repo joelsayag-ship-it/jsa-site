@@ -45,7 +45,7 @@ export default function Home() {
               </div>
 
               <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight">
-                Votre expert-comptable{" "}
+                Votre expert&#8209;comptable{" "}
                 <span className="text-turquoise-500">spécialisé</span>{" "}
                 pour les{" "}
                 <span className="relative inline-block">
@@ -81,7 +81,7 @@ export default function Home() {
                   Prendre RDV gratuitement
                 </a>
                 <a
-                  href="#offre"
+                  href="#tarifs"
                   className="border-2 border-turquoise-500 text-turquoise-500 hover:bg-turquoise-50 font-bold text-lg px-8 py-4 rounded-full transition-colors"
                 >
                   Découvrir l&apos;offre
@@ -413,7 +413,7 @@ export default function Home() {
         </section>
 
         {/* ── 5. TARIFS ────────────────────────────────────── */}
-        <section className="bg-[#F1F8EA]">
+        <section id="tarifs" className="bg-[#F1F8EA]">
           <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24">
 
             {/* En-tête */}

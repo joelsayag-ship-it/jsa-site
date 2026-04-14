@@ -5,10 +5,23 @@ import Image from "next/image";
 import Link from "next/link";
 
 const NAV_ITEMS = [
-  { label: "Simulateur URSSAF", href: "/simulateur-charges" },
   { label: "Tarifs", href: "/#tarifs" },
+  {
+    label: "Ressources",
+    children: [
+      {
+        label: "Blog",
+        href: "/blog",
+        desc: "Conseils comptabilité & fiscalité pour freelances",
+      },
+      {
+        label: "Simulateur URSSAF",
+        href: "/simulateur-charges",
+        desc: "Estimez vos charges en quelques clics",
+      },
+    ] as const,
+  },
   { label: "Qui sommes-nous ?", href: "/qui-sommes-nous" },
-  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/#contact" },
 ] as const;
 

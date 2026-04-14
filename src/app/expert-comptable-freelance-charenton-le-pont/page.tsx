@@ -81,7 +81,7 @@ export default function CharentonPage() {
                 <Link href="/#contact" className="bg-turquoise-500 hover:bg-turquoise-700 text-white font-bold px-7 py-3.5 rounded-full transition-colors">
                   Prendre RDV gratuitement
                 </Link>
-                <Link href="/comptabilite-freelance" className="border-2 border-turquoise-500 text-turquoise-500 hover:bg-turquoise-50 font-bold px-7 py-3.5 rounded-full transition-colors">
+                <Link href="/#tarifs" className="border-2 border-turquoise-500 text-turquoise-500 hover:bg-turquoise-50 font-bold px-7 py-3.5 rounded-full transition-colors">
                   Notre offre
                 </Link>
               </div>
@@ -163,7 +163,7 @@ export default function CharentonPage() {
                 </div>
               ))}
             </div>
-            <Link href="/comptabilite-freelance" className="text-turquoise-500 hover:underline font-semibold text-sm">
+            <Link href="/#tarifs" className="text-turquoise-500 hover:underline font-semibold text-sm">
               Guide complet sur la comptabilité freelance →
             </Link>
           </div>
@@ -187,7 +187,7 @@ export default function CharentonPage() {
               <CheckItem><strong>Conseil illimité</strong> par mail ou téléphone. Réponse sous 24h, toujours.</CheckItem>
             </ul>
             <div className="flex flex-wrap gap-5 mt-6">
-              <Link href="/comptabilite-freelance" className="text-turquoise-500 hover:underline font-semibold text-sm">Comptabilité freelance →</Link>
+              <Link href="/#tarifs" className="text-turquoise-500 hover:underline font-semibold text-sm">Comptabilité freelance →</Link>
               <Link href="/simulateur-charges" className="text-turquoise-500 hover:underline font-semibold text-sm">Simuler mes charges URSSAF →</Link>
             </div>
           </div>

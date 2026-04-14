@@ -80,7 +80,7 @@ export default function Paris12Page() {
                 <Link href="/#contact" className="bg-turquoise-500 hover:bg-turquoise-700 text-white font-bold px-7 py-3.5 rounded-full transition-colors">
                   Prendre RDV gratuitement
                 </Link>
-                <Link href="/comptabilite-freelance" className="border-2 border-turquoise-500 text-turquoise-500 hover:bg-turquoise-50 font-bold px-7 py-3.5 rounded-full transition-colors">
+                <Link href="/#tarifs" className="border-2 border-turquoise-500 text-turquoise-500 hover:bg-turquoise-50 font-bold px-7 py-3.5 rounded-full transition-colors">
                   Notre offre
                 </Link>
               </div>

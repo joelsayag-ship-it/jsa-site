@@ -184,7 +184,7 @@ export default function VincennesPage() {
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {[
-                { label: "Comptabilité freelance", href: "/comptabilite-freelance" },
+                { label: "Actualités", href: "/blog" },
                 { label: "Simulateur charges", href: "/simulateur-charges" },
                 { label: "Charenton-le-Pont", href: "/expert-comptable-freelance-charenton-le-pont" },
                 { label: "Paris 12e", href: "/expert-comptable-freelance-paris-12" },

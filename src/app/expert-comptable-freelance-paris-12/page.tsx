@@ -223,7 +223,7 @@ export default function Paris12Page() {
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {[
-                { label: "Comptabilité freelance", href: "/comptabilite-freelance" },
+                { label: "Actualités", href: "/blog" },
                 { label: "Charenton-le-Pont", href: "/expert-comptable-freelance-charenton-le-pont" },
                 { label: "Vincennes", href: "/expert-comptable-freelance-vincennes" },
                 { label: "Simulateur charges", href: "/simulateur-charges" },

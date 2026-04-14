@@ -204,7 +204,7 @@ export default function JoinvillePage() {
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {[
-                { label: "Comptabilité freelance", href: "/comptabilite-freelance" },
+                { label: "Actualités", href: "/blog" },
                 { label: "Charenton-le-Pont", href: "/expert-comptable-freelance-charenton-le-pont" },
                 { label: "Saint-Maurice", href: "/expert-comptable-freelance-saint-maurice" },
                 { label: "Simulateur charges", href: "/simulateur-charges" },

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import type { BlogPost } from "@/lib/blog";
+import { getArticleImage } from "@/lib/blog-utils";
 
 const ITEMS_PER_PAGE = 9;
 
@@ -19,23 +20,6 @@ function formatDate(dateStr: string): string {
   });
 }
 
-function CategoryIcon() {
-  return (
-    <svg
-      className="w-10 h-10 text-[#00B6DE]/40"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-      />
-    </svg>
-  );
-}
 
 export default function BlogList({ posts, categories }: Props) {
   const [activeCategory, setActiveCategory] = useState("Tous");
@@ -109,9 +93,15 @@ export default function BlogList({ posts, categories }: Props) {
               href={`/blog/${article.slug}`}
               className="group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:border-[#00B6DE]/30 transition-all flex flex-col"
             >
-              {/* Placeholder image */}
-              <div className="bg-[#F1F8EA] h-44 flex items-center justify-center flex-shrink-0">
-                <CategoryIcon />
+              {/* Image */}
+              <div className="h-44 flex-shrink-0 overflow-hidden bg-[#F1F8EA]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={getArticleImage(article)}
+                  alt={article.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
               </div>
               <div className="p-6 flex flex-col flex-1">
                 <div className="flex items-center gap-3 mb-3">

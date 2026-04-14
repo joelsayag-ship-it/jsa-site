@@ -12,7 +12,10 @@ export type BlogPost = {
   category: string;
   readingTime: number;
   published: boolean;
+  image?: string;
 };
+
+export { getArticleImage } from "./blog-utils";
 
 export function getAllPosts(): BlogPost[] {
   const files = fs.readdirSync(CONTENT_DIR);
@@ -30,6 +33,7 @@ export function getAllPosts(): BlogPost[] {
         category: data.category ?? "",
         readingTime: data.readingTime ?? 5,
         published: data.published !== false,
+        image: data.image,
       };
     })
     .filter((p) => p.published)
@@ -52,6 +56,7 @@ export function getPostBySlug(slug: string): {
       category: data.category ?? "",
       readingTime: data.readingTime ?? 5,
       published: data.published !== false,
+      image: data.image,
     },
     content,
   };

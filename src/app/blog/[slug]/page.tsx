@@ -10,6 +10,7 @@ import {
   getPostBySlug,
   extractHeadings,
   formatDate,
+  getArticleImage,
 } from "@/lib/blog";
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -166,8 +167,18 @@ export default async function BlogPostPage({ params }: { params: Params }) {
   return (
     <>
       <main className="pt-20">
+        {/* ── Image hero ── */}
+        <div className="w-full h-56 md:h-72 overflow-hidden bg-[#F1F8EA]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={getArticleImage(frontmatter)}
+            alt={frontmatter.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
         {/* ── Article header ── */}
-        <section className="bg-[#F1F8EA] pt-12 pb-10 px-4 md:px-8">
+        <section className="bg-[#F1F8EA] pt-10 pb-10 px-4 md:px-8">
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-wrap items-center gap-3 mb-6 text-sm text-gray-500">
               <Link href="/blog" className="text-[#00B6DE] hover:underline font-medium">
@@ -314,11 +325,14 @@ export default async function BlogPostPage({ params }: { params: Params }) {
                     href={`/blog/${article.slug}`}
                     className="group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:border-[#00B6DE]/30 transition-all flex flex-col"
                   >
-                    <div className="bg-[#F1F8EA] h-36 flex items-center justify-center flex-shrink-0">
-                      <svg className="w-8 h-8 text-[#00B6DE]/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                      </svg>
+                    <div className="h-36 flex-shrink-0 overflow-hidden bg-[#F1F8EA]">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={getArticleImage(article)}
+                        alt={article.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
                     </div>
                     <div className="p-5 flex flex-col flex-1">
                       <div className="flex items-center gap-2 mb-2">

@@ -10,7 +10,7 @@ const NAV_ITEMS = [
     label: "Ressources",
     children: [
       {
-        label: "Blog",
+        label: "Actualités",
         href: "/blog",
         desc: "Conseils comptabilité & fiscalité pour freelances",
       },

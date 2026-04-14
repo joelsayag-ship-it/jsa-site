@@ -5,7 +5,7 @@ import BlogList from "../components/BlogList";
 import { getAllPosts, CATEGORIES } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog expert-comptable freelance — JSA Expertise",
+  title: "Actualités JSA Expertise — Conseils pour freelances et indépendants",
   description:
     "Conseils pratiques pour freelances et indépendants : comptabilité, fiscalité, choix du statut juridique, optimisation de rémunération. Par JSA Expertise.",
   alternates: { canonical: "/blog" },
@@ -26,24 +26,11 @@ export default function BlogPage() {
     <>
       <main>
         {/* HERO */}
-        <section className="bg-[#F1F8EA] pt-32 pb-16 md:pt-40 md:pb-24 px-4 md:px-8">
+        <section className="bg-[#F1F8EA] pt-28 pb-10 md:pt-32 md:pb-12 px-4 md:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="max-w-2xl">
-              <div className="mb-6">
-                <Badge>
-                  <span className="w-2 h-2 rounded-full bg-[#00B6DE] inline-block flex-shrink-0" />
-                  Ressources freelances
-                </Badge>
-              </div>
-              <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-6">
-                Blog JSA Expertise — Conseils pour freelances &amp; indépendants
-              </h1>
-              <p className="text-xl text-gray-600 leading-relaxed">
-                Guides pratiques sur la comptabilité, la fiscalité et le choix
-                du statut juridique. Rédigés par Joël Sayag, expert&#8209;comptable
-                spécialisé indépendants.
-              </p>
-            </div>
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+              Actualités JSA Expertise — Conseils pour freelances et indépendants
+            </h1>
           </div>
         </section>
 

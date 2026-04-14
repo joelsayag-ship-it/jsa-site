@@ -171,7 +171,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-wrap items-center gap-3 mb-6 text-sm text-gray-500">
               <Link href="/blog" className="text-[#00B6DE] hover:underline font-medium">
-                ← Blog
+                ← Actualités
               </Link>
               <span>/</span>
               <span className="bg-[#e0f7fd] text-[#0081A5] px-3 py-1 rounded-full font-semibold text-xs">

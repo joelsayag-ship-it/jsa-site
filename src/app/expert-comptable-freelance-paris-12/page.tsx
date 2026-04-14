@@ -146,7 +146,7 @@ export default function Paris12Page() {
               Freelance dans le 12e : SASU ou micro-entreprise ?
             </h2>
             <p className="text-gray-600 leading-relaxed mb-7">
-              La micro-entreprise est pertinente si vous démarrez et restez sous les seuils légaux. Dès que votre activité décolle, la SASU s'impose : déduction de toutes les charges, optimisation salaire/dividendes, meilleure protection sociale. Pour un consultant du 12e facturant 100 000 € ou plus, la différence nette dans la poche peut dépasser 15 000 € par an.
+              La micro-entreprise est pertinente si vous démarrez et restez sous les seuils légaux. Dès que votre activité décolle, une société s'impose — mais laquelle ? L'EURL est souvent plus avantageuse qu'on ne le pense : le régime TNS génère des charges sociales moins élevées qu'en SASU, ce qui laisse plus de trésorerie disponible. La SASU prend l'avantage quand les revenus sont élevés et qu'on veut combiner salaire et dividendes avec flat tax. Pour un consultant du 12e, la différence entre les deux structures peut représenter plusieurs milliers d'euros nets par an.
             </p>
             <div className="grid md:grid-cols-2 gap-5 mb-6">
               <div className="bg-white rounded-2xl p-6 shadow-sm">
@@ -160,15 +160,26 @@ export default function Paris12Page() {
                   <li className="flex items-start gap-2"><span className="text-red-400">✗</span> Pas d'optimisation fiscale possible</li>
                 </ul>
               </div>
-              <div className="bg-white rounded-2xl p-6 shadow-sm ring-2 ring-turquoise-400">
+              <div className="bg-white rounded-2xl p-6 shadow-sm">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="w-8 h-8 rounded-full bg-turquoise-100 flex items-center justify-center text-sm font-bold text-turquoise-600">E</span>
+                  <h3 className="font-extrabold text-gray-900">EURL</h3>
+                </div>
+                <ul className="space-y-1.5 text-sm text-gray-600">
+                  <li className="flex items-start gap-2"><span className="text-green-500">✓</span> Charges sociales allégées (TNS)</li>
+                  <li className="flex items-start gap-2"><span className="text-green-500">✓</span> Plus de trésorerie chaque mois</li>
+                  <li className="flex items-start gap-2"><span className="text-green-500">✓</span> Souvent le meilleur choix au démarrage</li>
+                </ul>
+              </div>
+              <div className="bg-white rounded-2xl p-6 shadow-sm ring-2 ring-turquoise-200">
                 <div className="flex items-center gap-3 mb-3">
                   <span className="w-8 h-8 rounded-full bg-turquoise-100 flex items-center justify-center text-sm font-bold text-turquoise-600">S</span>
                   <h3 className="font-extrabold text-gray-900">SASU</h3>
                 </div>
                 <ul className="space-y-1.5 text-sm text-gray-600">
-                  <li className="flex items-start gap-2"><span className="text-green-500">✓</span> Pas de plafond de revenus</li>
                   <li className="flex items-start gap-2"><span className="text-green-500">✓</span> Optimisation salaire/dividendes</li>
-                  <li className="flex items-start gap-2"><span className="text-green-500">✓</span> Toutes les charges déductibles</li>
+                  <li className="flex items-start gap-2"><span className="text-green-500">✓</span> Meilleure protection sociale</li>
+                  <li className="flex items-start gap-2"><span className="text-green-500">✓</span> Pertinente sur revenus élevés</li>
                 </ul>
               </div>
             </div>

@@ -129,7 +129,7 @@ export default function VincennesPage() {
                 Avec le Bois de Vincennes aux portes, des commerces de qualité et le métro ligne 1 pour rejoindre Paris en quelques minutes, Vincennes offre ce que beaucoup de cadres supérieurs recherchent : un cadre de vie agréable sans sacrifier l'accès aux opportunités professionnelles.
               </p>
               <p>
-                Les freelances que nous accompagnons à Vincennes facturent souvent entre 8 000 et 15 000 € par mois. Avec la bonne structure juridique et la bonne stratégie de rémunération, l'économie annuelle peut dépasser plusieurs milliers d'euros. Ce n'est pas de l'optimisation agressive, c'est simplement utiliser correctement ce que la loi permet.
+                Les freelances que nous accompagnons à Vincennes facturent souvent entre 8 000 et 15 000 € par mois. Selon leur niveau de revenus et leur situation personnelle, certains sont mieux en EURL (charges allégées, gestion simple), d'autres en SASU (protection sociale, dividendes). L'économie annuelle du bon choix peut dépasser plusieurs milliers d'euros.
               </p>
             </div>
           </div>
@@ -143,10 +143,10 @@ export default function VincennesPage() {
               Création d'entreprise
             </Badge>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mt-4 mb-5">
-              Créer sa SASU à Vincennes : ce qu'il faut savoir
+              SASU ou EURL à Vincennes : ce qu'il faut savoir
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              La SASU est le statut de prédilection des freelances vincennois à revenus élevés. Elle permet de dissocier salaire et dividendes, d'optimiser les cotisations sociales et de bénéficier du régime général. Les décisions prises à la création auront des conséquences concrètes sur votre fiscalité pendant des années — autant les prendre avec un expert-comptable.
+              Contrairement à ce qu'on lit souvent, l'EURL n'est pas le "petit frère" de la SASU. Pour beaucoup de freelances vincennois, c'est même le meilleur choix : le régime TNS génère des charges sociales moins élevées, ce qui laisse plus d'argent disponible chaque mois. La SASU devient plus pertinente quand les revenus sont élevés et qu'on veut optimiser la répartition salaire/dividendes. Dans tous les cas, votre expert-comptable simule les deux avant de trancher.
             </p>
             <ul className="space-y-3 mb-6">
               <CheckItem>Simulation personnalisée SASU vs EURL vs micro-entreprise</CheckItem>

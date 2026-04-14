@@ -8,7 +8,7 @@ import ContactSection from "../components/ContactSection";
 export const metadata: Metadata = {
   title: "Expert-comptable freelance Charenton-le-Pont (94) — JSA Expertise",
   description:
-    "JSA Expertise, cabinet d'expertise comptable basé à Charenton-le-Pont, spécialisé freelances et indépendants. Création SASU, comptabilité, optimisation fiscale. RDV gratuit.",
+    "JSA Expertise, cabinet d'expertise comptable basé à Charenton-le-Pont, spécialisé freelances et indépendants. Création SASU/EURL, comptabilité, optimisation fiscale. RDV gratuit.",
   alternates: {
     canonical: "https://www.jsaexpertise.com/expert-comptable-freelance-charenton-le-pont",
   },
@@ -147,15 +147,18 @@ export default function CharentonPage() {
               <span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />
               Création d'entreprise
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mt-4 mb-6">
-              Pourquoi créer sa SASU à Charenton-le-Pont ?
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mt-4 mb-4">
+              SASU ou EURL à Charenton-le-Pont : lequel choisir ?
             </h2>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              L'EURL est souvent sous-estimée. Avec le régime TNS, les charges sociales sont moins élevées qu'en SASU — ce qui peut être déterminant si vous démarrez ou si vous souhaitez maximiser votre trésorerie chaque mois. La SASU, elle, offre une meilleure protection sociale et plus de flexibilité sur la rémunération à mesure que les revenus augmentent. Votre expert-comptable calcule les deux scénarios avant toute décision.
+            </p>
             <div className="grid md:grid-cols-2 gap-5 mb-6">
               {[
-                { title: "Une adresse valorisante", desc: "Charenton (94220) est sérieux, proche de Paris, sans les coûts du 75. Pour vos clients, c'est une adresse professionnelle crédible." },
-                { title: "Accompagnement de proximité", desc: "Rédaction des statuts, ouverture du compte bancaire, dépôt au greffe : avec un expert-comptable au coin de la rue, vous ne le faites pas seul." },
-                { title: "Optimisation fiscale immédiate", desc: "La SASU permet de combiner salaire et dividendes. Ce choix peut faire une différence de plusieurs milliers d'euros par an sur votre imposition réelle." },
-                { title: "Suivi dans la durée", desc: "Un interlocuteur unique qui connaît votre dossier par cœur, de la création jusqu'à la cession éventuelle de votre société." },
+                { title: "EURL : charges allégées", desc: "Régime TNS, cotisations sociales moins élevées qu'en SASU. Idéal pour optimiser la trésorerie dès le début de l'activité." },
+                { title: "SASU : protection maximale", desc: "Régime général de la Sécurité Sociale, flexibilité salaire/dividendes. Pertinent quand les revenus augmentent." },
+                { title: "Simulation chiffrée", desc: "On compare les deux structures euro par euro selon votre CA, vos charges personnelles et vos objectifs." },
+                { title: "Suivi dans la durée", desc: "Un interlocuteur unique qui connaît votre dossier par cœur, de la création jusqu'à la cession éventuelle." },
               ].map((item) => (
                 <div key={item.title} className="bg-white rounded-2xl p-5 shadow-sm">
                   <h3 className="font-extrabold text-gray-900 mb-2">{item.title}</h3>

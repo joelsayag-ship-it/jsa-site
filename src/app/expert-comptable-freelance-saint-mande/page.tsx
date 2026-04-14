@@ -136,7 +136,7 @@ export default function SaintMandePage() {
               Optimiser sa fiscalité quand on est freelance à Saint-Mandé
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              L'optimisation fiscale d'un freelance repose sur plusieurs leviers : le choix du statut juridique, la stratégie salaire/dividendes en SASU, et les charges déductibles souvent sous-estimées. Un freelance bien accompagné par un expert-comptable peut économiser plusieurs milliers d'euros par an, en toute légalité.
+              L'optimisation fiscale d'un freelance repose sur plusieurs leviers : le choix du statut juridique (SASU ou EURL selon votre situation), la stratégie de rémunération, et les charges déductibles souvent sous-estimées. L'EURL offre des charges sociales moins lourdes via le régime TNS — un avantage concret quand on démarre ou qu'on préfère maximiser sa trésorerie mensuelle. La SASU est plus adaptée quand les revenus sont élevés et qu'on veut combiner salaire et dividendes.
             </p>
             <div className="grid md:grid-cols-3 gap-4 mb-6">
               {[
@@ -170,7 +170,7 @@ export default function SaintMandePage() {
               <CheckItem><strong>Comptabilité mensuelle :</strong> saisie, rapprochement, lettrage. Vision claire de votre trésorerie en temps réel.</CheckItem>
               <CheckItem><strong>TVA et déclarations fiscales :</strong> tout est envoyé à temps. Aucune pénalité de retard.</CheckItem>
               <CheckItem><strong>Bilan annuel certifié,</strong> présenté clairement pour que vous compreniez vos chiffres.</CheckItem>
-              <CheckItem><strong>Simulation de rémunération</strong> chaque année pour ajuster votre mix salaire/dividendes.</CheckItem>
+              <CheckItem><strong>Simulation de rémunération</strong> chaque année pour ajuster votre stratégie SASU ou EURL selon l'évolution de votre activité.</CheckItem>
               <CheckItem><strong>Conseil en temps réel :</strong> un vrai expert-comptable vous répond sous 24h, pas un assistant.</CheckItem>
             </ul>
           </div>

@@ -136,7 +136,7 @@ export default function JoinvillePage() {
               Créer son entreprise à Joinville-le-Pont : les étapes clés
             </h2>
             <p className="text-gray-600 leading-relaxed mb-7">
-              Micro-entreprise ou société ? Pour un entrepreneur joinvillais qui démarre, la micro est un excellent tremplin. Dès que les revenus dépassent 30 à 40 000 € nets annuels, le passage en SASU devient pertinent. Votre expert-comptable projette votre situation sur 2 à 3 ans et choisit avec vous la structure la plus adaptée.
+              Micro-entreprise ou société ? Pour un entrepreneur joinvillais qui démarre, la micro est un excellent tremplin. Dès que les revenus progressent, le passage en société devient pertinent — mais SASU ou EURL ? L'EURL est souvent plus avantageuse au démarrage grâce à ses charges sociales allégées (régime TNS). La SASU s'impose plutôt quand on veut optimiser la répartition salaire/dividendes sur des revenus élevés. Votre expert-comptable projette votre situation sur 2 à 3 ans et tranche avec des chiffres.
             </p>
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               {[

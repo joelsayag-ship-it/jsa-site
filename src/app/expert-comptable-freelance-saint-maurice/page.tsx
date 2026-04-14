@@ -74,7 +74,7 @@ export default function SaintMauricePage() {
                 Saint-Maurice, commune calme du Val-de-Marne en bord de Marne, accueille un nombre important de professions libérales et d'indépendants aux besoins comptables variés. JSA Expertise, basé à Charenton-le-Pont à 5 minutes, est l'expert-comptable spécialisé qui comprend ces spécificités.
               </p>
               <p className="text-base text-gray-600 leading-relaxed mb-8">
-                Que vous soyez consultant, professionnel de santé libéral ou freelance tech, votre comptabilité mérite une approche dédiée, pas un traitement standardisé.
+                Que vous soyez consultant, professionnel de santé libéral ou freelance tech, votre comptabilité mérite une approche dédiée. Et le choix entre SASU et EURL — souvent sous-estimé — peut changer significativement votre revenu net chaque mois.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/#contact" className="bg-turquoise-500 hover:bg-turquoise-700 text-white font-bold px-7 py-3.5 rounded-full transition-colors">
@@ -136,7 +136,7 @@ export default function SaintMauricePage() {
               Profession libérale ou freelance à Saint-Maurice : quel statut choisir ?
             </h2>
             <p className="text-gray-600 leading-relaxed mb-7">
-              La réponse dépend de votre secteur, de vos revenus et de vos objectifs. Un expert-comptable spécialisé ne vous donnera pas une réponse générique — il vous montrera les chiffres dans chaque scénario. JSA Expertise vous propose une simulation comparative concrète dès le premier rendez-vous.
+              La réponse dépend de votre secteur, de vos revenus et de vos objectifs. Ce qu'on observe souvent : l'EURL est sous-estimée. Avec le régime TNS, les charges sont moins élevées qu'en SASU — ce qui peut être déterminant selon votre niveau de CA. La SASU a ses avantages propres (protection sociale, dividendes), mais ce n'est pas automatiquement le meilleur choix. JSA Expertise vous propose une simulation comparative chiffrée dès le premier rendez-vous.
             </p>
             <div className="grid md:grid-cols-2 gap-5">
               <div className="bg-white rounded-2xl p-6 shadow-sm border-l-4 border-turquoise-500">

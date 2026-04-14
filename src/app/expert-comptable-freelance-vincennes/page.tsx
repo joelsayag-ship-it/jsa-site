@@ -154,8 +154,8 @@ export default function VincennesPage() {
               <CheckItem>Dépôt du capital et immatriculation au greffe</CheckItem>
               <CheckItem>Mise en place de la comptabilité dès le premier mois</CheckItem>
             </ul>
-            <Link href="/#tarifs" className="text-turquoise-500 hover:underline font-semibold text-sm">
-              Guide complet : comptabilité freelance →
+            <Link href="/simulateur-charges" className="text-turquoise-500 hover:underline font-semibold text-sm">
+              Simulateur URSSAF SASU / EURL →
             </Link>
           </div>
         </section>

@@ -154,8 +154,8 @@ export default function JoinvillePage() {
                 </div>
               ))}
             </div>
-            <Link href="/#tarifs" className="text-turquoise-500 hover:underline font-semibold text-sm">
-              Tout savoir sur la comptabilité freelance →
+            <Link href="/simulateur-charges" className="text-turquoise-500 hover:underline font-semibold text-sm">
+              Simulateur URSSAF SASU / EURL →
             </Link>
           </div>
         </section>

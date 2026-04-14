@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ContactSection from "../components/ContactSection";
@@ -16,15 +17,15 @@ export const metadata: Metadata = {
 const FAQS = [
   {
     q: "Accompagnez-vous les professions libérales de Saint-Maurice ?",
-    a: "Oui, les professions libérales font partie de nos clients réguliers. Qu'il s'agisse de consultants en santé, de psychologues, d'ostéopathes, de kinésithérapeutes ou de médecins ayant une activité libérale, nous connaissons les spécificités de leur comptabilité : recettes non commerciales (BNC), déclaration 2035, cotisations Carpimko ou CARMF selon les cas. N'hésitez pas à nous contacter.",
+    a: "Oui, les professions libérales font partie de nos clients réguliers. Nous connaissons les spécificités de leur comptabilité : BNC, déclaration 2035, cotisations Carpimko ou CARMF selon les cas. Qu'il s'agisse de consultants en santé, psychologues, ostéopathes ou médecins, nous avons l'expérience pour vous accompagner.",
   },
   {
     q: "Quelle différence entre SASU et EURL pour un indépendant de Saint-Maurice ?",
-    a: "La SASU et l'EURL sont toutes deux des structures unipersonnelles adaptées aux indépendants, mais elles diffèrent sur plusieurs points clés. La SASU relève du régime général de la Sécurité Sociale (meilleure protection sociale, cotisations plus élevées). L'EURL relève du régime des indépendants (TNS), avec des charges souvent moins élevées mais une couverture moins complète. Le meilleur choix dépend de votre niveau de revenus, de votre situation familiale et de vos objectifs. On fait le calcul ensemble.",
+    a: "La SASU relève du régime général de la Sécurité Sociale (meilleure protection, cotisations plus élevées). L'EURL relève du régime TNS, avec des charges souvent allégées mais une couverture moins complète. Le meilleur choix dépend de vos revenus, de votre situation familiale et de vos objectifs. On fait le calcul ensemble lors d'un premier rendez-vous gratuit.",
   },
   {
-    q: "Comment se passe le premier rendez-vous avec JSA Expertise ?",
-    a: "Le premier rendez-vous est gratuit et sans engagement. Il dure environ 45 minutes, en visioconférence ou en présentiel dans notre cabinet de Charenton-le-Pont (à 5 minutes de Saint-Maurice). On analyse votre situation actuelle, vos revenus, votre statut juridique actuel, et on vous présente des pistes concrètes pour optimiser votre comptabilité et votre fiscalité. Vous repartez avec des réponses claires, pas un devis vague.",
+    q: "Comment se passe le premier rendez-vous ?",
+    a: "Il dure environ 45 minutes, en visioconférence ou en présentiel à Charenton-le-Pont (5 minutes de Saint-Maurice). On analyse votre situation, vos revenus, votre statut actuel et on vous présente des pistes concrètes. Vous repartez avec des réponses claires, pas un devis vague.",
   },
 ];
 
@@ -57,102 +58,101 @@ export default function SaintMauricePage() {
 
         {/* ── HERO ─────────────────────────────────────── */}
         <section className="bg-[#F1F8EA] py-20 md:py-28 px-4 md:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="mb-6">
-              <Badge>
-                <span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />
-                Cabinet à 5 min de Saint-Maurice
-              </Badge>
+          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="mb-6">
+                <Badge>
+                  <span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />
+                  Cabinet à 5 min de Saint-Maurice
+                </Badge>
+              </div>
+              <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-5">
+                Un expert-comptable qui connaît les{" "}
+                <span className="text-turquoise-500">besoins spécifiques des indépendants de Saint-Maurice</span>
+              </h1>
+              <p className="text-lg text-gray-600 leading-relaxed mb-4">
+                Saint-Maurice, commune calme du Val-de-Marne en bord de Marne, accueille un nombre important de professions libérales et d'indépendants aux besoins comptables variés. JSA Expertise, basé à Charenton-le-Pont à 5 minutes, est l'expert-comptable spécialisé qui comprend ces spécificités.
+              </p>
+              <p className="text-base text-gray-600 leading-relaxed mb-8">
+                Que vous soyez consultant, professionnel de santé libéral ou freelance tech, votre comptabilité mérite une approche dédiée, pas un traitement standardisé.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/#contact" className="bg-turquoise-500 hover:bg-turquoise-700 text-white font-bold px-7 py-3.5 rounded-full transition-colors">
+                  Prendre RDV gratuitement
+                </Link>
+                <Link href="/comptabilite-freelance" className="border-2 border-turquoise-500 text-turquoise-500 hover:bg-turquoise-50 font-bold px-7 py-3.5 rounded-full transition-colors">
+                  Notre offre
+                </Link>
+              </div>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-6">
-              Les indépendants de Saint-Maurice ont des besoins comptables{" "}
-              <span className="text-turquoise-500">spécifiques</span>
-            </h1>
-            <p className="text-xl text-gray-600 leading-relaxed mb-4 max-w-2xl">
-              Saint-Maurice, commune tranquille du Val-de-Marne en bord de Marne, accueille un nombre important de professions libérales et d'indépendants aux besoins comptables variés. JSA Expertise, basé à Charenton-le-Pont à 5 minutes, est le cabinet spécialisé qui comprend ces spécificités.
-            </p>
-            <p className="text-lg text-gray-600 leading-relaxed mb-8 max-w-2xl">
-              Que vous soyez consultant, professionnel de santé libéral, coach ou freelance tech, votre comptabilité ne ressemble pas à celle d'un commerçant ou d'un artisan. Elle mérite une approche dédiée.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/#contact"
-                className="bg-turquoise-500 hover:bg-turquoise-700 text-white font-bold text-lg px-8 py-4 rounded-full transition-colors"
-              >
-                Prendre RDV gratuitement
-              </Link>
-              <Link
-                href="/comptabilite-freelance"
-                className="border-2 border-turquoise-500 text-turquoise-500 hover:bg-turquoise-50 font-bold text-lg px-8 py-4 rounded-full transition-colors"
-              >
-                Notre offre comptable
-              </Link>
+            <div className="flex justify-center md:justify-end">
+              <div className="relative">
+                <div className="absolute inset-0 bg-turquoise-100 rounded-3xl scale-105 -rotate-2" />
+                <Image
+                  src="/images/joel.png"
+                  alt="Joël Sayag, expert-comptable proche de Saint-Maurice"
+                  width={380}
+                  height={460}
+                  className="relative rounded-3xl object-cover shadow-xl"
+                />
+                <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-lg px-4 py-2.5 border border-gray-100">
+                  <p className="text-xs font-bold text-gray-900">Joël Sayag</p>
+                  <p className="text-xs text-gray-400">Expert-comptable · 10 ans d'expérience</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* ── TISSU LOCAL ───────────────────────────────── */}
-        <section className="bg-white py-16 md:py-24 px-4 md:px-8">
+        <section className="bg-white py-16 md:py-20 px-4 md:px-8">
           <div className="max-w-4xl mx-auto">
             <Badge>
               <span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />
               Saint-Maurice et ses indépendants
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mt-4 mb-6">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mt-4 mb-5">
               Une commune à la croisée des professions indépendantes
             </h2>
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
-                Saint-Maurice (94410) se distingue des autres communes du Val-de-Marne par la diversité de ses indépendants. La proximité avec l'Hôpital National de Saint-Maurice crée un écosystème particulier de professionnels de santé — médecins, psychologues, orthophonistes, rééducateurs — qui exercent en libéral ou en cabinet de groupe.
+                Saint-Maurice (94410) se distingue par la diversité de ses indépendants. La proximité avec l'Hôpital National de Saint-Maurice crée un écosystème particulier de professionnels de santé qui exercent en libéral : médecins, psychologues, orthophonistes, rééducateurs.
               </p>
               <p>
-                À côté de ce tissu médico-social, Saint-Maurice accueille aussi des consultants spécialisés dans les secteurs de la santé numérique, de la formation professionnelle et du conseil aux structures médico-sociales. Un profil d'indépendant souvent très qualifié, avec des revenus élevés et des obligations déclaratives particulières.
-              </p>
-              <p>
-                JSA Expertise travaille avec ces deux types de profils. Pour les professions réglementées (BNC, régime de déclaration contrôlée), comme pour les sociétés (SASU, EURL, SELARL), nous avons l'expérience et les outils nécessaires pour un accompagnement sans faille.
+                À côté de ce tissu médico-social, on trouve des consultants spécialisés dans la santé numérique, la formation professionnelle et le conseil aux structures sociales. Des profils très qualifiés, avec des revenus élevés et des obligations déclaratives spécifiques que JSA Expertise maîtrise parfaitement.
               </p>
             </div>
           </div>
         </section>
 
         {/* ── QUEL STATUT CHOISIR ───────────────────────── */}
-        <section className="bg-[#F1F8EA] py-16 md:py-24 px-4 md:px-8">
+        <section className="bg-[#F1F8EA] py-16 md:py-20 px-4 md:px-8">
           <div className="max-w-4xl mx-auto">
             <Badge>
               <span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />
               Statut juridique
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mt-4 mb-6">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mt-4 mb-5">
               Profession libérale ou freelance à Saint-Maurice : quel statut choisir ?
             </h2>
-            <div className="space-y-4 text-gray-600 leading-relaxed mb-8">
-              <p>
-                Cette question revient systématiquement lors de nos premiers rendez-vous avec des indépendants de Saint-Maurice. Et la réponse honnête est : ça dépend. Des variables comme votre secteur d'activité, vos revenus actuels et prévus, votre situation familiale, votre appétence pour la complexité administrative, et vos objectifs patrimoniaux à moyen terme font toute la différence.
-              </p>
-              <p>
-                Pour un professionnel de santé libéral débutant, la déclaration en BNC avec un régime micro peut être suffisante. Pour un consultant senior facturant 150 000 € par an, rester en micro-entreprise serait une erreur coûteuse — la SASU ou l'EURL s'impose clairement.
-              </p>
-              <p>
-                JSA Expertise vous propose une simulation chiffrée : on compare votre situation actuelle avec ce qu'elle serait dans chaque statut envisageable, en euros nets dans votre poche. Pas de discours théorique — des chiffres concrets.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6">
+            <p className="text-gray-600 leading-relaxed mb-7">
+              La réponse dépend de votre secteur, de vos revenus et de vos objectifs. Un expert-comptable spécialisé ne vous donnera pas une réponse générique — il vous montrera les chiffres dans chaque scénario. JSA Expertise vous propose une simulation comparative concrète dès le premier rendez-vous.
+            </p>
+            <div className="grid md:grid-cols-2 gap-5">
               <div className="bg-white rounded-2xl p-6 shadow-sm border-l-4 border-turquoise-500">
                 <h3 className="font-extrabold text-gray-900 mb-3">Professions libérales réglementées</h3>
                 <ul className="space-y-2 text-sm text-gray-600">
-                  <CheckItem>BNC (Bénéfices Non Commerciaux)</CheckItem>
-                  <CheckItem>Régime déclaration contrôlée (2035)</CheckItem>
-                  <CheckItem>Caisses de retraite spécifiques (CARMF, Carpimko...)</CheckItem>
+                  <CheckItem>BNC et régime déclaration contrôlée (2035)</CheckItem>
+                  <CheckItem>Caisses de retraite spécifiques (CARMF, Carpimko)</CheckItem>
                   <CheckItem>Possibilité de créer une SEL ou SELARL</CheckItem>
                 </ul>
               </div>
               <div className="bg-white rounded-2xl p-6 shadow-sm border-l-4 border-turquoise-300">
                 <h3 className="font-extrabold text-gray-900 mb-3">Freelances et consultants</h3>
                 <ul className="space-y-2 text-sm text-gray-600">
-                  <CheckItem>Micro-entreprise (jusqu'aux seuils BIC/BNC)</CheckItem>
-                  <CheckItem>SASU (flexibilité maximale, IS, flat tax)</CheckItem>
+                  <CheckItem>Micro-entreprise jusqu'aux seuils BIC/BNC</CheckItem>
+                  <CheckItem>SASU (flexibilité, IS, flat tax)</CheckItem>
                   <CheckItem>EURL (régime TNS, charges allégées)</CheckItem>
-                  <CheckItem>Portage salarial (si activité ponctuelle)</CheckItem>
                 </ul>
               </div>
             </div>
@@ -160,35 +160,17 @@ export default function SaintMauricePage() {
         </section>
 
         {/* ── FAQ ───────────────────────────────────────── */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: FAQS.map((faq) => ({
-                "@type": "Question",
-                name: faq.q,
-                acceptedAnswer: { "@type": "Answer", text: faq.a },
-              })),
-            }),
-          }}
-        />
-        <section className="bg-white py-16 md:py-24 px-4 md:px-8">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQS.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }) }} />
+        <section className="bg-white py-16 md:py-20 px-4 md:px-8">
           <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12 flex flex-col items-center">
-              <Badge>
-                <span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />
-                Questions fréquentes
-              </Badge>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mt-4">
-                FAQ — Indépendants à Saint-Maurice
-              </h2>
+            <div className="text-center mb-10 flex flex-col items-center">
+              <Badge><span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />Questions fréquentes</Badge>
+              <h2 className="text-3xl font-extrabold text-gray-900 mt-4">FAQ Saint-Maurice</h2>
             </div>
             <div className="space-y-4">
               {FAQS.map((faq) => (
                 <div key={faq.q} className="bg-[#F1F8EA] rounded-2xl p-6">
-                  <h3 className="font-extrabold text-gray-900 mb-3 text-base">{faq.q}</h3>
+                  <h3 className="font-extrabold text-gray-900 mb-2 text-base">{faq.q}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
                 </div>
               ))}
@@ -196,10 +178,9 @@ export default function SaintMauricePage() {
           </div>
         </section>
 
-        {/* ── MAILLAGE INTERNE ──────────────────────────── */}
-        <section className="bg-[#F1F8EA] py-12 px-4 md:px-8">
+        {/* ── MAILLAGE ──────────────────────────────────── */}
+        <section className="bg-[#F1F8EA] py-10 px-4 md:px-8">
           <div className="max-w-4xl mx-auto">
-            <p className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Nos pages locales</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {[
                 { label: "Comptabilité freelance", href: "/comptabilite-freelance" },
@@ -207,42 +188,22 @@ export default function SaintMauricePage() {
                 { label: "Saint-Mandé", href: "/expert-comptable-freelance-saint-mande" },
                 { label: "Simulateur charges", href: "/simulateur-charges" },
               ].map((l) => (
-                <Link
-                  key={l.href}
-                  href={l.href}
-                  className="bg-white border border-turquoise-100 hover:border-turquoise-400 rounded-xl px-4 py-3 text-sm font-semibold text-gray-700 hover:text-turquoise-600 transition-all text-center"
-                >
-                  {l.label}
-                </Link>
+                <Link key={l.href} href={l.href} className="bg-white border border-turquoise-100 hover:border-turquoise-400 rounded-xl px-4 py-3 text-sm font-semibold text-gray-700 hover:text-turquoise-600 transition-all text-center">{l.label}</Link>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── CTA FINAL ─────────────────────────────────── */}
-        <section className="bg-[#00B6DE] py-16 md:py-24 px-4 md:px-8">
+        {/* ── CTA ───────────────────────────────────────── */}
+        <section className="bg-[#00B6DE] py-16 md:py-20 px-4 md:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-4">
-              Prenons rendez-vous
-            </h2>
-            <p className="text-white/80 text-lg mb-8 leading-relaxed">
-              Premier rendez-vous gratuit et sans engagement. On analyse votre situation et on vous conseille le meilleur statut.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">Prenons rendez-vous</h2>
+            <p className="text-white/80 text-lg mb-8">Premier rendez-vous gratuit et sans engagement. On analyse votre situation et on vous conseille le meilleur statut.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link
-                href="/#contact"
-                className="bg-white text-[#00B6DE] hover:bg-gray-50 font-bold text-lg px-8 py-4 rounded-full transition-colors shadow-lg"
-              >
-                Prendre RDV gratuitement
-              </Link>
-              <Link
-                href="tel:+33660735546"
-                className="border-2 border-white text-white hover:bg-white/10 font-bold text-lg px-8 py-4 rounded-full transition-colors"
-              >
-                06 60 73 55 46
-              </Link>
+              <Link href="/#contact" className="bg-white text-[#00B6DE] hover:bg-gray-50 font-bold text-lg px-8 py-4 rounded-full transition-colors shadow-lg">Prendre RDV gratuitement</Link>
+              <Link href="tel:+33660735546" className="border-2 border-white text-white hover:bg-white/10 font-bold text-lg px-8 py-4 rounded-full transition-colors">06 60 73 55 46</Link>
             </div>
-            <p className="text-white/60 text-sm mt-6">Réponse sous 24h garantie</p>
+            <p className="text-white/60 text-sm mt-5">Réponse sous 24h garantie</p>
           </div>
         </section>
 

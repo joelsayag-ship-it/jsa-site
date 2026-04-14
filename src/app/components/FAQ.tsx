@@ -7,17 +7,10 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section
-      itemScope
-      itemType="https://schema.org/FAQPage"
-      className="space-y-3"
-    >
+    <section className="space-y-3">
       {FAQS.map((faq, i) => (
         <div
           key={i}
-          itemScope
-          itemProp="mainEntity"
-          itemType="https://schema.org/Question"
           className="bg-[#F1F8EA] rounded-xl border border-turquoise-100 overflow-hidden"
         >
           <button
@@ -25,7 +18,7 @@ export default function FAQ() {
             aria-expanded={open === i}
             className="w-full flex items-center justify-between gap-4 px-6 py-4 text-left hover:bg-gray-50 transition-colors"
           >
-            <span itemProp="name" className="font-semibold text-gray-900 text-sm md:text-base">
+            <span className="font-semibold text-gray-900 text-sm md:text-base">
               {faq.q}
             </span>
             <span
@@ -38,14 +31,11 @@ export default function FAQ() {
             </span>
           </button>
           <div
-            itemScope
-            itemProp="acceptedAnswer"
-            itemType="https://schema.org/Answer"
             className={`overflow-hidden transition-all duration-300 ${
               open === i ? "max-h-96" : "max-h-0"
             }`}
           >
-            <p itemProp="text" className="px-6 pb-5 text-gray-600 text-sm md:text-base leading-relaxed">
+            <p className="px-6 pb-5 text-gray-600 text-sm md:text-base leading-relaxed">
               {faq.a}
             </p>
           </div>

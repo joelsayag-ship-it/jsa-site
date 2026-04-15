@@ -62,25 +62,28 @@ export function getPostBySlug(slug: string): {
   };
 }
 
-/** Slugify matching rehype-slug behavior */
+/** Slugify: lowercase, strip accents, remove punctuation, spaces → hyphens */
 export function slugify(text: string): string {
   return text
     .toLowerCase()
-    .replace(/[^\w\s-]/g, "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "") // strip diacritics
+    .replace(/[^\w\s-]/g, "")        // remove remaining special chars
     .trim()
     .replace(/[\s_]+/g, "-");
 }
 
-/** Extract H2 headings from raw MDX content */
+/** Extract H2 and H3 headings from raw MDX content */
 export function extractHeadings(
   content: string
-): { id: string; text: string }[] {
-  const regex = /^## (.+)$/gm;
-  const headings: { id: string; text: string }[] = [];
+): { id: string; text: string; level: number }[] {
+  const regex = /^(#{2,3}) (.+)$/gm;
+  const headings: { id: string; text: string; level: number }[] = [];
   let match;
   while ((match = regex.exec(content)) !== null) {
-    const text = match[1].trim();
-    headings.push({ id: slugify(text), text });
+    const level = match[1].length; // 2 or 3
+    const text = match[2].trim();
+    headings.push({ id: slugify(text), text, level });
   }
   return headings;
 }

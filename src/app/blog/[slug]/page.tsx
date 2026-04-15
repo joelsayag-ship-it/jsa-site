@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import rehypeSlug from "rehype-slug";
+import { visit } from "unist-util-visit";
 import Footer from "../../components/Footer";
 import CTABlog from "../../components/CTABlog";
 import {
@@ -11,7 +11,30 @@ import {
   extractHeadings,
   formatDate,
   getArticleImage,
+  slugify,
 } from "@/lib/blog";
+
+// ── Custom rehype plugin : génère les ids avec le même slugify que le sommaire
+
+function getNodeText(node: { type: string; value?: string; children?: unknown[] }): string {
+  if (node.type === "text") return node.value ?? "";
+  if (node.children) return (node.children as typeof node[]).map(getNodeText).join("");
+  return "";
+}
+
+function rehypeCustomSlug() {
+  return (tree: Parameters<typeof visit>[0]) => {
+    visit(tree, "element", (node: { tagName: string; properties?: Record<string, unknown>; type: string; value?: string; children?: unknown[] }) => {
+      if (/^h[23]$/.test(node.tagName) && !node.properties?.id) {
+        const text = getNodeText(node);
+        if (text) {
+          node.properties = node.properties ?? {};
+          node.properties.id = slugify(text);
+        }
+      }
+    });
+  };
+}
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -83,12 +106,14 @@ const mdxComponents = {
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className="text-2xl font-extrabold text-gray-900 mt-10 mb-4 leading-tight"
+      style={{ scrollMarginTop: "100px" }}
       {...props}
     />
   ),
   h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className="text-xl font-bold text-gray-800 mt-8 mb-3"
+      style={{ scrollMarginTop: "100px" }}
       {...props}
     />
   ),
@@ -230,7 +255,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
                   components={mdxComponents}
                   options={{
                     mdxOptions: {
-                      rehypePlugins: [rehypeSlug],
+                      rehypePlugins: [rehypeCustomSlug],
                     },
                   }}
                 />
@@ -248,7 +273,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
                         <a
                           key={h.id}
                           href={`#${h.id}`}
-                          className="text-sm text-gray-600 hover:text-[#00B6DE] transition-colors leading-snug py-0.5 border-l-2 border-transparent hover:border-[#00B6DE] pl-3"
+                          className={`text-sm text-gray-600 hover:text-[#00B6DE] transition-colors leading-snug py-0.5 border-l-2 border-transparent hover:border-[#00B6DE] ${h.level === 3 ? "pl-6 text-xs text-gray-500" : "pl-3"}`}
                         >
                           {h.text}
                         </a>

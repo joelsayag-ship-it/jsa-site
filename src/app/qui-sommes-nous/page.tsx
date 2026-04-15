@@ -36,7 +36,7 @@ export default function QuiSommesNous() {
                     Qui suis-je ?
                   </Badge>
                 </div>
-                <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight">
+                <h1 className="text-3xl md:text-4xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight">
                   Joël Sayag
                 </h1>
                 <p className="text-xl text-turquoise-500 font-semibold mt-3">

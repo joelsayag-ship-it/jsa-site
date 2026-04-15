@@ -66,7 +66,7 @@ export default function VincennesPage() {
                   À 5 minutes de Vincennes
                 </Badge>
               </div>
-              <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-5">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-5">
                 Les freelances vincennois méritent un expert-comptable qui{" "}
                 <span className="text-turquoise-500">comprend leur activité</span>
               </h1>

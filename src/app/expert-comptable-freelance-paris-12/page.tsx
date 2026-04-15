@@ -66,7 +66,7 @@ export default function Paris12Page() {
                   Cabinet limitrophe Paris 12e
                 </Badge>
               </div>
-              <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-5">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-5">
                 Les freelances du 12e ont un expert-comptable spécialisé{" "}
                 <span className="text-turquoise-500">à deux pas</span>
               </h1>

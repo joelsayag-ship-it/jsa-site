@@ -45,7 +45,7 @@ export default function Home() {
                 <Badge><span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />Cabinet spécialisé freelances</Badge>
               </div>
 
-              <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight">
                 Votre expert&#8209;comptable{" "}
                 <span className="text-turquoise-500">spécialisé</span>{" "}
                 pour les{" "}

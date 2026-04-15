@@ -169,7 +169,7 @@ export default function ExpertComptableFreelanceParis() {
             </div>
 
             {/* H1 */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.05] tracking-tight mb-2">
+            <h1 className="text-3xl md:text-4xl lg:text-6xl font-black leading-[1.05] tracking-tight mb-2">
               <span className="whitespace-nowrap">L&apos;expert-comptable</span><br />
               des <span className="text-[#00B6DE]">freelances</span>
             </h1>

@@ -67,7 +67,7 @@ export default function CharentonPage() {
                   Cabinet basé à Charenton-le-Pont
                 </Badge>
               </div>
-              <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-5">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-5">
                 Votre expert-comptable est{" "}
                 <span className="text-turquoise-500">dans votre ville</span>
               </h1>

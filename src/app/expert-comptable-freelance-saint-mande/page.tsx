@@ -66,7 +66,7 @@ export default function SaintMandePage() {
                   Expert-comptable proche de Saint-Mandé
                 </Badge>
               </div>
-              <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-5">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-5">
                 Saint-Mandé : des freelances discrets qui ont besoin d'un{" "}
                 <span className="text-turquoise-500">expert-comptable réactif</span>
               </h1>

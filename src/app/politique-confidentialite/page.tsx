@@ -36,7 +36,7 @@ export default function PolitiqueConfidentialite() {
 
       {/* Content */}
       <main className="max-w-4xl mx-auto px-6 py-16 md:py-24">
-        <h1 className="text-4xl md:text-5xl font-bold text-[#1a1a2e] mb-12 pb-6 border-b border-gray-100">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1a1a2e] mb-12 pb-6 border-b border-gray-100">
           Politique de Confidentialité
         </h1>
 

@@ -66,7 +66,7 @@ export default function JoinvillePage() {
                   Expert-comptable à 10 min de Joinville
                 </Badge>
               </div>
-              <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-5">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-5">
                 Joinville-le-Pont : une ville d'entrepreneurs qui méritent un{" "}
                 <span className="text-turquoise-500">expert-comptable digital</span>
               </h1>

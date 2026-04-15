@@ -66,7 +66,7 @@ export default function SaintMauricePage() {
                   Cabinet à 5 min de Saint-Maurice
                 </Badge>
               </div>
-              <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-5">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-5">
                 Un expert-comptable qui connaît les{" "}
                 <span className="text-turquoise-500">besoins spécifiques des indépendants de Saint-Maurice</span>
               </h1>

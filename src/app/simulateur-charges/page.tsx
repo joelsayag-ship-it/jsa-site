@@ -34,7 +34,7 @@ export default function SimulateurCharges() {
         {/* ── HERO ────────────────────────────────────────── */}
         <section className="bg-[#F1F8EA] pt-32 pb-12 md:pt-40 md:pb-16 px-4 md:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-4">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-4">
               Simulateur URSSAF<br />
               <span className="text-turquoise-500">SASU &amp; EURL</span>
             </h1>

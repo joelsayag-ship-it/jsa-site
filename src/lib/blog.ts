@@ -62,15 +62,18 @@ export function getPostBySlug(slug: string): {
   };
 }
 
-/** Slugify: lowercase, strip accents, remove punctuation, spaces → hyphens */
+/**
+ * Slugify aligné sur github-slugger (utilisé par rehype-slug) :
+ * - minuscules
+ * - garde les lettres Unicode (accents compris)
+ * - supprime ponctuation et caractères spéciaux
+ * - espaces → tirets
+ */
 export function slugify(text: string): string {
   return text
     .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "") // strip diacritics
-    .replace(/[^\w\s-]/g, "")        // remove remaining special chars
-    .trim()
-    .replace(/[\s_]+/g, "-");
+    .replace(/[^\p{L}\p{N}\s-]/gu, "")
+    .replace(/ /g, "-"); // chaque espace → tiret, identique à github-slugger (sans trim)
 }
 
 /** Extract H2 and H3 headings from raw MDX content */

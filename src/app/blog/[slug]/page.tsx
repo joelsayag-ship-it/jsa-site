@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { visit } from "unist-util-visit";
+import rehypeSlug from "rehype-slug";
 import Footer from "../../components/Footer";
 import CTABlog from "../../components/CTABlog";
 import {
@@ -11,30 +11,7 @@ import {
   extractHeadings,
   formatDate,
   getArticleImage,
-  slugify,
 } from "@/lib/blog";
-
-// ── Custom rehype plugin : génère les ids avec le même slugify que le sommaire
-
-function getNodeText(node: { type: string; value?: string; children?: unknown[] }): string {
-  if (node.type === "text") return node.value ?? "";
-  if (node.children) return (node.children as typeof node[]).map(getNodeText).join("");
-  return "";
-}
-
-function rehypeCustomSlug() {
-  return (tree: Parameters<typeof visit>[0]) => {
-    visit(tree, "element", (node: { tagName: string; properties?: Record<string, unknown>; type: string; value?: string; children?: unknown[] }) => {
-      if (/^h[23]$/.test(node.tagName) && !node.properties?.id) {
-        const text = getNodeText(node);
-        if (text) {
-          node.properties = node.properties ?? {};
-          node.properties.id = slugify(text);
-        }
-      }
-    });
-  };
-}
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -255,7 +232,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
                   components={mdxComponents}
                   options={{
                     mdxOptions: {
-                      rehypePlugins: [rehypeCustomSlug],
+                      rehypePlugins: [rehypeSlug],
                     },
                   }}
                 />

@@ -333,7 +333,7 @@ export default function Home() {
         </section>
 
         {/* ── 4. TIIME ─────────────────────────────────────── */}
-        <section className="bg-white">
+        <section id="outils" className="bg-white">
           <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24">
 
             {/* En-tête */}

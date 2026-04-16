@@ -35,7 +35,6 @@ export default function Home() {
 
         {/* ── 1. HERO ──────────────────────────────────────── */}
         <section
-          id="offre"
           className="min-h-screen bg-[#F1F8EA] pt-16 flex items-center"
         >
           <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-16 items-center w-full">

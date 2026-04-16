@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.jsaexpertise.com
+
+# Sitemaps
+Sitemap: https://www.jsaexpertise.com/sitemap.xml

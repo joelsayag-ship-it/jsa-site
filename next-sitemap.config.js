@@ -1,3 +1,7 @@
+const fs = require('fs');
+const path = require('path');
+const matter = require('gray-matter');
+
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
   siteUrl: 'https://www.jsaexpertise.com',
@@ -7,23 +11,40 @@ module.exports = {
       { userAgent: '*', allow: '/' },
     ],
   },
-  transform: async (config, path) => {
-    // Pages locales et home : priorité haute
-    if (path === '/') {
-      return { loc: path, changefreq: 'daily', priority: 1.0, lastmod: new Date().toISOString() };
+  transform: async (config, url) => {
+    if (url === '/') {
+      return { loc: url, changefreq: 'daily', priority: 1.0, lastmod: new Date().toISOString() };
     }
-    if (path.startsWith('/expert-comptable-freelance')) {
-      return { loc: path, changefreq: 'monthly', priority: 0.9, lastmod: new Date().toISOString() };
+    if (url.startsWith('/expert-comptable-freelance')) {
+      return { loc: url, changefreq: 'monthly', priority: 0.9, lastmod: new Date().toISOString() };
     }
-    if (path === '/blog') {
-      return { loc: path, changefreq: 'weekly', priority: 0.8, lastmod: new Date().toISOString() };
+    if (url === '/blog') {
+      return { loc: url, changefreq: 'weekly', priority: 0.8, lastmod: new Date().toISOString() };
     }
-    if (path.startsWith('/blog/')) {
-      return { loc: path, changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() };
+    if (url.startsWith('/blog/')) {
+      return { loc: url, changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() };
     }
-    if (path === '/mentions-legales' || path === '/politique-confidentialite') {
-      return { loc: path, changefreq: 'yearly', priority: 0.3, lastmod: new Date().toISOString() };
+    if (url === '/mentions-legales' || url === '/politique-confidentialite') {
+      return { loc: url, changefreq: 'yearly', priority: 0.3, lastmod: new Date().toISOString() };
     }
-    return { loc: path, changefreq: 'monthly', priority: 0.7, lastmod: new Date().toISOString() };
+    return { loc: url, changefreq: 'monthly', priority: 0.7, lastmod: new Date().toISOString() };
+  },
+  additionalPaths: async (config) => {
+    const contentDir = path.join(process.cwd(), 'src/content/blog');
+    const files = fs.readdirSync(contentDir).filter((f) => f.endsWith('.mdx'));
+    return files
+      .map((f) => {
+        const slug = f.replace(/\.mdx$/, '');
+        const raw = fs.readFileSync(path.join(contentDir, f), 'utf-8');
+        const { data } = matter(raw);
+        if (data.published === false) return null;
+        return {
+          loc: `/blog/${slug}`,
+          changefreq: 'monthly',
+          priority: 0.8,
+          lastmod: data.date ? new Date(data.date).toISOString() : new Date().toISOString(),
+        };
+      })
+      .filter(Boolean);
   },
 };

@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   title: "Qui sommes-nous — JSA Expertise, expert-comptable freelances Paris",
   description:
     "Découvrez Joël Sayag, expert-comptable spécialisé freelances et agences. 10 ans d'expérience, 150+ clients accompagnés, basé à Charenton-le-Pont.",
+  alternates: { canonical: 'https://www.jsaexpertise.com/qui-sommes-nous' },
+  twitter: { card: 'summary_large_image' },
 };
 
 function Badge({ children }: { children: React.ReactNode }) {

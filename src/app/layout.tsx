@@ -68,7 +68,7 @@ export default function RootLayout({
             "@type": ["AccountingService", "LocalBusiness"],
             "name": "JSA Expertise",
             "url": "https://www.jsaexpertise.com",
-            "logo": "https://www.jsaexpertise.com/images/logo.png",
+            "logo": "https://www.jsaexpertise.com/images/logo.png.png",
             "image": "https://www.jsaexpertise.com/images/joel.png",
             "description": "Cabinet d'expertise comptable 100% digital spécialisé pour les freelances, consultants et agences. Basé à Charenton-le-Pont (94).",
             "telephone": "+33660735546",

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description:
     "Conseils pratiques pour freelances et indépendants : comptabilité, fiscalité, choix du statut juridique, optimisation de rémunération. Par JSA Expertise.",
   alternates: { canonical: "/blog" },
+  twitter: { card: 'summary_large_image' },
 };
 
 function Badge({ children }: { children: React.ReactNode }) {

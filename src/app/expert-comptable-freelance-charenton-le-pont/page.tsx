@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.jsaexpertise.com/expert-comptable-freelance-charenton-le-pont",
   },
+  twitter: { card: 'summary_large_image' },
 };
 
 const FAQS = [

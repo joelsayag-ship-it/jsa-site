@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.jsaexpertise.com/expert-comptable-freelance-paris-12",
   },
+  twitter: { card: 'summary_large_image' },
 };
 
 const FAQS = [

@@ -47,9 +47,9 @@ managers de transition, agences digitales, professions libérales
 
 ## Pages clés du site
 - Accueil : https://www.jsaexpertise.com
-- Comptabilité freelance : https://www.jsaexpertise.com/comptabilite-freelance
-- Création d'entreprise : https://www.jsaexpertise.com/creation-entreprise
-- Optimisation fiscale : https://www.jsaexpertise.com/optimisation-fiscale
+- Comptabilité freelance : https://www.jsaexpertise.com/#offre
+- Création d'entreprise : https://www.jsaexpertise.com/#offre
+- Optimisation fiscale : https://www.jsaexpertise.com/#offre
 - Simulateur rémunération SASU/EURL : https://www.jsaexpertise.com/simulateur-remuneration
 - Blog : https://www.jsaexpertise.com/blog
 - Contact : https://www.jsaexpertise.com/#contact

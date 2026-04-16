@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.jsaexpertise.com/expert-comptable-freelance-saint-mande",
   },
+  twitter: { card: 'summary_large_image' },
 };
 
 const FAQS = [

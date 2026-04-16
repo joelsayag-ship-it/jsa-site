@@ -545,6 +545,27 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── Schema.org Person — Joël Sayag ───────────────── */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Joël Sayag",
+              "jobTitle": "Expert-comptable",
+              "worksFor": {
+                "@type": "AccountingService",
+                "name": "JSA Expertise",
+              },
+              "url": "https://www.jsaexpertise.com/qui-sommes-nous",
+              "sameAs": "https://www.linkedin.com/in/joël-sayag-expert-comptable-912795106/",
+              "image": "https://www.jsaexpertise.com/images/joel.png",
+              "description": "Expert-comptable spécialisé freelances et indépendants, 10 ans d'expérience, basé à Charenton-le-Pont (94).",
+            }),
+          }}
+        />
+
         {/* ── 6. FAQ ───────────────────────────────────────── */}
         <script
           type="application/ld+json"

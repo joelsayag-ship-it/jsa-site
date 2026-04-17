@@ -19,6 +19,28 @@ function Badge({ children }: { children: React.ReactNode }) {
   );
 }
 
+/* ─── review data ───────────────────────────────────────── */
+const REVIEWS_ROW1 = [
+  { name: "Mickael F.", text: "Excellent expert-comptable de qualité ! Réactif, disponible et de bons conseils ! Je recommande !" },
+  { name: "Julien B.", text: "Cabinet très réactif et efficace qui m'a aidé dans la création de mon entreprise. Merci à Joël." },
+  { name: "Valentin H.", text: "Très bonne expérience avec JSA Expertise. Toujours de bons conseils et réactif. Merci." },
+  { name: "Odile H.", text: "Merci de m'avoir accompagnée dans ma création d'entreprise, avec beaucoup de professionnalisme." },
+  { name: "Benjamin T.", text: "Merci beaucoup pour l'accompagnement dans la gestion de ma première déclaration LMNP. Et pour les précieux conseils." },
+  { name: "Salomé L.", text: "Merci à Joël pour ses conseils, sa réactivité et son accompagnement pour ma société." },
+  { name: "Vlad B.", text: "Joël est un expert-comptable réactif, clair et de très bon conseil." },
+  { name: "Remi B.", text: "Je recommande JSA Expertise. J'ai été accompagné de façon très professionnelle et nos échanges sont toujours très fluides. Valeur ajoutée remarquable sur les sujets fiscaux." },
+];
+
+const REVIEWS_ROW2 = [
+  { name: "Hannah-léa F.", text: "JSA Expertise est d'excellent conseil, humain et fiable." },
+  { name: "Michael L.", text: "Excellent cabinet comptable ! JSA Expertise m'accompagne depuis 2025 et j'en suis ravi. La gestion est moderne et fluide, et ils sont toujours disponibles." },
+  { name: "Thomas D.", text: "Compétence, réactivité et disponibilité, je recommande vivement JSA Expertise." },
+  { name: "Lucie S.", text: "Joël est un expert-comptable réactif, à l'écoute. Je suis très satisfaite de son accompagnement ainsi que des outils qu'il propose (Tiime, super application)." },
+  { name: "Charlotte M.", text: "Cliente du cabinet, je recommande vivement l'accompagnement, l'expertise et la réactivité de Joël Sayag. Nous avons beaucoup de chance de pouvoir compter sur lui." },
+  { name: "Julien G.", text: "Je suis accompagné par Joël Sayag en tant qu'expert-comptable depuis quelques mois et je suis très satisfait de notre collaboration." },
+  { name: "Mylène S.", text: "5 étoiles, client satisfait." },
+];
+
 /* ─── check icon ─────────────────────────────────────────── */
 function Check({ small }: { small?: boolean }) {
   return (
@@ -123,7 +145,7 @@ export default function Home() {
                         ))}
                       </div>
                     </div>
-                    <p className="text-xs text-gray-500 mt-0.5">30 avis Google</p>
+                    <p className="text-xs text-gray-500 mt-0.5">15 avis Google</p>
                   </div>
                 </div>
 
@@ -253,70 +275,84 @@ export default function Home() {
 
         {/* ── 3. TÉMOIGNAGES ───────────────────────────────── */}
         <section className="bg-[#F1F8EA]">
-          <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24">
+          <style>{`
+            @keyframes marquee-left {
+              from { transform: translateX(0); }
+              to { transform: translateX(-50%); }
+            }
+            @keyframes marquee-right {
+              from { transform: translateX(-50%); }
+              to { transform: translateX(0); }
+            }
+            .marquee-left { animation: marquee-left 45s linear infinite; }
+            .marquee-right { animation: marquee-right 40s linear infinite; }
+            .marquee-row:hover .marquee-left,
+            .marquee-row:hover .marquee-right { animation-play-state: paused; }
+          `}</style>
 
-            {/* En-tête */}
-            <div className="mb-14 text-center flex flex-col items-center">
-              <Badge><span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />Avis clients</Badge>
-              <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mt-4">
-                Ils nous font confiance
-              </h2>
-              <p className="text-xl text-gray-500 mt-4">
-                Plus de 150 freelances et indépendants accompagnés
-              </p>
-            </div>
+          {/* En-tête */}
+          <div className="max-w-7xl mx-auto px-4 md:px-8 pt-16 md:pt-24 mb-12 text-center flex flex-col items-center">
+            <Badge><span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />Avis clients</Badge>
+            <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mt-4">
+              Ils nous font confiance
+            </h2>
+            <p className="text-xl text-gray-500 mt-4">
+              Plus de 150 freelances et indépendants accompagnés
+            </p>
+          </div>
 
-            {/* Cards témoignages */}
-            <div className="grid md:grid-cols-3 gap-6 mb-16">
-              {[
-                {
-                  text: "Enfin un cabinet qui répond le jour même. En 3 ans, pas une seule échéance manquée et des conseils vraiment adaptés à mon activité de consultant.",
-                  name: "Thomas M.",
-                  role: "Consultant IT indépendant",
-                  initiale: "T",
-                },
-                {
-                  text: "JSA Expertise m'a accompagné dans la création de ma SASU et le suivi comptable depuis. Tout est clair, digital, et je n'ai plus à me soucier de rien.",
-                  name: "Sarah K.",
-                  role: "Designer freelance",
-                  initiale: "S",
-                },
-                {
-                  text: "Le passage de micro-entreprise à SASU s'est fait sans stress. L'optimisation fiscale a été immédiate et significative.",
-                  name: "Romain D.",
-                  role: "Développeur freelance",
-                  initiale: "R",
-                },
-              ].map((t) => (
-                <div key={t.name} className="bg-white rounded-2xl p-8 flex flex-col gap-5 shadow-sm">
-                  {/* Étoiles */}
-                  <div className="flex gap-1">
-                    {[1,2,3,4,5].map((i) => (
-                      <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                  {/* Citation */}
-                  <p className="text-gray-700 text-base leading-relaxed flex-1">
-                    &ldquo;{t.text}&rdquo;
-                  </p>
-                  {/* Auteur */}
-                  <div className="flex items-center gap-3 pt-2 border-t border-gray-200">
-                    <div className="w-10 h-10 rounded-full bg-turquoise-500 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      {t.initiale}
+          {/* Carousel — 2 rangées en sens opposé */}
+          <div className="space-y-4 mb-14">
+
+            {/* Rangée 1 — vers la gauche */}
+            <div className="marquee-row overflow-hidden">
+              <div className="marquee-left flex gap-4 pl-4" style={{ width: "max-content" }}>
+                {[...REVIEWS_ROW1, ...REVIEWS_ROW1].map((r, i) => (
+                  <div key={i} className="w-72 flex-shrink-0 bg-white border border-gray-100 rounded-2xl shadow-sm p-5 flex flex-col gap-3">
+                    <div className="flex gap-0.5">
+                      {[1,2,3,4,5].map((s) => (
+                        <svg key={s} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
                     </div>
+                    <p className="text-gray-700 text-sm leading-relaxed flex-1">{r.text}</p>
                     <div>
-                      <p className="text-sm font-bold text-gray-900">{t.name}</p>
-                      <p className="text-xs text-gray-500">{t.role}</p>
+                      <p className="text-sm font-bold text-gray-900">{r.name}</p>
+                      <p className="text-xs text-gray-400">Client JSA Expertise</p>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
-            {/* Chiffres clés */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {/* Rangée 2 — vers la droite */}
+            <div className="marquee-row overflow-hidden">
+              <div className="marquee-right flex gap-4 pl-4" style={{ width: "max-content" }}>
+                {[...REVIEWS_ROW2, ...REVIEWS_ROW2].map((r, i) => (
+                  <div key={i} className="w-72 flex-shrink-0 bg-white border border-gray-100 rounded-2xl shadow-sm p-5 flex flex-col gap-3">
+                    <div className="flex gap-0.5">
+                      {[1,2,3,4,5].map((s) => (
+                        <svg key={s} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                    <p className="text-gray-700 text-sm leading-relaxed flex-1">{r.text}</p>
+                    <div>
+                      <p className="text-sm font-bold text-gray-900">{r.name}</p>
+                      <p className="text-xs text-gray-400">Client JSA Expertise</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+
+          {/* Chiffres clés + CTA */}
+          <div className="max-w-7xl mx-auto px-4 md:px-8 pb-16 md:pb-24">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
               {[
                 { chiffre: "150+", label: "clients accompagnés" },
                 { chiffre: "10 ans", label: "d'expérience" },
@@ -328,7 +364,16 @@ export default function Home() {
                 </div>
               ))}
             </div>
-
+            <div className="text-center">
+              <a
+                href="https://g.page/r/CTc5TfiZ6UlwEBM/review"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border-2 border-gray-300 hover:border-turquoise-500 text-gray-700 hover:text-turquoise-500 font-semibold px-6 py-3 rounded-full transition-colors"
+              >
+                Voir tous nos avis Google →
+              </a>
+            </div>
           </div>
         </section>
 

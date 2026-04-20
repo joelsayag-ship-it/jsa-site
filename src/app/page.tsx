@@ -137,7 +137,7 @@ export default function Home() {
                         ))}
                       </div>
                     </div>
-                    <p className="text-xs text-gray-500 mt-0.5">15 avis Google</p>
+                    <p className="text-xs text-gray-500 mt-0.5">28 avis Google</p>
                   </div>
                 </div>
 

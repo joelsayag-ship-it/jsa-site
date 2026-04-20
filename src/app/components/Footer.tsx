@@ -18,7 +18,7 @@ export default function Footer() {
             </div>
             <p className="text-sm leading-relaxed max-w-xs mb-4">
               Cabinet comptable 100% digital pour les freelances, consultants et agences.
-              Basé à Paris, accessible partout en France.
+              Basé à Charenton-le-Pont (94), aux portes de Paris.
             </p>
             <a
               href="mailto:joel.sayag@jsaexpertise.com"

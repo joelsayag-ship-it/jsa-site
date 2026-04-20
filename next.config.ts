@@ -19,6 +19,11 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: true,
       },
+      {
+        source: '/expert-comptable-freelance-paris',
+        destination: '/expert-comptable-freelance-paris-12',
+        permanent: true,
+      },
     ];
   },
 };

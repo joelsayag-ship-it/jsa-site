@@ -166,8 +166,39 @@ export default async function BlogPostPage({ params }: { params: Params }) {
     .filter((p) => p.category === frontmatter.category && p.slug !== slug)
     .slice(0, 3);
 
+  const baseUrl = "https://www.jsaexpertise.com";
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: frontmatter.title,
+    description: frontmatter.description,
+    datePublished: frontmatter.date,
+    dateModified: frontmatter.date,
+    url: `${baseUrl}/blog/${slug}`,
+    image: `${baseUrl}${getArticleImage(frontmatter)}`,
+    author: {
+      "@type": "Person",
+      name: "Joël Sayag",
+      jobTitle: "Expert-comptable",
+      url: baseUrl,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "JSA Expertise",
+      url: baseUrl,
+      logo: {
+        "@type": "ImageObject",
+        url: `${baseUrl}/images/logo.png`,
+      },
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <main className="pt-20">
         {/* ── Image hero ── */}
         <div className="w-full h-56 md:h-72 overflow-hidden bg-[#F1F8EA]">

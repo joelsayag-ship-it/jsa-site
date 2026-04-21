@@ -1,4 +1,20 @@
 import Image from "next/image";
+import Link from "next/link";
+
+const VILLES = [
+  { label: "Charenton-le-Pont", href: "/expert-comptable-freelance-charenton-le-pont" },
+  { label: "Vincennes", href: "/expert-comptable-freelance-vincennes" },
+  { label: "Saint-Mandé", href: "/expert-comptable-freelance-saint-mande" },
+  { label: "Saint-Maurice", href: "/expert-comptable-freelance-saint-maurice" },
+  { label: "Joinville-le-Pont", href: "/expert-comptable-freelance-joinville-le-pont" },
+  { label: "Paris 12e", href: "/expert-comptable-freelance-paris-12" },
+];
+
+const RESSOURCES = [
+  { label: "Expert-comptable freelance", href: "/expert-comptable-freelance" },
+  { label: "Blog", href: "/blog" },
+  { label: "Simulateur URSSAF", href: "/simulateur-charges" },
+];
 
 export default function Footer() {
   return (
@@ -68,6 +84,33 @@ export default function Footer() {
               </svg>
               Joël Sayag sur LinkedIn
             </a>
+          </div>
+        </div>
+
+        <div className="border-t border-gray-800 pt-8 pb-6 grid sm:grid-cols-2 gap-6 text-xs">
+          <div>
+            <p className="text-gray-500 font-semibold uppercase tracking-wide mb-3">Nos villes</p>
+            <ul className="flex flex-wrap gap-x-5 gap-y-2">
+              {VILLES.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="hover:text-turquoise-400 transition-colors">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="text-gray-500 font-semibold uppercase tracking-wide mb-3">Ressources</p>
+            <ul className="flex flex-wrap gap-x-5 gap-y-2">
+              {RESSOURCES.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="hover:text-turquoise-400 transition-colors">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 

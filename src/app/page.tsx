@@ -428,6 +428,7 @@ export default function Home() {
         </section>
 
         {/* ── 5. TARIFS ────────────────────────────────────── */}
+        <div id="offres" />
         <span id="offre" className="block h-0" />
         <section id="tarifs" className="bg-[#F1F8EA]">
           <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24">

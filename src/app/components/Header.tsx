@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const NAV_ITEMS = [
-  { label: "Tarifs", href: "/#tarifs" },
+  { label: "Nos offres", href: "/#tarifs" },
   {
     label: "Ressources",
     children: [

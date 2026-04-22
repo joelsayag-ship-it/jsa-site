@@ -92,7 +92,7 @@ export default function ExpertComptableFreelancePage() {
               </div>
               <div className="flex flex-wrap items-center gap-5 mt-6 text-sm text-gray-500">
                 {[
-                  "28 avis Google 5/5",
+                  "30 avis Google 5/5",
                   "10 ans d'expérience",
                   "Réponse sous 24h",
                 ].map((item) => (

@@ -53,58 +53,66 @@ export default function Home() {
         <section
           className="min-h-screen bg-[#F1F8EA] pt-16 flex items-center"
         >
-          <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-16 items-center w-full">
-            {/* Left */}
-            <div className="space-y-8">
-              <div className="flex flex-wrap gap-2">
-                <Badge><span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />Cabinet spécialisé freelances</Badge>
+          <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24 w-full flex flex-col gap-10">
+
+            {/* Grid hero gauche / droite */}
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              {/* Left */}
+              <div className="space-y-8">
+                <div className="flex flex-wrap gap-2">
+                  <Badge><span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />Cabinet spécialisé freelances</Badge>
+                </div>
+
+                <h1 className="text-3xl md:text-4xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight">
+                  Votre expert&#8209;comptable{" "}
+                  <span className="text-turquoise-500">spécialisé</span>{" "}
+                  pour les{" "}
+                  <TypewriterWord />
+                </h1>
+
+                <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
+                  JSA Expertise est un cabinet comptable 100% digital conçu pour
+                  les freelances et agences. On gère vos chiffres, vous gérez
+                  votre croissance.
+                </p>
+
+                <div className="flex flex-wrap gap-4">
+                  <a
+                    href="#contact"
+                    className="bg-turquoise-500 hover:bg-turquoise-700 text-white font-bold text-lg px-8 py-4 rounded-full transition-colors"
+                  >
+                    Prendre RDV gratuitement
+                  </a>
+                  <a
+                    href="#tarifs"
+                    className="border-2 border-turquoise-500 text-turquoise-500 hover:bg-turquoise-50 font-bold text-lg px-8 py-4 rounded-full transition-colors"
+                  >
+                    Découvrir l&apos;offre
+                  </a>
+                </div>
               </div>
 
-              <h1 className="text-3xl md:text-4xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight">
-                Votre expert&#8209;comptable{" "}
-                <span className="text-turquoise-500">spécialisé</span>{" "}
-                pour les{" "}
-                <TypewriterWord />
-              </h1>
-
-              <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
-                JSA Expertise est un cabinet comptable 100% digital conçu pour
-                les freelances et agences. On gère vos chiffres, vous gérez
-                votre croissance.
-              </p>
-
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="#contact"
-                  className="bg-turquoise-500 hover:bg-turquoise-700 text-white font-bold text-lg px-8 py-4 rounded-full transition-colors"
-                >
-                  Prendre RDV gratuitement
-                </a>
-                <a
-                  href="#tarifs"
-                  className="border-2 border-turquoise-500 text-turquoise-500 hover:bg-turquoise-50 font-bold text-lg px-8 py-4 rounded-full transition-colors"
-                >
-                  Découvrir l&apos;offre
-                </a>
+              {/* Right — dashboard with bounce */}
+              <div className="flex justify-center md:justify-end">
+                <div className="animate-bounce-soft relative w-full">
+                  <div className="absolute -inset-6 bg-turquoise-500/10 rounded-3xl blur-2xl" />
+                  <Image
+                    src="/images/tiime-dashboard.png"
+                    alt="Tableau de bord Tiime"
+                    width={700}
+                    height={490}
+                    priority
+                    className="relative rounded-2xl shadow-2xl w-full"
+                  />
+                </div>
               </div>
+            </div>
 
+            {/* Social proof — pleine largeur, centré */}
+            <div className="w-full mx-auto" style={{ maxWidth: 680 }}>
               <SocialProof />
             </div>
 
-            {/* Right — dashboard with bounce */}
-            <div className="flex justify-center md:justify-end">
-              <div className="animate-bounce-soft relative w-full">
-                <div className="absolute -inset-6 bg-turquoise-500/10 rounded-3xl blur-2xl" />
-                <Image
-                  src="/images/tiime-dashboard.png"
-                  alt="Tableau de bord Tiime"
-                  width={700}
-                  height={490}
-                  priority
-                  className="relative rounded-2xl shadow-2xl w-full"
-                />
-              </div>
-            </div>
           </div>
         </section>
 

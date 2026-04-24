@@ -122,22 +122,21 @@ body {
 }
 
 @media (max-width: 640px) {
-  .sp-bar    { padding: 16px 18px; }
+  .sp-hide-mobile { display: none; }
+  .sp-bar    { padding: 16px 20px; }
   .sp-item   { gap: 8px; }
   .sp-sep    { margin: 0 12px; }
   .sp-icon   { width: 34px; height: 34px; border-radius: 8px; }
   .sp-title  { font-size: 16px; }
-  .sp-label  { font-size: 10px; }
   .sp-oec-img { height: 32px; }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 400px) {
   .sp-bar    { padding: 14px 14px; }
   .sp-sep    { margin: 0 8px; }
   .sp-item   { gap: 6px; }
   .sp-icon   { width: 28px; height: 28px; }
   .sp-title  { font-size: 14px; }
-  .sp-label  { font-size: 9px; }
   .sp-oec-img { height: 26px; }
 }
 

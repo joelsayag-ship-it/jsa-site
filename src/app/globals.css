@@ -125,38 +125,9 @@ body {
   object-fit: contain;
 }
 
-/* Étape 1 (barre < 620px) : masque le label "entrepreneurs accompagnés",
-   réduit légèrement les tailles */
-@container spbar (max-width: 620px) {
-  .sp-hide-small  { display: none; }
-  .sp-bar         { padding: 18px 24px; }
-  .sp-sep         { margin: 0 16px; }
-  .sp-item        { gap: 9px; }
-  .sp-icon        { width: 36px; height: 36px; }
-  .sp-title       { font-size: 18px; }
-  .sp-oec-img     { height: 36px; }
-}
-
-/* Étape 2 (barre < 430px) : masque aussi les étoiles,
-   réduit encore */
-@container spbar (max-width: 430px) {
-  .sp-hide-smaller { display: none; }
-  .sp-bar          { padding: 16px 16px; }
-  .sp-sep          { margin: 0 10px; }
-  .sp-item         { gap: 7px; }
-  .sp-icon         { width: 30px; height: 30px; border-radius: 8px; }
-  .sp-title        { font-size: 16px; }
-  .sp-oec-img      { height: 28px; }
-}
-
-/* Étape 3 (barre < 340px) : taille minimale */
-@container spbar (max-width: 340px) {
-  .sp-bar          { padding: 14px 12px; }
-  .sp-sep          { margin: 0 6px; }
-  .sp-item         { gap: 5px; }
-  .sp-icon         { width: 26px; height: 26px; border-radius: 6px; }
-  .sp-title        { font-size: 14px; }
-  .sp-oec-img      { height: 24px; }
+/* < 800px : masque labels et étoiles, garde icônes + chiffres + logo */
+@container spbar (max-width: 800px) {
+  .sp-hide-small { display: none; }
 }
 
 /* ── Typewriter hero ─────────────────────────────────────── */

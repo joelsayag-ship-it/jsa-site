@@ -108,10 +108,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Social proof — pleine largeur, centré */}
-            <div className="w-full mx-auto" style={{ maxWidth: 680 }}>
-              <SocialProof />
-            </div>
+            {/* Social proof — pleine largeur */}
+            <SocialProof />
 
           </div>
         </section>

@@ -64,12 +64,12 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
   background: white;
   border-radius: 16px;
   border: 0.5px solid rgba(0, 182, 222, 0.15);
-  padding: 20px 28px;
+  padding: 20px 40px;
   gap: 0;
 }
 
@@ -116,7 +116,7 @@ body {
 }
 
 .sp-oec-img {
-  height: 44px;
+  height: 40px;
   width: auto;
   object-fit: contain;
 }

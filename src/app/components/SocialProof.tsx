@@ -39,12 +39,12 @@ export default function SocialProof() {
   return (
     <div
       ref={ref}
-      className="w-full flex flex-col sm:flex-row sm:items-center sm:justify-between bg-white"
+      className="w-full flex flex-col sm:flex-row sm:flex-wrap sm:items-center sm:justify-between bg-white"
       style={{ borderRadius: 16, border: '0.5px solid rgba(0,182,222,0.15)', padding: '20px 28px' }}
     >
       {/* ── 1. Compteur ── */}
       <div
-        className="flex items-center gap-3 py-3 sm:py-0 border-b sm:border-b-0"
+        className="flex items-center gap-3 py-3 sm:py-0 border-b sm:border-b-0 shrink-0"
         style={{ borderColor: 'rgba(0,0,0,0.08)' }}
       >
         <div
@@ -71,7 +71,7 @@ export default function SocialProof() {
 
       {/* ── 2. Google ── */}
       <div
-        className="flex items-center gap-3 py-3 sm:py-0 border-b sm:border-b-0"
+        className="flex items-center gap-3 py-3 sm:py-0 border-b sm:border-b-0 shrink-0"
         style={{ borderColor: 'rgba(0,0,0,0.08)' }}
       >
         <div
@@ -107,7 +107,7 @@ export default function SocialProof() {
       />
 
       {/* ── 3. Logo OEC ── */}
-      <div className="flex items-center pt-3 sm:pt-0">
+      <div className="flex items-center pt-3 sm:pt-0 shrink-0">
         <Image
           src="/images/logo ordre carré.png"
           alt="Inscrit à l'Ordre des Experts-Comptables"

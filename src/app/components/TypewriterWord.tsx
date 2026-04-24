@@ -7,7 +7,6 @@ const WORDS = [
   'consultants',
   'agences',
   'indépendants',
-  'professions libérales',
 ];
 
 const TYPING_SPEED  = 60;
@@ -75,7 +74,7 @@ export default function TypewriterWord() {
   return (
     <span className="tw-word">
       {/* Ghost: reserves space of the longest word at all times */}
-      <span className="tw-ghost" aria-hidden="true">professions libérales</span>
+      <span className="tw-ghost" aria-hidden="true">indépendants</span>
       {/* Animated text stacked on top via inline-grid */}
       <span className="tw-live">
         <span ref={textRef} className="tw-text" />

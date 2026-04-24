@@ -55,3 +55,39 @@ body {
 .animate-bounce-soft {
   animation: bounce-soft 3s ease-in-out infinite;
 }
+
+/* ── Typewriter hero ─────────────────────────────────────── */
+.tw-word {
+  position: relative;
+  display: inline-block;
+}
+
+.tw-word .tw-text {
+  color: #1D9E75;
+}
+
+.tw-word .tw-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.85em;
+  background: #1D9E75;
+  vertical-align: baseline;
+  margin-left: 2px;
+  animation: tw-blink 0.65s step-end infinite;
+}
+
+@keyframes tw-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.tw-word .tw-underline {
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  height: 4px;
+  background: #1D9E75;
+  border-radius: 2px;
+  width: 0;
+  transition: width 0.25s ease;
+}

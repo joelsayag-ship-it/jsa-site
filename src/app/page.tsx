@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import FAQ from "./components/FAQ";
+import TypewriterWord from "./components/TypewriterWord";
 import { FAQS } from "./components/faq-data";
 import Footer from "./components/Footer";
 import ContactSection from "./components/ContactSection";
@@ -62,23 +63,7 @@ export default function Home() {
                 Votre expert&#8209;comptable{" "}
                 <span className="text-turquoise-500">spécialisé</span>{" "}
                 pour les{" "}
-                <span className="relative inline-block">
-                  freelances
-                  <svg
-                    viewBox="0 0 200 12"
-                    className="absolute -bottom-2 left-0 w-full"
-                    preserveAspectRatio="none"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M2 8 C50 2, 100 11, 150 5 C170 2, 185 8, 198 6"
-                      stroke="#00B6DE"
-                      strokeWidth="3.5"
-                      fill="none"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </span>
+                <TypewriterWord />
               </h1>
 
               <p className="text-xl text-gray-600 leading-relaxed max-w-lg">

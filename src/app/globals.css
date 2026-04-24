@@ -57,9 +57,15 @@ body {
 }
 
 /* ── Social Proof bar ───────────────────────────────────────
-   Toujours en ligne horizontale à toutes les tailles d'écran.
-   flex-shrink:1 + min-width:0 permettent la compression propre.
+   Container queries sur .sp-wrapper : s'adapte à la largeur
+   réelle de la barre, pas au viewport.
    ─────────────────────────────────────────────────────────── */
+.sp-wrapper {
+  container-type: inline-size;
+  container-name: spbar;
+  width: 100%;
+}
+
 .sp-bar {
   display: flex;
   flex-direction: row;
@@ -70,10 +76,8 @@ body {
   border-radius: 16px;
   border: 0.5px solid rgba(0, 182, 222, 0.15);
   padding: 20px 40px;
-  gap: 0;
 }
 
-/* Chaque item prend la largeur de son contenu (pas forced-equal) */
 .sp-item {
   display: flex;
   align-items: center;
@@ -121,23 +125,38 @@ body {
   object-fit: contain;
 }
 
-@media (max-width: 640px) {
-  .sp-hide-mobile { display: none; }
-  .sp-bar    { padding: 16px 20px; }
-  .sp-item   { gap: 8px; }
-  .sp-sep    { margin: 0 12px; }
-  .sp-icon   { width: 34px; height: 34px; border-radius: 8px; }
-  .sp-title  { font-size: 16px; }
-  .sp-oec-img { height: 32px; }
+/* Étape 1 (barre < 620px) : masque le label "entrepreneurs accompagnés",
+   réduit légèrement les tailles */
+@container spbar (max-width: 620px) {
+  .sp-hide-small  { display: none; }
+  .sp-bar         { padding: 18px 24px; }
+  .sp-sep         { margin: 0 16px; }
+  .sp-item        { gap: 9px; }
+  .sp-icon        { width: 36px; height: 36px; }
+  .sp-title       { font-size: 18px; }
+  .sp-oec-img     { height: 36px; }
 }
 
-@media (max-width: 400px) {
-  .sp-bar    { padding: 14px 14px; }
-  .sp-sep    { margin: 0 8px; }
-  .sp-item   { gap: 6px; }
-  .sp-icon   { width: 28px; height: 28px; }
-  .sp-title  { font-size: 14px; }
-  .sp-oec-img { height: 26px; }
+/* Étape 2 (barre < 430px) : masque aussi les étoiles,
+   réduit encore */
+@container spbar (max-width: 430px) {
+  .sp-hide-smaller { display: none; }
+  .sp-bar          { padding: 16px 16px; }
+  .sp-sep          { margin: 0 10px; }
+  .sp-item         { gap: 7px; }
+  .sp-icon         { width: 30px; height: 30px; border-radius: 8px; }
+  .sp-title        { font-size: 16px; }
+  .sp-oec-img      { height: 28px; }
+}
+
+/* Étape 3 (barre < 340px) : taille minimale */
+@container spbar (max-width: 340px) {
+  .sp-bar          { padding: 14px 12px; }
+  .sp-sep          { margin: 0 6px; }
+  .sp-item         { gap: 5px; }
+  .sp-icon         { width: 26px; height: 26px; border-radius: 6px; }
+  .sp-title        { font-size: 14px; }
+  .sp-oec-img      { height: 24px; }
 }
 
 /* ── Typewriter hero ─────────────────────────────────────── */

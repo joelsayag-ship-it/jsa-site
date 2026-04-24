@@ -17,38 +17,21 @@ const PAUSE_BEFORE  = 350;
 
 export default function TypewriterWord() {
   const textRef = useRef<HTMLSpanElement>(null);
-  const lineRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const textEl = textRef.current;
-    const lineEl = lineRef.current;
-    if (!textEl || !lineEl) return;
+    if (!textEl) return;
 
     let cancelled = false;
     let wordIndex = 0;
-    const canvas = document.createElement('canvas');
-    // Safe non-null refs — already guarded by the early return above
-    const text = textEl as HTMLSpanElement;
-    const line = lineEl as HTMLSpanElement;
-
-    function getTextWidth(str: string): number {
-      const ctx = canvas.getContext('2d')!;
-      const parent = text.parentElement?.parentElement;
-      if (parent) {
-        const style = window.getComputedStyle(parent);
-        ctx.font = `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
-      }
-      return ctx.measureText(str).width;
-    }
+    const text = textEl;
 
     function typeWord(word: string, callback: () => void) {
       let i = 0;
       function next() {
         if (cancelled) return;
         if (i <= word.length) {
-          const partial = word.slice(0, i);
-          text.textContent = partial;
-          line.style.width = (i > 0 ? getTextWidth(partial) : 0) + 'px';
+          text.textContent = word.slice(0, i);
           i++;
           setTimeout(next, TYPING_SPEED + Math.random() * 25);
         } else {
@@ -63,9 +46,7 @@ export default function TypewriterWord() {
       function next() {
         if (cancelled) return;
         if (i >= 0) {
-          const partial = word.slice(0, i);
-          text.textContent = partial;
-          line.style.width = (i > 0 ? getTextWidth(partial) : 0) + 'px';
+          text.textContent = word.slice(0, i);
           i--;
           setTimeout(next, ERASING_SPEED);
         } else {
@@ -95,7 +76,6 @@ export default function TypewriterWord() {
     <span className="tw-word">
       <span ref={textRef} className="tw-text" />
       <span className="tw-cursor" />
-      <span ref={lineRef} className="tw-underline" />
     </span>
   );
 }

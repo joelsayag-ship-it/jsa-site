@@ -58,8 +58,26 @@ body {
 
 /* ── Typewriter hero ─────────────────────────────────────── */
 .tw-word {
+  display: inline-grid; /* stacks ghost + live in same cell */
   position: relative;
-  display: inline-block;
+  vertical-align: top;
+}
+
+/* Ghost and live occupy the same grid cell — ghost sets the dimensions */
+.tw-word .tw-ghost,
+.tw-word .tw-live {
+  grid-area: 1 / 1;
+}
+
+.tw-word .tw-ghost {
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.tw-word .tw-live {
+  display: flex;
+  align-items: baseline;
 }
 
 .tw-word .tw-text {

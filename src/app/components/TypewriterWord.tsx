@@ -74,8 +74,13 @@ export default function TypewriterWord() {
 
   return (
     <span className="tw-word">
-      <span ref={textRef} className="tw-text" />
-      <span className="tw-cursor" />
+      {/* Ghost: reserves space of the longest word at all times */}
+      <span className="tw-ghost" aria-hidden="true">professions libérales</span>
+      {/* Animated text stacked on top via inline-grid */}
+      <span className="tw-live">
+        <span ref={textRef} className="tw-text" />
+        <span className="tw-cursor" />
+      </span>
     </span>
   );
 }

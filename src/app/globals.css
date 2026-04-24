@@ -125,9 +125,14 @@ body {
   object-fit: contain;
 }
 
-/* < 800px : masque labels et étoiles, garde icônes + chiffres + logo */
+/* < 800px : masque "entrepreneurs accompagnés" et "30 avis Google" */
 @container spbar (max-width: 800px) {
   .sp-hide-small { display: none; }
+}
+
+/* < 600px : masque aussi les étoiles */
+@container spbar (max-width: 600px) {
+  .sp-hide-stars { display: none; }
 }
 
 /* ── Typewriter hero ─────────────────────────────────────── */

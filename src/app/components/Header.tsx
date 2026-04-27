@@ -15,6 +15,11 @@ const NAV_ITEMS = [
         desc: "Conseils comptabilité & fiscalité pour freelances",
       },
       {
+        label: "Simulateur Impôt sur le Revenu 2026",
+        href: "/simulateur-impot-revenu",
+        desc: "Estimez votre IR sur les revenus 2025",
+      },
+      {
         label: "Simulateur URSSAF",
         href: "/simulateur-charges",
         desc: "Estimez vos charges en quelques clics",

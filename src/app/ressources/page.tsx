@@ -13,6 +13,18 @@ export const metadata: Metadata = {
 
 const TOOLS = [
   {
+    href: "/simulateur-impot-revenu",
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 7h6m-6 4h6m-6 4h4m4 6H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z" />
+      </svg>
+    ),
+    title: "Simulateur Impôt sur le Revenu 2026",
+    description:
+      "Estimez votre IR sur les revenus 2025 : barème, parts fiscales, abattements micro et crédits d&apos;impôt.",
+    badge: "Nouveau",
+  },
+  {
     href: "/ressources/simulateur-indemnites-kilometriques",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
@@ -22,7 +34,7 @@ const TOOLS = [
     title: "Simulateur Indemnités Kilométriques",
     description:
       "Calculez vos IK 2026 selon le barème officiel. Voiture, moto, cyclomoteur, avec majoration électrique.",
-    badge: "Nouveau",
+    badge: null,
   },
   {
     href: "/simulateur-charges",

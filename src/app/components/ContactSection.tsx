@@ -54,6 +54,10 @@ export default function ContactSection({ className }: { className?: string }) {
       const data = await res.json().catch(() => ({}));
       console.log("[JSA Contact] Réponse API", data);
       setStatus("success");
+      (window as Window & { gtag?: (...args: unknown[]) => void }).gtag?.("event", "form_submit", {
+        event_category: "contact",
+        event_label: "formulaire_contact_principal",
+      });
     } catch (err) {
       console.error("[JSA Contact] Exception fetch", err);
       setStatus("error");

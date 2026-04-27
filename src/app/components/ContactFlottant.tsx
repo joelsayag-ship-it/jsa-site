@@ -41,6 +41,10 @@ export default function ContactFlottant() {
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setStatus("success");
+      (window as Window & { gtag?: (...args: unknown[]) => void }).gtag?.("event", "form_submit", {
+        event_category: "contact",
+        event_label: "formulaire_contact_principal",
+      });
     } catch {
       setStatus("error");
     }

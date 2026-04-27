@@ -43,7 +43,7 @@ export default function PageSimulateurIK() {
             </h1>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-3">
               Estimez le montant de vos indemnités kilométriques selon le barème officiel
-              de l&apos;administration fiscale — voiture, moto, cyclomoteur et véhicule électrique.
+              de l&apos;administration fiscale : voiture, moto, cyclomoteur et véhicule électrique.
             </p>
             <p className="text-xs text-gray-500">
               Source :{" "}
@@ -55,7 +55,7 @@ export default function PageSimulateurIK() {
               >
                 service-public.gouv.fr
               </a>{" "}
-              — Barème inchangé depuis 2023
+              · Barème inchangé depuis 2023
             </p>
           </div>
         </section>

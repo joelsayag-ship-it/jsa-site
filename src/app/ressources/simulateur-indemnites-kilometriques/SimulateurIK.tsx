@@ -325,7 +325,7 @@ export default function SimulateurIK() {
             <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-turquoise-500 mt-2" />
             <div>
               <p className="font-semibold text-gray-900">Qui est concerné ?</p>
-              <p className="text-gray-600 mt-0.5">Les salariés et les titulaires de BNC (hors micro-BNC) qui optent pour la déduction des frais réels au lieu de la déduction forfaitaire de 10 %.</p>
+              <p className="text-gray-600 mt-0.5">Les salariés et les titulaires de BNC (hors micro-BNC) qui optent pour la déduction des frais réels au lieu de la déduction forfaitaire de 10 %. Les dirigeants d&apos;entreprise (gérant, président de SASU) peuvent également déduire leurs frais kilométriques professionnels en note de frais remboursée par leur société.</p>
             </div>
           </div>
           <div className="flex gap-3">

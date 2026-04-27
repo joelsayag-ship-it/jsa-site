@@ -21,7 +21,7 @@ const TOOLS = [
     ),
     title: "Simulateur Indemnités Kilométriques",
     description:
-      "Calculez vos IK 2026 selon le barème officiel. Voiture, moto, cyclomoteur — avec majoration électrique.",
+      "Calculez vos IK 2026 selon le barème officiel. Voiture, moto, cyclomoteur, avec majoration électrique.",
     badge: "Nouveau",
   },
   {
@@ -33,7 +33,7 @@ const TOOLS = [
     ),
     title: "Simulateur URSSAF",
     description:
-      "Estimez vos cotisations sociales en tant que dirigeant de SASU ou gérant d&apos;EURL. Powered by mon-entreprise.urssaf.fr.",
+      "Estimez vos cotisations sociales en tant que dirigeant de SASU ou gérant d&apos;EURL.",
     badge: null,
   },
 ];
@@ -117,7 +117,7 @@ export default function PageRessources() {
               </div>
               <div className="flex-1">
                 <h3 className="font-extrabold text-gray-900 mb-1 group-hover:text-turquoise-700 transition-colors">
-                  Blog — Actualités comptables
+                  Blog · Actualités comptables
                 </h3>
                 <p className="text-sm text-gray-500">
                   Conseils fiscalité, comptabilité et gestion pour les freelances et indépendants.

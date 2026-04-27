@@ -14,6 +14,7 @@ const RESSOURCES = [
   { label: "Expert-comptable freelance", href: "/expert-comptable-freelance" },
   { label: "Blog", href: "/blog" },
   { label: "Simulateur URSSAF", href: "/simulateur-charges" },
+  { label: "Simulateur IK 2026", href: "/ressources/simulateur-indemnites-kilometriques" },
 ];
 
 export default function Footer() {

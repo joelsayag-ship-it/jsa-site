@@ -19,6 +19,11 @@ const NAV_ITEMS = [
         href: "/simulateur-charges",
         desc: "Estimez vos charges en quelques clics",
       },
+      {
+        label: "Simulateur Indemnités Kilométriques",
+        href: "/ressources/simulateur-indemnites-kilometriques",
+        desc: "Calculez vos IK 2026 selon le barème officiel",
+      },
     ] as const,
   },
   { label: "Qui sommes-nous ?", href: "/qui-sommes-nous" },

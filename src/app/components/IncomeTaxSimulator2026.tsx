@@ -4,50 +4,32 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import {
   calculateNetTax,
+  MAX_ENFANTS,
   type Situation,
+  type SituationParticuliere,
   type TaxInputs,
 } from "../../lib/tax2026";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Types & valeurs initiales
+// Valeurs initiales
 // ─────────────────────────────────────────────────────────────────────────────
 
 const INITIAL_INPUTS: TaxInputs = {
   situation: "celibataire",
   nbEnfants: 0,
-  parentIsole: false,
+  enfantsAlternes: 0,
+  situationParticuliere: "aucune",
 
-  salairesDeclarant: 0,
-  salairesConjoint: 0,
-  salairesPreAbatus: false,
-
-  remDirigeantAssimile: 0,
-  remDirigeantAssimilePreAbatus: false,
-
-  remDirigeantTNS: 0,
-  bncProfessionnel: 0,
-  bicProfessionnel: 0,
-
-  microBNC: 0,
-  microBICServices: 0,
-  microBICVentes: 0,
-  versementLiberatoire: false,
+  revenus: 0,
+  revenusConjoint: 0,
 
   revenusFonciers: 0,
-  resultatLMNP: 0,
-  pensionsRetraites: 0,
-  autresRevenus: 0,
+  bicBncAutres: 0,
 
-  pensionAlimentaire: 0,
-  versementsPER: 0,
-  csgDeductible: 0,
-  autresCharges: 0,
+  chargesDeductibles: 0,
 
-  emploiADomicile: 0,
-  fraisGardeEnfants: 0,
   donsAssociations: 0,
-  donsAideEnDifficulte: false,
-  autresReductions: 0,
+  gardeEnfantsMoins6: 0,
 
   appliquerDecote: true,
 };
@@ -169,34 +151,39 @@ function NumberField({
   );
 }
 
-function ToggleField({
-  label,
-  checked,
-  onChange,
-  hint,
-}: {
+interface SelectFieldProps<T extends string> {
   label: string;
-  checked: boolean;
-  onChange: (b: boolean) => void;
-  hint?: string;
-}) {
+  value: T;
+  onChange: (v: T) => void;
+  options: { value: T; label: string }[];
+  tooltip?: string;
+}
+
+function SelectField<T extends string>({
+  label,
+  value,
+  onChange,
+  options,
+  tooltip,
+}: SelectFieldProps<T>) {
   return (
-    <label className="flex items-start gap-3 cursor-pointer select-none">
-      <span className="relative inline-flex items-center mt-0.5">
-        <input
-          type="checkbox"
-          checked={checked}
-          onChange={(e) => onChange(e.target.checked)}
-          className="peer sr-only"
-        />
-        <span className="w-10 h-6 rounded-full bg-gray-300 peer-checked:bg-turquoise-500 transition-colors" />
-        <span className="absolute left-0.5 top-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform peer-checked:translate-x-4" />
-      </span>
-      <span>
-        <span className="block text-sm font-medium text-gray-800">{label}</span>
-        {hint && <span className="block text-xs text-gray-500">{hint}</span>}
-      </span>
-    </label>
+    <div>
+      <label className="block text-sm font-medium text-gray-700">
+        {label}
+        {tooltip && <Tooltip text={tooltip} />}
+      </label>
+      <select
+        value={value}
+        onChange={(e) => onChange(e.target.value as T)}
+        className="mt-1 w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-turquoise-500 focus:border-turquoise-500"
+      >
+        {options.map((o) => (
+          <option key={o.value} value={o.value}>
+            {o.label}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 }
 
@@ -226,11 +213,16 @@ export default function IncomeTaxSimulator2026({
 
   const reset = () => setInputs(INITIAL_INPUTS);
 
-  const isMarried = inputs.situation === "marie_pacse";
-  const microSaisi =
-    inputs.microBNC > 0 ||
-    inputs.microBICServices > 0 ||
-    inputs.microBICVentes > 0;
+  const isCouple = inputs.situation === "marie_pacse";
+  const enfantsOptions = Array.from({ length: MAX_ENFANTS + 1 }, (_, i) => ({
+    value: String(i),
+    label: i === 0 ? "Aucun enfant" : i === 1 ? "1 enfant" : `${i} enfants`,
+  }));
+  const alternesMax = inputs.nbEnfants;
+  const alternesOptions = Array.from({ length: alternesMax + 1 }, (_, i) => ({
+    value: String(i),
+    label: i === 0 ? "Aucun" : `${i}`,
+  }));
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -239,216 +231,106 @@ export default function IncomeTaxSimulator2026({
         {/* 1. Situation familiale */}
         <Card
           title="Situation familiale"
-          subtitle="Sert à déterminer le nombre de parts fiscales du foyer."
+          subtitle="Détermine le nombre de parts fiscales du foyer."
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Situation
-              </label>
-              <select
-                value={inputs.situation}
-                onChange={(e) =>
-                  update("situation", e.target.value as Situation)
-                }
-                className="mt-1 w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-turquoise-500 focus:border-turquoise-500"
-              >
-                <option value="celibataire">Célibataire</option>
-                <option value="marie_pacse">Marié(e) / PACSÉ(e)</option>
-                <option value="veuf">Veuf / Veuve</option>
-                <option value="divorce_separe">Divorcé(e) / Séparé(e)</option>
-              </select>
-            </div>
+            <SelectField<Situation>
+              label="Situation"
+              value={inputs.situation}
+              onChange={(v) => update("situation", v)}
+              options={[
+                { value: "celibataire", label: "Célibataire" },
+                { value: "marie_pacse", label: "Marié(e) / PACSÉ(e)" },
+                { value: "veuf", label: "Veuf / Veuve" },
+                { value: "divorce_separe", label: "Divorcé(e) / Séparé(e)" },
+              ]}
+            />
 
-            <NumberField
+            <SelectField
               label="Nombre d'enfants à charge"
-              value={inputs.nbEnfants}
-              onChange={(n) => update("nbEnfants", Math.floor(n))}
-              suffix=""
-              step={1}
-              tooltip="Enfants mineurs ou majeurs rattachés. La garde alternée détaillée n'est pas gérée dans cette version."
+              value={String(inputs.nbEnfants)}
+              onChange={(v) => {
+                const n = Number(v);
+                update("nbEnfants", n);
+                if (inputs.enfantsAlternes > n) update("enfantsAlternes", n);
+              }}
+              options={enfantsOptions}
             />
           </div>
 
-          {(inputs.situation === "celibataire" ||
-            inputs.situation === "divorce_separe") &&
-            inputs.nbEnfants > 0 && (
-              <div className="pt-2">
-                <ToggleField
-                  label="Parent isolé (case T)"
-                  checked={inputs.parentIsole}
-                  onChange={(b) => update("parentIsole", b)}
-                  hint="Vous élevez seul(e) vos enfants, sans concubin ni partenaire."
-                />
-                {inputs.parentIsole && (
-                  <p className="mt-2 text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-md px-3 py-2">
-                    Majoration parent isolé appliquée de manière simplifiée.
-                    Certains cas particuliers (enfants alternés, situation
-                    intervenue en cours d'année) ne sont pas couverts.
-                  </p>
-                )}
-              </div>
-            )}
+          {inputs.nbEnfants > 0 && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <SelectField<SituationParticuliere>
+                label="Situation particulière"
+                value={inputs.situationParticuliere}
+                onChange={(v) => update("situationParticuliere", v)}
+                options={[
+                  { value: "aucune", label: "Pas de situation particulière" },
+                  { value: "parent_isole", label: "Parent isolé (case T)" },
+                  { value: "invalide", label: "Invalide (case P)" },
+                ]}
+                tooltip="Parent isolé : vous élevez seul(e) vos enfants. Invalide : titulaire d'une carte d'invalidité d'au moins 80 %."
+              />
+
+              <SelectField
+                label="Dont enfants en garde alternée"
+                value={String(inputs.enfantsAlternes)}
+                onChange={(v) => update("enfantsAlternes", Number(v))}
+                options={alternesOptions}
+                tooltip="Enfants en résidence alternée : ils comptent pour la moitié d'une part fiscale."
+              />
+            </div>
+          )}
+
+          {inputs.nbEnfants === 0 && (
+            <SelectField<SituationParticuliere>
+              label="Situation particulière"
+              value={inputs.situationParticuliere}
+              onChange={(v) => update("situationParticuliere", v)}
+              options={[
+                { value: "aucune", label: "Pas de situation particulière" },
+                { value: "invalide", label: "Invalide (case P)" },
+              ]}
+              tooltip="Invalide : titulaire d'une carte d'invalidité d'au moins 80 %."
+            />
+          )}
 
           <div className="flex flex-wrap gap-2 pt-1">
             <Pill>{result.parts.toLocaleString("fr-FR")} part(s) fiscales</Pill>
           </div>
         </Card>
 
-        {/* 2. Revenus du foyer */}
+        {/* 2. Revenus */}
         <Card
-          title="Revenus du foyer"
-          subtitle="Saisissez les montants annuels en euros."
+          title="Revenus"
+          subtitle="Montants annuels nets imposables (l'abattement de 10 % est appliqué automatiquement sur les revenus)."
         >
-          {/* Salaires */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <NumberField
-              label="Salaires nets imposables — déclarant"
-              value={inputs.salairesDeclarant}
-              onChange={(n) => update("salairesDeclarant", n)}
-              tooltip="Net imposable annuel figurant sur votre fiche de paie de décembre ou cumul annuel."
+              label={isCouple ? "Revenus du déclarant" : "Revenus"}
+              value={inputs.revenus}
+              onChange={(n) => update("revenus", n)}
+              tooltip="Salaires, rémunération de dirigeant, pensions et retraites — net imposable annuel."
             />
-            {isMarried && (
+            {isCouple && (
               <NumberField
-                label="Salaires nets imposables — conjoint"
-                value={inputs.salairesConjoint}
-                onChange={(n) => update("salairesConjoint", n)}
+                label="Revenus du conjoint"
+                value={inputs.revenusConjoint}
+                onChange={(n) => update("revenusConjoint", n)}
+                tooltip="Salaires, rémunération de dirigeant, pensions et retraites du conjoint."
               />
             )}
-          </div>
-
-          <ToggleField
-            label="Je saisis déjà un montant après abattement de 10 %"
-            checked={inputs.salairesPreAbatus}
-            onChange={(b) => update("salairesPreAbatus", b)}
-            hint="Par défaut, l'abattement forfaitaire de 10 % est appliqué automatiquement aux salaires."
-          />
-
-          <hr className="border-gray-100" />
-
-          {/* Dirigeants */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <NumberField
-              label="Rémunération dirigeant assimilé salarié (SASU, SAS)"
-              value={inputs.remDirigeantAssimile}
-              onChange={(n) => update("remDirigeantAssimile", n)}
-              tooltip="Net imposable du président de SASU/SAS. Traité comme un salaire pour l'IR."
-            />
-            <NumberField
-              label="Rémunération gérant majoritaire / TNS (EURL, SARL)"
-              value={inputs.remDirigeantTNS}
-              onChange={(n) => update("remDirigeantTNS", n)}
-              tooltip="Montant net imposable, après cotisations sociales et CSG déductible (saisi tel qu'apparaissant sur l'avis fiscal)."
-            />
-          </div>
-
-          {inputs.remDirigeantAssimile > 0 && (
-            <ToggleField
-              label="Je saisis déjà ma rémunération SASU après abattement de 10 %"
-              checked={inputs.remDirigeantAssimilePreAbatus}
-              onChange={(b) => update("remDirigeantAssimilePreAbatus", b)}
-            />
-          )}
-
-          <hr className="border-gray-100" />
-
-          {/* BNC / BIC professionnels */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <NumberField
-              label="BNC professionnel (régime réel)"
-              value={inputs.bncProfessionnel}
-              onChange={(n) => update("bncProfessionnel", n)}
-              tooltip="Bénéfice net imposable d'une activité libérale au régime réel (déclaration contrôlée)."
-            />
-            <NumberField
-              label="BIC professionnel (régime réel)"
-              value={inputs.bicProfessionnel}
-              onChange={(n) => update("bicProfessionnel", n)}
-              tooltip="Bénéfice net imposable d'une activité commerciale ou artisanale au réel."
-            />
-          </div>
-
-          <hr className="border-gray-100" />
-
-          {/* Micro */}
-          <div>
-            <h3 className="text-sm font-semibold text-gray-800 mb-2">
-              Micro-entreprise
-              <Tooltip text="En micro-entreprise, l'impôt est calculé sur le chiffre d'affaires après abattement forfaitaire fiscal, et non sur le bénéfice réel." />
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <NumberField
-                label="CA Micro-BNC"
-                value={inputs.microBNC}
-                onChange={(n) => update("microBNC", n)}
-                hint="Abattement 34 %"
-                tooltip="Activités libérales en micro-BNC. Abattement forfaitaire de 34 % avec un minimum de 305 €."
-              />
-              <NumberField
-                label="CA Micro-BIC services"
-                value={inputs.microBICServices}
-                onChange={(n) => update("microBICServices", n)}
-                hint="Abattement 50 %"
-                tooltip="Prestations de services BIC en micro-entreprise. Abattement forfaitaire de 50 %."
-              />
-              <NumberField
-                label="CA Micro-BIC ventes"
-                value={inputs.microBICVentes}
-                onChange={(n) => update("microBICVentes", n)}
-                hint="Abattement 71 %"
-                tooltip="Ventes de marchandises et fourniture de logement. Abattement forfaitaire de 71 %."
-              />
-            </div>
-            {microSaisi && (
-              <div className="mt-3">
-                <ToggleField
-                  label="Versement libératoire de l'IR déjà payé sur ce CA"
-                  checked={inputs.versementLiberatoire}
-                  onChange={(b) => update("versementLiberatoire", b)}
-                />
-                {inputs.versementLiberatoire && (
-                  <p className="mt-2 text-xs text-blue-800 bg-blue-50 border border-blue-200 rounded-md px-3 py-2">
-                    Les revenus soumis au versement libératoire sont traités à
-                    part. Le simulateur ne recalcule pas le montant déjà payé.
-                  </p>
-                )}
-                {!inputs.versementLiberatoire && result.microImposable > 0 && (
-                  <p className="mt-2 text-xs text-gray-600">
-                    Revenu micro imposable calculé :{" "}
-                    <strong>{formatEuros(result.microImposable)}</strong>
-                  </p>
-                )}
-              </div>
-            )}
-          </div>
-
-          <hr className="border-gray-100" />
-
-          {/* Autres revenus */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <NumberField
-              label="Revenus fonciers nets imposables"
+              label="Revenus fonciers"
               value={inputs.revenusFonciers}
               onChange={(n) => update("revenusFonciers", n)}
-              tooltip="Loyers nets après charges déductibles (régime réel) ou après abattement micro-foncier 30 %."
+              tooltip="Loyers nets imposables, après charges (régime réel) ou après abattement micro-foncier 30 %."
             />
             <NumberField
-              label="Résultat LMNP imposable"
-              value={inputs.resultatLMNP}
-              onChange={(n) => update("resultatLMNP", n)}
-              tooltip="Bénéfice LMNP imposable, après amortissements et charges en réel, ou après abattement 50 % en micro-BIC LMNP."
-            />
-            <NumberField
-              label="Pensions / retraites"
-              value={inputs.pensionsRetraites}
-              onChange={(n) => update("pensionsRetraites", n)}
-              tooltip="Montant annuel imposable. Saisissez le net imposable indiqué sur votre relevé."
-            />
-            <NumberField
-              label="Autres revenus imposables"
-              value={inputs.autresRevenus}
-              onChange={(n) => update("autresRevenus", n)}
-              tooltip="Revenus divers à intégrer au barème progressif (hors capitaux mobiliers / PFU)."
+              label="BIC / BNC / autres revenus"
+              value={inputs.bicBncAutres}
+              onChange={(n) => update("bicBncAutres", n)}
+              tooltip="Bénéfices indépendants (réel ou micro après abattement), LMNP, et autres revenus à intégrer au barème."
             />
           </div>
         </Card>
@@ -458,95 +340,36 @@ export default function IncomeTaxSimulator2026({
           title="Charges déductibles"
           subtitle="Diminuent le revenu net global imposable."
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <NumberField
-              label="Pension alimentaire versée"
-              value={inputs.pensionAlimentaire}
-              onChange={(n) => update("pensionAlimentaire", n)}
-              tooltip="Pension alimentaire effectivement versée à un enfant majeur, parent ou ex-conjoint, dans la limite légale."
-            />
-            <NumberField
-              label="Versements PER déductibles"
-              value={inputs.versementsPER}
-              onChange={(n) => update("versementsPER", n)}
-              tooltip="Versements volontaires sur un Plan Épargne Retraite, dans la limite du plafond annuel."
-            />
-            <NumberField
-              label="CSG déductible"
-              value={inputs.csgDeductible}
-              onChange={(n) => update("csgDeductible", n)}
-              tooltip="Part déductible de la CSG sur revenus du patrimoine et de placement (6,8 %)."
-            />
-            <NumberField
-              label="Autres charges déductibles"
-              value={inputs.autresCharges}
-              onChange={(n) => update("autresCharges", n)}
-            />
-          </div>
+          <NumberField
+            label="Total des charges déductibles"
+            value={inputs.chargesDeductibles}
+            onChange={(n) => update("chargesDeductibles", n)}
+            tooltip="Pension alimentaire versée, versements PER, CSG déductible, et autres charges admises en déduction du revenu global."
+          />
         </Card>
 
-        {/* 4. Réductions / crédits d'impôt */}
+        {/* 4. Dons & crédit garde d'enfants */}
         <Card
-          title="Réductions et crédits d'impôt"
-          subtitle="Viennent en déduction de l'impôt brut."
+          title="Dons & crédit d'impôt garde d'enfants"
+          subtitle="Viennent en déduction de l'impôt."
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <NumberField
-              label="Emploi à domicile (dépenses)"
-              value={inputs.emploiADomicile}
-              onChange={(n) => update("emploiADomicile", n)}
-              hint="Crédit d'impôt 50 %"
-              tooltip="Sommes versées pour un salarié à domicile, garde d'enfant à domicile, soutien scolaire, ménage, etc."
-            />
-            <NumberField
-              label="Frais de garde hors domicile"
-              value={inputs.fraisGardeEnfants}
-              onChange={(n) => update("fraisGardeEnfants", n)}
-              hint="Crédit d'impôt 50 %"
-              tooltip="Crèche, assistante maternelle agréée, garderie pour enfants de moins de 6 ans."
-            />
             <NumberField
               label="Dons aux associations"
               value={inputs.donsAssociations}
               onChange={(n) => update("donsAssociations", n)}
-              hint={
-                inputs.donsAideEnDifficulte
-                  ? "Réduction 75 %"
-                  : "Réduction 66 %"
-              }
+              hint="Réduction de 66 %"
+              tooltip="Dons aux organismes d'intérêt général. Plafonds spécifiques non gérés dans cette version."
             />
             <NumberField
-              label="Autres réductions / crédits d'impôt"
-              value={inputs.autresReductions}
-              onChange={(n) => update("autresReductions", n)}
-              tooltip="Saisissez ici un montant déjà calculé (Pinel, FCPI, dispositifs spécifiques…)."
+              label="Frais de garde d'enfants de moins de 6 ans"
+              value={inputs.gardeEnfantsMoins6}
+              onChange={(n) => update("gardeEnfantsMoins6", n)}
+              hint="Crédit de 50 %"
+              tooltip="Crèche, assistante maternelle agréée, garderie pour les enfants de moins de 6 ans, hors domicile."
             />
           </div>
 
-          {inputs.donsAssociations > 0 && (
-            <ToggleField
-              label="Dons à un organisme d'aide aux personnes en difficulté (Restos du Cœur, Croix-Rouge…)"
-              checked={inputs.donsAideEnDifficulte}
-              onChange={(b) => update("donsAideEnDifficulte", b)}
-              hint="Taux porté à 75 % au lieu de 66 %."
-            />
-          )}
-
-          <p className="text-xs text-gray-500">
-            Les plafonds spécifiques (frais de garde, plafond global des niches
-            fiscales 10 000 €, plafonds dons) ne sont pas gérés dans cette
-            première version.
-          </p>
-        </Card>
-
-        {/* Options de calcul */}
-        <Card title="Options de calcul">
-          <ToggleField
-            label="Appliquer la décote sur les faibles impositions"
-            checked={inputs.appliquerDecote}
-            onChange={(b) => update("appliquerDecote", b)}
-            hint="Décote estimée de manière simplifiée (valeurs 2025 reconduites en attendant la LF 2026 définitive)."
-          />
           <button
             type="button"
             onClick={reset}
@@ -567,9 +390,7 @@ export default function IncomeTaxSimulator2026({
             <p className="text-4xl md:text-5xl font-extrabold mt-2 leading-none">
               {formatEuros(result.impotNet)}
             </p>
-            <p className="text-xs opacity-90 mt-2">
-              sur les revenus 2025
-            </p>
+            <p className="text-xs opacity-90 mt-2">sur les revenus 2025</p>
 
             <dl className="mt-5 grid grid-cols-2 gap-3 text-sm">
               <div className="bg-white/10 rounded-lg p-3">
@@ -627,12 +448,6 @@ export default function IncomeTaxSimulator2026({
                   label="Abattements salaires (10 %)"
                   value={`- ${formatEuros(result.abattementsTotal)}`}
                 />
-                {result.microImposable > 0 && (
-                  <Row
-                    label="Revenu micro imposable après abattement"
-                    value={formatEuros(result.microImposable)}
-                  />
-                )}
                 <Row
                   label="Charges déductibles"
                   value={`- ${formatEuros(result.chargesDeductiblesTotal)}`}
@@ -705,18 +520,12 @@ export default function IncomeTaxSimulator2026({
           <div className="text-[11px] leading-relaxed text-gray-500 space-y-2 px-1">
             <p>
               Ce simulateur fournit une <strong>estimation indicative</strong>{" "}
-              de l'impôt sur le revenu 2026, calculée sur la base du barème
+              de l&apos;impôt sur le revenu 2026, calculée sur la base du barème
               applicable aux revenus 2025. Il ne remplace pas une étude
-              personnalisée réalisée par un professionnel. Certains cas
-              particuliers ne sont pas pris en compte.
+              personnalisée. Certains cas particuliers ne sont pas pris en
+              compte.
             </p>
             <p>Les montants doivent être saisis en euros annuels.</p>
-            <p>
-              Pour les micro-entrepreneurs, le simulateur applique les
-              abattements fiscaux forfaitaires selon la nature de l'activité.
-              Il ne calcule pas les cotisations sociales ni le versement
-              libératoire déjà payé.
-            </p>
           </div>
         </div>
       </aside>

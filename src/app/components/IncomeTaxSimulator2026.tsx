@@ -307,14 +307,14 @@ export default function IncomeTaxSimulator2026({
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <NumberField
-              label={isCouple ? "Revenus du déclarant" : "Revenus"}
+              label={isCouple ? "Salaires du déclarant" : "Salaires"}
               value={inputs.revenus}
               onChange={(n) => update("revenus", n)}
               tooltip="Salaires, rémunération de dirigeant, pensions et retraites — net imposable annuel."
             />
             {isCouple && (
               <NumberField
-                label="Revenus du conjoint"
+                label="Salaires du conjoint"
                 value={inputs.revenusConjoint}
                 onChange={(n) => update("revenusConjoint", n)}
                 tooltip="Salaires, rémunération de dirigeant, pensions et retraites du conjoint."

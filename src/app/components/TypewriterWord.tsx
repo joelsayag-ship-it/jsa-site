@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 
 const WORDS = [
   'freelances',
@@ -9,76 +9,35 @@ const WORDS = [
   'indépendants',
 ];
 
-const TYPING_SPEED  = 60;
-const ERASING_SPEED = 35;
-const PAUSE_AFTER   = 2000;
-const PAUSE_BEFORE  = 350;
+const VISIBLE_MS = 3000;
+const FADE_MS = 500;
 
 export default function TypewriterWord() {
-  const textRef = useRef<HTMLSpanElement>(null);
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const textEl = textRef.current;
-    if (!textEl) return;
-
-    let cancelled = false;
-    let wordIndex = 0;
-    const text = textEl;
-
-    function typeWord(word: string, callback: () => void) {
-      let i = 0;
-      function next() {
-        if (cancelled) return;
-        if (i <= word.length) {
-          text.textContent = word.slice(0, i);
-          i++;
-          setTimeout(next, TYPING_SPEED + Math.random() * 25);
-        } else {
-          setTimeout(callback, PAUSE_AFTER);
-        }
-      }
-      next();
-    }
-
-    function eraseWord(word: string, callback: () => void) {
-      let i = word.length;
-      function next() {
-        if (cancelled) return;
-        if (i >= 0) {
-          text.textContent = word.slice(0, i);
-          i--;
-          setTimeout(next, ERASING_SPEED);
-        } else {
-          setTimeout(callback, PAUSE_BEFORE);
-        }
-      }
-      next();
-    }
-
-    function loop() {
-      if (cancelled) return;
-      const word = WORDS[wordIndex % WORDS.length];
-      typeWord(word, () => {
-        eraseWord(word, () => {
-          wordIndex++;
-          loop();
-        });
-      });
-    }
-
-    loop();
-
-    return () => { cancelled = true; };
+    const id = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIndex((i) => (i + 1) % WORDS.length);
+        setVisible(true);
+      }, FADE_MS);
+    }, VISIBLE_MS + FADE_MS);
+    return () => clearInterval(id);
   }, []);
 
   return (
     <span className="tw-word">
-      {/* Ghost: reserves space of the longest word at all times */}
       <span className="tw-ghost" aria-hidden="true">indépendants</span>
-      {/* Animated text stacked on top via inline-grid */}
-      <span className="tw-live">
-        <span ref={textRef} className="tw-text" />
-        <span className="tw-cursor" />
+      <span
+        className="tw-live tw-text"
+        style={{
+          opacity: visible ? 1 : 0,
+          transition: `opacity ${FADE_MS}ms ease-in-out`,
+        }}
+      >
+        {WORDS[index]}
       </span>
     </span>
   );

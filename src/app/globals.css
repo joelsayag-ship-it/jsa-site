@@ -83,18 +83,3 @@ body {
 .tw-word .tw-text {
   color: #00B6DE;
 }
-
-.tw-word .tw-cursor {
-  display: inline-block;
-  width: 3px;
-  height: 0.85em;
-  background: #00B6DE;
-  vertical-align: baseline;
-  margin-left: 2px;
-  animation: tw-blink 0.65s step-end infinite;
-}
-
-@keyframes tw-blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
-}

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const API_URL = "https://jsa-contact-6h1i0r3a9-joelsayag-3015s-projects.vercel.app/api/contact";
+const API_URL = "https://jsa-contact-api-joelsayag-3015s-projects.vercel.app/api/contact";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -13,6 +13,7 @@ export default function ContactSection({ className }: { className?: string }) {
     telephone: "",
     statut: "",
     message: "",
+    website: "",
   });
   const [status, setStatus] = useState<Status>("idle");
 
@@ -30,6 +31,7 @@ export default function ContactSection({ className }: { className?: string }) {
       telephone: form.telephone,
       statut: form.statut,
       message: form.message,
+      website: form.website,
     };
 
     console.log("[JSA Contact] Envoi vers", API_URL);
@@ -99,7 +101,7 @@ export default function ContactSection({ className }: { className?: string }) {
                 <button
                   onClick={() => {
                     setStatus("idle");
-                    setForm({ nom: "", email: "", telephone: "", statut: "", message: "" });
+                    setForm({ nom: "", email: "", telephone: "", statut: "", message: "", website: "" });
                   }}
                   className="inline-flex items-center gap-2 text-sm font-medium text-turquoise-500 hover:text-turquoise-700 border border-turquoise-200 hover:border-turquoise-500 rounded-full px-4 py-2 transition-colors"
                 >
@@ -111,6 +113,16 @@ export default function ContactSection({ className }: { className?: string }) {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4 flex flex-col flex-1">
+                {/* Honeypot anti-bot : invisible aux humains, rempli uniquement par les bots */}
+                <input
+                  type="text"
+                  name="website"
+                  value={form.website}
+                  onChange={handleChange}
+                  hidden
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 bg-turquoise-500 rounded-xl flex items-center justify-center flex-shrink-0">
                     <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

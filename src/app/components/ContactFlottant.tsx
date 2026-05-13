@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-const API_URL = "https://jsa-contact-6h1i0r3a9-joelsayag-3015s-projects.vercel.app/api/contact";
+const API_URL = "https://jsa-contact-api-joelsayag-3015s-projects.vercel.app/api/contact";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -15,6 +15,7 @@ export default function ContactFlottant() {
     telephone: "",
     statut: "",
     message: "",
+    website: "",
   });
 
   // Ferme le panneau avec Escape
@@ -51,7 +52,7 @@ export default function ContactFlottant() {
   };
 
   const reset = () => {
-    setForm({ nom: "", email: "", telephone: "", statut: "", message: "" });
+    setForm({ nom: "", email: "", telephone: "", statut: "", message: "", website: "" });
     setStatus("idle");
   };
 
@@ -138,6 +139,16 @@ export default function ContactFlottant() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+              {/* Honeypot anti-bot : invisible aux humains, rempli uniquement par les bots */}
+              <input
+                type="text"
+                name="website"
+                value={form.website}
+                onChange={handleChange}
+                hidden
+                tabIndex={-1}
+                autoComplete="off"
+              />
               <div>
                 <label className="block text-xs font-semibold text-gray-700 mb-1">Prénom</label>
                 <input

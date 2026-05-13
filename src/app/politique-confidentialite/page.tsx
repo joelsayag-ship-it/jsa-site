@@ -4,6 +4,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Politique de Confidentialité — JSA Expertise",
   description: "Politique de confidentialité et traitement des données personnelles de JSA Expertise.",
+  alternates: { canonical: '/politique-confidentialite' },
 };
 
 export default function PolitiqueConfidentialite() {

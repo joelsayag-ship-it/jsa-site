@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Simulateurs, guides et actualités comptables pour les freelances, consultants et SASU. Outils gratuits mis à disposition par JSA Expertise.",
   alternates: {
-    canonical: "https://jsaexpertise.com/ressources",
+    canonical: "https://www.jsaexpertise.com/ressources",
   },
 };
 

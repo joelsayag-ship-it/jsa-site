@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   description:
     "Calculez vos indemnités kilométriques 2026 selon le barème officiel de l'administration fiscale. Voiture, moto, cyclomoteur, électrique. Outil gratuit par JSA Expertise, expert-comptable des freelances.",
   alternates: {
-    canonical: "https://jsaexpertise.com/ressources/simulateur-indemnites-kilometriques",
+    canonical: "https://www.jsaexpertise.com/ressources/simulateur-indemnites-kilometriques",
   },
   openGraph: {
     title: "Simulateur d'indemnités kilométriques 2026 | JSA Expertise",
     description:
       "Calculez vos indemnités kilométriques 2026 selon le barème officiel. Voiture, moto, cyclomoteur, électrique. Outil gratuit.",
-    url: "https://jsaexpertise.com/ressources/simulateur-indemnites-kilometriques",
+    url: "https://www.jsaexpertise.com/ressources/simulateur-indemnites-kilometriques",
     siteName: "JSA Expertise",
     locale: "fr_FR",
     type: "website",

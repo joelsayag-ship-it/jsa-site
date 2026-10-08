@@ -35,6 +35,7 @@ export async function generateMetadata({
   const { slug } = await params;
   try {
     const { frontmatter: fm } = getPostBySlug(slug);
+    const image = getArticleImage(fm);
     return {
       title: `${fm.title} — JSA Expertise`,
       description: fm.description,
@@ -43,7 +44,18 @@ export async function generateMetadata({
         title: fm.title,
         description: fm.description,
         type: "article",
+        url: `/blog/${slug}`,
+        siteName: "JSA Expertise",
+        locale: "fr_FR",
         publishedTime: fm.date,
+        authors: ["Joël Sayag"],
+        images: [{ url: image, alt: fm.title }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: fm.title,
+        description: fm.description,
+        images: [image],
       },
     };
   } catch {
@@ -167,6 +179,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
     .slice(0, 3);
 
   const baseUrl = "https://www.jsaexpertise.com";
+  const articleImage = getArticleImage(frontmatter);
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -175,22 +188,36 @@ export default async function BlogPostPage({ params }: { params: Params }) {
     datePublished: frontmatter.date,
     dateModified: frontmatter.date,
     url: `${baseUrl}/blog/${slug}`,
-    image: `${baseUrl}${getArticleImage(frontmatter)}`,
+    mainEntityOfPage: `${baseUrl}/blog/${slug}`,
+    inLanguage: "fr-FR",
+    image: articleImage.startsWith("http") ? articleImage : `${baseUrl}${articleImage}`,
     author: {
       "@type": "Person",
       name: "Joël Sayag",
       jobTitle: "Expert-comptable",
-      url: baseUrl,
+      url: `${baseUrl}/qui-sommes-nous`,
+      sameAs: "https://www.linkedin.com/in/joël-sayag-expert-comptable-912795106/",
     },
     publisher: {
       "@type": "Organization",
+      "@id": `${baseUrl}/#organization`,
       name: "JSA Expertise",
       url: baseUrl,
       logo: {
         "@type": "ImageObject",
-        url: `${baseUrl}/images/logo.png`,
+        url: `${baseUrl}/images/logo.png.png`,
       },
     },
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Accueil", item: baseUrl },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${baseUrl}/blog` },
+      { "@type": "ListItem", position: 3, name: frontmatter.title, item: `${baseUrl}/blog/${slug}` },
+    ],
   };
 
   return (
@@ -198,6 +225,10 @@ export default async function BlogPostPage({ params }: { params: Params }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <main className="pt-20">
         {/* ── Image hero ── */}

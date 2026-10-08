@@ -6,6 +6,7 @@ const matter = require('gray-matter');
 module.exports = {
   siteUrl: 'https://www.jsaexpertise.com',
   generateRobotsTxt: true,
+  exclude: ['/llms.txt'],
   robotsTxtOptions: {
     policies: [
       { userAgent: '*', allow: '/' },

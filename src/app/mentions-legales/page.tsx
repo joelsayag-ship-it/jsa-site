@@ -4,6 +4,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Mentions Légales — JSA Expertise",
   description: "Mentions légales du site JSA Expertise, cabinet d'expertise comptable pour freelances et agences.",
+  alternates: { canonical: "/mentions-legales" },
 };
 
 export default function MentionsLegales() {

@@ -9,6 +9,7 @@ import ContactSection from "./components/ContactSection";
 export const metadata: Metadata = {
   title: "Expert-comptable freelance Paris & Val-de-Marne — JSA Expertise",
   description: "JSA Expertise, cabinet d'expertise comptable 100% digital spécialisé pour les freelances et agences. Basé à Charenton-le-Pont, on accompagne les indépendants à Paris, Vincennes, Saint-Mandé et partout en France.",
+  alternates: { canonical: "/" },
 };
 
 /* ─── reusable badge ─────────────────────────────────────── */

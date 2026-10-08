@@ -40,9 +40,6 @@ export const metadata: Metadata = {
     description: 'Cabinet comptable 100% digital spécialisé freelances. Basé à Charenton-le-Pont.',
     images: ['/images/joel.png'],
   },
-  alternates: {
-    canonical: 'https://www.jsaexpertise.com',
-  },
 };
 
 export default function RootLayout({
@@ -67,6 +64,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": ["AccountingService", "LocalBusiness"],
+            "@id": "https://www.jsaexpertise.com/#organization",
             "name": "JSA Expertise",
             "url": "https://www.jsaexpertise.com",
             "logo": "https://www.jsaexpertise.com/images/logo.png.png",
@@ -107,7 +105,7 @@ export default function RootLayout({
               "https://www.linkedin.com/in/joël-sayag-expert-comptable-912795106/",
               "https://annuaire.experts-comptables.org/expert-comptable/36207-jsa-expertise-charenton-le-pont-94220"
             ],
-            "priceRange": "££",
+            "priceRange": "€€",
             "founder": {
               "@type": "Person",
               "name": "Joël Sayag",

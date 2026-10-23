@@ -6,9 +6,9 @@ import Footer from "../components/Footer";
 import ContactSection from "../components/ContactSection";
 
 export const metadata: Metadata = {
-  title: "Expert-comptable freelance Paris 12e — JSA Expertise",
+  title: "Expert-comptable Paris 12 pour freelances et indépendants | JSA Expertise",
   description:
-    "Expert-comptable spécialisé freelances dans le 12e arrondissement de Paris. JSA Expertise, cabinet basé à Charenton, limitrophe Paris 12. Création SASU, compta, fiscalité.",
+    "Expert-comptable aux portes du Paris 12 (Bercy, Nation, Gare de Lyon, Daumesnil) : cabinet spécialisé freelances et indépendants à Charenton. Premier RDV offert.",
   alternates: {
     canonical: "https://www.jsaexpertise.com/expert-comptable-freelance-paris-12",
   },
@@ -23,6 +23,14 @@ const FAQS = [
   {
     q: "Accompagnez-vous les startups et freelances de Bercy ?",
     a: "Absolument. Le quartier Bercy Village et ses alentours concentrent une densité remarquable de freelances tech, startups en amorçage et indépendants du numérique. Nous accompagnons aussi bien les solo-entrepreneurs qui démarrent que des structures plus établies avec quelques salariés.",
+  },
+  {
+    q: "Faut-il choisir un expert-comptable installé dans le 12e ?",
+    a: "Ce n'est pas obligatoire : toute la comptabilité se fait en ligne avec l'application Tiime, et les échanges réguliers peuvent se faire en visio. La proximité reste un plus pour un premier rendez-vous ou un point annuel au cabinet : depuis le 12e, Charenton-le-Pont est à quelques stations sur la ligne 8.",
+  },
+  {
+    q: "Combien coûte un expert-comptable pour un freelance du 12e ?",
+    a: "Le prix dépend du statut (SASU, EURL, micro-entreprise), du volume de pièces et du niveau de conseil attendu. Pour un freelance en société, il faut généralement prévoir entre 150 et 250 € HT par mois. JSA Expertise vous remet un devis précis après un premier échange gratuit.",
   },
   {
     q: "Comment passer de micro-entreprise à SASU dans le 12e ?",
@@ -68,8 +76,8 @@ export default function Paris12Page() {
                 </Badge>
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-5">
-                Les freelances du 12e ont un expert-comptable spécialisé{" "}
-                <span className="text-turquoise-500">à deux pas</span>
+                Expert-comptable Paris 12 :{" "}
+                <span className="text-turquoise-500">le cabinet des freelances, à deux pas</span>
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed mb-4">
                 Bercy, Nation, Gare de Lyon, Bastille — le 12e arrondissement est l'un des plus dynamiques de Paris pour les travailleurs indépendants. JSA Expertise est littéralement à la porte du 12e, à Charenton-le-Pont, avec la spécialisation que les grands cabinets généralistes n'ont pas.
@@ -132,6 +140,44 @@ export default function Paris12Page() {
               <p>
                 Un freelance consultant du 12e facturant 10 000 à 20 000 € par mois a tout intérêt à être bien entouré sur le plan comptable et fiscal. JSA Expertise est l'expert-comptable naturel pour ces profils.
               </p>
+              <p>
+                Vous cherchez d'abord à comprendre ce qu'un cabinet doit vous apporter ? Notre guide{" "}
+                <Link href="/expert-comptable-freelance" className="text-turquoise-700 font-semibold underline underline-offset-2 hover:text-turquoise-500">
+                  expert-comptable freelance : pourquoi et comment bien le choisir
+                </Link>{" "}
+                répond aux questions les plus fréquentes.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── QUARTIERS & ACCÈS ─────────────────────────── */}
+        <section className="bg-white pb-16 md:pb-20 px-4 md:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 leading-tight mb-5">
+              Votre expert-comptable dans tous les quartiers du 12e
+            </h2>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              Que votre activité soit domiciliée chez vous, dans un coworking ou dans un bureau partagé, nous accompagnons les indépendants de tout l&apos;arrondissement :
+            </p>
+            <div className="flex flex-wrap gap-2 mb-8">
+              {["Bercy", "Gare de Lyon", "Nation", "Daumesnil", "Bel-Air", "Picpus", "Aligre", "Porte Dorée", "Reuilly", "Vallée de Fécamp"].map((q) => (
+                <span key={q} className="bg-[#F1F8EA] border border-turquoise-100 rounded-full px-4 py-1.5 text-sm font-semibold text-gray-700">{q}</span>
+              ))}
+            </div>
+            <div className="grid md:grid-cols-2 gap-5">
+              <div className="bg-[#F1F8EA] rounded-2xl p-6">
+                <h3 className="font-extrabold text-gray-900 mb-2">Accès depuis le 12e</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Le cabinet est situé 10 rue du Président Kennedy, à Charenton-le-Pont. La ligne 8 du métro relie directement le 12e (Reuilly-Diderot, Daumesnil, Michel Bizot, Porte Dorée, Porte de Charenton) à la station Charenton-Écoles.
+                </p>
+              </div>
+              <div className="bg-[#F1F8EA] rounded-2xl p-6">
+                <h3 className="font-extrabold text-gray-900 mb-2">Au cabinet ou en visio</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Premier rendez-vous gratuit, au cabinet ou en visio. Ensuite, tout se gère en ligne : pièces, factures et banque sont centralisées dans Tiime, et vous avez un interlocuteur unique qui répond sous 24h.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -204,10 +250,17 @@ export default function Paris12Page() {
               <CheckItem><strong>Création de société :</strong> SASU ou EURL, on s'occupe de tout, statuts, dépôt du capital, immatriculation, Kbis.</CheckItem>
               <CheckItem><strong>Comptabilité mensuelle</strong> via Tiime, saisie automatisée, tableau de bord en temps réel.</CheckItem>
               <CheckItem><strong>TVA et déclarations fiscales :</strong> aucun délai manqué, gestion des crédits de TVA.</CheckItem>
-              <CheckItem><strong>Bilan annuel certifié,</strong> présenté et expliqué, déposé au greffe dans les délais.</CheckItem>
+              <CheckItem><strong>Bilan annuel et liasse fiscale,</strong> présentés et expliqués, comptes déposés au greffe dans les délais.</CheckItem>
               <CheckItem><strong>Optimisation fiscale annuelle :</strong> arbitrage salaire/dividendes, PER, frais déductibles.</CheckItem>
               <CheckItem><strong>Conseil réactif :</strong> votre expert-comptable répond personnellement sous 24h.</CheckItem>
             </ul>
+            <p className="text-gray-600 leading-relaxed mt-7">
+              Combien prévoir pour ce suivi ? Nous détaillons les fourchettes de prix et ce qu&apos;elles comprennent dans notre article{" "}
+              <Link href="/blog/combien-coute-expert-comptable-freelance" className="text-turquoise-700 font-semibold underline underline-offset-2 hover:text-turquoise-500">
+                combien coûte un expert-comptable pour freelance
+              </Link>
+              .
+            </p>
           </div>
         </section>
 
@@ -235,10 +288,14 @@ export default function Paris12Page() {
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {[
-                { label: "Actualités", href: "/blog" },
+                { label: "Guide expert-comptable freelance", href: "/expert-comptable-freelance" },
                 { label: "Charenton-le-Pont", href: "/expert-comptable-freelance-charenton-le-pont" },
+                { label: "Saint-Mandé", href: "/expert-comptable-freelance-saint-mande" },
                 { label: "Vincennes", href: "/expert-comptable-freelance-vincennes" },
                 { label: "Simulateur charges", href: "/simulateur-charges" },
+                { label: "Simulateur indemnités km", href: "/ressources/simulateur-indemnites-kilometriques" },
+                { label: "Tarifs expert-comptable", href: "/blog/combien-coute-expert-comptable-freelance" },
+                { label: "Actualités", href: "/blog" },
               ].map((l) => (
                 <Link key={l.href} href={l.href} className="bg-[#F1F8EA] border border-turquoise-100 hover:border-turquoise-400 rounded-xl px-4 py-3 text-sm font-semibold text-gray-700 hover:text-turquoise-600 transition-all text-center">{l.label}</Link>
               ))}

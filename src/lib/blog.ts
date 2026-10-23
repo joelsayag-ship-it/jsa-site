@@ -9,6 +9,8 @@ export type BlogPost = {
   title: string;
   description: string;
   date: string;
+  /** Date de dernière mise à jour significative (facultatif) */
+  updated?: string;
   category: string;
   readingTime: number;
   published: boolean;
@@ -30,6 +32,7 @@ export function getAllPosts(): BlogPost[] {
         title: data.title ?? "",
         description: data.description ?? "",
         date: data.date ?? "",
+        updated: data.updated,
         category: data.category ?? "",
         readingTime: data.readingTime ?? 5,
         published: data.published !== false,
@@ -53,6 +56,7 @@ export function getPostBySlug(slug: string): {
       title: data.title ?? "",
       description: data.description ?? "",
       date: data.date ?? "",
+      updated: data.updated,
       category: data.category ?? "",
       readingTime: data.readingTime ?? 5,
       published: data.published !== false,

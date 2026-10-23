@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import FAQ from "./components/FAQ";
 import TypewriterWord from "./components/TypewriterWord";
 import { FAQS } from "./components/faq-data";
@@ -7,8 +8,8 @@ import Footer from "./components/Footer";
 import ContactSection from "./components/ContactSection";
 
 export const metadata: Metadata = {
-  title: "Expert-comptable freelance Paris & Val-de-Marne — JSA Expertise",
-  description: "JSA Expertise, cabinet d'expertise comptable 100% digital spécialisé pour les freelances et agences. Basé à Charenton-le-Pont, on accompagne les indépendants à Paris, Vincennes, Saint-Mandé et partout en France.",
+  title: "Expert-comptable freelance à Charenton-le-Pont et Paris | JSA Expertise",
+  description: "Expert-comptable des freelances et indépendants à Charenton-le-Pont (94), aux portes de Paris 12. Cabinet 100 % digital, partout en France. Premier RDV offert.",
 };
 
 /* ─── reusable badge ─────────────────────────────────────── */
@@ -265,6 +266,56 @@ export default function Home() {
               >
                 Voir tous nos avis Google →
               </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 3 bis. ZONES & SPÉCIALITÉ (maillage interne) ─────── */}
+        <section className="bg-white">
+          <div className="max-w-5xl mx-auto px-4 md:px-8 py-16 md:py-20">
+            <div className="text-center flex flex-col items-center mb-10">
+              <Badge><span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />Charenton-le-Pont, Paris et partout en France</Badge>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mt-4">
+                Un expert-comptable freelance,<br className="hidden md:block" /> près de chez vous ou 100 % en ligne
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-[#F1F8EA] rounded-2xl p-6 md:p-8">
+                <h3 className="text-xl font-extrabold text-gray-900 mb-3">Spécialiste des freelances et consultants</h3>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  Développeurs, consultants, ingénieurs, créatifs, professions libérales : JSA Expertise
+                  accompagne les indépendants en SASU, EURL ou en micro-entreprise, de la création
+                  au bilan. Notre guide explique{" "}
+                  <Link href="/expert-comptable-freelance" className="text-turquoise-700 font-semibold underline underline-offset-2 hover:text-turquoise-500">
+                    comment choisir son expert-comptable freelance
+                  </Link>{" "}
+                  et ce qu&apos;il doit vous apporter au quotidien.
+                </p>
+                <Link href="/expert-comptable-freelance" className="inline-flex items-center gap-1 text-turquoise-700 font-bold hover:text-turquoise-500">
+                  Expert-comptable freelance : le guide →
+                </Link>
+              </div>
+              <div className="bg-[#F1F8EA] rounded-2xl p-6 md:p-8">
+                <h3 className="text-xl font-extrabold text-gray-900 mb-3">Un cabinet à Charenton-le-Pont (94220)</h3>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  Le cabinet est installé 10 rue du Président Kennedy, à{" "}
+                  <Link href="/expert-comptable-freelance-charenton-le-pont" className="text-turquoise-700 font-semibold underline underline-offset-2 hover:text-turquoise-500">
+                    Charenton-le-Pont
+                  </Link>
+                  , juste à côté du{" "}
+                  <Link href="/expert-comptable-freelance-paris-12" className="text-turquoise-700 font-semibold underline underline-offset-2 hover:text-turquoise-500">
+                    12e arrondissement de Paris
+                  </Link>
+                  . Rendez-vous au cabinet ou en visio, au choix.
+                </p>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  Aussi à proximité :{" "}
+                  <Link href="/expert-comptable-freelance-vincennes" className="underline underline-offset-2 hover:text-turquoise-500">Vincennes</Link>,{" "}
+                  <Link href="/expert-comptable-freelance-saint-mande" className="underline underline-offset-2 hover:text-turquoise-500">Saint-Mandé</Link>,{" "}
+                  <Link href="/expert-comptable-freelance-saint-maurice" className="underline underline-offset-2 hover:text-turquoise-500">Saint-Maurice</Link>,{" "}
+                  <Link href="/expert-comptable-freelance-joinville-le-pont" className="underline underline-offset-2 hover:text-turquoise-500">Joinville-le-Pont</Link>.
+                </p>
+              </div>
             </div>
           </div>
         </section>

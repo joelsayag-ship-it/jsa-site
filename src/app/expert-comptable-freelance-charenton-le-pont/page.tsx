@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import ContactSection from "../components/ContactSection";
 
 export const metadata: Metadata = {
-  title: "Expert-comptable freelance Charenton-le-Pont (94) | JSA Expertise",
+  title: "Expert-comptable Charenton-le-Pont (94220) | JSA Expertise",
   description:
     "JSA Expertise, cabinet d'expertise comptable installé à Charenton-le-Pont (94220). Spécialisé freelances et indépendants : création SASU/EURL, comptabilité, fiscalité. RDV présentiel ou visio.",
   alternates: {
@@ -274,6 +274,7 @@ export default function CharentonPage() {
             <p className="text-xs font-bold text-gray-400 uppercase tracking-wide mb-4">Autres villes accompagnées</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {[
+                { label: "Guide expert-comptable freelance", href: "/expert-comptable-freelance" },
                 { label: "Vincennes", href: "/expert-comptable-freelance-vincennes" },
                 { label: "Saint-Mandé", href: "/expert-comptable-freelance-saint-mande" },
                 { label: "Saint-Maurice", href: "/expert-comptable-freelance-saint-maurice" },

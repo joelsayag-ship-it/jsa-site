@@ -230,8 +230,8 @@ export default function Paris12Page() {
                 </ul>
               </div>
             </div>
-            <Link href="/simulateur-charges" className="text-turquoise-500 hover:underline font-semibold text-sm">
-              Simuler mes charges URSSAF →
+            <Link href="/ressources/simulateur-sasu-eurl" className="text-turquoise-500 hover:underline font-semibold text-sm">
+              Comparer SASU et EURL avec le simulateur →
             </Link>
           </div>
         </section>
@@ -292,7 +292,7 @@ export default function Paris12Page() {
                 { label: "Charenton-le-Pont", href: "/expert-comptable-freelance-charenton-le-pont" },
                 { label: "Saint-Mandé", href: "/expert-comptable-freelance-saint-mande" },
                 { label: "Vincennes", href: "/expert-comptable-freelance-vincennes" },
-                { label: "Simulateur charges", href: "/simulateur-charges" },
+                { label: "Simulateur SASU ou EURL", href: "/ressources/simulateur-sasu-eurl" },
                 { label: "Simulateur indemnités km", href: "/ressources/simulateur-indemnites-kilometriques" },
                 { label: "Tarifs expert-comptable", href: "/blog/combien-coute-expert-comptable-freelance" },
                 { label: "Actualités", href: "/blog" },

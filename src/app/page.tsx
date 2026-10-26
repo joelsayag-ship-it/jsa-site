@@ -294,6 +294,13 @@ export default function Home() {
                 <Link href="/expert-comptable-freelance" className="inline-flex items-center gap-1 text-turquoise-700 font-bold hover:text-turquoise-500">
                   Expert-comptable freelance : le guide →
                 </Link>
+                <p className="text-sm text-gray-500 leading-relaxed mt-4">
+                  SASU ou EURL ? Comparez vos cotisations et votre revenu net avec notre{" "}
+                  <Link href="/ressources/simulateur-sasu-eurl" className="underline underline-offset-2 hover:text-turquoise-500">
+                    simulateur SASU ou EURL 2026
+                  </Link>
+                  .
+                </p>
               </div>
               <div className="bg-[#F1F8EA] rounded-2xl p-6 md:p-8">
                 <h3 className="text-xl font-extrabold text-gray-900 mb-3">Un cabinet à Charenton-le-Pont (94220)</h3>

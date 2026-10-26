@@ -26,7 +26,7 @@ const STATIC_PAGES: {
   { path: "/qui-sommes-nous", changeFrequency: "monthly", priority: 0.7 },
   { path: "/ressources", changeFrequency: "monthly", priority: 0.7 },
   { path: "/ressources/simulateur-indemnites-kilometriques", updated: "2026-10-23", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/simulateur-charges", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/ressources/simulateur-sasu-eurl", updated: "2026-10-26", changeFrequency: "monthly", priority: 0.8 },
   { path: "/simulateur-impot-revenu", changeFrequency: "monthly", priority: 0.7 },
   { path: "/blog", changeFrequency: "weekly", priority: 0.8 },
   { path: "/mentions-legales", changeFrequency: "yearly", priority: 0.2 },

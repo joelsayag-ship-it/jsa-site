@@ -20,8 +20,8 @@ const NAV_ITEMS = [
         desc: "Estimez votre IR sur les revenus 2025",
       },
       {
-        label: "Simulateur URSSAF",
-        href: "/simulateur-charges",
+        label: "Simulateur SASU ou EURL",
+        href: "/ressources/simulateur-sasu-eurl",
         desc: "Estimez vos charges en quelques clics",
       },
       {

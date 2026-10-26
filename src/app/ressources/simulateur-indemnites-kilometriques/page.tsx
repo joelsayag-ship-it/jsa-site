@@ -239,7 +239,7 @@ export default function PageSimulateurIK() {
               ))}
             </div>
             <div className="mt-8 flex flex-wrap gap-3 text-sm">
-              <Link href="/simulateur-charges" className="bg-white border border-turquoise-100 hover:border-turquoise-400 rounded-xl px-4 py-3 font-semibold text-gray-700">Simulateur de charges SASU / EURL</Link>
+              <Link href="/ressources/simulateur-sasu-eurl" className="bg-white border border-turquoise-100 hover:border-turquoise-400 rounded-xl px-4 py-3 font-semibold text-gray-700">Simulateur SASU ou EURL</Link>
               <Link href="/simulateur-impot-revenu" className="bg-white border border-turquoise-100 hover:border-turquoise-400 rounded-xl px-4 py-3 font-semibold text-gray-700">Simulateur d&apos;impôt sur le revenu</Link>
               <Link href="/blog/charges-deductibles-societe-freelance" className="bg-white border border-turquoise-100 hover:border-turquoise-400 rounded-xl px-4 py-3 font-semibold text-gray-700">Charges déductibles en société</Link>
             </div>

@@ -280,7 +280,7 @@ export default function CharentonPage() {
                 { label: "Saint-Maurice", href: "/expert-comptable-freelance-saint-maurice" },
                 { label: "Joinville-le-Pont", href: "/expert-comptable-freelance-joinville-le-pont" },
                 { label: "Paris 12e", href: "/expert-comptable-freelance-paris-12" },
-                { label: "Simulateur charges", href: "/simulateur-charges" },
+                { label: "Simulateur SASU ou EURL", href: "/ressources/simulateur-sasu-eurl" },
                 { label: "Actualités", href: "/blog" },
                 { label: "Qui sommes-nous", href: "/qui-sommes-nous" },
               ].map((l) => (

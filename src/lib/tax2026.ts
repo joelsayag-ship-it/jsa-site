@@ -1,5 +1,11 @@
 /**
- * Calcul de l'impôt sur le revenu 2026 (revenus 2025) — version simplifiée.
+ * Calcul de l'impôt sur le revenu 2026 (revenus 2025) et 2027 (revenus 2026),
+ * version simplifiée.
+ *
+ * - Impôt 2026 : paramètres de la loi de finances pour 2026.
+ * - Impôt 2027 : paramètres du projet de loi de finances pour 2027 (n° 3210,
+ *   déposé le 01/10/2026, article 2 : revalorisation de 2,1 %). PROVISOIRE :
+ *   à remplacer par les montants de la loi promulguée (fin décembre 2026).
  *
  * Toutes les fonctions exportées ici sont pures : aucun effet de bord,
  * pas d'accès React, pas de DOM. Elles sont conçues pour être testables
@@ -49,6 +55,9 @@ export interface TaxInputs {
   gardeEnfantsMoins6: number;
 
   appliquerDecote: boolean;
+
+  /** Année d'imposition (2026 = revenus 2025, 2027 = revenus 2026). Par défaut 2026. */
+  annee?: AnneeImpot;
 }
 
 export interface TaxResult {
@@ -78,7 +87,7 @@ export interface TaxResult {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Constantes fiscales 2026 (revenus 2025)
+// Paramètres fiscaux par année d'imposition
 // ─────────────────────────────────────────────────────────────────────────────
 
 export interface Bracket {
@@ -87,29 +96,64 @@ export interface Bracket {
   rate: number;
 }
 
-/** Barème progressif IR 2026 — appliqué sur le quotient familial. */
-export const BRACKETS_2026: Bracket[] = [
-  { min: 0, max: 11_600, rate: 0 },
-  { min: 11_600, max: 29_579, rate: 0.11 },
-  { min: 29_579, max: 84_577, rate: 0.3 },
-  { min: 84_577, max: 181_917, rate: 0.41 },
-  { min: 181_917, max: Infinity, rate: 0.45 },
-];
+export type AnneeImpot = 2026 | 2027;
+
+export interface ParametresImpot {
+  annee: AnneeImpot;
+  anneeRevenus: number;
+  /** "loi" = loi de finances votée ; "projet" = projet de loi, montants provisoires. */
+  statut: "loi" | "projet";
+  brackets: Bracket[];
+  /** Plafond de l'avantage du quotient familial par demi-part supplémentaire. */
+  plafondDemiPart: number;
+  /** Décote = forfait − taux × impôt brut (art. 197, I, 4 du CGI). */
+  decote: { forfaitCelib: number; forfaitCouple: number; taux: number };
+}
+
+export const PARAMETRES: Record<AnneeImpot, ParametresImpot> = {
+  2026: {
+    annee: 2026,
+    anneeRevenus: 2025,
+    statut: "loi",
+    brackets: [
+      { min: 0, max: 11_600, rate: 0 },
+      { min: 11_600, max: 29_579, rate: 0.11 },
+      { min: 29_579, max: 84_577, rate: 0.3 },
+      { min: 84_577, max: 181_917, rate: 0.41 },
+      { min: 181_917, max: Infinity, rate: 0.45 },
+    ],
+    plafondDemiPart: 1807,
+    decote: { forfaitCelib: 897, forfaitCouple: 1483, taux: 0.4525 },
+  },
+  2027: {
+    annee: 2027,
+    anneeRevenus: 2026,
+    statut: "projet",
+    brackets: [
+      { min: 0, max: 11_844, rate: 0 },
+      { min: 11_844, max: 30_200, rate: 0.11 },
+      { min: 30_200, max: 86_353, rate: 0.3 },
+      { min: 86_353, max: 185_737, rate: 0.41 },
+      { min: 185_737, max: Infinity, rate: 0.45 },
+    ],
+    plafondDemiPart: 1845,
+    decote: { forfaitCelib: 915, forfaitCouple: 1513, taux: 0.4525 },
+  },
+};
+
+/** Année proposée sur le site : impôt 2027 sur les revenus 2026. */
+export const ANNEE_PAR_DEFAUT: AnneeImpot = 2027;
+
+const params = (annee: AnneeImpot = ANNEE_PAR_DEFAUT) => PARAMETRES[annee];
+
+/** Barème progressif IR 2026 (conservé pour compatibilité). */
+export const BRACKETS_2026: Bracket[] = PARAMETRES[2026].brackets;
 
 /** Abattement forfaitaire salaires / pensions. */
 export const ABATTEMENT_SALAIRES_RATE = 0.1;
 
-/** Plafonnement du quotient familial — par demi-part supplémentaire. */
-export const PLAFOND_DEMI_PART = 1807;
-
-/** Décote (valeurs 2025 — projection pour 2026 indicative). */
-export const DECOTE = {
-  seuilCelib: 1964,
-  seuilCouple: 3248,
-  plafondCelib: 889,
-  plafondCouple: 1470,
-  taux: 0.4525,
-} as const;
+/** Plafonnement du quotient familial 2026 (conservé pour compatibilité). */
+export const PLAFOND_DEMI_PART = PARAMETRES[2026].plafondDemiPart;
 
 /** Taux des principaux crédits / réductions d'impôt. */
 export const TAUX_CREDITS = {
@@ -200,10 +244,10 @@ function clampInt(n: number, min: number, max: number): number {
 // 2. Barème progressif
 // ─────────────────────────────────────────────────────────────────────────────
 
-export function calculateTaxByBracket(taxablePerPart: number): number {
+export function calculateTaxByBracket(taxablePerPart: number, annee?: AnneeImpot): number {
   if (taxablePerPart <= 0) return 0;
   let tax = 0;
-  for (const bracket of BRACKETS_2026) {
+  for (const bracket of params(annee).brackets) {
     if (taxablePerPart <= bracket.min) break;
     const upper = Math.min(taxablePerPart, bracket.max);
     tax += (upper - bracket.min) * bracket.rate;
@@ -212,10 +256,10 @@ export function calculateTaxByBracket(taxablePerPart: number): number {
   return tax;
 }
 
-export function getMarginalTaxRate(taxablePerPart: number): number {
+export function getMarginalTaxRate(taxablePerPart: number, annee?: AnneeImpot): number {
   if (taxablePerPart <= 0) return 0;
   let rate = 0;
-  for (const bracket of BRACKETS_2026) {
+  for (const bracket of params(annee).brackets) {
     if (taxablePerPart > bracket.min) rate = bracket.rate;
   }
   return rate;
@@ -224,10 +268,11 @@ export function getMarginalTaxRate(taxablePerPart: number): number {
 export function calculateGrossTax(
   taxableIncome: number,
   parts: number,
+  annee?: AnneeImpot,
 ): number {
   if (parts <= 0) return 0;
   const perPart = taxableIncome / parts;
-  return calculateTaxByBracket(perPart) * parts;
+  return calculateTaxByBracket(perPart, annee) * parts;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -238,6 +283,7 @@ export function calculateFamilyQuotientCap(
   taxableIncome: number,
   parts: number,
   partsBase: number,
+  annee?: AnneeImpot,
 ): {
   impotPartsReelles: number;
   impotPartsBase: number;
@@ -245,11 +291,11 @@ export function calculateFamilyQuotientCap(
   impotApresPlafond: number;
   effetPlafonnement: number;
 } {
-  const impotPartsReelles = calculateGrossTax(taxableIncome, parts);
-  const impotPartsBase = calculateGrossTax(taxableIncome, partsBase);
+  const impotPartsReelles = calculateGrossTax(taxableIncome, parts, annee);
+  const impotPartsBase = calculateGrossTax(taxableIncome, partsBase, annee);
 
   const demiPartsSupp = Math.max(0, (parts - partsBase) / 0.5);
-  const plafond = demiPartsSupp * PLAFOND_DEMI_PART;
+  const plafond = demiPartsSupp * params(annee).plafondDemiPart;
 
   const avantageQF = impotPartsBase - impotPartsReelles;
 
@@ -274,11 +320,16 @@ export function calculateFamilyQuotientCap(
 // 4. Décote
 // ─────────────────────────────────────────────────────────────────────────────
 
-export function calculateDecote(grossTax: number, isCouple: boolean): number {
-  const seuil = isCouple ? DECOTE.seuilCouple : DECOTE.seuilCelib;
-  const plafond = isCouple ? DECOTE.plafondCouple : DECOTE.plafondCelib;
-  if (grossTax <= 0 || grossTax >= seuil) return 0;
-  return Math.max(0, plafond - grossTax * DECOTE.taux);
+/**
+ * Décote : forfait − 45,25 % de l'impôt brut, dans la limite de l'impôt brut.
+ * Elle s'annule d'elle-même au-delà du seuil (forfait / taux).
+ * isCouple = couple soumis à imposition commune (mariés ou pacsés) uniquement.
+ */
+export function calculateDecote(grossTax: number, isCouple: boolean, annee?: AnneeImpot): number {
+  if (grossTax <= 0) return 0;
+  const { forfaitCelib, forfaitCouple, taux } = params(annee).decote;
+  const forfait = isCouple ? forfaitCouple : forfaitCelib;
+  return Math.min(grossTax, Math.max(0, forfait - grossTax * taux));
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -295,6 +346,7 @@ function applyAbattementSalaires(montant: number): {
 }
 
 export function calculateNetTax(inputs: TaxInputs): TaxResult {
+  const annee = inputs.annee ?? ANNEE_PAR_DEFAUT;
   // 1. Parts
   const { parts, partsBase } = calculateParts(
     inputs.situation,
@@ -332,14 +384,13 @@ export function calculateNetTax(inputs: TaxInputs): TaxResult {
   const quotientFamilial = parts > 0 ? revenuNetImposable / parts : 0;
 
   // 4. Impôt brut + plafonnement QF
-  const cap = calculateFamilyQuotientCap(revenuNetImposable, parts, partsBase);
+  const cap = calculateFamilyQuotientCap(revenuNetImposable, parts, partsBase, annee);
 
   // 5. Décote
-  const isCouple =
-    inputs.situation === "marie_pacse" ||
-    (inputs.situation === "veuf" && inputs.nbEnfants > 0);
+  // Décote « couple » réservée aux couples soumis à imposition commune.
+  const isCouple = inputs.situation === "marie_pacse";
   const decote = inputs.appliquerDecote
-    ? calculateDecote(cap.impotApresPlafond, isCouple)
+    ? calculateDecote(cap.impotApresPlafond, isCouple, annee)
     : 0;
 
   const impotApresDecote = Math.max(0, cap.impotApresPlafond - decote);
@@ -352,7 +403,7 @@ export function calculateNetTax(inputs: TaxInputs): TaxResult {
 
   const impotNet = Math.max(0, impotApresDecote - reductionsCreditsTotal);
 
-  const tauxMarginal = getMarginalTaxRate(quotientFamilial);
+  const tauxMarginal = getMarginalTaxRate(quotientFamilial, annee);
   const tauxMoyen =
     revenuNetImposable > 0 ? impotNet / revenuNetImposable : 0;
 

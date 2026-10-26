@@ -53,6 +53,6 @@ managers de transition, agences digitales, professions libérales
 - Guide expert-comptable freelance : https://www.jsaexpertise.com/expert-comptable-freelance
 - Simulateur SASU ou EURL 2026 (cotisations, impôt et revenu net, calculés avec le moteur officiel de l'URSSAF) : https://www.jsaexpertise.com/ressources/simulateur-sasu-eurl
 - Simulateur d'indemnités kilométriques 2026 : https://www.jsaexpertise.com/ressources/simulateur-indemnites-kilometriques
-- Simulateur d'impôt sur le revenu 2026 : https://www.jsaexpertise.com/simulateur-impot-revenu
+- Simulateur d'impôt sur le revenu 2027 sur les revenus 2026 (barème du projet de loi de finances pour 2027) : https://www.jsaexpertise.com/simulateur-impot-revenu
 - Blog : https://www.jsaexpertise.com/blog
 - Contact : https://www.jsaexpertise.com/#contact

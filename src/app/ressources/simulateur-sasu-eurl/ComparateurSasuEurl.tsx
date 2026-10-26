@@ -100,13 +100,18 @@ function ChampMontant({
   );
 }
 
-export default function ComparateurSasuEurl() {
+/**
+ * resultatInitial : résultat de la simulation par défaut, calculé au build côté serveur.
+ * Il est affiché immédiatement (et présent dans le HTML lu par Google) en attendant
+ * le chargement du moteur dans le navigateur.
+ */
+export default function ComparateurSasuEurl({ resultatInitial }: { resultatInitial?: ResultatComparaison | null }) {
   const [saisie, setSaisie] = useState<SaisieComparateur>(SAISIE_PAR_DEFAUT);
   const [periode, setPeriode] = useState<Periode>("mois");
   const [modeTJM, setModeTJM] = useState(false);
   const [tjm, setTjm] = useState(500);
   const [jours, setJours] = useState(200);
-  const [resultat, setResultat] = useState<ResultatComparaison | null>(null);
+  const [resultat, setResultat] = useState<ResultatComparaison | null>(resultatInitial ?? null);
   const [erreur, setErreur] = useState(false);
   const moteurs = useRef<Moteurs | null>(null);
 

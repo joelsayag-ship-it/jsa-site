@@ -11,6 +11,7 @@ import {
   SAISIE_PAR_DEFAUT,
   calculerEURL,
   calculerSASU,
+  type ResultatComparaison,
   type ResultatStatut,
   type SaisieComparateur,
 } from "@/lib/urssaf/comparateur";
@@ -18,9 +19,9 @@ import {
 const URL_PAGE = "https://www.jsaexpertise.com/ressources/simulateur-sasu-eurl";
 
 export const metadata: Metadata = {
-  title: "Simulateur SASU ou EURL 2026 : cotisations et revenu net | JSA Expertise",
+  title: "Simulateur SASU ou EURL 2026 : charges URSSAF et revenu net | JSA Expertise",
   description:
-    "Comparez SASU et EURL en 2026 : cotisations sociales, impôt et revenu net du freelance, calculés avec le moteur officiel de l'URSSAF. Gratuit, sans inscription.",
+    "Simulateur SASU et EURL gratuit : charges URSSAF, impôt et revenu net du freelance selon votre CA ou votre TJM. Calcul identique au simulateur officiel de l'URSSAF.",
   alternates: { canonical: URL_PAGE },
   openGraph: {
     title: "Simulateur SASU ou EURL 2026 pour freelance | JSA Expertise",
@@ -61,19 +62,26 @@ const EXEMPLES: Exemple[] = [
   },
 ];
 
-function calculerExemples(): { exemple: Exemple; sasu: ResultatStatut; eurl: ResultatStatut }[] {
+type ResultatExemple = { exemple: Exemple; sasu: ResultatStatut; eurl: ResultatStatut };
+
+/** Calculs faits au build : simulation par défaut du simulateur et exemples de la page. */
+function calculerAuBuild(): { defaut: ResultatComparaison | null; exemples: ResultatExemple[] } {
   try {
     const sasu = new Engine(modeleAS as never, OPTIONS_MOTEUR);
     const eurl = new Engine(modeleTI as never, OPTIONS_MOTEUR);
-    return EXEMPLES.map((exemple) => ({
+    const exemples = EXEMPLES.map((exemple) => ({
       exemple,
       sasu: calculerSASU(sasu, exemple.saisie),
       eurl: calculerEURL(eurl, exemple.saisie),
     }));
+    const defaut = { sasu: calculerSASU(sasu, SAISIE_PAR_DEFAUT), eurl: calculerEURL(eurl, SAISIE_PAR_DEFAUT) };
+    return { defaut, exemples };
   } catch {
-    return [];
+    return { defaut: null, exemples: [] };
   }
 }
+
+const pct = (part: number, total: number) => `${Math.round((part / total) * 100)} %`;
 
 const fmt = (n: number) => `${Math.round(n).toLocaleString("fr-FR")} €`;
 
@@ -97,13 +105,18 @@ const FAQS = [
     a: "À l'impôt sur le revenu, tout le bénéfice de l'EURL est imposé au nom du gérant, qu'il soit versé ou non. À l'impôt sur les sociétés, seule la rémunération versée est imposée à l'impôt sur le revenu, et le bénéfice laissé dans la société supporte l'IS. Le simulateur permet de comparer les deux options pour l'EURL.",
   },
   {
+    q: "Comment utiliser le simulateur avec mon TJM ?",
+    a: "Cliquez sur « Calculer avec mon TJM », puis saisissez votre taux journalier hors taxes et le nombre de jours facturés dans l'année. Le simulateur en déduit votre chiffre d'affaires annuel et compare immédiatement la SASU et l'EURL. Pensez à compter les congés, les périodes d'intercontrat et les jours non facturés.",
+  },
+  {
     q: "Le simulateur prend-il en compte la première année d'activité ?",
     a: "Il simule une année complète d'activité. Il n'intègre pas les cotisations provisionnelles et les régularisations propres aux premières années d'un travailleur indépendant. L'ACRE, qui réduit les cotisations au démarrage, peut être activée dans les paramètres.",
   },
 ];
 
 export default function PageSimulateurSasuEurl() {
-  const exemples = calculerExemples();
+  const { defaut, exemples } = calculerAuBuild();
+  const ref = exemples.at(1);
 
   return (
     <>
@@ -145,7 +158,7 @@ export default function PageSimulateurSasuEurl() {
         {/* Simulateur */}
         <section className="bg-[#F1F8EA] pb-16 px-4 md:px-8">
           <div className="max-w-5xl mx-auto">
-            <ComparateurSasuEurl />
+            <ComparateurSasuEurl resultatInitial={defaut} />
           </div>
         </section>
 
@@ -167,6 +180,50 @@ export default function PageSimulateurSasuEurl() {
                 <strong>Revenu net après impôt</strong> : ce qu&apos;il vous reste réellement, une fois les cotisations et
                 l&apos;impôt sur le revenu payés, selon la composition de votre foyer.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Simulateur SASU / Simulateur EURL */}
+        <section className="pb-14 px-4 md:px-8">
+          <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-8">
+            <div>
+              <h2 className="text-xl md:text-2xl font-extrabold text-gray-900 mb-3">
+                Simulateur SASU : charges et salaire net du président
+              </h2>
+              <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
+                <p>
+                  En SASU, le président est rémunéré comme un salarié : la société paie des cotisations patronales en plus
+                  du salaire brut, et des cotisations salariales sont retenues sur ce brut. Le simulateur part du budget
+                  total que la société consacre à votre rémunération et en déduit le salaire net, puis le net après impôt.
+                </p>
+                {ref && (
+                  <p>
+                    Dans notre exemple à {fmt(ref.exemple.saisie.chiffreAffaires)} de chiffre d&apos;affaires, les
+                    cotisations représentent <strong>{pct(ref.sasu.cotisations, ref.sasu.remuneration)}</strong> de la
+                    rémunération totale du président.
+                  </p>
+                )}
+              </div>
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-extrabold text-gray-900 mb-3">
+                Simulateur EURL : cotisations du gérant majoritaire
+              </h2>
+              <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
+                <p>
+                  En EURL, le gérant associé unique est travailleur non salarié (TNS). Ses cotisations sont calculées sur
+                  sa rémunération, selon les règles de la Sécurité sociale des indépendants, avec la CSG-CRDS. Le
+                  simulateur calcule l&apos;EURL à l&apos;impôt sur les sociétés ou, sur option, à l&apos;impôt sur le
+                  revenu.
+                </p>
+                {ref && (
+                  <p>
+                    Avec le même chiffre d&apos;affaires, les cotisations du gérant représentent{" "}
+                    <strong>{pct(ref.eurl.cotisations, ref.eurl.remuneration)}</strong> de sa rémunération brute.
+                  </p>
+                )}
+              </div>
             </div>
           </div>
         </section>
@@ -271,6 +328,42 @@ export default function PageSimulateurSasuEurl() {
             <VerificationURSSAF />
           </div>
         </section>
+
+        {/* Données structurées : outil en ligne et fil d'Ariane */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "WebApplication",
+                name: "Simulateur SASU ou EURL 2026",
+                url: URL_PAGE,
+                description:
+                  "Comparateur gratuit des cotisations sociales, de l'impôt sur le revenu et du revenu net d'un freelance en SASU et en EURL, calculé avec le moteur officiel de l'URSSAF.",
+                applicationCategory: "FinanceApplication",
+                operatingSystem: "Web",
+                inLanguage: "fr-FR",
+                isAccessibleForFree: true,
+                offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+                provider: {
+                  "@type": "AccountingService",
+                  name: "JSA Expertise",
+                  url: "https://www.jsaexpertise.com",
+                },
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.jsaexpertise.com" },
+                  { "@type": "ListItem", position: 2, name: "Ressources", item: "https://www.jsaexpertise.com/ressources" },
+                  { "@type": "ListItem", position: 3, name: "Simulateur SASU ou EURL", item: URL_PAGE },
+                ],
+              },
+            ]),
+          }}
+        />
 
         {/* FAQ */}
         <script

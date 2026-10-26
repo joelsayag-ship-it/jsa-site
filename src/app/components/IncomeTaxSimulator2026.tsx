@@ -6,6 +6,7 @@ import {
   calculateNetTax,
   MAX_ENFANTS,
   PARAMETRES,
+  ANNEE_PAR_DEFAUT,
   type AnneeImpot,
   type Situation,
   type SituationParticuliere,
@@ -218,7 +219,7 @@ export default function IncomeTaxSimulator2026({
   const reset = () => setInputs(INITIAL_INPUTS);
 
   const isCouple = inputs.situation === "marie_pacse";
-  const annee: AnneeImpot = inputs.annee ?? 2026;
+  const annee: AnneeImpot = inputs.annee ?? ANNEE_PAR_DEFAUT;
   const parametres = PARAMETRES[annee];
   const provisoire = parametres.statut === "projet";
   const enfantsOptions = Array.from({ length: MAX_ENFANTS + 1 }, (_, i) => ({
@@ -235,36 +236,15 @@ export default function IncomeTaxSimulator2026({
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
       {/* ── Colonne saisie ──────────────────────────────────────────────── */}
       <div className="lg:col-span-2 space-y-6">
-        {/* 0. Année d'imposition */}
-        <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
-          <p className="text-sm font-semibold text-gray-900 mb-3">Année d&apos;imposition</p>
-          <div className="flex flex-wrap gap-2" role="group" aria-label="Année d'imposition">
-            {([2027, 2026] as const).map((a) => (
-              <button
-                key={a}
-                type="button"
-                onClick={() => update("annee", a)}
-                aria-pressed={annee === a}
-                className={`px-4 py-2 rounded-full text-sm font-semibold border transition-colors ${
-                  annee === a
-                    ? "bg-turquoise-700 border-turquoise-700 text-white"
-                    : "bg-white border-gray-300 text-gray-700 hover:border-turquoise-500"
-                }`}
-              >
-                Impôt {a} (revenus {PARAMETRES[a].anneeRevenus})
-              </button>
-            ))}
-          </div>
-          {provisoire ? (
-            <p className="mt-3 text-xs leading-relaxed text-amber-800 bg-amber-50 rounded-lg p-3">
-              <strong>Barème provisoire.</strong> Impôt 2027 calculé avec le barème du projet de loi de finances pour
-              2027 (tranches revalorisées de 2,1 %), en cours d&apos;examen au Parlement. Les montants définitifs seront
-              connus avec la loi de finances, fin décembre 2026 : le simulateur sera alors mis à jour.
-            </p>
-          ) : (
-            <p className="mt-3 text-xs text-gray-500">Barème de la loi de finances pour 2026, appliqué aux revenus 2025.</p>
-          )}
-        </div>
+        {/* 0. Barème utilisé */}
+        {provisoire && (
+          <p className="text-xs leading-relaxed text-amber-800 bg-amber-50 border border-amber-100 rounded-2xl p-4">
+            <strong>Barème provisoire.</strong>{" "}
+            Impôt 2027 calculé avec le barème du projet de loi de finances pour 2027 (tranches revalorisées de
+            2,1 %), en cours d&apos;examen au Parlement. Les montants définitifs seront connus avec la loi de finances,
+            fin décembre 2026 : le simulateur sera alors mis à jour.
+          </p>
+        )}
 
         {/* 1. Situation familiale */}
         <Card

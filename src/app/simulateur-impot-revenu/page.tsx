@@ -21,12 +21,11 @@ export default function SimulateurImpotRevenuPage() {
             <div className="text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-4">
                 Simulateur d&apos;impôt sur le revenu<br />
-                <span className="text-turquoise-500">2027 et 2026</span>
+                <span className="text-turquoise-500">2027 (revenus 2026)</span>
               </h1>
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-                Estimez votre impôt 2027 sur les revenus 2026 avec le nouveau barème du projet de loi de finances,
-                ou votre impôt 2026 sur les revenus 2025. Pour les freelances, dirigeants de SASU ou d&apos;EURL,
-                micro-entrepreneurs et LMNP.
+                Estimez votre impôt 2027 sur les revenus 2026 avec le nouveau barème du projet de loi de finances.
+                Pour les freelances, dirigeants de SASU ou d&apos;EURL, micro-entrepreneurs et LMNP.
               </p>
             </div>
           </div>

@@ -21,7 +21,7 @@ const TOOLS = [
     ),
     title: "Simulateur Impôt sur le Revenu 2027",
     description:
-      "Estimez votre impôt 2027 sur les revenus 2026 (barème du projet de loi de finances) ou votre impôt 2026 : parts, décote, crédits d&apos;impôt.",
+      "Estimez votre impôt 2027 sur les revenus 2026 avec le barème du projet de loi de finances : parts, décote, crédits d&apos;impôt.",
     badge: "Nouveau",
   },
   {

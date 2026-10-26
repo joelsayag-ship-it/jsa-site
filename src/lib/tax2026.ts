@@ -141,7 +141,8 @@ export const PARAMETRES: Record<AnneeImpot, ParametresImpot> = {
   },
 };
 
-export const ANNEE_PAR_DEFAUT: AnneeImpot = 2026;
+/** Année proposée sur le site : impôt 2027 sur les revenus 2026. */
+export const ANNEE_PAR_DEFAUT: AnneeImpot = 2027;
 
 const params = (annee: AnneeImpot = ANNEE_PAR_DEFAUT) => PARAMETRES[annee];
 

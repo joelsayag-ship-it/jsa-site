@@ -151,8 +151,8 @@ export default function SaintMandePage() {
                 </div>
               ))}
             </div>
-            <Link href="/simulateur-charges" className="text-turquoise-500 hover:underline font-semibold text-sm">
-              Simuler mes charges URSSAF →
+            <Link href="/ressources/simulateur-sasu-eurl" className="text-turquoise-500 hover:underline font-semibold text-sm">
+              Comparer SASU et EURL avec le simulateur →
             </Link>
           </div>
         </section>

@@ -187,7 +187,7 @@ export default function SaintMauricePage() {
                 { label: "Actualités", href: "/blog" },
                 { label: "Charenton-le-Pont", href: "/expert-comptable-freelance-charenton-le-pont" },
                 { label: "Saint-Mandé", href: "/expert-comptable-freelance-saint-mande" },
-                { label: "Simulateur charges", href: "/simulateur-charges" },
+                { label: "Simulateur SASU ou EURL", href: "/ressources/simulateur-sasu-eurl" },
               ].map((l) => (
                 <Link key={l.href} href={l.href} className="bg-white border border-turquoise-100 hover:border-turquoise-400 rounded-xl px-4 py-3 text-sm font-semibold text-gray-700 hover:text-turquoise-600 transition-all text-center">{l.label}</Link>
               ))}

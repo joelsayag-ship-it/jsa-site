@@ -37,16 +37,16 @@ const TOOLS = [
     badge: null,
   },
   {
-    href: "/simulateur-charges",
+    href: "/ressources/simulateur-sasu-eurl",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
       </svg>
     ),
-    title: "Simulateur URSSAF",
+    title: "Simulateur SASU ou EURL 2026",
     description:
-      "Estimez vos cotisations sociales en tant que dirigeant de SASU ou gérant d&apos;EURL.",
-    badge: null,
+      "Comparez cotisations, impôt et revenu net en SASU et en EURL, avec le moteur officiel de l&apos;URSSAF.",
+    badge: "Nouveau",
   },
 ];
 

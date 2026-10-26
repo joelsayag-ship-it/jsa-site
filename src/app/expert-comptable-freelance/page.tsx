@@ -308,8 +308,8 @@ export default function ExpertComptableFreelancePage() {
               ))}
             </div>
             <div className="flex flex-wrap gap-5">
-              <Link href="/simulateur-charges" className="text-turquoise-500 hover:underline font-semibold text-sm">
-                Simuler mes charges en SASU ou EURL →
+              <Link href="/ressources/simulateur-sasu-eurl" className="text-turquoise-500 hover:underline font-semibold text-sm">
+                Comparer SASU et EURL avec le simulateur →
               </Link>
               <Link href="/blog/sasu-ou-eurl-quel-statut-choisir-2026" className="text-turquoise-500 hover:underline font-semibold text-sm">
                 SASU ou EURL : comparatif complet →
@@ -360,7 +360,7 @@ export default function ExpertComptableFreelancePage() {
               Gratuit, sans inscription, résultat immédiat. Comparez les deux statuts selon votre chiffre d'affaires.
             </p>
             <Link
-              href="/simulateur-charges"
+              href="/ressources/simulateur-sasu-eurl"
               className="inline-block bg-turquoise-500 hover:bg-turquoise-700 text-white font-bold px-7 py-3.5 rounded-full transition-colors"
             >
               Accéder au simulateur →
@@ -453,7 +453,7 @@ export default function ExpertComptableFreelancePage() {
                 { label: "Comptabilité freelance", href: "/comptabilite-freelance" },
                 { label: "Création d'entreprise", href: "/creation-entreprise" },
                 { label: "Optimisation fiscale", href: "/optimisation-fiscale" },
-                { label: "Simulateur URSSAF", href: "/simulateur-charges" },
+                { label: "Simulateur SASU ou EURL", href: "/ressources/simulateur-sasu-eurl" },
                 { label: "SASU ou EURL 2026", href: "/blog/sasu-ou-eurl-quel-statut-choisir-2026" },
                 { label: "Optimiser sa rémunération", href: "/blog/optimiser-remuneration-sasu-salaire-dividendes" },
                 { label: "Passer salarié à freelance", href: "/blog/passer-salarie-freelance-guide-2026" },

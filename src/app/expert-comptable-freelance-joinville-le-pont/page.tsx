@@ -155,8 +155,8 @@ export default function JoinvillePage() {
                 </div>
               ))}
             </div>
-            <Link href="/simulateur-charges" className="text-turquoise-500 hover:underline font-semibold text-sm">
-              Simulateur URSSAF SASU / EURL →
+            <Link href="/ressources/simulateur-sasu-eurl" className="text-turquoise-500 hover:underline font-semibold text-sm">
+              Comparer SASU et EURL avec le simulateur →
             </Link>
           </div>
         </section>
@@ -208,7 +208,7 @@ export default function JoinvillePage() {
                 { label: "Actualités", href: "/blog" },
                 { label: "Charenton-le-Pont", href: "/expert-comptable-freelance-charenton-le-pont" },
                 { label: "Saint-Maurice", href: "/expert-comptable-freelance-saint-maurice" },
-                { label: "Simulateur charges", href: "/simulateur-charges" },
+                { label: "Simulateur SASU ou EURL", href: "/ressources/simulateur-sasu-eurl" },
               ].map((l) => (
                 <Link key={l.href} href={l.href} className="bg-[#F1F8EA] border border-turquoise-100 hover:border-turquoise-400 rounded-xl px-4 py-3 text-sm font-semibold text-gray-700 hover:text-turquoise-600 transition-all text-center">{l.label}</Link>
               ))}

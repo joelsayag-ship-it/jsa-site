@@ -19,9 +19,9 @@ const TOOLS = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 7h6m-6 4h6m-6 4h4m4 6H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z" />
       </svg>
     ),
-    title: "Simulateur Impôt sur le Revenu 2026",
+    title: "Simulateur Impôt sur le Revenu 2027",
     description:
-      "Estimez votre IR sur les revenus 2025 : barème, parts fiscales, abattements micro et crédits d&apos;impôt.",
+      "Estimez votre impôt 2027 sur les revenus 2026 (barème du projet de loi de finances) ou votre impôt 2026 : parts, décote, crédits d&apos;impôt.",
     badge: "Nouveau",
   },
   {

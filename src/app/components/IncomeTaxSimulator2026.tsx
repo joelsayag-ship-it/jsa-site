@@ -5,6 +5,8 @@ import Link from "next/link";
 import {
   calculateNetTax,
   MAX_ENFANTS,
+  PARAMETRES,
+  type AnneeImpot,
   type Situation,
   type SituationParticuliere,
   type TaxInputs,
@@ -32,6 +34,8 @@ const INITIAL_INPUTS: TaxInputs = {
   gardeEnfantsMoins6: 0,
 
   appliquerDecote: true,
+
+  annee: 2027,
 };
 
 interface Props {
@@ -214,6 +218,9 @@ export default function IncomeTaxSimulator2026({
   const reset = () => setInputs(INITIAL_INPUTS);
 
   const isCouple = inputs.situation === "marie_pacse";
+  const annee: AnneeImpot = inputs.annee ?? 2026;
+  const parametres = PARAMETRES[annee];
+  const provisoire = parametres.statut === "projet";
   const enfantsOptions = Array.from({ length: MAX_ENFANTS + 1 }, (_, i) => ({
     value: String(i),
     label: i === 0 ? "Aucun enfant" : i === 1 ? "1 enfant" : `${i} enfants`,
@@ -228,6 +235,37 @@ export default function IncomeTaxSimulator2026({
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
       {/* ── Colonne saisie ──────────────────────────────────────────────── */}
       <div className="lg:col-span-2 space-y-6">
+        {/* 0. Année d'imposition */}
+        <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+          <p className="text-sm font-semibold text-gray-900 mb-3">Année d&apos;imposition</p>
+          <div className="flex flex-wrap gap-2" role="group" aria-label="Année d'imposition">
+            {([2027, 2026] as const).map((a) => (
+              <button
+                key={a}
+                type="button"
+                onClick={() => update("annee", a)}
+                aria-pressed={annee === a}
+                className={`px-4 py-2 rounded-full text-sm font-semibold border transition-colors ${
+                  annee === a
+                    ? "bg-turquoise-700 border-turquoise-700 text-white"
+                    : "bg-white border-gray-300 text-gray-700 hover:border-turquoise-500"
+                }`}
+              >
+                Impôt {a} (revenus {PARAMETRES[a].anneeRevenus})
+              </button>
+            ))}
+          </div>
+          {provisoire ? (
+            <p className="mt-3 text-xs leading-relaxed text-amber-800 bg-amber-50 rounded-lg p-3">
+              <strong>Barème provisoire.</strong> Impôt 2027 calculé avec le barème du projet de loi de finances pour
+              2027 (tranches revalorisées de 2,1 %), en cours d&apos;examen au Parlement. Les montants définitifs seront
+              connus avec la loi de finances, fin décembre 2026 : le simulateur sera alors mis à jour.
+            </p>
+          ) : (
+            <p className="mt-3 text-xs text-gray-500">Barème de la loi de finances pour 2026, appliqué aux revenus 2025.</p>
+          )}
+        </div>
+
         {/* 1. Situation familiale */}
         <Card
           title="Situation familiale"
@@ -385,12 +423,15 @@ export default function IncomeTaxSimulator2026({
         <div className="lg:sticky lg:top-24 space-y-4">
           <div className="bg-gradient-to-br from-turquoise-500 to-turquoise-700 text-white rounded-2xl p-6 shadow-lg">
             <p className="text-sm uppercase tracking-wide opacity-90">
-              Impôt net estimé 2026
+              Impôt net estimé {annee}
             </p>
             <p className="text-4xl md:text-5xl font-extrabold mt-2 leading-none">
               {formatEuros(result.impotNet)}
             </p>
-            <p className="text-xs opacity-90 mt-2">sur les revenus 2025</p>
+            <p className="text-xs opacity-90 mt-2">
+              sur les revenus {parametres.anneeRevenus}
+              {provisoire ? " · barème provisoire (projet de loi)" : ""}
+            </p>
 
             <dl className="mt-5 grid grid-cols-2 gap-3 text-sm">
               <div className="bg-white/10 rounded-lg p-3">
@@ -520,8 +561,9 @@ export default function IncomeTaxSimulator2026({
           <div className="text-[11px] leading-relaxed text-gray-500 space-y-2 px-1">
             <p>
               Ce simulateur fournit une <strong>estimation indicative</strong>{" "}
-              de l&apos;impôt sur le revenu 2026, calculée sur la base du barème
-              applicable aux revenus 2025. Il ne remplace pas une étude
+              de l&apos;impôt sur le revenu {annee}, calculée sur la base du barème
+              applicable aux revenus {parametres.anneeRevenus}
+              {provisoire ? " tel que prévu par le projet de loi de finances pour 2027" : ""}. Il ne remplace pas une étude
               personnalisée. Certains cas particuliers ne sont pas pris en
               compte.
             </p>

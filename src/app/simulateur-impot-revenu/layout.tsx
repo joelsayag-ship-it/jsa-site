@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Simulateur d'impôt sur le revenu 2026 — JSA Expertise",
+    "Simulateur impôt sur le revenu 2027 (revenus 2026) et 2026 | JSA Expertise",
   description:
-    "Estimez votre impôt sur les revenus 2025 en quelques minutes : barème 2026, parts fiscales, abattements micro-entreprise, crédits d'impôt. Outil gratuit JSA Expertise.",
+    "Simulez votre impôt 2027 sur les revenus 2026 avec le nouveau barème du projet de loi de finances, ou votre impôt 2026 : parts, décote, quotient familial. Gratuit.",
   alternates: {
     canonical: "https://www.jsaexpertise.com/simulateur-impot-revenu",
   },

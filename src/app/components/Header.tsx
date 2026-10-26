@@ -17,12 +17,12 @@ const NAV_ITEMS = [
       {
         label: "Simulateur Impôt sur le Revenu 2027",
         href: "/simulateur-impot-revenu",
-        desc: "Estimez votre IR sur les revenus 2025",
+        desc: "Estimez votre impôt 2027 sur les revenus 2026",
       },
       {
         label: "Simulateur SASU ou EURL",
         href: "/ressources/simulateur-sasu-eurl",
-        desc: "Estimez vos charges en quelques clics",
+        desc: "Comparez cotisations et revenu net en SASU et en EURL",
       },
       {
         label: "Simulateur Indemnités Kilométriques",

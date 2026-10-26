@@ -56,7 +56,7 @@ export interface TaxInputs {
 
   appliquerDecote: boolean;
 
-  /** Année d'imposition (2026 = revenus 2025, 2027 = revenus 2026). Par défaut 2026. */
+  /** Année d'imposition (2026 = revenus 2025, 2027 = revenus 2026). Par défaut ANNEE_PAR_DEFAUT (2027). */
   annee?: AnneeImpot;
 }
 

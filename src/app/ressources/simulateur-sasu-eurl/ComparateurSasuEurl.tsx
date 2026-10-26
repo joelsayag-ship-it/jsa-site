@@ -236,15 +236,21 @@ export default function ComparateurSasuEurl() {
             ]}
           />
 
-          <Choix
-            label="Bénéficiez-vous de l'ACRE ?"
-            value={saisie.acre ? "oui" : "non"}
-            onChange={(v) => maj("acre", v === "oui")}
-            options={[
-              { value: "non", label: "Non" },
-              { value: "oui", label: "Oui" },
-            ]}
-          />
+          <div>
+            <Choix
+              label="Bénéficiez-vous de l'ACRE ?"
+              value={saisie.acre ? "oui" : "non"}
+              onChange={(v) => maj("acre", v === "oui")}
+              options={[
+                { value: "non", label: "Non" },
+                { value: "oui", label: "Oui" },
+              ]}
+            />
+            <p className="text-xs text-gray-500 mt-2">
+              Réduction de cotisations au démarrage. Elle diminue quand la rémunération augmente et
+              disparaît au-delà d&apos;un certain niveau.
+            </p>
+          </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>

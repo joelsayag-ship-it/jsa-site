@@ -15,7 +15,7 @@ const STATIC_PAGES: {
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
   priority: number;
 }[] = [
-  { path: "/", updated: "2026-10-23", changeFrequency: "weekly", priority: 1 },
+  { path: "/", updated: "2026-10-27", changeFrequency: "weekly", priority: 1 },
   { path: "/expert-comptable-freelance", updated: "2026-10-23", changeFrequency: "monthly", priority: 0.9 },
   { path: "/expert-comptable-freelance-paris-12", updated: "2026-10-23", changeFrequency: "monthly", priority: 0.9 },
   { path: "/expert-comptable-freelance-charenton-le-pont", updated: "2026-10-23", changeFrequency: "monthly", priority: 0.9 },
@@ -23,6 +23,12 @@ const STATIC_PAGES: {
   { path: "/expert-comptable-freelance-saint-mande", changeFrequency: "monthly", priority: 0.8 },
   { path: "/expert-comptable-freelance-saint-maurice", changeFrequency: "monthly", priority: 0.8 },
   { path: "/expert-comptable-freelance-joinville-le-pont", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/attestation-expert-comptable", updated: "2026-10-27", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/attestation-expert-comptable/revenus", updated: "2026-10-27", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/attestation-expert-comptable/chiffre-affaires", updated: "2026-10-27", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/attestation-expert-comptable/fonds-propres", updated: "2026-10-27", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/attestation-expert-comptable/france-travail", updated: "2026-10-27", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/attestation-expert-comptable/bpi", updated: "2026-10-27", changeFrequency: "monthly", priority: 0.8 },
   { path: "/qui-sommes-nous", changeFrequency: "monthly", priority: 0.7 },
   { path: "/ressources", changeFrequency: "monthly", priority: 0.7 },
   { path: "/ressources/simulateur-indemnites-kilometriques", updated: "2026-10-23", changeFrequency: "monthly", priority: 0.8 },

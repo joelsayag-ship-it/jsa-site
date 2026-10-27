@@ -4,19 +4,19 @@ import Image from "next/image";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AttestationForm from "./AttestationForm";
-import { ATTESTATIONS, DELAI, PRIX_APPEL } from "./attestations-data";
+import { ATTESTATIONS, DELAI, PRIX_APPEL, prix } from "./attestations-data";
 import { Badge, BASE_PATH, CheckItem, CtaButton, Etapes, Faq, JsonLd, LiensGrid, SITE_URL } from "./ui";
 
 const PAGE_URL = `${SITE_URL}${BASE_PATH}`;
 
 export const metadata: Metadata = {
-  title: "Attestation expert-comptable en ligne dès 100 € HT, sous 48-72 h",
+  title: "Obtenez votre attestation d'expert-comptable dès 100 € HT",
   description:
-    "Obtenez une attestation d'expert-comptable en ligne : revenus, chiffre d'affaires, fonds propres, France Travail, Bpifrance. Dès 100 € HT, signée sous 48 à 72 h ouvrées.",
+    "Banque, bailleur, France Travail, Bpifrance : attestation signée par un expert-comptable inscrit à l'Ordre, sous 48 à 72 h. 100 % en ligne, devis sous 24 h.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: "Attestation d'expert-comptable en ligne dès 100 € HT",
-    description: "Revenus, chiffre d'affaires, fonds propres, France Travail, Bpifrance. Signée sous 48 à 72 h ouvrées.",
+    title: "Obtenez votre attestation d'expert-comptable dès 100 € HT",
+    description: "Banque, bailleur, France Travail, Bpifrance : attestation signée par un expert-comptable inscrit à l'Ordre, sous 48 à 72 h.",
     url: PAGE_URL,
     type: "website",
   },
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 const FAQS = [
   {
     q: "Combien coûte une attestation d'expert-comptable ?",
-    a: `Nos attestations sont proposées à partir de ${PRIX_APPEL}. Le prix exact dépend du type d'attestation, du nombre de périodes et du volume de pièces à vérifier. Il vous est communiqué avant toute intervention, après lecture de votre demande.`,
+    a: `Une attestation simple, sur un exercice et à partir de pièces complètes, démarre à ${PRIX_APPEL}. Le prix augmente avec le nombre de périodes, le volume de pièces à vérifier ou un formulaire spécifique à remplir : un dossier complet, comme un état de dépenses Bpifrance, se situe plutôt entre 300 et 500 € HT. Le prix exact vous est communiqué avant toute intervention.`,
   },
   {
     q: "Quel est le délai pour obtenir l'attestation ?",
@@ -188,7 +188,7 @@ export default function AttestationExpertComptablePage() {
                   <h3 className="font-extrabold text-gray-900 text-lg mb-2 group-hover:text-turquoise-600">{a.label}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed flex-1">{a.resume}</p>
                   <p className="text-sm font-semibold text-turquoise-600 mt-4">
-                    Dès {PRIX_APPEL} · En savoir plus →
+                    Dès {prix(a.prixMin)} · En savoir plus →
                   </p>
                 </Link>
               ))}
@@ -203,6 +203,49 @@ export default function AttestationExpertComptablePage() {
                 </p>
                 <p className="text-sm font-semibold text-turquoise-600 mt-4">Décrire mon besoin →</p>
               </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ── PRIX ─────────────────────────────────────────── */}
+        <section className="bg-white pb-16 md:pb-20 px-4 md:px-8">
+          <div className="max-w-4xl mx-auto bg-[#F1F8EA] rounded-3xl p-6 md:p-10 border border-turquoise-100">
+            <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Combien coûte votre attestation ?</h2>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              Le prix dépend du travail de vérification, pas d&apos;un barème unique. Vous le connaissez avant toute
+              intervention.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <table className="w-full text-sm bg-white rounded-2xl overflow-hidden">
+                <caption className="sr-only">Prix de départ par type d&apos;attestation</caption>
+                <thead>
+                  <tr className="text-left text-gray-500">
+                    <th className="px-4 py-3 font-semibold">Attestation</th>
+                    <th className="px-4 py-3 font-semibold text-right">À partir de</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {ATTESTATIONS.map((a) => (
+                    <tr key={a.slug} className="border-t border-gray-100">
+                      <td className="px-4 py-3 text-gray-800">{a.label}</td>
+                      <td className="px-4 py-3 text-right font-bold text-gray-900 whitespace-nowrap">{prix(a.prixMin)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <div>
+                <h3 className="font-extrabold text-gray-900 mb-3">Ce qui fait varier le prix</h3>
+                <ul className="space-y-3">
+                  <CheckItem>Le nombre d&apos;exercices ou de périodes à attester</CheckItem>
+                  <CheckItem>Une comptabilité déjà tenue, ou des pièces à reprendre une par une</CheckItem>
+                  <CheckItem>Un formulaire spécifique de la banque ou de l&apos;organisme à compléter</CheckItem>
+                  <CheckItem>Une échéance plus courte que le délai habituel</CheckItem>
+                </ul>
+                <p className="text-xs text-gray-500 mt-4 leading-relaxed">
+                  Repère : une attestation simple sur un exercice démarre à {PRIX_APPEL} ; un dossier complet sur
+                  plusieurs années ou un état de dépenses détaillé se situe plutôt entre 300 et 500 € HT.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -287,7 +330,7 @@ export default function AttestationExpertComptablePage() {
                 },
                 {
                   t: "Prix clair",
-                  d: `À partir de ${PRIX_APPEL}. Le prix exact vous est donné avant toute intervention : pas de surprise sur la facture.`,
+                  d: `À partir de ${PRIX_APPEL} pour une attestation simple. Le prix exact vous est donné avant toute intervention : pas de surprise sur la facture.`,
                 },
               ].map((c) => (
                 <div key={c.t} className="bg-white rounded-2xl p-6 shadow-sm">

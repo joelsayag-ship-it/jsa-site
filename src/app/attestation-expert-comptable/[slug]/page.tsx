@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import AttestationForm from "../AttestationForm";
-import { ATTESTATIONS, DELAI, PRIX_APPEL, getAttestation } from "../attestations-data";
+import { ATTESTATIONS, DELAI, getAttestation, prix, type Attestation } from "../attestations-data";
 import { Badge, BASE_PATH, CheckItem, CtaButton, Etapes, Faq, JsonLd, LiensGrid, SITE_URL } from "../ui";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -30,10 +30,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const FAQ_COMMUNE = [
+const faqCommune = (a: Attestation) => [
   {
     q: "Combien coûte cette attestation et sous quel délai ?",
-    a: `À partir de ${PRIX_APPEL}, selon le nombre de périodes et de pièces à vérifier. Le prix exact vous est communiqué avant toute intervention. L'attestation est signée sous ${DELAI} après réception des pièces complètes.`,
+    a: `À partir de ${prix(a.prixMin)}, selon le nombre de périodes et de pièces à vérifier. Le prix exact vous est communiqué avant toute intervention. L'attestation est signée sous ${DELAI} après réception des pièces complètes.`,
   },
   {
     q: "Faut-il être client du cabinet ?",
@@ -47,7 +47,7 @@ export default async function AttestationTypePage({ params }: Props) {
   if (!a) notFound();
 
   const url = `${SITE_URL}${BASE_PATH}/${a.slug}`;
-  const faqs = [...a.faqs, ...FAQ_COMMUNE];
+  const faqs = [...a.faqs, ...faqCommune(a)];
   const autres = ATTESTATIONS.filter((x) => x.slug !== a.slug);
 
   return (
@@ -67,7 +67,7 @@ export default async function AttestationTypePage({ params }: Props) {
             priceCurrency: "EUR",
             priceSpecification: {
               "@type": "PriceSpecification",
-              minPrice: 100,
+              minPrice: a.prixMin,
               priceCurrency: "EUR",
               valueAddedTaxIncluded: false,
             },
@@ -110,7 +110,7 @@ export default async function AttestationTypePage({ params }: Props) {
               <span className="text-gray-700">{a.label}</span>
             </nav>
             <div className="mb-5">
-              <Badge>Dès {PRIX_APPEL} · Sous {DELAI}</Badge>
+              <Badge>Dès {prix(a.prixMin)} · Sous {DELAI}</Badge>
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-5">
               {a.h1}
@@ -187,7 +187,7 @@ export default async function AttestationTypePage({ params }: Props) {
 
         <Faq faqs={faqs} titre={`${a.label} : vos questions`} />
 
-        <AttestationForm defaultType={a.label} />
+        <AttestationForm defaultType={a.label} prixMin={a.prixMin} />
 
         <LiensGrid
           titre="Autres attestations"

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ATTESTATIONS, DELAI, PRIX_APPEL } from "./attestations-data";
+import { ATTESTATIONS, DELAI, prix } from "./attestations-data";
 
 // Même API que le formulaire de contact principal (envoi par Resend vers joel.sayag@jsaexpertise.com)
 const API_URL = "https://jsa-contact-api-joelsayag-3015s-projects.vercel.app/api/contact";
@@ -21,7 +21,7 @@ const DESTINATAIRES = [
 
 type Status = "idle" | "loading" | "success" | "error";
 
-export default function AttestationForm({ defaultType = "" }: { defaultType?: string }) {
+export default function AttestationForm({ defaultType = "", prixMin = 100 }: { defaultType?: string; prixMin?: number }) {
   const empty = { type: defaultType, destinataire: "", nom: "", email: "", telephone: "", message: "", website: "" };
   const [form, setForm] = useState(empty);
   const [status, setStatus] = useState<Status>("idle");
@@ -85,7 +85,7 @@ export default function AttestationForm({ defaultType = "" }: { defaultType?: st
           </p>
           <ul className="space-y-3 text-sm text-gray-700">
             {[
-              `À partir de ${PRIX_APPEL}`,
+              `À partir de ${prix(prixMin)}`,
               `Attestation signée sous ${DELAI} après réception des pièces`,
               "100 % en ligne, partout en France",
               "Signée par un expert-comptable inscrit à l'Ordre",

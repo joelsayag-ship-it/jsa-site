@@ -157,12 +157,8 @@ export default function AttestationExpertComptablePage() {
                   className="relative rounded-3xl object-cover shadow-xl"
                   priority
                 />
-                <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-lg px-4 py-2.5 border border-gray-100">
-                  <p className="text-xs font-bold text-gray-900">Joël Sayag</p>
-                  <p className="text-xs text-gray-400">Expert-comptable inscrit à l&apos;Ordre</p>
-                </div>
                 {/* badge flottant Ordre, identique à l'accueil */}
-                <div className="absolute -top-5 -right-5 bg-white rounded-2xl shadow-xl px-5 py-3.5 flex items-center gap-3 border border-gray-100">
+                <div className="absolute -bottom-5 -right-5 bg-white rounded-2xl shadow-xl px-5 py-3.5 flex items-center gap-3 border border-gray-100">
                   <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
                     <Image
                       src="/images/logo ordre carré.png"

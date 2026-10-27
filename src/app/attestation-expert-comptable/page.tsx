@@ -367,6 +367,7 @@ export default function AttestationExpertComptablePage() {
         <LiensGrid
           titre="Pour aller plus loin"
           liens={[
+            { label: "À quoi sert une attestation ?", href: "/blog/attestation-expert-comptable-a-quoi-ca-sert" },
             { label: "Expert-comptable freelance", href: "/expert-comptable-freelance" },
             { label: "Combien coûte un expert-comptable", href: "/blog/combien-coute-expert-comptable-freelance" },
             { label: "Qui sommes-nous", href: "/qui-sommes-nous" },

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AttestationForm from "./AttestationForm";
-import { ATTESTATIONS, DELAI, PRIX_APPEL, prix } from "./attestations-data";
+import { ATTESTATIONS, DELAI, EXPRESS, EXPRESS_CONDITIONS, PRIX_APPEL, prix } from "./attestations-data";
 import { Badge, BASE_PATH, CheckItem, CtaButton, Etapes, Faq, JsonLd, LiensGrid, SITE_URL } from "./ui";
 
 const PAGE_URL = `${SITE_URL}${BASE_PATH}`;
@@ -12,11 +12,11 @@ const PAGE_URL = `${SITE_URL}${BASE_PATH}`;
 export const metadata: Metadata = {
   title: "Obtenez votre attestation d'expert-comptable dès 150 € HT",
   description:
-    "Attestation comptable signée par un expert-comptable inscrit à l'Ordre : banque, bailleur, France Travail, Bpifrance. Dès 150 € HT, sous 24 à 48 h.",
+    "Attestation comptable signée par un expert-comptable inscrit à l'Ordre : banque, bailleur, France Travail. Dès 150 € HT, en 24-48 h ou le jour même.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: "Obtenez votre attestation d'expert-comptable dès 150 € HT",
-    description: "Attestation comptable signée par un expert-comptable inscrit à l'Ordre : banque, bailleur, France Travail, Bpifrance. Dès 150 € HT, sous 24 à 48 h.",
+    description: "Attestation comptable signée par un expert-comptable inscrit à l'Ordre : banque, bailleur, France Travail. Dès 150 € HT, en 24-48 h ou le jour même.",
     url: PAGE_URL,
     type: "website",
   },
@@ -31,6 +31,10 @@ const FAQS = [
   {
     q: "Quel est le délai pour obtenir l'attestation ?",
     a: `L'attestation est signée sous ${DELAI} après réception des pièces complètes. Si votre échéance est plus courte, indiquez-la dans le formulaire : nous vous disons tout de suite si c'est possible.`,
+  },
+  {
+    q: "Puis-je obtenir une attestation d'expert-comptable en urgence, dans la journée ?",
+    a: `Oui, avec le service express : l'attestation est signée ${EXPRESS}, ${EXPRESS_CONDITIONS}. Choisissez « Express » dans le formulaire ou appelez directement le 06 60 73 55 46.`,
   },
   {
     q: "Faut-il être client du cabinet pour obtenir une attestation ?",
@@ -140,7 +144,7 @@ export default function AttestationExpertComptablePage() {
               </p>
               <CtaButton />
               <div className="flex flex-wrap items-center gap-5 mt-6 text-sm text-gray-500">
-                {[`Dès ${PRIX_APPEL}`, `Sous ${DELAI}`, "Prix confirmé avant intervention"].map((item) => (
+                {[`Dès ${PRIX_APPEL}`, `Sous ${DELAI}`, `Express ${EXPRESS}`, "Prix confirmé avant intervention"].map((item) => (
                   <span key={item} className="flex items-center gap-2">
                     <svg className="w-4 h-4 text-turquoise-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
@@ -259,7 +263,7 @@ export default function AttestationExpertComptablePage() {
                   <CheckItem>Le nombre d&apos;exercices ou de périodes à attester</CheckItem>
                   <CheckItem>Une comptabilité déjà tenue, ou des pièces à reprendre une par une</CheckItem>
                   <CheckItem>Un formulaire spécifique de la banque ou de l&apos;organisme à compléter</CheckItem>
-                  <CheckItem>Une échéance plus courte que le délai habituel</CheckItem>
+                  <CheckItem>Le service express, pour une attestation {EXPRESS}</CheckItem>
                 </ul>
                 <p className="text-xs text-gray-500 mt-4 leading-relaxed">
                   Repère : une attestation simple sur un exercice démarre à {PRIX_APPEL} ; une autre attestation
@@ -267,6 +271,31 @@ export default function AttestationExpertComptablePage() {
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* ── SERVICE EXPRESS ──────────────────────────────── */}
+        <section className="bg-white pb-16 md:pb-20 px-4 md:px-8">
+          <div className="max-w-4xl mx-auto rounded-3xl p-6 md:p-10 bg-gray-900 text-white">
+            <p className="text-xs font-bold uppercase tracking-wide text-turquoise-300 mb-2">Service express</p>
+            <h2 className="text-2xl md:text-3xl font-extrabold mb-4">
+              Besoin de votre attestation aujourd&apos;hui ?
+            </h2>
+            <p className="text-white/80 leading-relaxed mb-4">
+              Votre banque attend le document demain matin, le dossier France Travail ou le bail se signe dans
+              la journée ? Pour une attestation d&apos;expert-comptable urgente, le service express vous permet
+              de la recevoir {EXPRESS}, signée, au lieu de {DELAI}.
+            </p>
+            <p className="text-white/60 text-sm leading-relaxed mb-6">
+              Conditions : {EXPRESS_CONDITIONS}. Si les pièces ne permettent pas de tenir ce délai, je vous le
+              dis tout de suite, avant de facturer quoi que ce soit.
+            </p>
+            <a
+              href="#demande"
+              className="inline-block bg-turquoise-500 hover:bg-turquoise-400 text-white font-bold px-7 py-3.5 rounded-full transition-colors"
+            >
+              Demander une attestation express
+            </a>
           </div>
         </section>
 

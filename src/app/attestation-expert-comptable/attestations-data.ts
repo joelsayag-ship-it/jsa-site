@@ -9,6 +9,10 @@ export const PRIX_APPEL = "150 € HT";
 /** Formate un prix plancher : prix(150) => "150 € HT" */
 export const prix = (n: number) => `${n} € HT`;
 export const DELAI = "24 à 48 h ouvrées";
+/** Service express : attestation le jour même */
+export const EXPRESS = "dans la journée";
+export const EXPRESS_CONDITIONS =
+  "pour une demande et des pièces complètes reçues avant 12 h, un jour ouvré, avec un supplément annoncé avant toute intervention";
 
 export type Attestation = {
   slug: string;

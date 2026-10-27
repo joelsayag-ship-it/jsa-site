@@ -12,11 +12,11 @@ const PAGE_URL = `${SITE_URL}${BASE_PATH}`;
 export const metadata: Metadata = {
   title: "Obtenez votre attestation d'expert-comptable dès 150 € HT",
   description:
-    "Banque, bailleur, France Travail, Bpifrance : attestation signée par un expert-comptable inscrit à l'Ordre, sous 48 à 72 h. 100 % en ligne, devis sous 24 h.",
+    "Attestation comptable signée par un expert-comptable inscrit à l'Ordre : banque, bailleur, France Travail, Bpifrance. Dès 150 € HT, sous 24 à 48 h.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: "Obtenez votre attestation d'expert-comptable dès 150 € HT",
-    description: "Banque, bailleur, France Travail, Bpifrance : attestation signée par un expert-comptable inscrit à l'Ordre, sous 48 à 72 h.",
+    description: "Attestation comptable signée par un expert-comptable inscrit à l'Ordre : banque, bailleur, France Travail, Bpifrance. Dès 150 € HT, sous 24 à 48 h.",
     url: PAGE_URL,
     type: "website",
   },
@@ -35,6 +35,10 @@ const FAQS = [
   {
     q: "Faut-il être client du cabinet pour obtenir une attestation ?",
     a: "Non. Nous établissons des attestations ponctuelles pour des entrepreneurs qui ne sont pas clients à l'année. Une lettre de mission simple encadre la prestation et nous vérifions votre identité, comme l'exige la réglementation de la profession.",
+  },
+  {
+    q: "Qu'est-ce qu'une attestation comptable ?",
+    a: "C'est un document qui confirme une information financière précise (revenus, chiffre d'affaires, capitaux propres, dépenses) après vérification des pièces justificatives. Pour qu'elle soit acceptée par une banque, un bailleur ou un organisme, elle doit être signée par un expert-comptable inscrit à l'Ordre, qui engage sa responsabilité professionnelle.",
   },
   {
     q: "Quelle différence entre une attestation et une certification des comptes ?",
@@ -130,8 +134,8 @@ export default function AttestationExpertComptablePage() {
                 <span className="text-turquoise-500">à partir de {PRIX_APPEL}</span>
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                Votre banque, votre bailleur, France Travail ou Bpifrance vous demande une attestation signée
-                par un expert-comptable ? Envoyez votre demande, recevez la liste des pièces sous 24 h et votre
+                Votre banque, votre bailleur, France Travail ou Bpifrance vous demande une attestation comptable
+                signée par un expert-comptable ? Envoyez votre demande, recevez la liste des pièces sous 24 h et votre
                 attestation sous {DELAI}.
               </p>
               <CtaButton />
@@ -303,6 +307,15 @@ export default function AttestationExpertComptablePage() {
                 vérifié.
               </p>
             </div>
+            <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 mb-3">
+              Attestation comptable ou attestation d&apos;expert-comptable : quelle différence ?
+            </h3>
+            <p className="text-gray-600 leading-relaxed mb-8">
+              Aucune, dans la pratique. Quand une banque ou un bailleur vous réclame une « attestation
+              comptable », il attend un document signé par un expert-comptable inscrit à l&apos;Ordre. Une
+              attestation établie par un comptable salarié, un logiciel ou par vous-même n&apos;a pas la même
+              valeur : seul l&apos;expert-comptable engage sa responsabilité professionnelle sur ce qu&apos;il atteste.
+            </p>
             <div className="grid md:grid-cols-2 gap-5">
               <div className="bg-[#F1F8EA] rounded-2xl p-6">
                 <h3 className="font-extrabold text-gray-900 mb-4">Ce que nous attestons</h3>

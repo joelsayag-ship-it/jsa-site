@@ -51,7 +51,7 @@ export const ETAPES = [
   },
   {
     titre: "Vous recevez l'attestation",
-    texte: "Signée, sur papier à en-tête du cabinet, en PDF, sous 48 à 72 h ouvrées après réception des pièces complètes.",
+    texte: "Signée, sur papier à en-tête du cabinet, en PDF, sous 24 à 48 h ouvrées après réception des pièces complètes.",
   },
 ];
 

@@ -306,7 +306,7 @@ export default function Home() {
                   <Link href="/attestation-expert-comptable" className="underline underline-offset-2 hover:text-turquoise-500">
                     attestation d&apos;expert-comptable en ligne
                   </Link>
-                  , dès 100 € HT.
+                  , dès 150 € HT.
                 </p>
               </div>
               <div className="bg-[#F1F8EA] rounded-2xl p-6 md:p-8">

@@ -21,7 +21,7 @@ const DESTINATAIRES = [
 
 type Status = "idle" | "loading" | "success" | "error";
 
-export default function AttestationForm({ defaultType = "", prixMin = 100 }: { defaultType?: string; prixMin?: number }) {
+export default function AttestationForm({ defaultType = "", prixMin = 150 }: { defaultType?: string; prixMin?: number }) {
   const empty = { type: defaultType, destinataire: "", nom: "", email: "", telephone: "", message: "", website: "" };
   const [form, setForm] = useState(empty);
   const [status, setStatus] = useState<Status>("idle");

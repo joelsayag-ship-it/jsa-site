@@ -10,12 +10,12 @@ import { Badge, BASE_PATH, CheckItem, CtaButton, Etapes, Faq, JsonLd, LiensGrid,
 const PAGE_URL = `${SITE_URL}${BASE_PATH}`;
 
 export const metadata: Metadata = {
-  title: "Obtenez votre attestation d'expert-comptable dès 100 € HT",
+  title: "Obtenez votre attestation d'expert-comptable dès 150 € HT",
   description:
     "Banque, bailleur, France Travail, Bpifrance : attestation signée par un expert-comptable inscrit à l'Ordre, sous 48 à 72 h. 100 % en ligne, devis sous 24 h.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: "Obtenez votre attestation d'expert-comptable dès 100 € HT",
+    title: "Obtenez votre attestation d'expert-comptable dès 150 € HT",
     description: "Banque, bailleur, France Travail, Bpifrance : attestation signée par un expert-comptable inscrit à l'Ordre, sous 48 à 72 h.",
     url: PAGE_URL,
     type: "website",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 const FAQS = [
   {
     q: "Combien coûte une attestation d'expert-comptable ?",
-    a: `Une attestation simple, sur un exercice et à partir de pièces complètes, démarre à ${PRIX_APPEL}. Le prix augmente avec le nombre de périodes, le volume de pièces à vérifier ou un formulaire spécifique à remplir : un dossier complet, comme un état de dépenses Bpifrance, se situe plutôt entre 300 et 500 € HT. Le prix exact vous est communiqué avant toute intervention.`,
+    a: `Une attestation simple, sur un exercice et à partir de pièces complètes, démarre à ${PRIX_APPEL}. Le prix augmente avec le nombre de périodes, le volume de pièces à vérifier ou un formulaire spécifique à remplir : un dossier Bpifrance, comme un état récapitulatif des dépenses, démarre à 400 € HT. Le prix exact vous est communiqué avant toute intervention.`,
   },
   {
     q: "Quel est le délai pour obtenir l'attestation ?",
@@ -79,7 +79,7 @@ export default function AttestationExpertComptablePage() {
             priceCurrency: "EUR",
             priceSpecification: {
               "@type": "PriceSpecification",
-              minPrice: 100,
+              minPrice: 150,
               priceCurrency: "EUR",
               valueAddedTaxIncluded: false,
             },
@@ -201,7 +201,7 @@ export default function AttestationExpertComptablePage() {
                   Assurance, franchiseur, organisme, formulaire spécifique : décrivez la demande, nous vous
                   disons ce qui peut être attesté.
                 </p>
-                <p className="text-sm font-semibold text-turquoise-600 mt-4">Décrire mon besoin →</p>
+                <p className="text-sm font-semibold text-turquoise-600 mt-4">Dès {PRIX_APPEL} · Décrire mon besoin →</p>
               </a>
             </div>
           </div>
@@ -231,6 +231,10 @@ export default function AttestationExpertComptablePage() {
                       <td className="px-4 py-3 text-right font-bold text-gray-900 whitespace-nowrap">{prix(a.prixMin)}</td>
                     </tr>
                   ))}
+                  <tr className="border-t border-gray-100">
+                    <td className="px-4 py-3 text-gray-800">Autre attestation</td>
+                    <td className="px-4 py-3 text-right font-bold text-gray-900 whitespace-nowrap">{PRIX_APPEL}</td>
+                  </tr>
                 </tbody>
               </table>
               <div>
@@ -242,8 +246,8 @@ export default function AttestationExpertComptablePage() {
                   <CheckItem>Une échéance plus courte que le délai habituel</CheckItem>
                 </ul>
                 <p className="text-xs text-gray-500 mt-4 leading-relaxed">
-                  Repère : une attestation simple sur un exercice démarre à {PRIX_APPEL} ; un dossier complet sur
-                  plusieurs années ou un état de dépenses détaillé se situe plutôt entre 300 et 500 € HT.
+                  Repère : une attestation simple sur un exercice démarre à {PRIX_APPEL} ; une autre attestation
+                  (assurance, franchiseur, organisme) également, sur devis selon le travail de vérification.
                 </p>
               </div>
             </div>

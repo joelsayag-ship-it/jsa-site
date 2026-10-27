@@ -1,11 +1,10 @@
 /**
  * Contenu des pages « attestation d'expert-comptable ».
  * Une entrée = une page /attestation-expert-comptable/[slug].
- * Le prix affiché est volontairement unique : « à partir de 100 € HT »,
- * le montant définitif est confirmé au client avant toute intervention.
+ * Prix de départ par type (minimum 150 € HT) ; le montant définitif est confirmé au client avant toute intervention.
  */
 
-export const PRIX_APPEL = "100 € HT";
+export const PRIX_APPEL = "150 € HT";
 
 /** Formate un prix plancher : prix(150) => "150 € HT" */
 export const prix = (n: number) => `${n} € HT`;
@@ -37,8 +36,8 @@ export const ATTESTATIONS: Attestation[] = [
   {
     slug: "revenus",
     label: "Attestation de revenus",
-    prixMin: 100,
-    title: "Attestation de revenus expert-comptable : dès 100 € HT",
+    prixMin: 150,
+    title: "Attestation de revenus expert-comptable : dès 150 € HT",
     description:
       "Crédit immobilier, location, dossier administratif : votre attestation de revenus signée par un expert-comptable inscrit à l'Ordre, sous 48 à 72 h. Devis sous 24 h.",
     h1: "Attestation de revenus par un expert-comptable",
@@ -102,8 +101,8 @@ export const ATTESTATIONS: Attestation[] = [
   {
     slug: "chiffre-affaires",
     label: "Attestation de chiffre d'affaires",
-    prixMin: 100,
-    title: "Attestation de chiffre d'affaires expert-comptable dès 100 € HT",
+    prixMin: 150,
+    title: "Attestation de chiffre d'affaires expert-comptable dès 150 € HT",
     description:
       "Banque, appel d'offres, assureur, bailleur : votre chiffre d'affaires attesté par un expert-comptable inscrit à l'Ordre, sous 48 à 72 h. Devis sous 24 h.",
     h1: "Attestation de chiffre d'affaires par un expert-comptable",
@@ -222,8 +221,8 @@ export const ATTESTATIONS: Attestation[] = [
   {
     slug: "france-travail",
     label: "Attestation pour France Travail",
-    prixMin: 100,
-    title: "Attestation expert-comptable France Travail dès 100 € HT",
+    prixMin: 150,
+    title: "Attestation expert-comptable France Travail dès 150 € HT",
     description:
       "Cumul ARE et création : attestation de rémunération ou de non-rémunération du dirigeant, signée par un expert-comptable, sous 48 à 72 h. Devis sous 24 h.",
     h1: "Attestation d'expert-comptable pour France Travail",
@@ -282,8 +281,8 @@ export const ATTESTATIONS: Attestation[] = [
   {
     slug: "bpi",
     label: "Attestation pour Bpifrance",
-    prixMin: 300,
-    title: "Attestation expert-comptable Bpifrance dès 300 € HT",
+    prixMin: 400,
+    title: "Attestation expert-comptable Bpifrance dès 400 € HT",
     description:
       "État récapitulatif des dépenses, fonds propres, chiffre d'affaires : vos attestations Bpifrance signées par un expert-comptable inscrit à l'Ordre. Devis sous 24 h.",
     h1: "Attestation d'expert-comptable pour Bpifrance",

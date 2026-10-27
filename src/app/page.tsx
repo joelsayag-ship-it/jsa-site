@@ -301,6 +301,13 @@ export default function Home() {
                   </Link>
                   .
                 </p>
+                <p className="text-sm text-gray-500 leading-relaxed mt-2">
+                  Une banque ou un bailleur vous demande un justificatif ? Obtenez une{" "}
+                  <Link href="/attestation-expert-comptable" className="underline underline-offset-2 hover:text-turquoise-500">
+                    attestation d&apos;expert-comptable en ligne
+                  </Link>
+                  , dès 100 € HT.
+                </p>
               </div>
               <div className="bg-[#F1F8EA] rounded-2xl p-6 md:p-8">
                 <h3 className="text-xl font-extrabold text-gray-900 mb-3">Un cabinet à Charenton-le-Pont (94220)</h3>

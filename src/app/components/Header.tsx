@@ -31,6 +31,7 @@ const NAV_ITEMS = [
       },
     ] as const,
   },
+  { label: "Attestations", href: "/attestation-expert-comptable" },
   { label: "Qui sommes-nous ?", href: "/qui-sommes-nous" },
   { label: "Contact", href: "/#contact" },
 ] as const;

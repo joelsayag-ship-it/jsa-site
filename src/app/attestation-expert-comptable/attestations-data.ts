@@ -20,6 +20,8 @@ export type Attestation = {
   label: string;
   /** Prix plancher affiché « à partir de », en euros HT */
   prixMin: number;
+  /** Affiche le bandeau « Le plus demandé » sur la carte */
+  populaire?: boolean;
   /** Titre SEO (balise title) */
   title: string;
   description: string;
@@ -41,6 +43,7 @@ export const ATTESTATIONS: Attestation[] = [
     slug: "revenus",
     label: "Attestation de revenus",
     prixMin: 150,
+    populaire: true,
     title: "Attestation de revenus expert-comptable : dès 150 € HT",
     description:
       "Crédit immobilier, location, dossier administratif : votre attestation de revenus signée par un expert-comptable inscrit à l'Ordre, sous 24 à 48 h. Devis sous 24 h.",
@@ -106,6 +109,7 @@ export const ATTESTATIONS: Attestation[] = [
     slug: "chiffre-affaires",
     label: "Attestation de chiffre d'affaires",
     prixMin: 150,
+    populaire: true,
     title: "Attestation de chiffre d'affaires expert-comptable dès 150 € HT",
     description:
       "Banque, appel d'offres, assureur, bailleur : votre chiffre d'affaires attesté par un expert-comptable inscrit à l'Ordre, sous 24 à 48 h. Devis sous 24 h.",

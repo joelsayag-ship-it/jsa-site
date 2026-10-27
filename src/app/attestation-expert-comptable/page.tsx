@@ -203,8 +203,15 @@ export default function AttestationExpertComptablePage() {
                 <Link
                   key={a.slug}
                   href={`${BASE_PATH}/${a.slug}`}
-                  className="group bg-[#F1F8EA] border border-turquoise-100 hover:border-turquoise-400 rounded-2xl p-6 transition-all flex flex-col"
+                  className={`group relative bg-[#F1F8EA] border hover:border-turquoise-400 rounded-2xl p-6 transition-all flex flex-col ${
+                    a.populaire ? "border-2 border-turquoise-500 shadow-lg pt-8" : "border-turquoise-100"
+                  }`}
                 >
+                  {a.populaire && (
+                    <span className="absolute -top-3 left-6 bg-turquoise-500 text-white text-xs font-extrabold uppercase tracking-wide px-3 py-1 rounded-full shadow">
+                      ★ Le plus demandé
+                    </span>
+                  )}
                   <h3 className="font-extrabold text-gray-900 text-lg mb-2 group-hover:text-turquoise-600">{a.label}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed flex-1">{a.resume}</p>
                   <p className="text-sm font-semibold text-turquoise-600 mt-4">

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ATTESTATIONS, DELAI, prix } from "./attestations-data";
+import { ATTESTATIONS, DELAI, EXPRESS, prix } from "./attestations-data";
 
 // Même API que le formulaire de contact principal (envoi par Resend vers joel.sayag@jsaexpertise.com)
 const API_URL = "https://jsa-contact-api-joelsayag-3015s-projects.vercel.app/api/contact";
@@ -22,7 +22,7 @@ const DESTINATAIRES = [
 type Status = "idle" | "loading" | "success" | "error";
 
 export default function AttestationForm({ defaultType = "", prixMin = 150 }: { defaultType?: string; prixMin?: number }) {
-  const empty = { type: defaultType, destinataire: "", nom: "", email: "", telephone: "", message: "", website: "" };
+  const empty = { type: defaultType, destinataire: "", delai: "standard", nom: "", email: "", telephone: "", message: "", website: "" };
   const [form, setForm] = useState(empty);
   const [status, setStatus] = useState<Status>("idle");
 
@@ -35,9 +35,11 @@ export default function AttestationForm({ defaultType = "", prixMin = 150 }: { d
     setStatus("loading");
 
     const type = form.type || "Non précisé";
+    const express = form.delai === "express";
     const message = [
-      "DEMANDE D'ATTESTATION (page attestation du site)",
+      express ? "DEMANDE D'ATTESTATION EXPRESS (dans la journée)" : "DEMANDE D'ATTESTATION (page attestation du site)",
       `Type : ${type}`,
+      `Délai : ${express ? `Express, ${EXPRESS}` : `Standard, ${DELAI}`}`,
       `Destinataire : ${form.destinataire || "Non précisé"}`,
       `Page : ${typeof window !== "undefined" ? window.location.pathname : ""}`,
       "",
@@ -52,7 +54,7 @@ export default function AttestationForm({ defaultType = "", prixMin = 150 }: { d
           nom: form.nom,
           email: form.email,
           telephone: form.telephone,
-          statut: `Attestation : ${type}`,
+          statut: `${express ? "EXPRESS " : ""}Attestation : ${type}`,
           message,
           website: form.website,
         }),
@@ -87,6 +89,7 @@ export default function AttestationForm({ defaultType = "", prixMin = 150 }: { d
             {[
               `À partir de ${prix(prixMin)}`,
               `Attestation signée sous ${DELAI} après réception des pièces`,
+              `Service express possible : attestation ${EXPRESS}`,
               "100 % en ligne, partout en France",
               "Signée par un expert-comptable inscrit à l'Ordre",
             ].map((t) => (
@@ -112,8 +115,9 @@ export default function AttestationForm({ defaultType = "", prixMin = 150 }: { d
               </div>
               <h3 className="text-xl font-extrabold text-gray-900 mb-2">Demande bien reçue</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Je reviens vers vous sous 24 h, par e-mail ou par téléphone, avec la liste des pièces et le
-                prix de votre attestation.
+                {form.delai === "express"
+                  ? "Demande express bien notée : je vous recontacte en priorité, par téléphone ou par e-mail, avec la liste des pièces et le prix."
+                  : "Je reviens vers vous sous 24 h, par e-mail ou par téléphone, avec la liste des pièces et le prix de votre attestation."}
               </p>
               <button
                 onClick={() => {
@@ -152,6 +156,16 @@ export default function AttestationForm({ defaultType = "", prixMin = 150 }: { d
                     ))}
                   </select>
                 </div>
+              </div>
+
+              <div>
+                <label htmlFor="att-delai" className="block text-sm font-medium text-gray-700 mb-1">
+                  Délai souhaité
+                </label>
+                <select id="att-delai" name="delai" value={form.delai} onChange={handleChange} className={inputClass}>
+                  <option value="standard">Standard : sous {DELAI}</option>
+                  <option value="express">Express : attestation {EXPRESS} (supplément)</option>
+                </select>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

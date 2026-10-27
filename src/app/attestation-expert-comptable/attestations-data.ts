@@ -8,7 +8,11 @@ export const PRIX_APPEL = "150 € HT";
 
 /** Formate un prix plancher : prix(150) => "150 € HT" */
 export const prix = (n: number) => `${n} € HT`;
-export const DELAI = "48 à 72 h ouvrées";
+export const DELAI = "24 à 48 h ouvrées";
+/** Service express : attestation le jour même */
+export const EXPRESS = "dans la journée";
+export const EXPRESS_CONDITIONS =
+  "pour une demande et des pièces complètes reçues avant 12 h, un jour ouvré, avec un supplément annoncé avant toute intervention";
 
 export type Attestation = {
   slug: string;
@@ -16,6 +20,8 @@ export type Attestation = {
   label: string;
   /** Prix plancher affiché « à partir de », en euros HT */
   prixMin: number;
+  /** Affiche le bandeau « Le plus demandé » sur la carte */
+  populaire?: boolean;
   /** Titre SEO (balise title) */
   title: string;
   description: string;
@@ -37,12 +43,13 @@ export const ATTESTATIONS: Attestation[] = [
     slug: "revenus",
     label: "Attestation de revenus",
     prixMin: 150,
+    populaire: true,
     title: "Attestation de revenus expert-comptable : dès 150 € HT",
     description:
-      "Crédit immobilier, location, dossier administratif : votre attestation de revenus signée par un expert-comptable inscrit à l'Ordre, sous 48 à 72 h. Devis sous 24 h.",
+      "Crédit immobilier, location, dossier administratif : votre attestation de revenus signée par un expert-comptable inscrit à l'Ordre, sous 24 à 48 h. Devis sous 24 h.",
     h1: "Attestation de revenus par un expert-comptable",
     intro:
-      "Indépendant, dirigeant de SASU ou d'EURL, micro-entrepreneur : vos revenus ne tiennent pas sur un bulletin de paie. Une banque, une agence immobilière ou une administration vous demande donc une attestation de revenus signée par un expert-comptable. Nous l'établissons à partir de vos pièces, en ligne, sous 48 à 72 h ouvrées.",
+      "Indépendant, dirigeant de SASU ou d'EURL, micro-entrepreneur : vos revenus ne tiennent pas sur un bulletin de paie. Une banque, une agence immobilière ou une administration vous demande donc une attestation de revenus signée par un expert-comptable. Nous l'établissons à partir de vos pièces, en ligne, sous 24 à 48 h ouvrées.",
     resume: "Crédit immobilier, location, dossier administratif.",
     destinataires: [
       {
@@ -102,12 +109,13 @@ export const ATTESTATIONS: Attestation[] = [
     slug: "chiffre-affaires",
     label: "Attestation de chiffre d'affaires",
     prixMin: 150,
+    populaire: true,
     title: "Attestation de chiffre d'affaires expert-comptable dès 150 € HT",
     description:
-      "Banque, appel d'offres, assureur, bailleur : votre chiffre d'affaires attesté par un expert-comptable inscrit à l'Ordre, sous 48 à 72 h. Devis sous 24 h.",
+      "Banque, appel d'offres, assureur, bailleur : votre chiffre d'affaires attesté par un expert-comptable inscrit à l'Ordre, sous 24 à 48 h. Devis sous 24 h.",
     h1: "Attestation de chiffre d'affaires par un expert-comptable",
     intro:
-      "Un client grand compte, un acheteur public, votre assureur ou votre banque vous demande de justifier votre chiffre d'affaires. L'attestation de l'expert-comptable confirme le montant réalisé sur un exercice ou une période donnée, à partir de votre comptabilité et de vos pièces.",
+      "Un client grand compte, un acheteur public, votre assureur ou votre banque vous demande de justifier votre chiffre d'affaires, souvent sous la forme d'une attestation de chiffre d'affaires comptable. L'attestation de l'expert-comptable confirme le montant réalisé sur un exercice ou une période donnée, à partir de votre comptabilité et de vos pièces.",
     resume: "Banque, appel d'offres, assureur, bailleur commercial.",
     destinataires: [
       {
@@ -168,7 +176,7 @@ export const ATTESTATIONS: Attestation[] = [
     prixMin: 150,
     title: "Attestation de fonds propres expert-comptable dès 150 € HT",
     description:
-      "Bail commercial, banque, agrément : vos capitaux propres attestés par un expert-comptable inscrit à l'Ordre, sous 48 à 72 h. 100 % en ligne, devis sous 24 h.",
+      "Bail commercial, banque, agrément : vos capitaux propres attestés par un expert-comptable inscrit à l'Ordre, sous 24 à 48 h. 100 % en ligne, devis sous 24 h.",
     h1: "Attestation de fonds propres par un expert-comptable",
     intro:
       "Les capitaux propres mesurent la solidité financière de votre société. Un bailleur, une banque, un acheteur ou un organisme d'agrément peut vous demander de les justifier par une attestation d'expert-comptable, établie à partir du dernier bilan ou d'une situation comptable récente.",
@@ -224,7 +232,7 @@ export const ATTESTATIONS: Attestation[] = [
     prixMin: 150,
     title: "Attestation expert-comptable France Travail dès 150 € HT",
     description:
-      "Cumul ARE et création : attestation de rémunération ou de non-rémunération du dirigeant, signée par un expert-comptable, sous 48 à 72 h. Devis sous 24 h.",
+      "Cumul ARE et création : attestation de rémunération ou de non-rémunération du dirigeant, signée par un expert-comptable, sous 24 à 48 h. Devis sous 24 h.",
     h1: "Attestation d'expert-comptable pour France Travail",
     intro:
       "Vous avez créé votre société en continuant à percevoir l'ARE ? France Travail peut vous demander de justifier les rémunérations perçues en tant que dirigeant, ou leur absence. L'attestation de l'expert-comptable apporte cette preuve à partir de la comptabilité de votre société.",

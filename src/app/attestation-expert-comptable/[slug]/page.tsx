@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import AttestationForm from "../AttestationForm";
-import { ATTESTATIONS, DELAI, getAttestation, prix, type Attestation } from "../attestations-data";
+import { ATTESTATIONS, DELAI, EXPRESS, getAttestation, prix, type Attestation } from "../attestations-data";
 import { Badge, BASE_PATH, CheckItem, CtaButton, Etapes, Faq, JsonLd, LiensGrid, SITE_URL } from "../ui";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const faqCommune = (a: Attestation) => [
   {
     q: "Combien coûte cette attestation et sous quel délai ?",
-    a: `À partir de ${prix(a.prixMin)}, selon le nombre de périodes et de pièces à vérifier. Le prix exact vous est communiqué avant toute intervention. L'attestation est signée sous ${DELAI} après réception des pièces complètes.`,
+    a: `À partir de ${prix(a.prixMin)}, selon le nombre de périodes et de pièces à vérifier. Le prix exact vous est communiqué avant toute intervention. L'attestation est signée sous ${DELAI} après réception des pièces complètes, ou ${EXPRESS} avec le service express (supplément annoncé à l'avance).`,
   },
   {
     q: "Faut-il être client du cabinet ?",

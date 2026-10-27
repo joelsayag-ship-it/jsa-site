@@ -276,25 +276,25 @@ export default function AttestationExpertComptablePage() {
 
         {/* ── SERVICE EXPRESS ──────────────────────────────── */}
         <section className="bg-white pb-16 md:pb-20 px-4 md:px-8">
-          <div className="max-w-4xl mx-auto rounded-3xl p-6 md:p-10 bg-gray-900 text-white">
-            <p className="text-xs font-bold uppercase tracking-wide text-turquoise-300 mb-2">Service express</p>
-            <h2 className="text-2xl md:text-3xl font-extrabold mb-4">
+          <div className="max-w-4xl mx-auto rounded-3xl p-6 md:p-10 bg-gradient-to-br from-orange-500 via-orange-400 to-amber-400 text-white shadow-xl shadow-orange-200 ring-4 ring-orange-100">
+            <span className="inline-flex items-center gap-2 bg-white text-orange-600 text-xs font-extrabold uppercase tracking-wide px-3 py-1.5 rounded-full mb-4 shadow-sm"><span aria-hidden="true">⚡</span> Service express</span>
+            <h2 className="text-2xl md:text-4xl font-extrabold mb-4 drop-shadow-sm">
               Besoin de votre attestation aujourd&apos;hui ?
             </h2>
-            <p className="text-white/80 leading-relaxed mb-4">
+            <p className="text-white leading-relaxed mb-4 text-base md:text-lg">
               Votre banque attend le document demain matin, le dossier France Travail ou le bail se signe dans
               la journée ? Pour une attestation d&apos;expert-comptable urgente, le service express vous permet
               de la recevoir {EXPRESS}, signée, au lieu de {DELAI}.
             </p>
-            <p className="text-white/60 text-sm leading-relaxed mb-6">
+            <p className="text-white/90 text-sm leading-relaxed mb-6">
               Conditions : {EXPRESS_CONDITIONS}. Si les pièces ne permettent pas de tenir ce délai, je vous le
               dis tout de suite, avant de facturer quoi que ce soit.
             </p>
             <a
               href="#demande"
-              className="inline-block bg-turquoise-500 hover:bg-turquoise-400 text-white font-bold px-7 py-3.5 rounded-full transition-colors"
+              className="inline-block bg-white text-orange-600 hover:bg-orange-50 font-extrabold px-7 py-3.5 rounded-full transition-colors shadow-lg"
             >
-              Demander une attestation express
+              ⚡ Demander une attestation express
             </a>
           </div>
         </section>

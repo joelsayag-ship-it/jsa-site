@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { origineDemande } from "@/lib/origine-contact";
 
 const API_URL = "https://jsa-contact-api-joelsayag-3015s-projects.vercel.app/api/contact";
 
@@ -32,6 +33,7 @@ export default function ContactSection({ className }: { className?: string }) {
       statut: form.statut,
       message: form.message,
       website: form.website,
+      ...origineDemande("Formulaire « Prenons rendez-vous » (bas de page)"),
     };
 
     console.log("[JSA Contact] Envoi vers", API_URL);

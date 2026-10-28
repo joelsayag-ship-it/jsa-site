@@ -415,9 +415,14 @@ export default function AttestationExpertComptablePage() {
             </h2>
             <p className="text-gray-600 mb-6">
               Pour une banque ou Bpifrance, nous préparons le prévisionnel financier sur trois ans : compte de
-              résultat, plan de financement, trésorerie. Précisez-le dans votre demande.
+              résultat, plan de financement, trésorerie. Contenu à la carte, dès 400 € HT, sous 72 h.
             </p>
-            <CtaButton>Demander un devis</CtaButton>
+            <Link
+              href={`${BASE_PATH}/business-plan-previsionnel`}
+              className="inline-flex items-center justify-center bg-turquoise-500 hover:bg-turquoise-700 text-white font-bold px-7 py-3.5 rounded-full transition-colors"
+            >
+              Découvrir l&apos;offre prévisionnel
+            </Link>
           </div>
         </section>
 

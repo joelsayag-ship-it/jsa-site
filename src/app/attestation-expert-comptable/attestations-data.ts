@@ -36,6 +36,19 @@ export type Attestation = {
   faqs: { q: string; a: string }[];
   /** Liens internes vers les contenus existants du site */
   liens?: { label: string; href: string }[];
+  /** Délai propre à la page (par défaut DELAI) */
+  delai?: string;
+  /** false si le service express ne s'applique pas (par défaut true) */
+  express?: boolean;
+  /** Mission qui n'est pas une attestation (prévisionnel) : adapte les titres de la page */
+  mission?: {
+    titreContenu: string;
+    titrePieces: string;
+    titreEtapes: string;
+    cta: string;
+    etapes: { titre: string; texte: string }[];
+    faqPrix: { q: string; a: string };
+  };
 };
 
 export const ATTESTATIONS: Attestation[] = [
@@ -169,6 +182,101 @@ export const ATTESTATIONS: Attestation[] = [
       { label: "TVA du freelance : franchise ou réel", href: "/blog/tva-freelance-franchise-reel-obligations-2026" },
       { label: "Micro-entreprise : quand passer en société", href: "/blog/micro-entreprise-quand-passer-en-societe" },
     ],
+  },
+  {
+    slug: "business-plan-previsionnel",
+    label: "Business plan / prévisionnel",
+    prixMin: 400,
+    delai: "72 h",
+    express: false,
+    title: "Prévisionnel et business plan expert-comptable dès 400 € HT",
+    description:
+      "Prévisionnel financier et business plan établis par un expert-comptable inscrit à l'Ordre, pour votre banque, Bpifrance ou vos associés. Dès 400 € HT, sous 72 h.",
+    h1: "Prévisionnel financier et business plan par un expert-comptable",
+    intro:
+      "Création de société, prêt bancaire, dossier Bpifrance : votre projet doit être chiffré. Le prévisionnel traduit vos hypothèses en chiffres (chiffre d'affaires, charges, résultat, trésorerie) et montre que le projet tient la route. Établi par un expert-comptable, il rassure votre banquier. Le contenu se décide à la carte avec vous, dès 400 € HT, remis sous 72 h après réception des éléments.",
+    resume: "Création, prêt bancaire, Bpifrance, associés.",
+    destinataires: [
+      {
+        titre: "Création de société",
+        texte:
+          "Avant de vous lancer, le prévisionnel vérifie que votre activité dégage assez pour vous rémunérer et aide à choisir entre SASU et EURL.",
+      },
+      {
+        titre: "Prêt bancaire",
+        texte:
+          "Pour financer du matériel, un fonds ou votre besoin de trésorerie, la banque demande un prévisionnel et un plan de financement.",
+      },
+      {
+        titre: "Bpifrance, aides et associés",
+        texte:
+          "Prêt d'honneur, prêt d'amorçage, entrée d'un associé : le dossier doit présenter des chiffres cohérents et argumentés.",
+      },
+    ],
+    contenu: [
+      "Le prévisionnel financier sur 3 ans : compte de résultat, plan de financement et plan de trésorerie.",
+      "Le calcul du seuil de rentabilité et de la rémunération possible du dirigeant.",
+      "La partie rédigée du business plan : le projet, le marché, la stratégie commerciale.",
+      "La préparation du rendez-vous avec votre banquier ou Bpifrance.",
+    ],
+    pieces: [
+      "Une présentation de votre projet, même en quelques lignes.",
+      "Vos hypothèses de chiffre d'affaires : prix, clients visés, rythme de démarrage.",
+      "Les investissements prévus et les devis si vous les avez.",
+      "Votre apport et les financements envisagés (prêt, aides, associés).",
+    ],
+    exemple: {
+      titre: "Exemple : consultant qui crée sa SASU et demande un prêt",
+      texte:
+        "Il veut financer son matériel et quelques mois de démarrage. Nous partons de son taux journalier et du nombre de jours facturables pour construire le chiffre d'affaires, puis nous chiffrons ses charges, sa rémunération et le remboursement du prêt. Le banquier reçoit un prévisionnel sur 3 ans et un plan de financement cohérents.",
+    },
+    faqs: [
+      {
+        q: "Quelle différence entre un prévisionnel et un business plan ?",
+        a: "Le prévisionnel est la partie chiffrée : compte de résultat, plan de financement et trésorerie sur plusieurs années. Le business plan est le dossier complet : il présente le projet, le marché et la stratégie, et intègre le prévisionnel. Selon votre besoin, nous faisons l'un ou les deux.",
+      },
+      {
+        q: "Le prévisionnel est-il obligatoire pour créer sa société ?",
+        a: "Non, la loi ne l'impose pas pour créer une SASU ou une EURL. Mais il devient indispensable dès que vous demandez un financement : banque, Bpifrance, prêt d'honneur. Il reste aussi le meilleur moyen de vérifier que votre projet est rentable avant de vous lancer.",
+      },
+      {
+        q: "Pouvez-vous reprendre le modèle demandé par ma banque ?",
+        a: "Oui. Si votre banque ou Bpifrance impose un modèle, transmettez-le avec votre demande : nous le remplissons à partir du prévisionnel.",
+      },
+    ],
+    liens: [
+      { label: "Simulateur SASU ou EURL", href: "/ressources/simulateur-sasu-eurl" },
+      { label: "Comment créer sa société en 2026", href: "/blog/comment-creer-sa-societe-2026" },
+      { label: "Fixer son TJM de freelance", href: "/blog/fixer-son-tjm-freelance-methode-calcul" },
+    ],
+    mission: {
+      titreContenu: "Ce qui peut être inclus, à la carte",
+      titrePieces: "Les éléments à nous transmettre",
+      titreEtapes: "Comment se déroule la mission",
+      cta: "Demander mon prévisionnel",
+      etapes: [
+        {
+          titre: "Vous décrivez votre projet",
+          texte: "Un formulaire de deux minutes : votre projet, à qui est destiné le prévisionnel, votre échéance.",
+        },
+        {
+          titre: "On définit le contenu ensemble",
+          texte: "Je vous réponds sous 24 h. Nous choisissons ce qui est utile pour votre dossier, et le prix est confirmé avant toute intervention.",
+        },
+        {
+          titre: "Vous envoyez vos éléments",
+          texte: "Hypothèses, devis, financements prévus. Je vous pose les questions utiles pour fiabiliser les chiffres.",
+        },
+        {
+          titre: "Vous recevez votre prévisionnel",
+          texte: "Sous 72 h après réception des éléments, prêt à être remis à votre banque ou à Bpifrance.",
+        },
+      ],
+      faqPrix: {
+        q: "Combien coûte un prévisionnel et sous quel délai ?",
+        a: "À partir de 400 € HT. Le prix dépend de ce que vous choisissez d'inclure (prévisionnel seul, business plan rédigé, préparation du rendez-vous bancaire) ; il vous est confirmé avant toute intervention. Le prévisionnel est remis sous 72 h après réception des éléments.",
+      },
+    },
   },
   {
     slug: "fonds-propres",

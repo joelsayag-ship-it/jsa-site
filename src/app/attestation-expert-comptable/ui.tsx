@@ -55,10 +55,10 @@ export const ETAPES = [
   },
 ];
 
-export function Etapes() {
+export function Etapes({ etapes = ETAPES }: { etapes?: { titre: string; texte: string }[] }) {
   return (
     <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-      {ETAPES.map((e, i) => (
+      {etapes.map((e, i) => (
         <li key={e.titre} className="bg-white rounded-2xl p-6 shadow-sm">
           <span className="w-9 h-9 rounded-full bg-turquoise-500 text-white font-extrabold flex items-center justify-center mb-4">
             {i + 1}

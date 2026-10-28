@@ -22,7 +22,19 @@ const EXPRESS_RE = /express|urgen|aujourd'hui|dans la journ[ée]e|demain/i;
 
 type Status = "idle" | "loading" | "success" | "error";
 
-export default function AttestationForm({ defaultType = "", prixMin = 150 }: { defaultType?: string; prixMin?: number }) {
+export default function AttestationForm({
+  defaultType = "",
+  prixMin = 150,
+  delai = DELAI,
+  express: expressPossible = true,
+  titre = "Demandez votre attestation",
+}: {
+  defaultType?: string;
+  prixMin?: number;
+  delai?: string;
+  express?: boolean;
+  titre?: string;
+}) {
   const typeInitial = !defaultType ? "" : TYPES.includes(defaultType) ? defaultType : "Autre attestation";
   const empty = { type: typeInitial, nom: "", email: "", telephone: "", message: "", website: "" };
   const [form, setForm] = useState(empty);
@@ -81,7 +93,7 @@ export default function AttestationForm({ defaultType = "", prixMin = 150 }: { d
       <div className="max-w-5xl mx-auto grid md:grid-cols-5 gap-8 items-start">
         <div className="md:col-span-2">
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-4">
-            Demandez votre attestation
+            {titre}
           </h2>
           <p className="text-gray-600 leading-relaxed mb-6">
             Décrivez votre besoin en deux lignes. Je vous réponds sous 24 h avec la liste des pièces à
@@ -90,10 +102,12 @@ export default function AttestationForm({ defaultType = "", prixMin = 150 }: { d
           <ul className="space-y-3 text-sm text-gray-700">
             {[
               `À partir de ${prix(prixMin)}`,
-              `Attestation signée sous ${DELAI} après réception des pièces`,
-              `Service express possible : attestation ${EXPRESS}`,
+              expressPossible
+                ? `Attestation signée sous ${delai} après réception des pièces`
+                : `Remis sous ${delai} après réception des éléments`,
+              ...(expressPossible ? [`Service express possible : attestation ${EXPRESS}`] : []),
               "100 % en ligne, partout en France",
-              "Signée par un expert-comptable inscrit à l'Ordre",
+              expressPossible ? "Signée par un expert-comptable inscrit à l'Ordre" : "Établi par un expert-comptable inscrit à l'Ordre",
             ].map((t) => (
               <li key={t} className="flex items-start gap-3">
                 <span className="w-5 h-5 rounded-full bg-turquoise-500 flex items-center justify-center flex-shrink-0 mt-0.5">

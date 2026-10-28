@@ -30,7 +30,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const faqCommune = (a: Attestation) => [
+const faqCommune = (a: Attestation) =>
+  a.mission
+    ? [
+        a.mission.faqPrix,
+        {
+          q: "Faut-il être client du cabinet ?",
+          a: "Non. Nous réalisons des prévisionnels ponctuels, encadrés par une lettre de mission simple. Si vous créez votre société ensuite, nous pouvons aussi vous accompagner pour la suite, sans obligation.",
+        },
+      ]
+    : [
   {
     q: "Combien coûte cette attestation et sous quel délai ?",
     a: `À partir de ${prix(a.prixMin)}, selon le nombre de périodes et de pièces à vérifier. Le prix exact vous est communiqué avant toute intervention. L'attestation est signée sous ${DELAI} après réception des pièces complètes, ou ${EXPRESS} avec le service express (supplément annoncé à l'avance).`,
@@ -39,7 +48,7 @@ const faqCommune = (a: Attestation) => [
     q: "Faut-il être client du cabinet ?",
     a: "Non. Nous établissons des attestations ponctuelles, encadrées par une lettre de mission simple, avec une vérification de votre identité comme l'exige la réglementation de la profession.",
   },
-];
+      ];
 
 export default async function AttestationTypePage({ params }: Props) {
   const { slug } = await params;
@@ -110,13 +119,13 @@ export default async function AttestationTypePage({ params }: Props) {
               <span className="text-gray-700">{a.label}</span>
             </nav>
             <div className="mb-5">
-              <Badge>Dès {prix(a.prixMin)} · Sous {DELAI}</Badge>
+              <Badge>Dès {prix(a.prixMin)} · Sous {a.delai ?? DELAI}</Badge>
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-5">
               {a.h1}
             </h1>
             <p className="text-lg text-gray-600 leading-relaxed mb-8">{a.intro}</p>
-            <CtaButton />
+            <CtaButton>{a.mission?.cta ?? "Demander mon attestation"}</CtaButton>
           </div>
         </section>
 
@@ -142,7 +151,7 @@ export default async function AttestationTypePage({ params }: Props) {
         <section className="bg-[#F1F8EA] py-16 md:py-20 px-4 md:px-8">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
             <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm">
-              <h2 className="text-2xl font-extrabold text-gray-900 mb-5">Ce que contient l&apos;attestation</h2>
+              <h2 className="text-2xl font-extrabold text-gray-900 mb-5">{a.mission?.titreContenu ?? "Ce que contient l'attestation"}</h2>
               <ul className="space-y-3">
                 {a.contenu.map((c) => (
                   <CheckItem key={c}>{c}</CheckItem>
@@ -150,7 +159,7 @@ export default async function AttestationTypePage({ params }: Props) {
               </ul>
             </div>
             <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm">
-              <h2 className="text-2xl font-extrabold text-gray-900 mb-5">Les pièces à fournir</h2>
+              <h2 className="text-2xl font-extrabold text-gray-900 mb-5">{a.mission?.titrePieces ?? "Les pièces à fournir"}</h2>
               <ul className="space-y-3">
                 {a.pieces.map((p) => (
                   <CheckItem key={p}>{p}</CheckItem>
@@ -178,16 +187,22 @@ export default async function AttestationTypePage({ params }: Props) {
             <div className="text-center flex flex-col items-center mb-10">
               <Badge>100 % en ligne</Badge>
               <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mt-4">
-                Comment obtenir votre attestation
+                {a.mission?.titreEtapes ?? "Comment obtenir votre attestation"}
               </h2>
             </div>
-            <Etapes />
+            <Etapes etapes={a.mission?.etapes} />
           </div>
         </section>
 
         <Faq faqs={faqs} titre={`${a.label} : vos questions`} />
 
-        <AttestationForm defaultType={a.label} prixMin={a.prixMin} />
+        <AttestationForm
+          defaultType={a.label}
+          prixMin={a.prixMin}
+          delai={a.delai}
+          express={a.express !== false}
+          titre={a.mission ? "Demandez votre prévisionnel" : undefined}
+        />
 
         <LiensGrid
           titre="Autres attestations"

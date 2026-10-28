@@ -31,7 +31,31 @@ const NAV_ITEMS = [
       },
     ] as const,
   },
-  { label: "Attestations", href: "/attestation-expert-comptable" },
+  {
+    label: "Attestations",
+    children: [
+      {
+        label: "Attestation de revenus",
+        href: "/attestation-expert-comptable/revenus",
+        desc: "Crédit immobilier, location, dossier administratif",
+      },
+      {
+        label: "Attestation de chiffre d'affaires",
+        href: "/attestation-expert-comptable/chiffre-affaires",
+        desc: "Banque, appel d'offres, assureur, bailleur commercial",
+      },
+      {
+        label: "Business plan / prévisionnel",
+        href: "/attestation-expert-comptable/business-plan-previsionnel",
+        desc: "Prévisionnel financier pour banque ou Bpifrance, dès 400 € HT",
+      },
+      {
+        label: "Toutes les attestations",
+        href: "/attestation-expert-comptable",
+        desc: "Fonds propres, France Travail, Bpifrance et autres, dès 150 € HT",
+      },
+    ] as const,
+  },
   { label: "Qui sommes-nous ?", href: "/qui-sommes-nous" },
   { label: "Contact", href: "/#contact" },
 ] as const;

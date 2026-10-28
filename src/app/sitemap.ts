@@ -26,6 +26,7 @@ const STATIC_PAGES: {
   { path: "/attestation-expert-comptable", updated: "2026-10-27", changeFrequency: "monthly", priority: 0.9 },
   { path: "/attestation-expert-comptable/revenus", updated: "2026-10-27", changeFrequency: "monthly", priority: 0.8 },
   { path: "/attestation-expert-comptable/chiffre-affaires", updated: "2026-10-27", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/attestation-expert-comptable/business-plan-previsionnel", updated: "2026-10-28", changeFrequency: "monthly", priority: 0.8 },
   { path: "/attestation-expert-comptable/fonds-propres", updated: "2026-10-27", changeFrequency: "monthly", priority: 0.8 },
   { path: "/attestation-expert-comptable/france-travail", updated: "2026-10-27", changeFrequency: "monthly", priority: 0.8 },
   { path: "/attestation-expert-comptable/bpi", updated: "2026-10-27", changeFrequency: "monthly", priority: 0.8 },

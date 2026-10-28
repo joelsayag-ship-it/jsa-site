@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { memoriserArrivee, origineDemande } from "@/lib/origine-contact";
 
 const API_URL = "https://jsa-contact-api-joelsayag-3015s-projects.vercel.app/api/contact";
 
@@ -17,6 +18,11 @@ export default function ContactFlottant() {
     message: "",
     website: "",
   });
+
+  // Composant présent sur toutes les pages (layout) : mémorise la page d'arrivée et la provenance du visiteur
+  useEffect(() => {
+    memoriserArrivee();
+  }, []);
 
   // Ferme le panneau avec Escape
   useEffect(() => {
@@ -38,7 +44,7 @@ export default function ContactFlottant() {
       const res = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, ...origineDemande("Onglet « Rendez-vous offert »") }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setStatus("success");

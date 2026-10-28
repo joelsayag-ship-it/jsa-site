@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ATTESTATIONS, DELAI, EXPRESS, prix } from "./attestations-data";
+import { origineDemande } from "@/lib/origine-contact";
 
 // Même API que le formulaire de contact principal (envoi par Resend vers joel.sayag@jsaexpertise.com)
 const API_URL = "https://jsa-contact-api-joelsayag-3015s-projects.vercel.app/api/contact";
@@ -57,6 +58,7 @@ export default function AttestationForm({ defaultType = "", prixMin = 150 }: { d
           statut: `${express ? "EXPRESS " : ""}Attestation : ${type}`,
           message,
           website: form.website,
+          ...origineDemande("Formulaire de demande d'attestation"),
         }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);

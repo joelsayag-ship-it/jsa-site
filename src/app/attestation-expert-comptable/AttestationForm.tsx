@@ -2,28 +2,29 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ATTESTATIONS, DELAI, EXPRESS, prix } from "./attestations-data";
+import { DELAI, EXPRESS, prix } from "./attestations-data";
 import { origineDemande } from "@/lib/origine-contact";
 
 // Même API que le formulaire de contact principal (envoi par Resend vers joel.sayag@jsaexpertise.com)
 const API_URL = "https://jsa-contact-api-joelsayag-3015s-projects.vercel.app/api/contact";
 
-const TYPES = [...ATTESTATIONS.map((a) => a.label), "Autre attestation", "Business plan / prévisionnel"];
-
-const DESTINATAIRES = [
-  "Banque",
-  "Bailleur / agence immobilière",
-  "France Travail",
-  "Bpifrance",
-  "Appel d'offres / client",
-  "Administration",
-  "Autre",
+// Liste volontairement courte (choix de Joël, 28/10/2026). Les autres pages attestation
+// (fonds propres, France Travail, Bpifrance) présélectionnent « Autre attestation ».
+const TYPES = [
+  "Attestation de revenus",
+  "Attestation de chiffre d'affaires",
+  "Business plan / prévisionnel",
+  "Autre attestation",
 ];
+
+// Une demande est signalée EXPRESS dans le mail si le message parle d'urgence.
+const EXPRESS_RE = /express|urgen|aujourd'hui|dans la journ[ée]e|demain/i;
 
 type Status = "idle" | "loading" | "success" | "error";
 
 export default function AttestationForm({ defaultType = "", prixMin = 150 }: { defaultType?: string; prixMin?: number }) {
-  const empty = { type: defaultType, destinataire: "", delai: "standard", nom: "", email: "", telephone: "", message: "", website: "" };
+  const typeInitial = !defaultType ? "" : TYPES.includes(defaultType) ? defaultType : "Autre attestation";
+  const empty = { type: typeInitial, nom: "", email: "", telephone: "", message: "", website: "" };
   const [form, setForm] = useState(empty);
   const [status, setStatus] = useState<Status>("idle");
 
@@ -36,12 +37,11 @@ export default function AttestationForm({ defaultType = "", prixMin = 150 }: { d
     setStatus("loading");
 
     const type = form.type || "Non précisé";
-    const express = form.delai === "express";
+    const express = EXPRESS_RE.test(form.message);
     const message = [
-      express ? "DEMANDE D'ATTESTATION EXPRESS (dans la journée)" : "DEMANDE D'ATTESTATION (page attestation du site)",
+      express ? "DEMANDE D'ATTESTATION, URGENCE MENTIONNÉE DANS LE MESSAGE" : "DEMANDE D'ATTESTATION (page attestation du site)",
       `Type : ${type}`,
-      `Délai : ${express ? `Express, ${EXPRESS}` : `Standard, ${DELAI}`}`,
-      `Destinataire : ${form.destinataire || "Non précisé"}`,
+      ...(defaultType && !TYPES.includes(defaultType) ? [`Page consultée : ${defaultType}`] : []),
       `Page : ${typeof window !== "undefined" ? window.location.pathname : ""}`,
       "",
       form.message.trim() || "(pas de précision)",
@@ -117,8 +117,8 @@ export default function AttestationForm({ defaultType = "", prixMin = 150 }: { d
               </div>
               <h3 className="text-xl font-extrabold text-gray-900 mb-2">Demande bien reçue</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
-                {form.delai === "express"
-                  ? "Demande express bien notée : je vous recontacte en priorité, par téléphone ou par e-mail, avec la liste des pièces et le prix."
+                {EXPRESS_RE.test(form.message)
+                  ? "Urgence bien notée : je vous recontacte en priorité, par téléphone ou par e-mail, avec la liste des pièces et le prix."
                   : "Je reviens vers vous sous 24 h, par e-mail ou par téléphone, avec la liste des pièces et le prix de votre attestation."}
               </p>
               <button
@@ -135,38 +135,15 @@ export default function AttestationForm({ defaultType = "", prixMin = 150 }: { d
             <form onSubmit={handleSubmit} className="space-y-4">
               <input type="text" name="website" value={form.website} onChange={handleChange} hidden tabIndex={-1} autoComplete="off" />
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="att-type" className="block text-sm font-medium text-gray-700 mb-1">
-                    Type d&apos;attestation *
-                  </label>
-                  <select id="att-type" name="type" value={form.type} onChange={handleChange} required className={inputClass}>
-                    <option value="">Choisissez</option>
-                    {TYPES.map((t) => (
-                      <option key={t}>{t}</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="att-dest" className="block text-sm font-medium text-gray-700 mb-1">
-                    Pour qui ?
-                  </label>
-                  <select id="att-dest" name="destinataire" value={form.destinataire} onChange={handleChange} className={inputClass}>
-                    <option value="">Choisissez</option>
-                    {DESTINATAIRES.map((d) => (
-                      <option key={d}>{d}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
               <div>
-                <label htmlFor="att-delai" className="block text-sm font-medium text-gray-700 mb-1">
-                  Délai souhaité
+                <label htmlFor="att-type" className="block text-sm font-medium text-gray-700 mb-1">
+                  Type d&apos;attestation *
                 </label>
-                <select id="att-delai" name="delai" value={form.delai} onChange={handleChange} className={inputClass}>
-                  <option value="standard">Standard : sous {DELAI}</option>
-                  <option value="express">Express : attestation {EXPRESS} (supplément)</option>
+                <select id="att-type" name="type" value={form.type} onChange={handleChange} required className={inputClass}>
+                  <option value="">Choisissez</option>
+                  {TYPES.map((t) => (
+                    <option key={t}>{t}</option>
+                  ))}
                 </select>
               </div>
 
@@ -188,7 +165,7 @@ export default function AttestationForm({ defaultType = "", prixMin = 150 }: { d
 
               <div>
                 <label htmlFor="att-msg" className="block text-sm font-medium text-gray-700 mb-1">
-                  Votre besoin <span className="text-gray-400">(statut, période, date limite)</span>
+                  Votre besoin <span className="text-gray-400">(pour qui, période, date limite, express si urgent)</span>
                 </label>
                 <textarea
                   id="att-msg"

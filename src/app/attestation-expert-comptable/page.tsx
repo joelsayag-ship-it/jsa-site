@@ -34,7 +34,7 @@ const FAQS = [
   },
   {
     q: "Puis-je obtenir une attestation d'expert-comptable en urgence, dans la journée ?",
-    a: `Oui, avec le service express : l'attestation est signée ${EXPRESS}, ${EXPRESS_CONDITIONS}. Choisissez « Express » dans le formulaire ou appelez directement le 06 60 73 55 46.`,
+    a: `Oui, avec le service express : l'attestation est signée ${EXPRESS}, ${EXPRESS_CONDITIONS}. Précisez « express » dans votre message ou appelez directement le 06 60 73 55 46.`,
   },
   {
     q: "Faut-il être client du cabinet pour obtenir une attestation ?",

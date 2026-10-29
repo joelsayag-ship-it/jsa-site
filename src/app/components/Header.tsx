@@ -130,7 +130,7 @@ export default function Header() {
         scrolled ? "shadow-md" : "shadow-sm"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-8">
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-4 lg:gap-8">
         {/* Logo */}
         <Link href="/" className="flex-shrink-0">
           <Image
@@ -156,7 +156,7 @@ export default function Header() {
               >
                 {hasChildren ? (
                   <button
-                    className={`flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                    className={`flex items-center gap-1 px-2.5 lg:px-4 py-2 text-sm font-medium whitespace-nowrap rounded-lg transition-colors ${
                       activeMenu === item.label
                         ? "text-[#00B6DE] bg-[#00B6DE]/8"
                         : "text-gray-600 hover:text-[#00B6DE] hover:bg-gray-50"
@@ -182,7 +182,7 @@ export default function Header() {
                 ) : (
                   <Link
                     href={(item as { label: string; href: string }).href}
-                    className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-[#00B6DE] hover:bg-gray-50 rounded-lg transition-colors block"
+                    className="px-2.5 lg:px-4 py-2 text-sm font-medium whitespace-nowrap text-gray-600 hover:text-[#00B6DE] hover:bg-gray-50 rounded-lg transition-colors block"
                   >
                     {item.label}
                   </Link>

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const FAQS = [
   {
     q: "Êtes-vous proche du Paris 12e ?",
-    a: "Oui, notre cabinet JSA Expertise est situé à Charenton-le-Pont, commune immédiatement limitrophe du 12e arrondissement. Nous sommes à 5 à 10 minutes en voiture ou en métro ligne 8 (Charenton-Écoles). La grande majorité de notre collaboration se fait à distance, mais nous recevons sur rendez-vous.",
+    a: "Oui, notre cabinet JSA Expertise est situé à Charenton-le-Pont, commune immédiatement limitrophe du 12e arrondissement. Nous sommes à 5 à 10 minutes en voiture ou par la ligne 8 du métro. La grande majorité de notre collaboration se fait à distance, mais nous recevons sur rendez-vous.",
   },
   {
     q: "Accompagnez-vous les startups et freelances de Bercy ?",

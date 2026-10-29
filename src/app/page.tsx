@@ -8,8 +8,8 @@ import Footer from "./components/Footer";
 import ContactSection from "./components/ContactSection";
 
 export const metadata: Metadata = {
-  title: "Expert-comptable freelance à Charenton-le-Pont et Paris | JSA Expertise",
-  description: "Expert-comptable des freelances et indépendants à Charenton-le-Pont (94), aux portes de Paris 12. Cabinet 100 % digital, partout en France. Premier RDV offert.",
+  title: "Expert-comptable à Charenton-le-Pont et Paris 12 | JSA Expertise",
+  description: "Cabinet d'expertise comptable à Charenton-le-Pont (94), aux portes de Paris 12, spécialisé dans les freelances et indépendants. 100 % digital, premier RDV offert.",
 };
 
 /* ─── reusable badge ─────────────────────────────────────── */
@@ -87,6 +87,13 @@ export default function Home() {
                   Découvrir l&apos;offre
                 </a>
               </div>
+
+              <p className="text-sm text-gray-500">
+                Freelance en SASU, EURL ou micro ?{" "}
+                <Link href="/expert-comptable-freelance" className="text-turquoise-700 font-semibold underline underline-offset-2 hover:text-turquoise-500">
+                  Ce que doit vous apporter un expert-comptable freelance
+                </Link>
+              </p>
 
             </div>
 

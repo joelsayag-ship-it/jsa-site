@@ -6,11 +6,18 @@ import Footer from "../components/Footer";
 import ContactSection from "../components/ContactSection";
 
 export const metadata: Metadata = {
-  title: "Expert-comptable freelance : pourquoi, comment bien le choisir",
+  title: "Expert-comptable freelance : accompagnement, tarifs, conseils",
   description:
-    "Tout ce qu'un freelance doit savoir sur l'expert-comptable : rôle, missions, tarifs, critères de choix. JSA Expertise, cabinet spécialisé freelances à Charenton-le-Pont.",
+    "Expert-comptable pour freelances en SASU, EURL ou micro-entreprise : missions, tarifs, critères de choix. JSA Expertise, cabinet spécialisé freelances, 100 % en ligne.",
   alternates: {
     canonical: "https://www.jsaexpertise.com/expert-comptable-freelance",
+  },
+  openGraph: {
+    title: "Expert-comptable freelance : accompagnement, tarifs, conseils",
+    description:
+      "Expert-comptable pour freelances en SASU, EURL ou micro-entreprise : missions, tarifs, critères de choix.",
+    url: "https://www.jsaexpertise.com/expert-comptable-freelance",
+    type: "website",
   },
   twitter: { card: "summary_large_image" },
 };
@@ -173,8 +180,8 @@ export default function ExpertComptableFreelancePage() {
               <CheckItem><strong>Optimisation de la rémunération :</strong> salaire ou dividendes, en fonction de votre CA, vos charges perso et la conjoncture fiscale.</CheckItem>
               <CheckItem><strong>Conseil stratégique :</strong> choix du statut juridique, anticipation fiscale, changement de structure. Un regard extérieur à chaque étape.</CheckItem>
             </ul>
-            <Link href="/comptabilite-freelance" className="text-turquoise-500 hover:underline font-semibold text-sm">
-              Tout savoir sur la comptabilité freelance →
+            <Link href="/#tarifs" className="text-turquoise-500 hover:underline font-semibold text-sm">
+              Voir ce que comprend l&apos;Offre Freelance →
             </Link>
           </div>
         </section>
@@ -450,9 +457,9 @@ export default function ExpertComptableFreelancePage() {
             <p className="text-xs font-bold text-gray-400 uppercase tracking-wide mb-4">Ressources utiles</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {[
-                { label: "Comptabilité freelance", href: "/comptabilite-freelance" },
-                { label: "Création d'entreprise", href: "/creation-entreprise" },
-                { label: "Optimisation fiscale", href: "/optimisation-fiscale" },
+                { label: "Charges déductibles", href: "/blog/charges-deductibles-societe-freelance" },
+                { label: "Créer sa société", href: "/blog/comment-creer-sa-societe-2026" },
+                { label: "Simulateur impôt 2027", href: "/simulateur-impot-revenu" },
                 { label: "Simulateur SASU ou EURL", href: "/ressources/simulateur-sasu-eurl" },
                 { label: "SASU ou EURL 2026", href: "/blog/sasu-ou-eurl-quel-statut-choisir-2026" },
                 { label: "Optimiser sa rémunération", href: "/blog/optimiser-remuneration-sasu-salaire-dividendes" },

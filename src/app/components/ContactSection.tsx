@@ -1,13 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { origineDemande } from "@/lib/origine-contact";
+import { EVENEMENT_PREREMPLIR_CONTACT, type PreremplissageContact } from "@/lib/ouvrir-contact";
 
 const API_URL = "https://jsa-contact-api-joelsayag-3015s-projects.vercel.app/api/contact";
 
 type Status = "idle" | "loading" | "success" | "error";
 
-export default function ContactSection({ className }: { className?: string }) {
+const INTRO_PAR_DEFAUT = (
+  <>
+    Que vous soyez en création d&apos;activité, en transition depuis un autre cabinet
+    ou simplement à la recherche d&apos;un expert-comptable réactif, nous sommes là
+    pour vous accompagner. Le premier rendez-vous est gratuit et sans engagement.
+  </>
+);
+
+export default function ContactSection({
+  className,
+  id = "contact",
+  titre = "Prenons rendez-vous",
+  intro = INTRO_PAR_DEFAUT,
+  formulaire = "Formulaire « Prenons rendez-vous » (bas de page)",
+}: {
+  className?: string;
+  id?: string;
+  titre?: string;
+  intro?: React.ReactNode;
+  /** Nom du formulaire affiché dans le mail reçu */
+  formulaire?: string;
+}) {
   const [form, setForm] = useState({
     nom: "",
     email: "",
@@ -17,6 +39,29 @@ export default function ContactSection({ className }: { className?: string }) {
     website: "",
   });
   const [status, setStatus] = useState<Status>("idle");
+  // Bouton de la page qui a amené le visiteur ici (ex. encart du simulateur), repris dans le mail
+  const [source, setSource] = useState<string | null>(null);
+  const dernierPrerempli = useRef("");
+
+  // Préremplissage depuis un bouton de la page (voir allerAuFormulaire)
+  useEffect(() => {
+    const onPreremplir = (e: Event) => {
+      const d = (e as CustomEvent<PreremplissageContact>).detail;
+      if (!d || (d.cible ?? "contact") !== id) return;
+      setSource(d.source || null);
+      if (d.message) {
+        const message = d.message;
+        // Ne remplace pas un message déjà tapé par le visiteur
+        setForm((prev) =>
+          !prev.message.trim() || prev.message === dernierPrerempli.current ? { ...prev, message } : prev
+        );
+        dernierPrerempli.current = message;
+      }
+      setStatus((s) => (s === "success" ? "idle" : s));
+    };
+    window.addEventListener(EVENEMENT_PREREMPLIR_CONTACT, onPreremplir);
+    return () => window.removeEventListener(EVENEMENT_PREREMPLIR_CONTACT, onPreremplir);
+  }, [id]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -33,7 +78,7 @@ export default function ContactSection({ className }: { className?: string }) {
       statut: form.statut,
       message: form.message,
       website: form.website,
-      ...origineDemande("Formulaire « Prenons rendez-vous » (bas de page)"),
+      ...origineDemande(source ? `${formulaire}, depuis : ${source}` : formulaire),
     };
 
     console.log("[JSA Contact] Envoi vers", API_URL);
@@ -72,16 +117,14 @@ export default function ContactSection({ className }: { className?: string }) {
     "w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-turquoise-500 focus:border-transparent";
 
   return (
-    <section id="contact" className={`${className ?? "bg-[#F1F8EA]"} py-16 md:py-24 px-4 md:px-8`}>
+    <section id={id} className={`${className ?? "bg-[#F1F8EA]"} py-16 md:py-24 px-4 md:px-8 scroll-mt-16`}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-3 leading-[1.1] tracking-tight">
-            Prenons rendez-vous
+            {titre}
           </h2>
           <p className="text-gray-600 text-base md:text-xl mt-4 max-w-2xl mx-auto leading-relaxed">
-            Que vous soyez en création d&apos;activité, en transition depuis un autre cabinet
-            ou simplement à la recherche d&apos;un expert-comptable réactif, nous sommes là
-            pour vous accompagner. Le premier rendez-vous est gratuit et sans engagement.
+            {intro}
           </p>
         </div>
 

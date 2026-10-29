@@ -1,6 +1,7 @@
 import Link from "next/link";
 import IncomeTaxSimulator2026 from "../components/IncomeTaxSimulator2026";
 import BoutonRdv from "../components/BoutonRdv";
+import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 import { calculateNetTax, PARAMETRES, type TaxInputs } from "@/lib/tax2026";
 
@@ -324,23 +325,13 @@ export default function SimulateurImpotRevenuPage() {
           </div>
         </section>
 
-        {/* ── CTA ─────────────────────────────────────────── */}
-        <section className="bg-[#00B6DE] py-16 px-4 md:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-extrabold text-white mb-4">Optimisez votre impôt avant le 31 décembre</h2>
-            <p className="text-white/85 text-lg mb-8">
-              Rémunération, dividendes, PER : nous chiffrons avec vous les leviers adaptés à votre situation. Premier
-              rendez-vous gratuit.
-            </p>
-            <BoutonRdv
-              source="Simulateur d'impôt 2027 (bas de page)"
-              message="Bonjour, j'aimerais faire le point sur ma rémunération et mon impôt 2027 avant le 31 décembre."
-              className="inline-block bg-white text-[#0081A5] hover:bg-gray-50 font-bold text-lg px-8 py-4 rounded-full transition-colors shadow-lg"
-            >
-              Prendre RDV gratuitement
-            </BoutonRdv>
-          </div>
-        </section>
+        {/* ── CONTACT : message prérempli depuis l'encart du simulateur, ou créneau Calendly ── */}
+        <ContactSection
+          className="bg-[#F1F8EA]"
+          titre="Faisons le point sur votre impôt"
+          intro="Freelance, dirigeant de SASU ou d'EURL, micro-entrepreneur : rémunération, dividendes, PER, choix du statut, nous chiffrons avec vous les leviers à activer avant le 31 décembre. Envoyez-nous un message ou réservez directement un créneau de 30 minutes. Premier rendez-vous gratuit."
+          formulaire="Formulaire du simulateur d'impôt 2027 (bas de page)"
+        />
       </main>
 
       <Footer />

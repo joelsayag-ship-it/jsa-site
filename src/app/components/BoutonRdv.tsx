@@ -1,21 +1,24 @@
 "use client";
 
-import { ouvrirContact } from "@/lib/ouvrir-contact";
+import { allerAuFormulaire } from "@/lib/ouvrir-contact";
 
-/** Bouton qui ouvre le formulaire « Rendez-vous offert » sur place (utilisable dans une page serveur). */
+/** Bouton qui fait défiler jusqu'au formulaire de bas de page et le préremplit (utilisable dans une page serveur). */
 export default function BoutonRdv({
   source,
   message,
+  cible,
   className,
   children,
 }: {
   source: string;
   message?: string;
+  /** id de la section ContactSection visée (par défaut « contact ») */
+  cible?: string;
   className?: string;
   children: React.ReactNode;
 }) {
   return (
-    <button type="button" onClick={() => ouvrirContact({ source, message })} className={className}>
+    <button type="button" onClick={() => allerAuFormulaire({ cible, source, message })} className={className}>
       {children}
     </button>
   );

@@ -12,7 +12,7 @@ import {
   type SituationParticuliere,
   type TaxInputs,
 } from "../../lib/tax2026";
-import { ouvrirContact } from "../../lib/ouvrir-contact";
+import { allerAuFormulaire } from "../../lib/ouvrir-contact";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Valeurs initiales
@@ -574,7 +574,7 @@ function EncartFreelance({ impot, tmi, independant }: { impot: number; tmi: numb
       <p className="text-sm text-gray-600 leading-relaxed">{texte}</p>
       <button
         type="button"
-        onClick={() => ouvrirContact({ source: SOURCE_ENCART, message })}
+        onClick={() => allerAuFormulaire({ source: SOURCE_ENCART, message })}
         className="mt-4 inline-flex items-center justify-center w-full bg-[#FF6B35] hover:bg-[#e85a25] text-white font-bold px-5 py-3 rounded-full transition-colors text-sm shadow-lg shadow-[#FF6B35]/25"
       >
         Faire le point gratuitement (30 min)

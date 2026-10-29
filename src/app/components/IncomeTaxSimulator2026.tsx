@@ -12,6 +12,7 @@ import {
   type SituationParticuliere,
   type TaxInputs,
 } from "../../lib/tax2026";
+import { ouvrirContact } from "../../lib/ouvrir-contact";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Valeurs initiales
@@ -38,10 +39,6 @@ const INITIAL_INPUTS: TaxInputs = {
 
   annee: 2027,
 };
-
-interface Props {
-  contactHref?: string;
-}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Helpers de formatage
@@ -204,9 +201,7 @@ function Pill({ children }: { children: React.ReactNode }) {
 // Composant principal
 // ─────────────────────────────────────────────────────────────────────────────
 
-export default function IncomeTaxSimulator2026({
-  contactHref = "/#contact",
-}: Props) {
+export default function IncomeTaxSimulator2026() {
   const [inputs, setInputs] = useState<TaxInputs>(INITIAL_INPUTS);
   const [detailOpen, setDetailOpen] = useState(false);
 
@@ -521,21 +516,12 @@ export default function IncomeTaxSimulator2026({
             )}
           </div>
 
-          {/* CTA */}
-          <div className="bg-[#F1F8EA] rounded-2xl p-5 border border-green-100">
-            <p className="text-sm text-gray-700 leading-relaxed">
-              Vous êtes <strong>freelance, dirigeant de SASU/EURL,
-              micro-entrepreneur ou LMNP</strong> ? JSA Expertise peut vous
-              aider à optimiser votre rémunération, vos charges et votre
-              fiscalité.
-            </p>
-            <Link
-              href={contactHref}
-              className="mt-4 inline-flex items-center justify-center w-full bg-turquoise-500 hover:bg-turquoise-700 text-white font-bold px-5 py-3 rounded-full transition-colors text-sm"
-            >
-              Être accompagné par JSA Expertise
-            </Link>
-          </div>
+          {/* Encart freelance : s'adapte au résultat pour convertir les indépendants */}
+          <EncartFreelance
+            impot={result.impotNet}
+            tmi={result.tauxMarginal}
+            independant={inputs.bicBncAutres > 0}
+          />
 
           {/* Mentions */}
           <div className="text-[11px] leading-relaxed text-gray-500 space-y-2 px-1">
@@ -551,6 +537,63 @@ export default function IncomeTaxSimulator2026({
           </div>
         </div>
       </aside>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Encart freelance
+// ─────────────────────────────────────────────────────────────────────────────
+
+const SOURCE_ENCART = "Simulateur d'impôt 2027 (encart freelance)";
+
+function EncartFreelance({ impot, tmi, independant }: { impot: number; tmi: number; independant: boolean }) {
+  const tranche = formatPercent(tmi);
+  const titre = independant
+    ? "Vous avez des revenus d'indépendant"
+    : tmi >= 0.3
+      ? `Votre tranche marginale est de ${tranche}`
+      : "Freelance, dirigeant de SASU ou d'EURL ?";
+  const texte = independant
+    ? "Micro, EURL ou SASU, et la façon dont vous vous rémunérez : ces choix changent à la fois votre impôt et vos cotisations. On les chiffre avec vous, gratuitement."
+    : tmi >= 0.3
+      ? `Chaque euro de revenu en plus est imposé à ${tranche}. En SASU ou en EURL, rémunération, dividendes et PER se décident avant le 31 décembre : c'est le moment de faire le point.`
+      : "Votre impôt dépend aussi de la façon dont vous vous rémunérez. Statut, rémunération, dividendes : on regarde votre situation ensemble.";
+  const message =
+    `Bonjour, je viens d'utiliser le simulateur d'impôt 2027 (impôt estimé : ${formatEuros(impot)}, ` +
+    `tranche marginale : ${tranche}${independant ? ", avec des revenus d'indépendant" : ""}). ` +
+    "Je souhaite faire le point sur ma situation.";
+
+  return (
+    <div className="bg-white rounded-2xl p-5 border-2 border-[#FF6B35]/40 shadow-md">
+      <p className="inline-flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wide text-[#FF6B35] mb-2">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B35]" />
+        Freelances et dirigeants
+      </p>
+      <p className="font-extrabold text-gray-900 leading-snug mb-2">{titre}</p>
+      <p className="text-sm text-gray-600 leading-relaxed">{texte}</p>
+      <button
+        type="button"
+        onClick={() => ouvrirContact({ source: SOURCE_ENCART, message })}
+        className="mt-4 inline-flex items-center justify-center w-full bg-[#FF6B35] hover:bg-[#e85a25] text-white font-bold px-5 py-3 rounded-full transition-colors text-sm shadow-lg shadow-[#FF6B35]/25"
+      >
+        Faire le point gratuitement (30 min)
+      </button>
+      <Link
+        href="/ressources/simulateur-sasu-eurl"
+        onClick={() =>
+          (window as Window & { gtag?: (...args: unknown[]) => void }).gtag?.("event", "cta_click", {
+            event_category: "simulateur",
+            event_label: "simulateur_ir_vers_sasu_eurl",
+          })
+        }
+        className="mt-3 block text-center text-sm font-semibold text-turquoise-700 hover:text-turquoise-500"
+      >
+        Comparer SASU et EURL avec notre simulateur →
+      </Link>
+      <p className="mt-3 text-[11px] text-gray-400 text-center">
+        Joël Sayag, expert-comptable inscrit à l&apos;Ordre · Réponse sous 24 h
+      </p>
     </div>
   );
 }

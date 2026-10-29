@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { memoriserArrivee, origineDemande } from "@/lib/origine-contact";
+import { EVENEMENT_OUVRIR_CONTACT, type OuvertureContact } from "@/lib/ouvrir-contact";
 
 const API_URL = "https://jsa-contact-api-joelsayag-3015s-projects.vercel.app/api/contact";
 
@@ -18,6 +19,20 @@ export default function ContactFlottant() {
     message: "",
     website: "",
   });
+  // Bouton du site qui a ouvert le panneau (ex. encart du simulateur d'impôt), repris dans le mail
+  const [source, setSource] = useState<string | null>(null);
+
+  // Ouverture depuis un autre bouton du site (voir src/lib/ouvrir-contact.ts)
+  useEffect(() => {
+    const onOuvrir = (e: Event) => {
+      const { source: s, message } = (e as CustomEvent<OuvertureContact>).detail || { source: "" };
+      setSource(s || null);
+      if (message) setForm((prev) => (prev.message.trim() ? prev : { ...prev, message }));
+      setOuvert(true);
+    };
+    window.addEventListener(EVENEMENT_OUVRIR_CONTACT, onOuvrir);
+    return () => window.removeEventListener(EVENEMENT_OUVRIR_CONTACT, onOuvrir);
+  }, []);
 
   // Composant présent sur toutes les pages (layout) : mémorise la page d'arrivée et la provenance du visiteur
   useEffect(() => {
@@ -44,13 +59,18 @@ export default function ContactFlottant() {
       const res = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, ...origineDemande("Onglet « Rendez-vous offert »") }),
+        body: JSON.stringify({
+          ...form,
+          ...origineDemande(
+            source ? `Onglet « Rendez-vous offert », ouvert depuis : ${source}` : "Onglet « Rendez-vous offert »"
+          ),
+        }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setStatus("success");
       (window as Window & { gtag?: (...args: unknown[]) => void }).gtag?.("event", "form_submit", {
         event_category: "contact",
-        event_label: "formulaire_contact_principal",
+        event_label: source ? `rendez_vous_offert : ${source}` : "formulaire_contact_principal",
       });
     } catch {
       setStatus("error");
@@ -77,7 +97,10 @@ export default function ContactFlottant() {
 
       {/* Bouton flottant fermé */}
       <button
-        onClick={() => setOuvert(true)}
+        onClick={() => {
+          setSource(null);
+          setOuvert(true);
+        }}
         aria-label="Ouvrir le formulaire de contact"
         className={`fixed right-0 top-1/2 -translate-y-1/2 z-50 bg-[#FF6B35] hover:bg-[#e85a25] text-white transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-x-1 ${
           ouvert ? "opacity-0 pointer-events-none" : "opacity-100"

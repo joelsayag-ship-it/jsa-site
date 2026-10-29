@@ -222,7 +222,7 @@ export default function Header() {
         {/* CTA */}
         <Link
           href="/#contact"
-          className="hidden md:inline-flex items-center bg-[#00B6DE] hover:bg-[#0081A5] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors flex-shrink-0"
+          className="hidden lg:inline-flex items-center bg-[#00B6DE] hover:bg-[#0081A5] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors flex-shrink-0"
         >
           Prendre RDV
         </Link>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import IncomeTaxSimulator2026 from "../components/IncomeTaxSimulator2026";
+import BoutonRdv from "../components/BoutonRdv";
 import Footer from "../components/Footer";
 import { calculateNetTax, PARAMETRES, type TaxInputs } from "@/lib/tax2026";
 
@@ -119,7 +120,7 @@ export default function SimulateurImpotRevenuPage() {
         {/* ── SIMULATEUR ──────────────────────────────────── */}
         <section className="bg-white py-10 md:py-16 px-4 md:px-8">
           <div className="max-w-6xl mx-auto">
-            <IncomeTaxSimulator2026 contactHref="/#contact" />
+            <IncomeTaxSimulator2026 />
           </div>
         </section>
 
@@ -252,6 +253,18 @@ export default function SimulateurImpotRevenuPage() {
                 .
               </p>
             </div>
+            <div className="mt-8 bg-[#F1F8EA] border border-turquoise-100 rounded-2xl p-6 md:flex md:items-center md:justify-between gap-6">
+              <p className="text-gray-800 font-semibold leading-relaxed mb-4 md:mb-0">
+                Vous êtes freelance ou dirigeant ? On chiffre avec vous les leviers à activer avant le 31 décembre.
+              </p>
+              <BoutonRdv
+                source="Simulateur d'impôt 2027 (section freelances et dirigeants)"
+                message="Bonjour, je suis freelance / dirigeant et j'aimerais faire le point sur mon impôt 2027 avant le 31 décembre."
+                className="flex-shrink-0 bg-[#FF6B35] hover:bg-[#e85a25] text-white font-bold px-6 py-3 rounded-full transition-colors text-sm"
+              >
+                Faire le point gratuitement
+              </BoutonRdv>
+            </div>
           </div>
         </section>
 
@@ -319,12 +332,13 @@ export default function SimulateurImpotRevenuPage() {
               Rémunération, dividendes, PER : nous chiffrons avec vous les leviers adaptés à votre situation. Premier
               rendez-vous gratuit.
             </p>
-            <Link
-              href="/#contact"
+            <BoutonRdv
+              source="Simulateur d'impôt 2027 (bas de page)"
+              message="Bonjour, j'aimerais faire le point sur ma rémunération et mon impôt 2027 avant le 31 décembre."
               className="inline-block bg-white text-[#0081A5] hover:bg-gray-50 font-bold text-lg px-8 py-4 rounded-full transition-colors shadow-lg"
             >
               Prendre RDV gratuitement
-            </Link>
+            </BoutonRdv>
           </div>
         </section>
       </main>

@@ -76,15 +76,9 @@ export default function RootLayout({
             "email": "joel.sayag@jsaexpertise.com",
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "10 rue du Président Kennedy",
               "addressLocality": "Charenton-le-Pont",
               "postalCode": "94220",
               "addressCountry": "FR"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 48.8194,
-              "longitude": 2.4147
             },
             "areaServed": [
               "Charenton-le-Pont",

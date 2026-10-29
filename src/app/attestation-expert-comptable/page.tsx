@@ -76,7 +76,6 @@ export default function AttestationExpertComptablePage() {
             telephone: "+33660735546",
             address: {
               "@type": "PostalAddress",
-              streetAddress: "10 rue du Président Kennedy",
               postalCode: "94220",
               addressLocality: "Charenton-le-Pont",
               addressCountry: "FR",

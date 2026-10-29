@@ -17,8 +17,8 @@ export const metadata: Metadata = {
 
 const FAQS = [
   {
-    q: "Où se trouve exactement le cabinet JSA Expertise à Charenton-le-Pont ?",
-    a: "Au 10 rue du Président Kennedy à Charenton-le-Pont (94220), à trois minutes à pied de la station Charenton-Écoles (métro ligne 8). Le cabinet est ouvert du lundi au vendredi sur rendez-vous, et accessible facilement depuis Bercy 2, le quartier de Conflans ou la ZAC Charenton-Bercy.",
+    q: "Où se trouve le cabinet JSA Expertise ?",
+    a: "À Charenton-le-Pont (94220), aux portes de Paris 12, accessible en métro par la ligne 8. Le cabinet est ouvert du lundi au vendredi sur rendez-vous, et accessible facilement depuis Bercy 2, le quartier de Conflans ou la ZAC Charenton-Bercy.",
   },
   {
     q: "Quels profils de freelances accompagnez-vous principalement à Charenton ?",
@@ -76,7 +76,7 @@ export default function CharentonPage() {
                 <span className="text-turquoise-500">Charenton-le-Pont</span>
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                Notre cabinet est installé au 10 rue du Président Kennedy, à trois minutes du métro Charenton-Écoles. Un avantage rare pour les freelances du 94 : un expert-comptable spécialisé, physiquement dans votre ville, qui connaît le tissu local.
+                Notre cabinet est installé à Charenton-le-Pont, aux portes de Paris 12. Un avantage rare pour les freelances du 94 : un expert-comptable spécialisé, physiquement dans votre ville, qui connaît le tissu local.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/#contact" className="bg-turquoise-500 hover:bg-turquoise-700 text-white font-bold px-7 py-3.5 rounded-full transition-colors">
@@ -151,7 +151,7 @@ export default function CharentonPage() {
               {[
                 {
                   title: "Cabinet physique dans votre ville",
-                  desc: "Au 10 rue du Président Kennedy, à trois minutes à pied de Charenton-Écoles (ligne 8). Vous pouvez passer au cabinet sans organiser un déplacement à l'autre bout de Paris.",
+                  desc: "À Charenton-le-Pont, sur la ligne 8 du métro. Vous pouvez passer au cabinet sans organiser un déplacement à l'autre bout de Paris.",
                 },
                 {
                   title: "RDV présentiel ou visio, vous choisissez",

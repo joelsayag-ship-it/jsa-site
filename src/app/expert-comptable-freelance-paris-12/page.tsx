@@ -169,7 +169,7 @@ export default function Paris12Page() {
               <div className="bg-[#F1F8EA] rounded-2xl p-6">
                 <h3 className="font-extrabold text-gray-900 mb-2">Accès depuis le 12e</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Le cabinet est situé 10 rue du Président Kennedy, à Charenton-le-Pont. La ligne 8 du métro relie directement le 12e (Reuilly-Diderot, Daumesnil, Michel Bizot, Porte Dorée, Porte de Charenton) à la station Charenton-Écoles.
+                  Le cabinet est situé à Charenton-le-Pont, juste à côté du 12e. La ligne 8 du métro relie directement le 12e (Reuilly-Diderot, Daumesnil, Michel Bizot, Porte Dorée, Porte de Charenton) à Charenton-le-Pont.
                 </p>
               </div>
               <div className="bg-[#F1F8EA] rounded-2xl p-6">

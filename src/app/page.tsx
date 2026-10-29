@@ -319,7 +319,7 @@ export default function Home() {
               <div className="bg-[#F1F8EA] rounded-2xl p-6 md:p-8">
                 <h3 className="text-xl font-extrabold text-gray-900 mb-3">Un cabinet à Charenton-le-Pont (94220)</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Le cabinet est installé 10 rue du Président Kennedy, à{" "}
+                  Le cabinet est installé à{" "}
                   <Link href="/expert-comptable-freelance-charenton-le-pont" className="text-turquoise-700 font-semibold underline underline-offset-2 hover:text-turquoise-500">
                     Charenton-le-Pont
                   </Link>

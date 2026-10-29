@@ -4,7 +4,7 @@
 - Nom : JSA Expertise
 - Type : Cabinet d'expertise comptable
 - Fondateur : Joël Sayag, expert-comptable (10 ans d'expérience)
-- Adresse : 10 rue du Président Kennedy, 94220 Charenton-le-Pont
+- Localisation : Charenton-le-Pont (94220), aux portes de Paris 12e
 - Téléphone : 06 60 73 55 46
 - Email : joel.sayag@jsaexpertise.com
 - Site : https://www.jsaexpertise.com

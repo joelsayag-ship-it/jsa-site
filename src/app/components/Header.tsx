@@ -5,7 +5,31 @@ import Image from "next/image";
 import Link from "next/link";
 
 const NAV_ITEMS = [
-  { label: "Nos offres", href: "/#tarifs" },
+  {
+    label: "Nos offres",
+    children: [
+      {
+        label: "Expert-comptable freelance",
+        href: "/expert-comptable-freelance",
+        desc: "SASU, EURL, micro-entreprise : notre accompagnement des freelances",
+      },
+      {
+        label: "Formules et tarifs",
+        href: "/#tarifs",
+        desc: "Création d'entreprise, Offre Freelance, à la carte",
+      },
+      {
+        label: "Expert-comptable à Charenton-le-Pont",
+        href: "/expert-comptable-freelance-charenton-le-pont",
+        desc: "Le cabinet, 10 rue du Président Kennedy (94220)",
+      },
+      {
+        label: "Expert-comptable Paris 12",
+        href: "/expert-comptable-freelance-paris-12",
+        desc: "Pour les freelances du 12e arrondissement",
+      },
+    ] as const,
+  },
   {
     label: "Ressources",
     children: [

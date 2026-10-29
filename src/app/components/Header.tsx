@@ -21,7 +21,7 @@ const NAV_ITEMS = [
       {
         label: "Expert-comptable à Charenton-le-Pont",
         href: "/expert-comptable-freelance-charenton-le-pont",
-        desc: "Le cabinet, 10 rue du Président Kennedy (94220)",
+        desc: "Freelances et indépendants de Charenton-le-Pont (94220)",
       },
       {
         label: "Expert-comptable Paris 12",

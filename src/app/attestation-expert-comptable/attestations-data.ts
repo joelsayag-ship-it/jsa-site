@@ -125,16 +125,16 @@ export const ATTESTATIONS: Attestation[] = [
     populaire: true,
     title: "Attestation de chiffre d'affaires expert-comptable dès 150 € HT",
     description:
-      "Banque, appel d'offres, assureur, bailleur : votre chiffre d'affaires attesté par un expert-comptable inscrit à l'Ordre, sous 24 à 48 h. Devis sous 24 h.",
+      "Appel d'offres, référencement fournisseur, banque, assureur : votre chiffre d'affaires attesté par un expert-comptable inscrit à l'Ordre, sous 24 à 48 h.",
     h1: "Attestation de chiffre d'affaires par un expert-comptable",
     intro:
-      "Un client grand compte, un acheteur public, votre assureur ou votre banque vous demande de justifier votre chiffre d'affaires, souvent sous la forme d'une attestation de chiffre d'affaires comptable. L'attestation de l'expert-comptable confirme le montant réalisé sur un exercice ou une période donnée, à partir de votre comptabilité et de vos pièces.",
+      "Un acheteur public, un grand compte qui vous référence comme fournisseur, votre assureur ou votre banque vous demande de justifier votre chiffre d'affaires, souvent sous la forme d'une attestation de chiffre d'affaires comptable. L'attestation de l'expert-comptable confirme le montant réalisé sur un exercice ou une période donnée, à partir de votre comptabilité et de vos pièces.",
     resume: "Banque, appel d'offres, assureur, bailleur commercial.",
     destinataires: [
       {
-        titre: "Appels d'offres et grands comptes",
+        titre: "Appels d'offres et référencement",
         texte:
-          "Les dossiers de candidature demandent souvent le chiffre d'affaires des derniers exercices, parfois attesté par un expert-comptable.",
+          "Marchés publics (formulaire DC2 ou DUME), consultations privées, référencement chez un grand compte ou une ESN : le chiffre d'affaires des derniers exercices est demandé, parfois attesté par un expert-comptable.",
       },
       {
         titre: "Banque et financeurs",
@@ -177,8 +177,25 @@ export const ATTESTATIONS: Attestation[] = [
         q: "Quelle différence avec la déclaration que je peux faire moi-même ?",
         a: "Une déclaration sur l'honneur n'engage que vous. L'attestation de l'expert-comptable est établie après examen des pièces par un professionnel inscrit à l'Ordre qui engage sa responsabilité : c'est ce qui rassure le destinataire.",
       },
+      {
+        q: "Que demande un acheteur public pour répondre à un marché ?",
+        a: "Dans le formulaire DC2 ou le DUME, l'acheteur demande en général le chiffre d'affaires global des trois derniers exercices disponibles, et parfois celui réalisé dans le domaine couvert par le marché. Le règlement de la consultation précise si une attestation d'expert-comptable est exigée. Transmettez-le avec votre demande : l'attestation reprendra exactement les exercices et la ventilation attendus.",
+      },
+      {
+        q: "Mon entreprise a moins de trois ans d'existence, puis-je candidater ?",
+        a: "Oui. Nous attestons le chiffre d'affaires des exercices clos et, si besoin, celui de la période en cours. Lorsqu'une entreprise ne peut pas produire les documents demandés pour une raison justifiée, comme une création récente, la réglementation des marchés publics (arrêté du 22 mars 2019) lui permet de prouver sa capacité financière par tout autre moyen que l'acheteur juge approprié, par exemple une déclaration de sa banque. L'acheteur ne peut pas écarter la candidature au seul motif que ces pièces manquent.",
+      },
+      {
+        q: "L'acheteur public peut-il exiger un chiffre d'affaires minimum ?",
+        a: "Oui, mais il est encadré. Depuis le décret du 29 décembre 2025, le chiffre d'affaires minimal exigé ne peut pas, en principe, dépasser une fois et demie le montant estimé du marché ou du lot (deux fois auparavant), sauf justification liée à l'objet du marché. Vérifiez ce seuil dans le règlement de la consultation avant de préparer votre dossier.",
+      },
+      {
+        q: "Un grand compte ou une ESN me demande des documents pour me référencer, lesquels ?",
+        a: "Le plus souvent : un extrait Kbis, l'attestation de vigilance URSSAF (gratuite, à télécharger sur votre espace URSSAF), une attestation d'assurance responsabilité civile professionnelle et, selon le client, votre chiffre d'affaires des derniers exercices. Seul ce dernier point demande une attestation d'expert-comptable.",
+      },
     ],
     liens: [
+      { label: "Expert-comptable consultant IT et développeur", href: "/blog/expert-comptable-consultant-it-developpeur-freelance" },
       { label: "TVA du freelance : franchise ou réel", href: "/blog/tva-freelance-franchise-reel-obligations-2026" },
       { label: "Micro-entreprise : quand passer en société", href: "/blog/micro-entreprise-quand-passer-en-societe" },
     ],

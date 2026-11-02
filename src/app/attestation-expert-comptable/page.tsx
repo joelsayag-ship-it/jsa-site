@@ -53,6 +53,10 @@ const FAQS = [
     a: "Oui, à condition qu'il ne porte que sur des informations vérifiables. Joignez-le à votre demande : nous le complétons et le signons, ou nous établissons une attestation sur papier à en-tête qui reprend les mêmes informations.",
   },
   {
+    q: "Existe-t-il un modèle d'attestation d'expert-comptable ?",
+    a: "Il n'existe pas de modèle unique : la formulation dépend de ce qui est attesté et des pièces examinées. Une attestation reprend toujours l'identité de l'expert-comptable, l'objet, les montants et la période, les travaux réalisés, puis la date et la signature. Un modèle rempli par vous-même n'a pas la valeur d'une attestation : c'est une déclaration sur l'honneur. Si votre banque ou votre organisme impose son formulaire, nous le complétons et le signons.",
+  },
+  {
     q: "Pouvez-vous attester n'importe quel montant ?",
     a: "Non. L'expert-comptable n'atteste que ce qu'il a pu vérifier, et il engage sa responsabilité professionnelle en signant. Si les pièces ne permettent pas d'établir un montant, nous vous le disons et nous cherchons avec vous ce qui peut être attesté.",
   },
@@ -368,6 +372,101 @@ export default function AttestationExpertComptablePage() {
                   <li>Des prévisions présentées comme des résultats réels</li>
                   <li>La régularité de vos comptes dans leur ensemble (c&apos;est un audit)</li>
                 </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── EXEMPLE D'ATTESTATION ────────────────────────── */}
+        <section id="exemple" className="bg-[#F1F8EA] py-16 md:py-20 px-4 md:px-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center flex flex-col items-center mb-10">
+              <Badge>Exemple</Badge>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mt-4">
+                À quoi ressemble une attestation d&apos;expert-comptable ?
+              </h2>
+              <p className="text-gray-600 mt-3 max-w-2xl">
+                Exemple anonymisé d&apos;une attestation de revenus, pour savoir ce que vous recevrez et ce que
+                votre banque ou votre agence va lire.
+              </p>
+            </div>
+            <div className="grid lg:grid-cols-5 gap-8 items-start">
+              <figure className="lg:col-span-3 relative bg-white rounded-2xl shadow-sm border border-gray-200 p-6 md:p-10 overflow-hidden">
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none select-none absolute inset-0 flex items-center justify-center text-6xl md:text-8xl font-extrabold text-gray-100 -rotate-12"
+                >
+                  EXEMPLE
+                </span>
+                <div className="relative text-sm text-gray-700 leading-relaxed space-y-4">
+                  <p className="text-xs text-gray-400">[En-tête du cabinet : nom, adresse, n° d&apos;inscription à l&apos;Ordre]</p>
+                  <p className="font-extrabold text-gray-900 text-base text-center uppercase tracking-wide">
+                    Attestation de revenus
+                  </p>
+                  <p>
+                    À la demande de M. [Nom], président de la SASU [Dénomination] (SIREN [XXX XXX XXX]), et en notre
+                    qualité d&apos;expert-comptable, nous avons examiné les informations ci-dessous relatives aux
+                    revenus qu&apos;il a perçus de cette société.
+                  </p>
+                  <table className="w-full text-sm border border-gray-200">
+                    <caption className="sr-only">Revenus attestés dans l&apos;exemple</caption>
+                    <thead className="bg-gray-50 text-gray-500">
+                      <tr>
+                        <th className="text-left px-3 py-2 font-semibold">Exercice</th>
+                        <th className="text-right px-3 py-2 font-semibold">Rémunération</th>
+                        <th className="text-right px-3 py-2 font-semibold">Dividendes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-t border-gray-200">
+                        <td className="px-3 py-2">2024</td>
+                        <td className="px-3 py-2 text-right">[montant] €</td>
+                        <td className="px-3 py-2 text-right">[montant] €</td>
+                      </tr>
+                      <tr className="border-t border-gray-200">
+                        <td className="px-3 py-2">2025</td>
+                        <td className="px-3 py-2 text-right">[montant] €</td>
+                        <td className="px-3 py-2 text-right">[montant] €</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>
+                    Nos travaux ont consisté à rapprocher ces montants des comptes annuels, des bulletins de paie et
+                    des décisions de l&apos;associé unique. Ils ne constituent ni un audit ni un examen limité des
+                    comptes.
+                  </p>
+                  <p>
+                    Sur la base de ces travaux, nous n&apos;avons pas relevé d&apos;élément de nature à remettre en
+                    cause la concordance des informations ci-dessus avec les documents examinés.
+                  </p>
+                  <p>Fait à [ville], le [date], pour servir et valoir ce que de droit.</p>
+                  <p className="text-xs text-gray-400">[Nom, qualité et signature de l&apos;expert-comptable]</p>
+                </div>
+                <figcaption className="relative mt-6 text-xs text-gray-500">
+                  Exemple sans valeur, donné à titre d&apos;illustration. La formulation exacte dépend de la demande
+                  et des pièces examinées.
+                </figcaption>
+              </figure>
+              <div className="lg:col-span-2 space-y-6">
+                <div className="bg-white rounded-2xl p-6 shadow-sm">
+                  <h3 className="font-extrabold text-gray-900 mb-4">Ce que l&apos;on retrouve dans une attestation</h3>
+                  <ul className="space-y-3">
+                    <CheckItem>L&apos;identité de l&apos;expert-comptable et son inscription à l&apos;Ordre</CheckItem>
+                    <CheckItem>Le demandeur, son entreprise et l&apos;objet de l&apos;attestation</CheckItem>
+                    <CheckItem>Les montants attestés et la période couverte</CheckItem>
+                    <CheckItem>Les documents examinés et la nature des travaux</CheckItem>
+                    <CheckItem>La date, le lieu et la signature de l&apos;expert-comptable</CheckItem>
+                  </ul>
+                </div>
+                <div className="bg-white rounded-2xl p-6 shadow-sm">
+                  <h3 className="font-extrabold text-gray-900 mb-2">Et un modèle à remplir soi-même ?</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                    Un modèle trouvé en ligne et rempli par vos soins reste une déclaration sur l&apos;honneur.
+                    Ce que la banque ou le bailleur attend, c&apos;est la signature d&apos;un expert-comptable qui a
+                    vérifié les montants. Si le destinataire impose son propre formulaire, nous le complétons.
+                  </p>
+                  <CtaButton />
+                </div>
               </div>
             </div>
           </div>

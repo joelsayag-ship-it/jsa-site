@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { memoriserArrivee, origineDemande } from "@/lib/origine-contact";
+import { suivreLead } from "@/lib/suivi";
 import { EVENEMENT_OUVRIR_CONTACT, type OuvertureContact } from "@/lib/ouvrir-contact";
 
 const API_URL = "https://jsa-contact-api-joelsayag-3015s-projects.vercel.app/api/contact";
@@ -68,10 +69,7 @@ export default function ContactFlottant() {
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setStatus("success");
-      (window as Window & { gtag?: (...args: unknown[]) => void }).gtag?.("event", "form_submit", {
-        event_category: "contact",
-        event_label: source ? `rendez_vous_offert : ${source}` : "formulaire_contact_principal",
-      });
+      suivreLead("rendez_vous_offert", source ?? undefined);
     } catch {
       setStatus("error");
     }

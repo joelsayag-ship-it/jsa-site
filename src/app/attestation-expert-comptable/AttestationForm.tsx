@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { DELAI, EXPRESS, prix } from "./attestations-data";
 import { origineDemande } from "@/lib/origine-contact";
+import { suivreLead } from "@/lib/suivi";
 
 // Même API que le formulaire de contact principal (envoi par Resend vers joel.sayag@jsaexpertise.com)
 const API_URL = "https://jsa-contact-api-joelsayag-3015s-projects.vercel.app/api/contact";
@@ -75,10 +76,7 @@ export default function AttestationForm({
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setStatus("success");
-      (window as Window & { gtag?: (...args: unknown[]) => void }).gtag?.("event", "form_submit", {
-        event_category: "attestation",
-        event_label: type,
-      });
+      suivreLead("attestation", type);
     } catch (err) {
       console.error("[JSA Attestation] Échec de l'envoi", err);
       setStatus("error");

@@ -6,6 +6,7 @@ import TypewriterWord from "./components/TypewriterWord";
 import { FAQS } from "./components/faq-data";
 import Footer from "./components/Footer";
 import ContactSection from "./components/ContactSection";
+import { DELAI, PRIX_APPEL } from "./attestation-expert-comptable/attestations-data";
 
 export const metadata: Metadata = {
   title: "Expert-comptable à Charenton-le-Pont et Paris 12 | JSA Expertise",
@@ -308,13 +309,6 @@ export default function Home() {
                   </Link>
                   .
                 </p>
-                <p className="text-sm text-gray-500 leading-relaxed mt-2">
-                  Une banque ou un bailleur vous demande un justificatif ? Obtenez une{" "}
-                  <Link href="/attestation-expert-comptable" className="underline underline-offset-2 hover:text-turquoise-500">
-                    attestation d&apos;expert-comptable en ligne
-                  </Link>
-                  , dès 150 € HT.
-                </p>
               </div>
               <div className="bg-[#F1F8EA] rounded-2xl p-6 md:p-8">
                 <h3 className="text-xl font-extrabold text-gray-900 mb-3">Un cabinet à Charenton-le-Pont (94220)</h3>
@@ -338,6 +332,23 @@ export default function Home() {
                   <Link href="/expert-comptable-freelance-ivry-sur-seine" className="underline underline-offset-2 hover:text-turquoise-500">Ivry-sur-Seine</Link>.
                 </p>
               </div>
+            </div>
+
+            {/* Attestations : offre ponctuelle qui convertit le mieux (audit GA4, nov. 2026) */}
+            <div className="mt-6 bg-white border-2 border-turquoise-500/30 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+              <div className="flex-1">
+                <h3 className="text-xl font-extrabold text-gray-900 mb-2">Besoin d&apos;une attestation d&apos;expert-comptable ?</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Revenus pour un crédit immobilier, chiffre d&apos;affaires pour un appel d&apos;offres, prévisionnel pour
+                  la banque : dès {PRIX_APPEL}, sous {DELAI}, même si vous n&apos;êtes pas client du cabinet.
+                </p>
+              </div>
+              <Link
+                href="/attestation-expert-comptable"
+                className="inline-flex items-center justify-center bg-turquoise-500 hover:bg-turquoise-700 text-white font-bold px-6 py-3 rounded-full transition-colors whitespace-nowrap"
+              >
+                Voir les attestations →
+              </Link>
             </div>
           </div>
         </section>

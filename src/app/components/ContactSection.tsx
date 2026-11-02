@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { origineDemande } from "@/lib/origine-contact";
+import { suivreLead } from "@/lib/suivi";
 import { EVENEMENT_PREREMPLIR_CONTACT, type PreremplissageContact } from "@/lib/ouvrir-contact";
 
 const API_URL = "https://jsa-contact-api-joelsayag-3015s-projects.vercel.app/api/contact";
@@ -103,10 +104,7 @@ export default function ContactSection({
       const data = await res.json().catch(() => ({}));
       console.log("[JSA Contact] Réponse API", data);
       setStatus("success");
-      (window as Window & { gtag?: (...args: unknown[]) => void }).gtag?.("event", "form_submit", {
-        event_category: "contact",
-        event_label: "formulaire_contact_principal",
-      });
+      suivreLead(id === "contact" ? "contact_bas_de_page" : `contact_${id}`, source ?? undefined);
     } catch (err) {
       console.error("[JSA Contact] Exception fetch", err);
       setStatus("error");

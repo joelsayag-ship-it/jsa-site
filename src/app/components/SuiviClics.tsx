@@ -15,7 +15,7 @@ export default function SuiviClics() {
       if (!type) return;
       suivre(type, {
         page_path: window.location.pathname,
-        link_text: (lien.textContent || "").replace(/\s+/g, " ").trim().slice(0, 80),
+        link_text: ((lien as HTMLElement).innerText || lien.textContent || "").replace(/\s+/g, " ").trim().slice(0, 80),
       });
     };
     document.addEventListener("click", onClick, { capture: true });

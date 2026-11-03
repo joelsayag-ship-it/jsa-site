@@ -387,7 +387,7 @@ export default function ExpertComptableFreelancePage() {
             </h2>
             <div className="space-y-4 text-gray-600 leading-relaxed mb-8">
               <p>
-                JSA Expertise est basé à Charenton-le-Pont, à la frontière du Paris 12e et du Val-de-Marne. Notre cabinet accompagne des freelances dans tout le 94 : consultants, développeurs, managers de transition, directeurs de mission.
+                JSA Expertise est basé à Charenton-le-Pont, à la frontière du Paris 12e et du Val-de-Marne. Notre cabinet accompagne des freelances dans tout le 94 : consultants, développeurs, managers de transition, directeurs de mission. Freelance de l'informatique ? Voyez notre page dédiée aux <Link href="/expert-comptable-consultant-informatique" className="text-turquoise-500 hover:underline font-semibold">consultants IT et développeurs</Link>.
               </p>
               <p>
                 Nous fonctionnons en 100% digital, ce qui signifie que vous pouvez travailler avec nous depuis n'importe où. Et si vous préférez un rendez-vous physique, notre cabinet de Charenton est accessible en quelques minutes depuis tout le Val-de-Marne.

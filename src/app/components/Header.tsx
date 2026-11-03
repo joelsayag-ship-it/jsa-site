@@ -14,6 +14,11 @@ const NAV_ITEMS = [
         desc: "SASU, EURL, micro-entreprise : notre accompagnement des freelances",
       },
       {
+        label: "Consultants IT et développeurs",
+        href: "/expert-comptable-consultant-informatique",
+        desc: "Régie via une ESN, TJM, SASU ou EURL : l'expert-comptable du freelance IT",
+      },
+      {
         label: "Formules et tarifs",
         href: "/#tarifs",
         desc: "Création d'entreprise, Offre Freelance, à la carte",

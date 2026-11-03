@@ -13,12 +13,8 @@ import {
   type TaxInputs,
 } from "../../lib/tax2026";
 import { allerAuFormulaire } from "../../lib/ouvrir-contact";
-import { origineDemande } from "../../lib/origine-contact";
-import { suivre, suivreLead } from "../../lib/suivi";
+import { suivre } from "../../lib/suivi";
 import { DELAI, PRIX_APPEL } from "../attestation-expert-comptable/attestations-data";
-
-// Même API que les formulaires de contact (mail envoyé à Joël par Resend)
-const API_URL = "https://jsa-contact-api-joelsayag-3015s-projects.vercel.app/api/contact";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Valeurs initiales
@@ -544,9 +540,6 @@ export default function IncomeTaxSimulator2026() {
             impot={result.impotNet}
             tmi={result.tauxMarginal}
             independant={inputs.bicBncAutres > 0}
-            revenuImposable={result.revenuNetImposable}
-            parts={result.parts}
-            saisieFaite={revenuSaisi > 0}
           />
 
           {/* Attestations : l'offre qui convertit le mieux, à portée des visiteurs du simulateur */}
@@ -580,16 +573,10 @@ function EncartFreelance({
   impot,
   tmi,
   independant,
-  revenuImposable,
-  parts,
-  saisieFaite,
 }: {
   impot: number;
   tmi: number;
   independant: boolean;
-  revenuImposable: number;
-  parts: number;
-  saisieFaite: boolean;
 }) {
   const tranche = formatPercent(tmi);
   const titre = independant
@@ -634,129 +621,10 @@ function EncartFreelance({
       >
         Comparer SASU et EURL avec notre simulateur →
       </Link>
-      {saisieFaite && (
-        <EnvoiEstimation
-          impot={impot}
-          tranche={tranche}
-          independant={independant}
-          revenuImposable={revenuImposable}
-          parts={parts}
-        />
-      )}
       <p className="mt-3 text-[11px] text-gray-400 text-center">
         Joël Sayag, expert-comptable inscrit à l&apos;Ordre · Réponse sous 24 h
       </p>
     </div>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Estimation par e-mail : capte un contact sans demander de rendez-vous.
-// La demande arrive chez Joël (même API que le formulaire de contact), qui répond à la main :
-// l'API ne peut pas encore écrire au visiteur (domaine non vérifié dans Resend).
-// ─────────────────────────────────────────────────────────────────────────────
-
-function EnvoiEstimation({
-  impot,
-  tranche,
-  independant,
-  revenuImposable,
-  parts,
-}: {
-  impot: number;
-  tranche: string;
-  independant: boolean;
-  revenuImposable: number;
-  parts: number;
-}) {
-  const [prenom, setPrenom] = useState("");
-  const [email, setEmail] = useState("");
-  const [website, setWebsite] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-
-  const envoyer = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus("loading");
-    const message = [
-      "Demande d'envoi de l'estimation commentée par e-mail (simulateur d'impôt 2027).",
-      `Impôt net estimé : ${formatEuros(impot)}`,
-      `Tranche marginale : ${tranche}`,
-      `Revenu net imposable : ${formatEuros(revenuImposable)}`,
-      `Parts : ${parts.toLocaleString("fr-FR")}`,
-      `Revenus d'indépendant : ${independant ? "oui" : "non"}`,
-    ].join("\n");
-    try {
-      const res = await fetch(API_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          nom: prenom,
-          email,
-          telephone: "",
-          statut: independant ? "Revenus d'indépendant" : "",
-          message,
-          website,
-          ...origineDemande("Simulateur d'impôt 2027 : estimation par e-mail"),
-        }),
-      });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      setStatus("success");
-      suivreLead("simulateur_estimation_email", tranche);
-    } catch (err) {
-      console.error("[JSA Simulateur] Échec de l'envoi de l'estimation", err);
-      setStatus("error");
-    }
-  };
-
-  if (status === "success") {
-    return (
-      <p className="mt-4 text-sm text-gray-700 bg-[#F1F8EA] rounded-xl px-4 py-3 leading-relaxed">
-        C&apos;est noté. Joël vous envoie votre estimation commentée sous 24 h ouvrées.
-      </p>
-    );
-  }
-
-  const champ =
-    "w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-turquoise-500 focus:border-transparent";
-
-  return (
-    <form onSubmit={envoyer} className="mt-4 pt-4 border-t border-gray-100 space-y-2">
-      <p className="text-sm font-semibold text-gray-800">Recevoir mon estimation commentée par e-mail</p>
-      <p className="text-xs text-gray-500 leading-relaxed">
-        Joël vous l&apos;envoie avec ses premières pistes pour réduire votre impôt.
-      </p>
-      {/* Honeypot anti-bot : invisible aux humains */}
-      <input type="text" name="website" value={website} onChange={(e) => setWebsite(e.target.value)} hidden tabIndex={-1} autoComplete="off" />
-      <input
-        name="prenom"
-        value={prenom}
-        onChange={(e) => setPrenom(e.target.value)}
-        required
-        placeholder="Prénom"
-        autoComplete="given-name"
-        className={champ}
-      />
-      <input
-        name="email"
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-        placeholder="Adresse e-mail"
-        autoComplete="email"
-        className={champ}
-      />
-      {status === "error" && (
-        <p className="text-xs text-red-600">L&apos;envoi n&apos;a pas abouti, merci de réessayer.</p>
-      )}
-      <button
-        type="submit"
-        disabled={status === "loading"}
-        className="w-full border-2 border-turquoise-500 text-turquoise-700 hover:bg-turquoise-50 disabled:opacity-60 font-bold py-2.5 rounded-full text-sm transition-colors"
-      >
-        {status === "loading" ? "Envoi…" : "Recevoir mon estimation"}
-      </button>
-    </form>
   );
 }
 

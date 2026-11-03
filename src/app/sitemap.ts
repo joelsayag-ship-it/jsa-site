@@ -16,7 +16,7 @@ const STATIC_PAGES: {
   priority: number;
 }[] = [
   { path: "/", updated: "2026-10-29", changeFrequency: "weekly", priority: 1 },
-  { path: "/expert-comptable-freelance", updated: "2026-10-29", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/expert-comptable-freelance", updated: "2026-11-03", changeFrequency: "monthly", priority: 0.9 },
   { path: "/expert-comptable-freelance-paris-12", updated: "2026-10-23", changeFrequency: "monthly", priority: 0.9 },
   { path: "/expert-comptable-freelance-charenton-le-pont", updated: "2026-10-23", changeFrequency: "monthly", priority: 0.9 },
   { path: "/expert-comptable-freelance-vincennes", changeFrequency: "monthly", priority: 0.8 },
@@ -24,6 +24,7 @@ const STATIC_PAGES: {
   { path: "/expert-comptable-freelance-saint-maurice", changeFrequency: "monthly", priority: 0.8 },
   { path: "/expert-comptable-freelance-ivry-sur-seine", updated: "2026-11-02", changeFrequency: "monthly", priority: 0.8 },
   { path: "/expert-comptable-freelance-joinville-le-pont", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/expert-comptable-consultant-informatique", updated: "2026-11-03", changeFrequency: "monthly", priority: 0.9 },
   { path: "/attestation-expert-comptable", updated: "2026-11-02", changeFrequency: "monthly", priority: 0.9 },
   { path: "/attestation-expert-comptable/revenus", updated: "2026-10-27", changeFrequency: "monthly", priority: 0.8 },
   { path: "/attestation-expert-comptable/chiffre-affaires", updated: "2026-11-02", changeFrequency: "monthly", priority: 0.8 },

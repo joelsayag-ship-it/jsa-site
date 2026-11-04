@@ -96,12 +96,6 @@ function moteurs() {
   };
 }
 
-function montant(engine: Engine, regle: string): number {
-  const v = engine.evaluate({ valeur: regle, unité: "€/an" }).nodeValue;
-  return typeof v === "number" && Number.isFinite(v) ? v : 0;
-}
-
-const eurosAn = (n: number) => `${Math.max(0, Math.round(n))} €/an`;
 
 /** SASU et EURL à l'IS, tout le bénéfice versé en rémunération (même logique que le simulateur). */
 export function remunerationSeule(benefice: number, options: { acre?: boolean } = {}) {
@@ -130,11 +124,6 @@ export type ScenarioDividendes = {
   trimestres: number;
 };
 
-function trimestres(engine: Engine): number {
-  const v = engine.evaluate("protection sociale . retraite . base . trimestres").nodeValue;
-  return typeof v === "number" && Number.isFinite(v) ? v : 0;
-}
-
 /**
  * SASU : rémunération (coût total) puis dividendes du solde après IS et réserve légale, au PFU.
  * Les dividendes de SASU ne supportent pas de cotisations sociales.
@@ -160,8 +149,12 @@ export function scenarioSASU(benefice: number, remuneration: number, capital: nu
 
 /**
  * EURL à l'IS, gérant associé unique (TNS) : rémunération puis dividendes.
- * La part des dividendes au-delà de 10 % du capital supporte les cotisations des indépendants
- * (art. L136-3 du code de la sécurité sociale) : calculée par le moteur de l'Urssaf.
+ * La part des dividendes au-delà de 10 % du capital entre dans le revenu soumis aux cotisations
+ * des indépendants (art. L136-3 du code de la sécurité sociale). Les cotisations sont donc calculées
+ * par le moteur de l'Urssaf sur la rémunération augmentée de cette part ; la part sous 10 % supporte
+ * les prélèvements sociaux de 18,6 %. Impôt sur le revenu : barème sur la rémunération (moteur Urssaf)
+ * et 12,8 % sur l'ensemble des dividendes. Estimation : l'impôt sur la rémunération est calculé sans
+ * tenir compte des cotisations supplémentaires dues sur les dividendes.
  */
 export function scenarioEURL(benefice: number, remuneration: number, capital: number, libelle: string): ScenarioDividendes {
   const { eurl } = moteurs();
@@ -172,38 +165,21 @@ export function scenarioEURL(benefice: number, remuneration: number, capital: nu
   const partPrelevements = Math.min(dividendesBruts, seuil);
   const partCotisations = Math.max(0, dividendesBruts - seuil);
 
-  eurl.setSituation({
-    "entreprise . date de création": "période . début d'année",
-    "entreprise . EI": "non",
-    "entreprise . chiffre d'affaires": eurosAn(remuneration),
-    "entreprise . charges": "0 €/an",
-    "entreprise . imposition": "'IS'",
-    "entreprise . activité": "'libérale'",
-    "entreprise . activité . libérale . réglementée": "non",
-    "indépendant . cotisations et contributions . cotisations . exonérations . Acre": "non",
-    "impôt . méthode de calcul": "'barème standard'",
-    "impôt . foyer fiscal . situation de famille . question": "'célibataire'",
-    "impôt . foyer fiscal . enfants à charge": "0 enfant",
-    "impôt . foyer fiscal . parent isolé": "non",
-    "impôt . foyer fiscal . autres revenus imposables": "0 €/an",
-    ...(dividendesBruts > 0
-      ? {
-          "indépendant . dividendes . soumis à prélèvements sociaux": eurosAn(partPrelevements),
-          "indépendant . dividendes . soumis à cotisations sociales": eurosAn(partCotisations),
-          "indépendant . dividendes . imposition": "'PFU'",
-        }
-      : {}),
-  });
+  const saisie = (ca: number) => ({ ...SAISIE_PAR_DEFAUT, chiffreAffaires: ca, charges: 0, impositionEURL: "IS" as const });
+  const surRemuneration = calculerEURL(eurl, saisie(remuneration));
+  const avecDividendes = partCotisations > 0 ? calculerEURL(eurl, saisie(remuneration + partCotisations)) : surRemuneration;
 
-  const impot = montant(eurl, "indépendant . rémunération . impôt . avec dividendes");
+  const cotisations = avecDividendes.cotisations;
+  const prelevements = partPrelevements * PRELEVEMENTS_SOCIAUX_2026;
+  const impot = surRemuneration.impot + dividendesBruts * PFU_IR;
   return {
     libelle,
     remuneration,
     impotSocietes: is,
     dividendesBruts,
-    cotisationsEtPrelevements: montant(eurl, "indépendant . cotisations et contributions . avec dividendes"),
+    cotisationsEtPrelevements: cotisations + prelevements,
     impotRevenu: impot,
-    totalNet: montant(eurl, "indépendant . rémunération . nette . avec dividendes") - impot,
-    trimestres: trimestres(eurl),
+    totalNet: remuneration + dividendesBruts - cotisations - prelevements - impot,
+    trimestres: avecDividendes.trimestres,
   };
 }

@@ -176,7 +176,7 @@ export default function Page() {
 
       <H3>Exemple 1 : micro-entrepreneur en BNC</H3>
       <P>
-        Allocation de {euros(AJ)} par jour, soit {euros(EX_MICRO.allocationMensuelle)} pour un mois de 30 jours.
+        Allocation de {euros(AJ)} par jour, soit {euros(EX_MICRO.allocationMensuelle)}{" "}pour un mois de 30 jours.
         Chiffre d&apos;affaires du mois : 3 000 €. France Travail retient {euros(revenuMicro(3000, ABATTEMENT_MICRO.bnc))}{" "}
         (après l&apos;abattement de 34 %) et en déduit 70 %, soit {euros(EX_MICRO.deduction)}.
       </P>
@@ -290,7 +290,7 @@ export default function Page() {
       </P>
       <P>
         Sans aucun revenu personnel, l&apos;ARE atteint le plafond au bout de{" "}
-        {Math.ceil(PLAFOND_CUMUL / (AJ * JOURS_MOIS))} mois. Elle ne va au-delà que si l&apos;instance paritaire
+        {Math.ceil(PLAFOND_CUMUL / (AJ * JOURS_MOIS))}{" "}mois. Elle ne va au-delà que si l&apos;instance paritaire
         régionale accepte de poursuivre les versements, ce qui suppose une activité réelle n&apos;ayant rapporté aucun
         revenu, dividendes compris.
       </P>

@@ -229,7 +229,7 @@ export default function Page() {
             <strong key="t">{euros(s.totalNet)}</strong>,
             String(s.trimestres),
           ])}
-          legende="Cotisations et impôt sur la rémunération : moteur et modèles officiels de l'Urssaf (règles au 1er juillet 2026), activité libérale, célibataire sans enfant, hors ACRE. IS à 15 % jusqu'à 42 500 € puis 25 %. Réserve légale de 5 % du bénéfice dans la limite de 10 % du capital. Dividendes au PFU de 31,4 %. En SASU, la rémunération indiquée est le coût total du salaire pour la société."
+          legende="Cotisations et impôt sur la rémunération : moteur et modèles officiels de l'Urssaf (règles au 1er juillet 2026), activité libérale, célibataire sans enfant, hors ACRE. IS à 15 % jusqu'à 42 500 € puis 25 %. Réserve légale de 5 % du bénéfice dans la limite de 10 % du capital. Dividendes au PFU de 31,4 %. En SASU, la rémunération indiquée est le coût total du salaire pour la société. En EURL, les cotisations sur la part des dividendes au-delà de 10 % du capital sont calculées avec le même moteur, en ajoutant cette part au revenu du gérant (estimation)."
         />
       ) : (
         <P>Les exemples chiffrés sont momentanément indisponibles.</P>

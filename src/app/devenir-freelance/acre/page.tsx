@@ -170,8 +170,8 @@ export default function Page() {
         <P>Les exemples chiffrés sont momentanément indisponibles.</P>
       )}
       <P>
-        L&apos;économie reste modeste depuis 2026 : quelques centaines à environ deux mille euros sur l&apos;année
-        selon le niveau de revenu, et rien au-dessus du plafond de la Sécurité sociale. L&apos;ACRE ne doit donc pas
+        L&apos;économie reste modeste depuis 2026 : de l&apos;ordre de 1 000 à 2 000 € sur l&apos;année dans ces
+        exemples, et rien quand le revenu dépasse le plafond de la Sécurité sociale. L&apos;ACRE ne doit donc pas
         guider le choix du statut, mais la demander ne coûte rien.
       </P>
 

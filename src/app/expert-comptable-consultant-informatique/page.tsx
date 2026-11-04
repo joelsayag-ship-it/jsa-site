@@ -382,7 +382,7 @@ export default function ExpertComptableConsultantInformatiquePage() {
                 { label: "Fixer son TJM", href: "/blog/fixer-son-tjm-freelance-methode-calcul" },
                 { label: "SASU ou EURL en 2026", href: "/blog/sasu-ou-eurl-quel-statut-choisir-2026" },
                 { label: "Portage ou société", href: "/blog/portage-salarial-ou-societe-freelance-comment-choisir" },
-                { label: "ARE, ARCE et ACRE", href: "/blog/are-arce-acre-creation-societe-freelance" },
+                { label: "ARE, ARCE et ACRE", href: "/devenir-freelance/are-ou-arce" },
                 { label: "Attestation de chiffre d'affaires", href: "/attestation-expert-comptable/chiffre-affaires" },
               ].map((l) => (
                 <Link

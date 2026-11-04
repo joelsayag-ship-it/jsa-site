@@ -39,6 +39,11 @@ const NAV_ITEMS = [
     label: "Ressources",
     children: [
       {
+        label: "Guide : devenir freelance",
+        href: "/devenir-freelance",
+        desc: "Chômage, ARE ou ARCE, ACRE, statut, salaire et dividendes : le parcours 2026",
+      },
+      {
         label: "Actualités",
         href: "/blog",
         desc: "Conseils comptabilité & fiscalité pour freelances",

@@ -463,7 +463,7 @@ export default function ExpertComptableFreelancePage() {
                 { label: "Simulateur SASU ou EURL", href: "/ressources/simulateur-sasu-eurl" },
                 { label: "SASU ou EURL 2026", href: "/blog/sasu-ou-eurl-quel-statut-choisir-2026" },
                 { label: "Optimiser sa rémunération", href: "/blog/optimiser-remuneration-sasu-salaire-dividendes" },
-                { label: "Passer salarié à freelance", href: "/blog/passer-salarie-freelance-guide-2026" },
+                { label: "Passer salarié à freelance", href: "/devenir-freelance" },
                 { label: "Coût expert-comptable", href: "/blog/combien-coute-expert-comptable-freelance" },
               ].map((l) => (
                 <Link

@@ -407,8 +407,8 @@ export const ATTESTATIONS: Attestation[] = [
       },
     ],
     liens: [
-      { label: "ARE, ARCE, ACRE : le guide", href: "/blog/are-arce-acre-creation-societe-freelance" },
-      { label: "Passer de salarié à freelance", href: "/blog/passer-salarie-freelance-guide-2026" },
+      { label: "ARE, ARCE, ACRE : le guide", href: "/devenir-freelance/are-ou-arce" },
+      { label: "Passer de salarié à freelance", href: "/devenir-freelance" },
     ],
   },
   {

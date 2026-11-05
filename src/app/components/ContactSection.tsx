@@ -82,9 +82,6 @@ export default function ContactSection({
       ...origineDemande(source ? `${formulaire}, depuis : ${source}` : formulaire),
     };
 
-    console.log("[JSA Contact] Envoi vers", API_URL);
-    console.log("[JSA Contact] Payload", payload);
-
     try {
       const res = await fetch(API_URL, {
         method: "POST",
@@ -92,21 +89,16 @@ export default function ContactSection({
         body: JSON.stringify(payload),
       });
 
-      console.log("[JSA Contact] Status HTTP", res.status);
-
       if (!res.ok) {
         let errorBody = "";
         try { errorBody = await res.text(); } catch {}
-        console.error("[JSA Contact] Erreur API", res.status, errorBody);
         throw new Error(`HTTP ${res.status} — ${errorBody}`);
       }
 
-      const data = await res.json().catch(() => ({}));
-      console.log("[JSA Contact] Réponse API", data);
       setStatus("success");
       suivreLead(id === "contact" ? "contact_bas_de_page" : `contact_${id}`, source ?? undefined);
     } catch (err) {
-      console.error("[JSA Contact] Exception fetch", err);
+      console.error("[JSA Contact] Échec de l'envoi", err);
       setStatus("error");
     }
   };

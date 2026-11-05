@@ -101,7 +101,7 @@ export default function RootLayout({
               "https://www.linkedin.com/in/joël-sayag-expert-comptable-912795106/",
               "https://annuaire.experts-comptables.org/expert-comptable/36207-jsa-expertise-charenton-le-pont-94220"
             ],
-            "priceRange": "££",
+            "priceRange": "€€",
             "founder": {
               "@type": "Person",
               "name": "Joël Sayag",

@@ -15,7 +15,7 @@ const STATIC_PAGES: {
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
   priority: number;
 }[] = [
-  { path: "/", updated: "2026-10-29", changeFrequency: "weekly", priority: 1 },
+  { path: "/", updated: "2026-11-04", changeFrequency: "weekly", priority: 1 },
   { path: "/expert-comptable-freelance", updated: "2026-11-03", changeFrequency: "monthly", priority: 0.9 },
   { path: "/expert-comptable-freelance-paris-12", updated: "2026-10-23", changeFrequency: "monthly", priority: 0.9 },
   { path: "/expert-comptable-freelance-charenton-le-pont", updated: "2026-10-23", changeFrequency: "monthly", priority: 0.9 },
@@ -32,6 +32,12 @@ const STATIC_PAGES: {
   { path: "/attestation-expert-comptable/fonds-propres", updated: "2026-10-27", changeFrequency: "monthly", priority: 0.8 },
   { path: "/attestation-expert-comptable/france-travail", updated: "2026-10-27", changeFrequency: "monthly", priority: 0.8 },
   { path: "/attestation-expert-comptable/bpi", updated: "2026-10-27", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/devenir-freelance", updated: "2026-11-04", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/devenir-freelance/cumul-are-arce-acre", updated: "2026-11-04", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/devenir-freelance/are-ou-arce", updated: "2026-11-04", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/devenir-freelance/acre", updated: "2026-11-04", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/devenir-freelance/remuneration-sasu-eurl", updated: "2026-11-04", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/devenir-freelance/dividendes-sasu-eurl", updated: "2026-11-04", changeFrequency: "monthly", priority: 0.8 },
   { path: "/qui-sommes-nous", changeFrequency: "monthly", priority: 0.7 },
   { path: "/ressources", changeFrequency: "monthly", priority: 0.7 },
   { path: "/ressources/simulateur-indemnites-kilometriques", updated: "2026-10-23", changeFrequency: "monthly", priority: 0.8 },

@@ -25,6 +25,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/blog/are-arce-acre-creation-societe-freelance',
+        destination: '/devenir-freelance/are-ou-arce',
+        permanent: true,
+      },
+      {
+        source: '/blog/passer-salarie-freelance-guide-2026',
+        destination: '/devenir-freelance',
+        permanent: true,
+      },
+      {
         source: '/expert-comptable-freelance-paris',
         destination: '/expert-comptable-freelance-paris-12',
         permanent: true,

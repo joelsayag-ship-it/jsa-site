@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { SECTION_PATH } from "../devenir-freelance/chapitres";
 
 const NAV_ITEMS = [
   {
@@ -38,6 +39,12 @@ const NAV_ITEMS = [
   {
     label: "Ressources",
     children: [
+      {
+        label: "Guide : devenir freelance",
+        href: "/devenir-freelance",
+        desc: "Chômage, ARE ou ARCE, ACRE, statut, salaire et dividendes : le parcours 2026",
+        highlight: true,
+      },
       {
         label: "Actualités",
         href: "/blog",
@@ -90,6 +97,41 @@ const NAV_ITEMS = [
 ] as const;
 
 type NavItem = (typeof NAV_ITEMS)[number];
+type NavChild = { label: string; href: string; desc: string; highlight?: boolean };
+
+/** Menu « Ressources » affiché en pleine largeur (méga-menu) sur ordinateur */
+const MEGA_MENU = "Ressources";
+
+const MEGA_COLONNES = [
+  {
+    titre: "Simulateurs gratuits",
+    liens: [
+      {
+        label: "Simulateur Impôt sur le Revenu 2027",
+        href: "/simulateur-impot-revenu",
+        desc: "Estimez votre impôt 2027 sur les revenus 2026",
+      },
+      {
+        label: "Simulateur SASU ou EURL",
+        href: "/ressources/simulateur-sasu-eurl",
+        desc: "Cotisations et revenu net dans les deux statuts",
+      },
+      {
+        label: "Simulateur Indemnités Kilométriques",
+        href: "/ressources/simulateur-indemnites-kilometriques",
+        desc: "Vos IK 2026 selon le barème officiel",
+      },
+    ],
+  },
+  {
+    titre: "Actualités et conseils",
+    liens: [
+      { label: "Tous les articles", href: "/blog", desc: "Comptabilité, fiscalité et statut des freelances" },
+      { label: "SASU ou EURL : quel statut choisir", href: "/blog/sasu-ou-eurl-quel-statut-choisir-2026", desc: "Les critères pour trancher" },
+      { label: "Fixer son TJM", href: "/blog/fixer-son-tjm-freelance-methode-calcul", desc: "La méthode de calcul pas à pas" },
+    ],
+  },
+];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -193,8 +235,70 @@ export default function Header() {
                   </Link>
                 )}
 
+                {/* Méga-menu pleine largeur (Ressources) */}
+                {hasChildren && item.label === MEGA_MENU && (
+                  <div
+                    onMouseEnter={cancelClose}
+                    onMouseLeave={scheduleClose}
+                    className={`fixed left-0 right-0 top-16 bg-white border-t border-gray-100 shadow-2xl transition-all duration-200 origin-top ${
+                      activeMenu === item.label
+                        ? "opacity-100 translate-y-0 pointer-events-auto"
+                        : "opacity-0 -translate-y-1 pointer-events-none"
+                    }`}
+                  >
+                    <div className="max-w-7xl mx-auto px-6 py-8 lg:py-10">
+                      {/* Guide mis en avant */}
+                      <Link
+                        href={SECTION_PATH}
+                        onClick={() => setActiveMenu(null)}
+                        className="group flex flex-col md:flex-row md:items-center gap-4 md:gap-8 rounded-2xl bg-red-50 hover:bg-red-100/70 border border-red-100 px-6 py-5 mb-8 transition-colors"
+                      >
+                        <div className="flex-1 min-w-0">
+                          <p className="flex items-center gap-2.5">
+                            <span className="bg-red-600 text-white text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full">
+                              Nouveau
+                            </span>
+                            <span className="text-lg font-extrabold text-red-700">Guide : devenir freelance en 2026</span>
+                          </p>
+                          <p className="text-sm text-gray-600 mt-1">
+                            Chômage, ACRE, statut, salaire et dividendes : le parcours complet, étape par étape.
+                          </p>
+                        </div>
+                        <span className="self-start md:self-auto bg-red-600 group-hover:bg-red-700 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors whitespace-nowrap">
+                          Lire le guide →
+                        </span>
+                      </Link>
+
+                      {/* Autres ressources */}
+                      <div className="grid md:grid-cols-2 gap-x-10 gap-y-8">
+                        {MEGA_COLONNES.map((col) => (
+                          <div key={col.titre}>
+                            <p className="text-xs font-bold text-gray-400 uppercase tracking-wide mb-3 px-3">{col.titre}</p>
+                            <ul className="space-y-1">
+                              {col.liens.map((l) => (
+                                <li key={l.href}>
+                                  <Link
+                                    href={l.href}
+                                    onClick={() => setActiveMenu(null)}
+                                    className="flex flex-col px-3 py-2.5 rounded-xl hover:bg-[#00B6DE]/6 transition-colors group"
+                                  >
+                                    <span className="text-sm font-semibold text-gray-800 group-hover:text-[#00B6DE] transition-colors">
+                                      {l.label}
+                                    </span>
+                                    <span className="text-xs text-gray-500 mt-0.5">{l.desc}</span>
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 {/* Dropdown panel */}
-                {hasChildren && (
+                {hasChildren && item.label !== MEGA_MENU && (
                   <div
                     onMouseEnter={cancelClose}
                     onMouseLeave={scheduleClose}
@@ -263,7 +367,7 @@ export default function Header() {
       {/* Mobile menu */}
       <div
         className={`md:hidden bg-white border-t border-gray-100 overflow-hidden transition-all duration-300 ease-in-out ${
-          mobileOpen ? "max-h-[600px] pb-4" : "max-h-0"
+          mobileOpen ? "max-h-[85vh] overflow-y-auto pb-4" : "max-h-0"
         }`}
       >
         <nav className="flex flex-col px-4 pt-3 gap-0.5">
@@ -300,7 +404,7 @@ export default function Header() {
                       }`}
                     >
                       <div className="ml-3 pl-3 border-l-2 border-[#00B6DE]/30 flex flex-col gap-0.5 py-1">
-                        {(item as NavItem & { children: readonly { label: string; href: string; desc: string }[] }).children.map((child) => (
+                        {(item as NavItem & { children: readonly NavChild[] }).children.map((child) => (
                           <Link
                             key={child.href}
                             href={child.href}
@@ -308,8 +412,17 @@ export default function Header() {
                               setMobileOpen(false);
                               setMobileExpanded(null);
                             }}
-                            className="px-3 py-2.5 text-sm text-gray-600 hover:text-[#00B6DE] rounded-lg hover:bg-gray-50 transition-colors"
+                            className={
+                              child.highlight
+                                ? "px-3 py-2.5 text-sm font-bold text-red-700 bg-red-50 rounded-lg hover:bg-red-100 transition-colors"
+                                : "px-3 py-2.5 text-sm text-gray-600 hover:text-[#00B6DE] rounded-lg hover:bg-gray-50 transition-colors"
+                            }
                           >
+                            {child.highlight && (
+                              <span className="inline-block bg-red-600 text-white text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded mr-2 align-middle">
+                                Nouveau
+                              </span>
+                            )}
                             {child.label}
                           </Link>
                         ))}

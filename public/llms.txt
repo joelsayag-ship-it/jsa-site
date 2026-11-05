@@ -57,5 +57,11 @@ managers de transition, agences digitales, professions libérales
 - Simulateur SASU ou EURL 2026 (cotisations, impôt et revenu net, calculés avec le moteur officiel de l'URSSAF) : https://www.jsaexpertise.com/ressources/simulateur-sasu-eurl
 - Simulateur d'indemnités kilométriques 2026 : https://www.jsaexpertise.com/ressources/simulateur-indemnites-kilometriques
 - Simulateur d'impôt sur le revenu 2027 sur les revenus 2026 (barème du projet de loi de finances pour 2027) : https://www.jsaexpertise.com/simulateur-impot-revenu
+- Guide « Devenir freelance en 2026 » (parcours salarié vers freelance, règles vérifiées sur les sources officielles) : https://www.jsaexpertise.com/devenir-freelance
+  - ARE, ARCE, ACRE, salaire, dividendes : ce qui se cumule selon le statut : https://www.jsaexpertise.com/devenir-freelance/cumul-are-arce-acre
+  - ARE ou ARCE (règles 2026, plafond de 60 %, exemples chiffrés) : https://www.jsaexpertise.com/devenir-freelance/are-ou-arce
+  - ACRE 2026 (exonération de 25 %, demande sous 60 jours) : https://www.jsaexpertise.com/devenir-freelance/acre
+  - Rémunération du dirigeant en SASU et en EURL : https://www.jsaexpertise.com/devenir-freelance/remuneration-sasu-eurl
+  - Dividendes en SASU et en EURL (PFU 31,4 % en 2026) : https://www.jsaexpertise.com/devenir-freelance/dividendes-sasu-eurl
 - Blog : https://www.jsaexpertise.com/blog
 - Contact : https://www.jsaexpertise.com/#contact

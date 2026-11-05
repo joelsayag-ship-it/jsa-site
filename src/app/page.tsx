@@ -309,6 +309,13 @@ export default function Home() {
                   </Link>
                   .
                 </p>
+                <p className="text-sm text-gray-500 leading-relaxed mt-3">
+                  Vous quittez un emploi salarié ? Chômage, ARE ou ARCE, ACRE, salaire et dividendes : suivez notre{" "}
+                  <Link href="/devenir-freelance" className="underline underline-offset-2 hover:text-turquoise-500">
+                    guide pour devenir freelance en 2026
+                  </Link>
+                  .
+                </p>
               </div>
               <div className="bg-[#F1F8EA] rounded-2xl p-6 md:p-8">
                 <h3 className="text-xl font-extrabold text-gray-900 mb-3">Un cabinet à Charenton-le-Pont (94220)</h3>

@@ -13,6 +13,7 @@ const VILLES = [
 
 const RESSOURCES = [
   { label: "Expert-comptable freelance", href: "/expert-comptable-freelance" },
+  { label: "Guide : devenir freelance", href: "/devenir-freelance" },
   { label: "Attestation expert-comptable", href: "/attestation-expert-comptable" },
   { label: "Blog", href: "/blog" },
   { label: "Simulateur SASU ou EURL", href: "/ressources/simulateur-sasu-eurl" },

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
-import ContactFlottant from "./components/ContactFlottant";
 import SuiviClics from "./components/SuiviClics";
 
 const geist = Geist({
@@ -115,7 +114,6 @@ export default function RootLayout({
       <body className="font-sans antialiased">
           <Header />
           {children}
-          <ContactFlottant />
           <SuiviClics />
         </body>
     </html>

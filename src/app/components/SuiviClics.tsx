@@ -2,10 +2,17 @@
 
 import { useEffect } from "react";
 import { suivre } from "@/lib/suivi";
+import { memoriserArrivee } from "@/lib/origine-contact";
 
-// Présent sur toutes les pages (layout) : envoie `click_tel` ou `click_email` à Google Analytics
-// dès qu'un visiteur clique sur un lien tel: ou mailto:, où qu'il soit sur le site.
+// Présent sur toutes les pages (layout) :
+// - mémorise la page d'arrivée et la provenance du visiteur (reprises dans le mail des formulaires) ;
+// - envoie `click_tel` ou `click_email` à Google Analytics dès qu'un visiteur clique
+//   sur un lien tel: ou mailto:, où qu'il soit sur le site.
 export default function SuiviClics() {
+  useEffect(() => {
+    memoriserArrivee();
+  }, []);
+
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
       const lien = (e.target as Element | null)?.closest?.("a[href]");

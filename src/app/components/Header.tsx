@@ -56,6 +56,11 @@ const NAV_ITEMS = [
         desc: "Estimez votre impôt 2027 sur les revenus 2026",
       },
       {
+        label: "Simulateur TJM en salaire net",
+        href: "/ressources/simulateur-tjm-salaire-net",
+        desc: "Votre net en micro, EURL et SASU, ou le TJM à facturer",
+      },
+      {
         label: "Simulateur SASU ou EURL",
         href: "/ressources/simulateur-sasu-eurl",
         desc: "Comparez cotisations et revenu net en SASU et en EURL",
@@ -110,6 +115,11 @@ const MEGA_COLONNES = [
         label: "Simulateur Impôt sur le Revenu 2027",
         href: "/simulateur-impot-revenu",
         desc: "Estimez votre impôt 2027 sur les revenus 2026",
+      },
+      {
+        label: "Simulateur TJM en salaire net",
+        href: "/ressources/simulateur-tjm-salaire-net",
+        desc: "Votre net en micro, EURL et SASU, ou le TJM à facturer",
       },
       {
         label: "Simulateur SASU ou EURL",

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ContactSection from "../components/ContactSection";
 import {
@@ -75,7 +74,7 @@ const ETAPES: Etape[] = [
     contenu: (
       <>
         <p>
-          <strong>Rupture conventionnelle ou licenciement</strong> : vous ouvrez droit à l&apos;ARE. Attention, depuis le
+          <strong>Rupture conventionnelle ou licenciement</strong>{" "}: vous ouvrez droit à l&apos;ARE. Attention, depuis le
           1er septembre 2026, la durée maximale après une rupture conventionnelle individuelle passe à 15 mois avant 55
           ans (20,5 mois après). Avant le premier paiement s&apos;appliquent un différé pour congés payés (30 jours au
           plus), un différé pour les indemnités supérieures au minimum légal (150 jours au plus) et 7 jours
@@ -84,7 +83,7 @@ const ETAPES: Etape[] = [
         <p>
           <strong>Démission</strong> : pas de chômage, sauf démission pour reconversion avec un projet de création. Il
           faut un CDI, 1 300 jours travaillés sur les 5 dernières années, un conseil en évolution professionnelle{" "}
-          <em>avant</em> de démissionner, et l&apos;accord de Transitions Pro sur un projet réel et sérieux (étude de
+          <em>avant</em>{" "}de démissionner, et l&apos;accord de Transitions Pro sur un projet réel et sérieux (étude de
           marché, plan de financement sur 3 ans). Un{" "}
           <A href="/attestation-expert-comptable/business-plan-previsionnel">prévisionnel établi par un expert-comptable</A>{" "}
           renforce le dossier.
@@ -151,6 +150,7 @@ const ETAPES: Etape[] = [
     ),
     liens: [
       { label: "Fixer son TJM", href: "/blog/fixer-son-tjm-freelance-methode-calcul" },
+      { label: "Simulateur TJM en salaire net", href: "/ressources/simulateur-tjm-salaire-net" },
       { label: "Se rémunérer en SASU ou en EURL", href: urlChapitre("remuneration-sasu-eurl") },
       { label: "Dividendes", href: urlChapitre("dividendes-sasu-eurl") },
     ],
@@ -209,7 +209,6 @@ export default function Page() {
         }}
       />
 
-      <Header />
       <main className="pt-16">
         {/* ── EN-TÊTE ───────────────────────────────────────── */}
         <section className="bg-[#F1F8EA] py-14 md:py-20 px-4 md:px-8">
@@ -378,14 +377,14 @@ export default function Page() {
             <div className="grid md:grid-cols-3 gap-5">
               {[
                 {
+                  t: "Simulateur TJM en salaire net",
+                  d: "Ce qui vous reste de votre TJM en micro, EURL et SASU, ou le TJM à facturer pour le net que vous visez.",
+                  h: "/ressources/simulateur-tjm-salaire-net",
+                },
+                {
                   t: "Simulateur SASU ou EURL",
                   d: "Cotisations, impôt et revenu net dans les deux statuts, calculés avec le moteur officiel de l'Urssaf.",
                   h: "/ressources/simulateur-sasu-eurl",
-                },
-                {
-                  t: "Simulateur d'impôt 2027",
-                  d: "Votre impôt sur les revenus 2026, avec le barème du projet de loi de finances pour 2027.",
-                  h: "/simulateur-impot-revenu",
                 },
                 {
                   t: "Business plan et prévisionnel",

@@ -155,7 +155,7 @@ export default function SimulateurImpotRevenuPage() {
               </table>
             </div>
             <p className="text-xs text-gray-500 mt-3">
-              Plafond de l&apos;avantage du quotient familial : {fmt(P.plafondDemiPart)} par demi-part. Montants du projet
+              Plafond de l&apos;avantage du quotient familial : {fmt(P.plafondDemiPart)}{" "}par demi-part. Montants du projet
               de loi de finances pour 2027, provisoires jusqu&apos;au vote définitif.
             </p>
           </div>
@@ -169,7 +169,7 @@ export default function SimulateurImpotRevenuPage() {
             </h2>
             <ol className="list-decimal pl-6 space-y-3 text-gray-700 leading-relaxed">
               <li>
-                <strong>Revenu net imposable</strong> : salaires et rémunérations après l&apos;abattement de 10 %,
+                <strong>Revenu net imposable</strong>{" "}: salaires et rémunérations après l&apos;abattement de 10 %,
                 bénéfices des indépendants, revenus fonciers, moins les charges déductibles (PER, pensions
                 alimentaires…).
               </li>
@@ -183,11 +183,11 @@ export default function SimulateurImpotRevenuPage() {
                 résultat est multiplié par le nombre de parts.
               </li>
               <li>
-                <strong>Plafonnement</strong> : l&apos;avantage procuré par les demi-parts supplémentaires
+                <strong>Plafonnement</strong>{" "}: l&apos;avantage procuré par les demi-parts supplémentaires
                 (enfants notamment) est en principe limité à {fmt(P.plafondDemiPart)} par demi-part.
               </li>
               <li>
-                <strong>Décote, réductions et crédits d&apos;impôt</strong> : la décote allège l&apos;impôt des
+                <strong>Décote, réductions et crédits d&apos;impôt</strong>{" "}: la décote allège l&apos;impôt des
                 foyers modestes, puis les dons et les frais de garde viennent en déduction.
               </li>
             </ol>

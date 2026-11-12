@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ContactSection from "../components/ContactSection";
 
@@ -69,7 +68,6 @@ function CheckItem({ children }: { children: React.ReactNode }) {
 export default function ExpertComptableFreelancePage() {
   return (
     <>
-      <Header />
       <main className="pt-16">
 
         {/* ── HERO ──────────────────────────────────────────── */}

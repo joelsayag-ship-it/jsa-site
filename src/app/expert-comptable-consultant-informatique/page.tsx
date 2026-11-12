@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ContactSection from "../components/ContactSection";
 
@@ -160,7 +159,6 @@ export default function ExpertComptableConsultantInformatiquePage() {
         }}
       />
 
-      <Header />
       <main className="pt-16">
         {/* ── HERO ──────────────────────────────────────────── */}
         <section className="bg-[#F1F8EA] py-16 md:py-24 px-4 md:px-8">
@@ -269,7 +267,7 @@ export default function ExpertComptableConsultantInformatiquePage() {
                 <strong>Bilan et liasse fiscale :</strong> clôture, approbation des comptes, dépôt au greffe.
               </CheckItem>
               <CheckItem>
-                <strong>Documents pour vos clients et votre banque :</strong> pièces de référencement pour une ESN,
+                <strong>Documents pour vos clients et votre banque :</strong>{" "}pièces de référencement pour une ESN,
                 attestation de chiffre d&apos;affaires pour un appel d&apos;offres, attestation de revenus pour un
                 prêt ou une location.
               </CheckItem>

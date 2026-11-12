@@ -46,6 +46,18 @@ const TOOLS = [
     title: "Simulateur SASU ou EURL 2026",
     description:
       "Comparez cotisations, impôt et revenu net en SASU et en EURL, avec le moteur officiel de l&apos;URSSAF.",
+    badge: null,
+  },
+  {
+    href: "/ressources/simulateur-tjm-salaire-net",
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+    title: "Simulateur TJM en salaire net 2026",
+    description:
+      "Votre revenu net avant et après impôt en micro-entreprise, EURL et SASU, ou le TJM à facturer pour un net visé.",
     badge: "Nouveau",
   },
 ];

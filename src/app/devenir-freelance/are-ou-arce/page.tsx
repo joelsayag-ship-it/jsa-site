@@ -162,14 +162,14 @@ export default function Page() {
       <P>Ce que France Travail retient comme « revenus du mois » dépend du statut :</P>
       <Ul>
         <li>
-          <strong>Micro-entreprise</strong> : le chiffre d&apos;affaires après abattement forfaitaire (34 % en BNC, 50 %
+          <strong>Micro-entreprise</strong>{" "}: le chiffre d&apos;affaires après abattement forfaitaire (34 % en BNC, 50 %
           en BIC de services, 71 % en vente).
         </li>
         <li>
           <strong>SASU</strong> : le salaire brut versé au président.
         </li>
         <li>
-          <strong>EURL</strong> : la rémunération déclarée du gérant, dans le périmètre retenu pour l&apos;impôt sur le
+          <strong>EURL</strong>{" "}: la rémunération déclarée du gérant, dans le périmètre retenu pour l&apos;impôt sur le
           revenu.
         </li>
       </Ul>
@@ -223,7 +223,7 @@ export default function Page() {
       </Encart>
       <Ol>
         <li>
-          <strong>Avoir obtenu l&apos;ACRE</strong> : c&apos;est une condition de l&apos;ARCE. Depuis 2026, l&apos;ACRE
+          <strong>Avoir obtenu l&apos;ACRE</strong>{" "}: c&apos;est une condition de l&apos;ARCE. Depuis 2026, l&apos;ACRE
           se demande à l&apos;Urssaf dans les 60 jours du début d&apos;activité (voir le chapitre{" "}
           <A href={urlChapitre("acre")}>ACRE 2026</A>).
         </li>
@@ -232,11 +232,11 @@ export default function Page() {
           France Travail.
         </li>
         <li>
-          <strong>Premier versement</strong> : quand toutes les conditions sont réunies, après les différés et le délai
+          <strong>Premier versement</strong>{" "}: quand toutes les conditions sont réunies, après les différés et le délai
           d&apos;attente de 7 jours.
         </li>
         <li>
-          <strong>Second versement, 6 mois plus tard</strong> : si l&apos;activité est toujours exercée et, pour les fins
+          <strong>Second versement, 6 mois plus tard</strong>{" "}: si l&apos;activité est toujours exercée et, pour les fins
           de contrat depuis le 1er avril 2025, si vous n&apos;occupez pas un CDI à temps plein.
         </li>
       </Ol>
@@ -325,7 +325,7 @@ export default function Page() {
           référence. Pas de revalorisation au 1er juillet 2026.
         </li>
         <li>
-          <strong>Dégressivité</strong> : baisse de 30 % à partir du 7e mois pour les moins de 55 ans dont
+          <strong>Dégressivité</strong>{" "}: baisse de 30 % à partir du 7e mois pour les moins de 55 ans dont
           l&apos;allocation dépasse 92,57 € par jour (fins de contrat depuis le 1er avril 2025).
         </li>
         <li>
@@ -338,7 +338,7 @@ export default function Page() {
           date.
         </li>
         <li>
-          <strong>Différés avant le premier paiement</strong> : différé lié aux congés payés (30 jours au plus), différé
+          <strong>Différés avant le premier paiement</strong>{" "}: différé lié aux congés payés (30 jours au plus), différé
           lié aux indemnités supérieures au minimum légal (montant divisé par 111,8 en 2026, 150 jours au plus), puis 7
           jours d&apos;attente.
         </li>

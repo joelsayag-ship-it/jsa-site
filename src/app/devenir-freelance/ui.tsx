@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ContactSection from "../components/ContactSection";
 import {
@@ -281,7 +280,6 @@ export function GabaritChapitre({
         }}
       />
 
-      <Header />
       <main className="pt-16">
         {/* ── EN-TÊTE ───────────────────────────────────────── */}
         <section className="bg-[#F1F8EA] pt-12 pb-12 md:pt-16 md:pb-14 px-4 md:px-8">

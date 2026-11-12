@@ -83,14 +83,14 @@ export default function Page() {
       <Encart type="retenir" titre="L'essentiel en 4 lignes">
         <ul>
           <li>
-            <strong>ARE et ARCE sont exclusives</strong> : c&apos;est l&apos;une ou l&apos;autre.
+            <strong>ARE et ARCE sont exclusives</strong>{" "}: c&apos;est l&apos;une ou l&apos;autre.
           </li>
           <li>
-            <strong>L&apos;ACRE se cumule</strong> avec l&apos;ARE comme avec l&apos;ARCE, et elle est même obligatoire
+            <strong>L&apos;ACRE se cumule</strong>{" "}avec l&apos;ARE comme avec l&apos;ARCE, et elle est même obligatoire
             pour obtenir l&apos;ARCE.
           </li>
           <li>
-            <strong>Depuis 2026, l&apos;ACRE se demande</strong> dans les 60 jours et l&apos;exonération est limitée à
+            <strong>Depuis 2026, l&apos;ACRE se demande</strong>{" "}dans les 60 jours et l&apos;exonération est limitée à
             25 % des cotisations.
           </li>
           <li>
@@ -102,9 +102,9 @@ export default function Page() {
 
       <H2 id="aides-entre-elles">Les aides entre elles</H2>
       <P>
-        Trois dispositifs, deux organismes. L&apos;<strong>ARE</strong> (allocation d&apos;aide au retour à
-        l&apos;emploi) et l&apos;<strong>ARCE</strong> (aide à la reprise ou à la création d&apos;entreprise) sont
-        versées par France Travail à partir de vos droits au chômage. L&apos;<strong>ACRE</strong> (aide aux créateurs
+        Trois dispositifs, deux organismes. L&apos;<strong>ARE</strong>{" "}(allocation d&apos;aide au retour à
+        l&apos;emploi) et l&apos;<strong>ARCE</strong>{" "}(aide à la reprise ou à la création d&apos;entreprise) sont
+        versées par France Travail à partir de vos droits au chômage. L&apos;<strong>ACRE</strong>{" "}(aide aux créateurs
         et repreneurs d&apos;entreprise) est une exonération partielle de cotisations sociales accordée par l&apos;Urssaf
         pendant 12 mois.
       </P>
@@ -143,7 +143,7 @@ export default function Page() {
 
       <H2 id="par-statut">Le tableau par statut</H2>
       <P>
-        Le statut juridique change surtout une chose : <strong>ce que France Travail retient comme revenu</strong> pour
+        Le statut juridique change surtout une chose : <strong>ce que France Travail retient comme revenu</strong>{" "}pour
         réduire votre allocation. La règle de base est la même pour tous : chaque mois, l&apos;allocation est diminuée
         de <strong>70 % des revenus pris en compte</strong>, et les jours non payés ne sont pas perdus, ils sont
         reportés.
@@ -228,7 +228,7 @@ export default function Page() {
       </P>
       <Ul>
         <li>
-          <strong>EURL à l&apos;impôt sur le revenu</strong> (le régime par défaut) : le bénéfice est imposé chez vous
+          <strong>EURL à l&apos;impôt sur le revenu</strong>{" "}(le régime par défaut) : le bénéfice est imposé chez vous
           comme revenu professionnel, rémunération ou non. Il n&apos;y a pas de dividendes.
         </li>
         <li>
@@ -251,10 +251,10 @@ export default function Page() {
       </P>
       <Ul>
         <li>
-          <strong>Le plafond de 60 %</strong> des droits restants s&apos;applique aussi dans ce cas (voir ci-dessous).
+          <strong>Le plafond de 60 %</strong>{" "}des droits restants s&apos;applique aussi dans ce cas (voir ci-dessous).
         </li>
         <li>
-          <strong>L&apos;argent reste dans la société</strong> : l&apos;impôt sur les sociétés s&apos;applique sur le
+          <strong>L&apos;argent reste dans la société</strong>{" "}: l&apos;impôt sur les sociétés s&apos;applique sur le
           bénéfice, et le sortir plus tard en dividendes coûte 31,4 % de flat tax.
         </li>
       </Ul>
@@ -267,7 +267,7 @@ export default function Page() {
       <P>
         Pour les fins de contrat de travail (ou les procédures de licenciement engagées) depuis le{" "}
         <strong>1er avril 2025</strong>, le cumul de l&apos;ARE avec une activité non salariée est plafonné à{" "}
-        <strong>60 % du reliquat de droits</strong> existant à la date de début de l&apos;activité. Une fois ce plafond
+        <strong>60 % du reliquat de droits</strong>{" "}existant à la date de début de l&apos;activité. Une fois ce plafond
         atteint, les versements s&apos;arrêtent.
       </P>
       <Ul>
@@ -296,11 +296,11 @@ export default function Page() {
       </P>
       <Ul>
         <li>
-          <strong>ARCE</strong> : pour les fins de contrat depuis le 1er avril 2025, le second versement n&apos;est pas
+          <strong>ARCE</strong>{" "}: pour les fins de contrat depuis le 1er avril 2025, le second versement n&apos;est pas
           dû si vous occupez un CDI à temps plein au moment où il doit être versé (6 mois après le premier).
         </li>
         <li>
-          <strong>ACRE</strong> : en société, elle suppose de contrôler effectivement l&apos;entreprise (plus de 50 % du
+          <strong>ACRE</strong>{" "}: en société, elle suppose de contrôler effectivement l&apos;entreprise (plus de 50 % du
           capital notamment) et de garder ce contrôle au moins 2 ans.
         </li>
       </Ul>

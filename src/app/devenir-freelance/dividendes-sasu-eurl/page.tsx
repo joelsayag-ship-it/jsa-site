@@ -128,7 +128,7 @@ export default function Page() {
       />
       <Encart type="exemple" titre={`${euros(EX_DIV)} de dividendes bruts en SASU`}>
         <p>
-          Flat tax : {euros(EX_DIV * PFU_TOTAL_2026)} ({euros(EX_DIV * 0.128)} d&apos;impôt et {euros(EX_DIV * 0.186)} de
+          Flat tax : {euros(EX_DIV * PFU_TOTAL_2026)} ({euros(EX_DIV * 0.128)}{" "}d&apos;impôt et {euros(EX_DIV * 0.186)} de
           prélèvements sociaux). Il vous reste <strong>{euros(EX_DIV * (1 - PFU_TOTAL_2026))}</strong>.
         </p>
         <p>
@@ -145,15 +145,15 @@ export default function Page() {
       <Ul>
         <li>les dividendes bénéficient d&apos;un <strong>abattement de 40 %</strong> ;</li>
         <li>
-          <strong>6,8 % de CSG sont déductibles</strong> de votre revenu imposable l&apos;année suivante ;
+          <strong>6,8 % de CSG sont déductibles</strong>{" "}de votre revenu imposable l&apos;année suivante ;
         </li>
         <li>les prélèvements sociaux restent dus à 18,6 % ;</li>
         <li>
-          l&apos;option est <strong>globale</strong> : elle vaut pour tous vos revenus de capitaux mobiliers et plus-values
+          l&apos;option est <strong>globale</strong>{" "}: elle vaut pour tous vos revenus de capitaux mobiliers et plus-values
           de l&apos;année ;
         </li>
         <li>
-          <strong>nouveau</strong> : pour les revenus 2026 et suivants, l&apos;option n&apos;est plus irrévocable, vous
+          <strong>nouveau</strong>{" "}: pour les revenus 2026 et suivants, l&apos;option n&apos;est plus irrévocable, vous
           pouvez y renoncer dans le délai de réclamation.
         </li>
       </Ul>
@@ -250,7 +250,7 @@ export default function Page() {
           voir le <A href={urlChapitre("cumul-are-arce-acre")}>tableau de compatibilité</A>.
         </li>
         <li>
-          <strong>Laisser l&apos;argent dans la société</strong> est aussi une option : le bénéfice est imposé à 15 %
+          <strong>Laisser l&apos;argent dans la société</strong>{" "}est aussi une option : le bénéfice est imposé à 15 %
           jusqu&apos;à 42 500 €, et vous distribuerez plus tard, au moment le plus favorable.
         </li>
       </Ul>
@@ -261,19 +261,19 @@ export default function Page() {
           <strong>Clôturer l&apos;exercice</strong> et établir les comptes annuels.
         </li>
         <li>
-          <strong>Approuver les comptes</strong> par décision de l&apos;associé unique dans les 6 mois de la clôture, et
+          <strong>Approuver les comptes</strong>{" "}par décision de l&apos;associé unique dans les 6 mois de la clôture, et
           décider de l&apos;affectation du résultat.
         </li>
         <li>
-          <strong>Doter la réserve légale</strong> : 5 % du bénéfice tant qu&apos;elle n&apos;atteint pas 10 % du
+          <strong>Doter la réserve légale</strong>{" "}: 5 % du bénéfice tant qu&apos;elle n&apos;atteint pas 10 % du
           capital.
         </li>
         <li>
-          <strong>Distribuer le bénéfice distribuable</strong> : bénéfice de l&apos;exercice, moins les pertes
+          <strong>Distribuer le bénéfice distribuable</strong>{" "}: bénéfice de l&apos;exercice, moins les pertes
           antérieures et la réserve légale, plus le report bénéficiaire et les réserves disponibles.
         </li>
         <li>
-          <strong>Payer dans les 9 mois</strong> de la clôture, avec l&apos;acompte de 12,8 % et les prélèvements sociaux
+          <strong>Payer dans les 9 mois</strong>{" "}de la clôture, avec l&apos;acompte de 12,8 % et les prélèvements sociaux
           retenus à la source et déclarés (formulaire 2777) par la société.
         </li>
       </Ol>

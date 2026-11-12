@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import AttestationForm from "../AttestationForm";
 import { ATTESTATIONS, DELAI, EXPRESS, getAttestation, prix, type Attestation } from "../attestations-data";
@@ -106,7 +105,6 @@ export default async function AttestationTypePage({ params }: Props) {
         }}
       />
 
-      <Header />
       <main className="pt-16">
         {/* ── HERO ─────────────────────────────────────────── */}
         <section className="bg-[#F1F8EA] py-14 md:py-20 px-4 md:px-8">

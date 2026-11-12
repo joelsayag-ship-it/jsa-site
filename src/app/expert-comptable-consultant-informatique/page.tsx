@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ContactSection from "../components/ContactSection";
 
@@ -160,7 +159,6 @@ export default function ExpertComptableConsultantInformatiquePage() {
         }}
       />
 
-      <Header />
       <main className="pt-16">
         {/* ── HERO ──────────────────────────────────────────── */}
         <section className="bg-[#F1F8EA] py-16 md:py-24 px-4 md:px-8">

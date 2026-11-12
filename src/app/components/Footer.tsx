@@ -16,6 +16,7 @@ const RESSOURCES = [
   { label: "Guide : devenir freelance", href: "/devenir-freelance" },
   { label: "Attestation expert-comptable", href: "/attestation-expert-comptable" },
   { label: "Blog", href: "/blog" },
+  { label: "Simulateur TJM en salaire net", href: "/ressources/simulateur-tjm-salaire-net" },
   { label: "Simulateur SASU ou EURL", href: "/ressources/simulateur-sasu-eurl" },
   { label: "Simulateur IK 2026", href: "/ressources/simulateur-indemnites-kilometriques" },
 ];

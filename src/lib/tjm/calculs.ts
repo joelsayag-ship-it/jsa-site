@@ -145,13 +145,22 @@ export function tjmPourNet(
   statut: Statut
 ): number | null {
   if (netMensuelVise <= 0 || base.jours <= 0) return 0;
+  // Bornes : 0 à 1 500 €/jour couvre la plupart des cas ; sinon on élargit à 5 000 €/jour.
   let bas = 0;
-  let haut = 5000;
-  if (netMensuel(moteurs, { ...base, tjm: haut }, statut) < netMensuelVise) return null;
-  for (let i = 0; i < 24 && haut - bas > 0.5; i++) {
+  let haut = 1500;
+  if (netMensuel(moteurs, { ...base, tjm: haut }, statut) < netMensuelVise) {
+    bas = haut;
+    haut = 5000;
+    if (netMensuel(moteurs, { ...base, tjm: haut }, statut) < netMensuelVise) return null;
+  }
+  // Dichotomie jusqu'à 5 € près (une dizaine de calculs : rapide dans le navigateur).
+  for (let i = 0; i < 16 && haut - bas > 5; i++) {
     const milieu = (bas + haut) / 2;
     if (netMensuel(moteurs, { ...base, tjm: milieu }, statut) >= netMensuelVise) haut = milieu;
     else bas = milieu;
   }
-  return Math.ceil(haut / 5) * 5;
+  // Arrondi au multiple de 5 € supérieur, en vérifiant qu'il atteint bien l'objectif.
+  let resultat = Math.ceil(bas / 5) * 5;
+  while (resultat < haut && netMensuel(moteurs, { ...base, tjm: resultat }, statut) < netMensuelVise) resultat += 5;
+  return Math.max(resultat, 5);
 }

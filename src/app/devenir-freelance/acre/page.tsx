@@ -114,7 +114,7 @@ export default function Page() {
           <strong>Ne pas avoir bénéficié de l&apos;ACRE dans les 3 années précédentes.</strong>
         </li>
         <li>
-          <strong>En société, contrôler effectivement l&apos;entreprise</strong> (plus de 50 % du capital, dont au moins
+          <strong>En société, contrôler effectivement l&apos;entreprise</strong>{" "}(plus de 50 % du capital, dont au moins
           35 % à titre personnel, ou d&apos;autres combinaisons prévues par les textes) et garder ce contrôle au moins 2
           ans, sinon l&apos;Urssaf peut reprendre l&apos;aide. En SASU ou en EURL avec un associé unique, la condition
           est remplie.
@@ -179,7 +179,7 @@ export default function Page() {
       <P>
         En micro-entreprise, l&apos;ACRE prend la forme d&apos;un taux de cotisation réduit appliqué à votre chiffre
         d&apos;affaires. Pour une création ou une reprise depuis le <strong>1er juillet 2026</strong>, ce taux est égal à{" "}
-        <strong>75 % du taux normal</strong> (exemple officiel : 15,9 % au lieu de 21,2 % pour une activité de services
+        <strong>75 % du taux normal</strong>{" "}(exemple officiel : 15,9 % au lieu de 21,2 % pour une activité de services
         commerciale). Il s&apos;applique jusqu&apos;à la fin du 3e trimestre civil qui suit le début d&apos;activité :
         pour un début le 3 septembre 2026, jusqu&apos;au 30 juin 2027.
       </P>
@@ -191,16 +191,16 @@ export default function Page() {
       <H2 id="demande">Faire la demande : 60 jours, pas un de plus</H2>
       <Ol>
         <li>
-          <strong>Créez votre entreprise</strong> et notez la date de début d&apos;activité (elle figure sur votre
+          <strong>Créez votre entreprise</strong>{" "}et notez la date de début d&apos;activité (elle figure sur votre
           extrait Kbis ou votre avis de situation au répertoire des entreprises).
         </li>
         <li>
-          <strong>Déposez la demande à l&apos;Urssaf au plus tard le 60e jour</strong> qui suit : formulaire R75199 pour
+          <strong>Déposez la demande à l&apos;Urssaf au plus tard le 60e jour</strong>{" "}qui suit : formulaire R75199 pour
           un travailleur indépendant (gérant d&apos;EURL), R75212 pour un dirigeant assimilé salarié (président de SASU,
           via l&apos;espace employeur, motif « Aide à la création d&apos;activité »), R55376 pour une micro-entreprise.
         </li>
         <li>
-          <strong>Attendez la réponse</strong> : l&apos;Urssaf a 30 jours pour répondre ; sans réponse, la demande est
+          <strong>Attendez la réponse</strong>{" "}: l&apos;Urssaf a 30 jours pour répondre ; sans réponse, la demande est
           acceptée.
         </li>
         <li>

@@ -204,15 +204,15 @@ export default function PageSimulateurTjm() {
               </div>
               <p className="text-xs text-gray-500 mt-2">
                 Net par mois, après cotisations, frais et impôt sur le revenu. Micro-entreprise : plafond de{" "}
-                {fmt(MICRO_PLAFOND_SERVICES)} de chiffre d&apos;affaires en 2026. EURL à l&apos;impôt sur les sociétés et
+                {fmt(MICRO_PLAFOND_SERVICES)}{" "}de chiffre d&apos;affaires en 2026. EURL à l&apos;impôt sur les sociétés et
                 SASU : tout le bénéfice versé en rémunération.
               </p>
               {ex500 && (
                 <p className="text-gray-700 leading-relaxed mt-6 max-w-3xl">
                   Autrement dit, à 500 € par jour, il vous reste environ{" "}
-                  <strong>{Math.round((ex500.r.eurl.netApresImpot / ex500.r.chiffreAffaires) * 100)} %</strong> de votre
+                  <strong>{Math.round((ex500.r.eurl.netApresImpot / ex500.r.chiffreAffaires) * 100)} %</strong>{" "}de votre
                   chiffre d&apos;affaires en EURL et{" "}
-                  <strong>{Math.round((ex500.r.sasu.netApresImpot / ex500.r.chiffreAffaires) * 100)} %</strong> en SASU,
+                  <strong>{Math.round((ex500.r.sasu.netApresImpot / ex500.r.chiffreAffaires) * 100)} %</strong>{" "}en SASU,
                   une fois les frais, les cotisations et l&apos;impôt payés.
                 </p>
               )}
@@ -275,7 +275,7 @@ export default function PageSimulateurTjm() {
             </h2>
             <ol className="list-decimal pl-6 space-y-3 marker:font-bold marker:text-[#0081A5]">
               <li>
-                <strong>Chiffre d&apos;affaires</strong> : TJM × jours facturés. C&apos;est la base de tout, et le nombre
+                <strong>Chiffre d&apos;affaires</strong>{" "}: TJM × jours facturés. C&apos;est la base de tout, et le nombre
                 de jours est l&apos;hypothèse la plus importante. Comptez vos congés, l&apos;intercontrat et le temps passé
                 à trouver des missions.
               </li>
@@ -284,12 +284,12 @@ export default function PageSimulateurTjm() {
                 En micro-entreprise, ils ne sont pas déductibles : ils sortent de votre poche.
               </li>
               <li>
-                <strong>Cotisations sociales</strong> : 25,6 % du chiffre d&apos;affaires en micro-entreprise libérale
+                <strong>Cotisations sociales</strong>{" "}: 25,6 % du chiffre d&apos;affaires en micro-entreprise libérale
                 (plus 0,2 % de formation professionnelle), calcul sur la rémunération en EURL (travailleur indépendant)
                 et en SASU (assimilé salarié, cotisations les plus élevées).
               </li>
               <li>
-                <strong>Impôt sur le revenu</strong> : barème progressif, selon votre situation familiale. En
+                <strong>Impôt sur le revenu</strong>{" "}: barème progressif, selon votre situation familiale. En
                 micro-entreprise, il porte sur le chiffre d&apos;affaires après un abattement forfaitaire de 34 %.
               </li>
             </ol>

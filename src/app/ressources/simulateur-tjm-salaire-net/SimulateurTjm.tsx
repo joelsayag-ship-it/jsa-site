@@ -324,20 +324,20 @@ export default function SimulateurTjm({ resultatInitial }: { resultatInitial?: R
 
                   {resultat.micro.plafondDepasse && (
                     <p className="mt-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-sm p-4">
-                      Avec {fmt(ca)} de chiffre d&apos;affaires, vous dépassez le plafond de la micro-entreprise (
-                      {fmt(MICRO_PLAFOND_SERVICES)} par an en 2026) : le régime n&apos;est plus possible après deux années de
+                      Avec {fmt(ca)}{" "}de chiffre d&apos;affaires, vous dépassez le plafond de la micro-entreprise (
+                      {fmt(MICRO_PLAFOND_SERVICES)}{" "}par an en 2026) : le régime n&apos;est plus possible après deux années de
                       dépassement. Le résultat micro est donné à titre indicatif.
                     </p>
                   )}
 
                   <div className="mt-6 rounded-2xl bg-[#F1F8EA] p-5 text-sm text-gray-700 space-y-2">
                     <p>
-                      <strong className="text-gray-900">Micro-entreprise</strong> : cotisations de 25,8 % du chiffre
+                      <strong className="text-gray-900">Micro-entreprise</strong>{" "}: cotisations de 25,8 % du chiffre
                       d&apos;affaires (25,6 % plus 0,2 % de formation professionnelle) ; vos frais ne sont pas déductibles,
                       ils restent à votre charge.
                     </p>
                     <p>
-                      <strong className="text-gray-900">EURL et SASU</strong> : tout le bénéfice (chiffre d&apos;affaires
+                      <strong className="text-gray-900">EURL et SASU</strong>{" "}: tout le bénéfice (chiffre d&apos;affaires
                       moins frais) est versé en rémunération, sans dividendes, calcul identique au moteur de l&apos;Urssaf.
                     </p>
                   </div>

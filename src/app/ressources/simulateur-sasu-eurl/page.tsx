@@ -168,16 +168,16 @@ export default function PageSimulateurSasuEurl() {
             <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-5">Comment lire les résultats</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                <strong>Bénéfice versé au dirigeant</strong> : c&apos;est votre chiffre d&apos;affaires moins vos charges,
+                <strong>Bénéfice versé au dirigeant</strong>{" "}: c&apos;est votre chiffre d&apos;affaires moins vos charges,
                 entièrement consacré à votre rémunération. En SASU, il correspond au coût total de votre salaire pour la
                 société, cotisations patronales comprises. En EURL, il correspond à la rémunération brute du gérant.
               </p>
               <p>
-                <strong>Cotisations et contributions sociales</strong> : retraite, maladie, allocations familiales,
+                <strong>Cotisations et contributions sociales</strong>{" "}: retraite, maladie, allocations familiales,
                 CSG-CRDS et formation professionnelle. C&apos;est la principale différence entre les deux statuts.
               </p>
               <p>
-                <strong>Revenu net après impôt</strong> : ce qu&apos;il vous reste réellement, une fois les cotisations et
+                <strong>Revenu net après impôt</strong>{" "}: ce qu&apos;il vous reste réellement, une fois les cotisations et
                 l&apos;impôt sur le revenu payés, selon la composition de votre foyer.
               </p>
             </div>
@@ -199,7 +199,7 @@ export default function PageSimulateurSasuEurl() {
                 </p>
                 {ref && (
                   <p>
-                    Dans notre exemple à {fmt(ref.exemple.saisie.chiffreAffaires)} de chiffre d&apos;affaires, les
+                    Dans notre exemple à {fmt(ref.exemple.saisie.chiffreAffaires)}{" "}de chiffre d&apos;affaires, les
                     cotisations représentent <strong>{pct(ref.sasu.cotisations, ref.sasu.remuneration)}</strong> de la
                     rémunération totale du président.
                   </p>

@@ -148,11 +148,11 @@ export default function Page() {
           avec un bulletin de paie.
         </li>
         <li>
-          <strong>Aucune cotisation sans salaire</strong> : c&apos;est ce qui permet à de nombreux freelances de garder
+          <strong>Aucune cotisation sans salaire</strong>{" "}: c&apos;est ce qui permet à de nombreux freelances de garder
           l&apos;ARE pendant le lancement (voir <A href={urlChapitre("are-ou-arce")}>ARE ou ARCE</A>).
         </li>
         <li>
-          <strong>Souplesse</strong> : le salaire peut être modifié par décision de l&apos;associé unique, et complété par
+          <strong>Souplesse</strong>{" "}: le salaire peut être modifié par décision de l&apos;associé unique, et complété par
           des <A href={urlChapitre("dividendes-sasu-eurl")}>dividendes</A> sans cotisations sociales.
         </li>
       </Ul>
@@ -164,12 +164,12 @@ export default function Page() {
           année.
         </li>
         <li>
-          <strong>Assiette unique depuis la réforme</strong> : le revenu professionnel est diminué d&apos;un abattement
+          <strong>Assiette unique depuis la réforme</strong>{" "}: le revenu professionnel est diminué d&apos;un abattement
           forfaitaire de 26 % (avec un plancher de 1,76 % et un plafond de 130 % du PASS) pour calculer à la fois les
           cotisations et la CSG-CRDS. Appliquée depuis avril 2026 aux revenus 2025 et aux cotisations 2026.
         </li>
         <li>
-          <strong>Cotisations provisionnelles la première année</strong> : en 2026, l&apos;Urssaf appelle des forfaits de
+          <strong>Cotisations provisionnelles la première année</strong>{" "}: en 2026, l&apos;Urssaf appelle des forfaits de
           début d&apos;activité (96 € de maladie-maternité, 1 631 € de retraite de base, 739 € de retraite
           complémentaire, 119 € d&apos;invalidité-décès, 886 € de CSG-CRDS, 120 € de formation professionnelle), puis
           régularise sur le revenu réel.
@@ -193,7 +193,7 @@ export default function Page() {
       </P>
       <Encart type="exemple" titre="Pour estimer votre impôt personnel">
         <p>
-          Notre <A href="/simulateur-impot-revenu">simulateur d&apos;impôt sur le revenu 2027</A> calcule l&apos;impôt sur
+          Notre <A href="/simulateur-impot-revenu">simulateur d&apos;impôt sur le revenu 2027</A>{" "}calcule l&apos;impôt sur
           vos revenus 2026 avec le barème du projet de loi de finances pour 2027.
         </p>
       </Encart>
@@ -202,26 +202,26 @@ export default function Page() {
       <P>Il n&apos;y a pas de montant idéal, mais cinq questions à se poser, dans cet ordre :</P>
       <Ul>
         <li>
-          <strong>De combien avez-vous besoin pour vivre ?</strong> C&apos;est le point de départ, le reste peut
+          <strong>De combien avez-vous besoin pour vivre ?</strong>{" "}C&apos;est le point de départ, le reste peut
           attendre dans la société.
         </li>
         <li>
-          <strong>Touchez-vous l&apos;ARE ?</strong> Chaque euro de rémunération réduit l&apos;allocation de 70 centimes
+          <strong>Touchez-vous l&apos;ARE ?</strong>{" "}Chaque euro de rémunération réduit l&apos;allocation de 70 centimes
           (sur la rémunération déclarée), dans la limite du plafond de 60 % des droits.
         </li>
         <li>
-          <strong>Voulez-vous valider vos trimestres de retraite ?</strong> Sans salaire en SASU, aucun trimestre
+          <strong>Voulez-vous valider vos trimestres de retraite ?</strong>{" "}Sans salaire en SASU, aucun trimestre
           n&apos;est validé.
         </li>
         <li>
-          <strong>Avez-vous un projet de prêt immobilier ou de location ?</strong> Les banques et les bailleurs regardent
+          <strong>Avez-vous un projet de prêt immobilier ou de location ?</strong>{" "}Les banques et les bailleurs regardent
           d&apos;abord une rémunération régulière ; nous pouvons aussi établir une{" "}
           <A href="/attestation-expert-comptable/revenus">attestation de revenus</A>.
         </li>
         <li>
-          <strong>Que faire du reste ?</strong> Le laisser dans la société (IS à 15 % jusqu&apos;à 42 500 €), ou le
+          <strong>Que faire du reste ?</strong>{" "}Le laisser dans la société (IS à 15 % jusqu&apos;à 42 500 €), ou le
           distribuer en dividendes : voir le chapitre{" "}
-          <A href={urlChapitre("dividendes-sasu-eurl")}>dividendes</A> et notre article sur l&apos;
+          <A href={urlChapitre("dividendes-sasu-eurl")}>dividendes</A>{" "}et notre article sur l&apos;
           <A href="/blog/optimiser-remuneration-sasu-salaire-dividendes">arbitrage salaire et dividendes en SASU</A>.
         </li>
       </Ul>

@@ -74,7 +74,7 @@ const ETAPES: Etape[] = [
     contenu: (
       <>
         <p>
-          <strong>Rupture conventionnelle ou licenciement</strong> : vous ouvrez droit à l&apos;ARE. Attention, depuis le
+          <strong>Rupture conventionnelle ou licenciement</strong>{" "}: vous ouvrez droit à l&apos;ARE. Attention, depuis le
           1er septembre 2026, la durée maximale après une rupture conventionnelle individuelle passe à 15 mois avant 55
           ans (20,5 mois après). Avant le premier paiement s&apos;appliquent un différé pour congés payés (30 jours au
           plus), un différé pour les indemnités supérieures au minimum légal (150 jours au plus) et 7 jours
@@ -83,7 +83,7 @@ const ETAPES: Etape[] = [
         <p>
           <strong>Démission</strong> : pas de chômage, sauf démission pour reconversion avec un projet de création. Il
           faut un CDI, 1 300 jours travaillés sur les 5 dernières années, un conseil en évolution professionnelle{" "}
-          <em>avant</em> de démissionner, et l&apos;accord de Transitions Pro sur un projet réel et sérieux (étude de
+          <em>avant</em>{" "}de démissionner, et l&apos;accord de Transitions Pro sur un projet réel et sérieux (étude de
           marché, plan de financement sur 3 ans). Un{" "}
           <A href="/attestation-expert-comptable/business-plan-previsionnel">prévisionnel établi par un expert-comptable</A>{" "}
           renforce le dossier.

@@ -1,12 +1,12 @@
 /**
  * Contenu des pages « attestation d'expert-comptable ».
  * Une entrée = une page /attestation-expert-comptable/[slug].
- * Prix de départ par type (minimum 150 € HT) ; le montant définitif est confirmé au client avant toute intervention.
+ * Prix de départ par type (minimum 200 € HT) ; le montant définitif est confirmé au client avant toute intervention.
  */
 
-export const PRIX_APPEL = "150 € HT";
+export const PRIX_APPEL = "200 € HT";
 
-/** Formate un prix plancher : prix(150) => "150 € HT" */
+/** Formate un prix plancher : prix(200) => "200 € HT" */
 export const prix = (n: number) => `${n} € HT`;
 export const DELAI = "24 à 48 h ouvrées";
 /** Service express : attestation le jour même */
@@ -55,11 +55,11 @@ export const ATTESTATIONS: Attestation[] = [
   {
     slug: "revenus",
     label: "Attestation de revenus",
-    prixMin: 150,
+    prixMin: 200,
     populaire: true,
     title: "Attestation de revenus expert-comptable pour location ou prêt",
     description:
-      "Louer un logement ou obtenir un prêt immobilier sans fiche de paie : attestation de revenus signée par un expert-comptable inscrit à l'Ordre. Dès 150 € HT, sous 24 à 48 h.",
+      "Louer un logement ou obtenir un prêt immobilier sans fiche de paie : attestation de revenus signée par un expert-comptable inscrit à l'Ordre. Dès 200 € HT, sous 24 à 48 h.",
     h1: "Attestation de revenus d'expert-comptable pour louer ou acheter un logement",
     intro:
       "Vous louez un appartement ou vous achetez votre résidence principale, mais vos revenus ne tiennent pas sur une fiche de paie : dirigeant de SASU ou d'EURL, micro-entrepreneur, profession libérale récemment installée (médecin, kiné, psychologue…). L'agence immobilière ou la banque vous demande alors une attestation de revenus signée par un expert-comptable. Nous l'établissons à partir de vos pièces, en ligne, sous 24 à 48 h ouvrées, y compris pour un premier exercice pas encore clos quand les pièces le permettent.",
@@ -137,9 +137,9 @@ export const ATTESTATIONS: Attestation[] = [
   {
     slug: "chiffre-affaires",
     label: "Attestation de chiffre d'affaires",
-    prixMin: 150,
+    prixMin: 200,
     populaire: true,
-    title: "Attestation de chiffre d'affaires expert-comptable dès 150 € HT",
+    title: "Attestation de chiffre d'affaires expert-comptable dès 200 € HT",
     description:
       "Appel d'offres, référencement fournisseur, banque, assureur : votre chiffre d'affaires attesté par un expert-comptable inscrit à l'Ordre, sous 24 à 48 h.",
     h1: "Attestation de chiffre d'affaires par un expert-comptable",
@@ -314,8 +314,8 @@ export const ATTESTATIONS: Attestation[] = [
   {
     slug: "fonds-propres",
     label: "Attestation de fonds propres",
-    prixMin: 150,
-    title: "Attestation de fonds propres expert-comptable dès 150 € HT",
+    prixMin: 200,
+    title: "Attestation de fonds propres expert-comptable dès 200 € HT",
     description:
       "Bail commercial, banque, agrément : vos capitaux propres attestés par un expert-comptable inscrit à l'Ordre, sous 24 à 48 h. 100 % en ligne, devis sous 24 h.",
     h1: "Attestation de fonds propres par un expert-comptable",
@@ -370,8 +370,8 @@ export const ATTESTATIONS: Attestation[] = [
   {
     slug: "france-travail",
     label: "Attestation pour France Travail",
-    prixMin: 150,
-    title: "Attestation expert-comptable France Travail dès 150 € HT",
+    prixMin: 200,
+    title: "Attestation expert-comptable France Travail dès 200 € HT",
     description:
       "Cumul ARE et création : attestation de rémunération ou de non-rémunération du dirigeant, signée par un expert-comptable, sous 24 à 48 h. Devis sous 24 h.",
     h1: "Attestation d'expert-comptable pour France Travail",

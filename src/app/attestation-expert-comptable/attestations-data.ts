@@ -57,23 +57,23 @@ export const ATTESTATIONS: Attestation[] = [
     label: "Attestation de revenus",
     prixMin: 150,
     populaire: true,
-    title: "Attestation de revenus expert-comptable : dès 150 € HT",
+    title: "Attestation de revenus expert-comptable pour location ou prêt",
     description:
-      "Crédit immobilier, location, dossier administratif : votre attestation de revenus signée par un expert-comptable inscrit à l'Ordre, sous 24 à 48 h. Devis sous 24 h.",
-    h1: "Attestation de revenus par un expert-comptable",
+      "Louer un logement ou obtenir un prêt immobilier sans fiche de paie : attestation de revenus signée par un expert-comptable inscrit à l'Ordre. Dès 150 € HT, sous 24 à 48 h.",
+    h1: "Attestation de revenus d'expert-comptable pour louer ou acheter un logement",
     intro:
-      "Indépendant, dirigeant de SASU ou d'EURL, micro-entrepreneur : vos revenus ne tiennent pas sur un bulletin de paie. Une banque, une agence immobilière ou une administration vous demande donc une attestation de revenus signée par un expert-comptable. Nous l'établissons à partir de vos pièces, en ligne, sous 24 à 48 h ouvrées.",
-    resume: "Crédit immobilier, location, dossier administratif.",
+      "Vous louez un appartement ou vous achetez votre résidence principale, mais vos revenus ne tiennent pas sur une fiche de paie : dirigeant de SASU ou d'EURL, micro-entrepreneur, profession libérale récemment installée (médecin, kiné, psychologue…). L'agence immobilière ou la banque vous demande alors une attestation de revenus signée par un expert-comptable. Nous l'établissons à partir de vos pièces, en ligne, sous 24 à 48 h ouvrées, y compris pour un premier exercice pas encore clos quand les pièces le permettent.",
+    resume: "Location d'un logement, prêt immobilier, dossier administratif.",
     destinataires: [
       {
-        titre: "Banque, crédit immobilier",
+        titre: "Louer un logement",
         texte:
-          "Pour un prêt, la banque veut connaître vos revenus réels sur les dernières années : rémunération de dirigeant, dividendes, bénéfice de l'entreprise individuelle.",
+          "À défaut de vos deux derniers bilans, l'agence ou le bailleur peut demander une attestation de ressources pour l'exercice en cours établie par un comptable : c'est l'une des pièces prévues par la liste officielle des justificatifs de location. Elle montre que vos revenus couvrent le loyer.",
       },
       {
-        titre: "Bailleur ou agence immobilière",
+        titre: "Acheter avec un prêt immobilier",
         texte:
-          "Sans fiche de paie, l'agence demande souvent une attestation de l'expert-comptable pour vérifier que vos revenus couvrent le loyer.",
+          "La banque ou le courtier veut connaître vos revenus réels, souvent sur les deux ou trois dernières années : rémunération de dirigeant, dividendes, bénéfice. L'attestation les présente année par année, dans un format simple à lire pour l'analyste crédit.",
       },
       {
         titre: "Administration, organisme, consulat",
@@ -92,6 +92,8 @@ export const ATTESTATIONS: Attestation[] = [
       "Vos avis d'imposition des dernières années.",
       "Pour une SASU ou une SAS : bulletins de paie du dirigeant et décisions de distribution de dividendes.",
       "Pour une micro-entreprise : vos déclarations de chiffre d'affaires à l'URSSAF.",
+      "Sans bilan clos : vos déclarations URSSAF et les relevés bancaires professionnels de l'année en cours.",
+      "Si vous étiez remplaçant en libéral : les justificatifs de rétrocessions d'honoraires.",
       "Le modèle ou formulaire demandé par la banque ou l'agence, s'il existe.",
     ],
     exemple: {
@@ -105,6 +107,18 @@ export const ATTESTATIONS: Attestation[] = [
         a: "Cela dépend de ce qui peut être vérifié. L'expert-comptable n'atteste que ce que les pièces permettent d'établir. Avec une comptabilité tenue et des rémunérations versées, une attestation sur une période en cours est souvent possible. Décrivez votre situation dans le formulaire : nous vous disons rapidement ce qui est faisable.",
       },
       {
+        q: "Mon agence demande une « attestation de ressources pour l'exercice en cours » : est-ce la même chose ?",
+        a: "Oui. C'est le nom utilisé dans la liste officielle des pièces qu'un bailleur peut demander à un travailleur non salarié (décret du 5 novembre 2015), à défaut de ses deux derniers bilans. Nous l'établissons à partir de votre comptabilité, de vos déclarations et de vos encaissements de l'année en cours.",
+      },
+      {
+        q: "Je suis installé depuis peu en libéral (médecin, kiné, psychologue…) : est-ce possible ?",
+        a: "Oui, c'est l'un des cas les plus fréquents pour un dossier de location. Sans bilan clos, l'attestation s'appuie sur vos déclarations URSSAF, vos relevés bancaires professionnels et, si vous étiez remplaçant, les justificatifs de rétrocessions d'honoraires. Elle précise les pièces examinées et la période couverte.",
+      },
+      {
+        q: "Combien d'années de revenus la banque demande-t-elle pour un prêt immobilier ?",
+        a: "Pour un indépendant ou un dirigeant, le plus souvent les deux ou trois derniers exercices, parfois avec l'année en cours. L'attestation reprend exactement les périodes demandées par votre banque ou votre courtier.",
+      },
+      {
         q: "La banque accepte-t-elle une attestation d'un expert-comptable qui ne tient pas ma comptabilité ?",
         a: "Oui. Ce que la banque attend, c'est la signature d'un expert-comptable inscrit à l'Ordre, qui a examiné les pièces justificatives. Il n'est pas nécessaire d'être client du cabinet à l'année.",
       },
@@ -114,8 +128,10 @@ export const ATTESTATIONS: Attestation[] = [
       },
     ],
     liens: [
+      { label: "Louer un appartement en freelance", href: "/blog/louer-appartement-freelance-dossier-location" },
+      { label: "Prêt immobilier en freelance : le dossier banque", href: "/blog/pret-immobilier-freelance-dossier-banque" },
+      { label: "Micro-entrepreneur : justifier ses revenus", href: "/blog/auto-entrepreneur-justifier-revenus-attestation" },
       { label: "Optimiser sa rémunération en SASU", href: "/blog/optimiser-remuneration-sasu-salaire-dividendes" },
-      { label: "Simulateur impôt sur le revenu", href: "/simulateur-impot-revenu" },
     ],
   },
   {

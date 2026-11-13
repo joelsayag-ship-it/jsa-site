@@ -11,11 +11,11 @@ const PAGE_URL = `${SITE_URL}${BASE_PATH}`;
 export const metadata: Metadata = {
   title: "Obtenez votre attestation d'expert-comptable dès 150 € HT",
   description:
-    "Attestation comptable signée par un expert-comptable inscrit à l'Ordre : banque, bailleur, France Travail. Dès 150 € HT, en 24-48 h ou le jour même.",
+    "Attestation comptable signée par un expert-comptable inscrit à l'Ordre : location, prêt immobilier, France Travail. Dès 150 € HT, en 24-48 h ou le jour même.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: "Obtenez votre attestation d'expert-comptable dès 150 € HT",
-    description: "Attestation comptable signée par un expert-comptable inscrit à l'Ordre : banque, bailleur, France Travail. Dès 150 € HT, en 24-48 h ou le jour même.",
+    description: "Attestation comptable signée par un expert-comptable inscrit à l'Ordre : location, prêt immobilier, France Travail. Dès 150 € HT, en 24-48 h ou le jour même.",
     url: PAGE_URL,
     type: "website",
   },
@@ -139,9 +139,9 @@ export default function AttestationExpertComptablePage() {
                 <span className="text-turquoise-500">à partir de {PRIX_APPEL}</span>
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                Votre banque, votre bailleur, France Travail ou Bpifrance vous demande une attestation comptable
-                signée par un expert-comptable ? Envoyez votre demande, recevez la liste des pièces sous 24 h et votre
-                attestation sous {DELAI}.
+                Pour louer un logement, obtenir un prêt immobilier, ou pour un dossier France Travail ou Bpifrance,
+                on vous demande une attestation comptable signée par un expert-comptable ? Envoyez votre demande,
+                recevez la liste des pièces sous 24 h et votre attestation sous {DELAI}.
               </p>
               <CtaButton />
               <div className="flex flex-wrap items-center gap-5 mt-6 text-sm text-gray-500">

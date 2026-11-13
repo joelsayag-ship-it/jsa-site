@@ -93,7 +93,7 @@ const NAV_ITEMS = [
       {
         label: "Toutes les attestations",
         href: "/attestation-expert-comptable",
-        desc: "Fonds propres, France Travail, Bpifrance et autres, dès 150 € HT",
+        desc: "Fonds propres, France Travail, Bpifrance et autres, dès 200 € HT",
       },
     ] as const,
   },

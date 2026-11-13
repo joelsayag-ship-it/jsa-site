@@ -9,13 +9,13 @@ import { Badge, BASE_PATH, CheckItem, CtaButton, Etapes, Faq, JsonLd, LiensGrid,
 const PAGE_URL = `${SITE_URL}${BASE_PATH}`;
 
 export const metadata: Metadata = {
-  title: "Obtenez votre attestation d'expert-comptable dès 150 € HT",
+  title: "Obtenez votre attestation d'expert-comptable dès 200 € HT",
   description:
-    "Attestation comptable signée par un expert-comptable inscrit à l'Ordre : location, prêt immobilier, France Travail. Dès 150 € HT, en 24-48 h ou le jour même.",
+    "Attestation comptable signée par un expert-comptable inscrit à l'Ordre : location, prêt immobilier, France Travail. Dès 200 € HT, en 24-48 h ou le jour même.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: "Obtenez votre attestation d'expert-comptable dès 150 € HT",
-    description: "Attestation comptable signée par un expert-comptable inscrit à l'Ordre : location, prêt immobilier, France Travail. Dès 150 € HT, en 24-48 h ou le jour même.",
+    title: "Obtenez votre attestation d'expert-comptable dès 200 € HT",
+    description: "Attestation comptable signée par un expert-comptable inscrit à l'Ordre : location, prêt immobilier, France Travail. Dès 200 € HT, en 24-48 h ou le jour même.",
     url: PAGE_URL,
     type: "website",
   },
@@ -89,7 +89,7 @@ export default function AttestationExpertComptablePage() {
             priceCurrency: "EUR",
             priceSpecification: {
               "@type": "PriceSpecification",
-              minPrice: 150,
+              minPrice: 200,
               priceCurrency: "EUR",
               valueAddedTaxIncluded: false,
             },

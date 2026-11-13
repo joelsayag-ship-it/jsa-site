@@ -25,7 +25,7 @@ type Status = "idle" | "loading" | "success" | "error";
 
 export default function AttestationForm({
   defaultType = "",
-  prixMin = 150,
+  prixMin = 200,
   delai = DELAI,
   express: expressPossible = true,
   titre = "Demandez votre attestation",

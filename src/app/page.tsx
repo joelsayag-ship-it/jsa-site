@@ -336,7 +336,8 @@ export default function Home() {
                   <Link href="/expert-comptable-freelance-saint-mande" className="underline underline-offset-2 hover:text-turquoise-500">Saint-Mandé</Link>,{" "}
                   <Link href="/expert-comptable-freelance-saint-maurice" className="underline underline-offset-2 hover:text-turquoise-500">Saint-Maurice</Link>,{" "}
                   <Link href="/expert-comptable-freelance-joinville-le-pont" className="underline underline-offset-2 hover:text-turquoise-500">Joinville-le-Pont</Link>,{" "}
-                  <Link href="/expert-comptable-freelance-ivry-sur-seine" className="underline underline-offset-2 hover:text-turquoise-500">Ivry-sur-Seine</Link>.
+                  <Link href="/expert-comptable-freelance-ivry-sur-seine" className="underline underline-offset-2 hover:text-turquoise-500">Ivry-sur-Seine</Link>,{" "}
+                  <Link href="/expert-comptable-freelance-alfortville" className="underline underline-offset-2 hover:text-turquoise-500">Alfortville</Link>.
                 </p>
               </div>
             </div>

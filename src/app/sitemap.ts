@@ -23,6 +23,7 @@ const STATIC_PAGES: {
   { path: "/expert-comptable-freelance-saint-mande", changeFrequency: "monthly", priority: 0.8 },
   { path: "/expert-comptable-freelance-saint-maurice", changeFrequency: "monthly", priority: 0.8 },
   { path: "/expert-comptable-freelance-ivry-sur-seine", updated: "2026-11-02", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/expert-comptable-freelance-alfortville", updated: "2026-11-16", changeFrequency: "monthly", priority: 0.8 },
   { path: "/expert-comptable-freelance-joinville-le-pont", changeFrequency: "monthly", priority: 0.8 },
   { path: "/expert-comptable-consultant-informatique", updated: "2026-11-03", changeFrequency: "monthly", priority: 0.9 },
   { path: "/attestation-expert-comptable", updated: "2026-11-02", changeFrequency: "monthly", priority: 0.9 },

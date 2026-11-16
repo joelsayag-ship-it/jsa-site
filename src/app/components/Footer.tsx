@@ -8,6 +8,7 @@ const VILLES = [
   { label: "Saint-Maurice", href: "/expert-comptable-freelance-saint-maurice" },
   { label: "Joinville-le-Pont", href: "/expert-comptable-freelance-joinville-le-pont" },
   { label: "Ivry-sur-Seine", href: "/expert-comptable-freelance-ivry-sur-seine" },
+  { label: "Alfortville", href: "/expert-comptable-freelance-alfortville" },
   { label: "Paris 12e", href: "/expert-comptable-freelance-paris-12" },
 ];
 

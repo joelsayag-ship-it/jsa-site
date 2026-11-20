@@ -6,6 +6,7 @@ import TypewriterWord from "./components/TypewriterWord";
 import { FAQS } from "./components/faq-data";
 import Footer from "./components/Footer";
 import ContactSection from "./components/ContactSection";
+import { AVIS_CLIENTS as REVIEWS_CAROUSEL, LIEN_AVIS_GOOGLE } from "./components/avis-clients";
 import { DELAI, PRIX_APPEL } from "./attestation-expert-comptable/attestations-data";
 
 export const metadata: Metadata = {
@@ -21,20 +22,6 @@ function Badge({ children }: { children: React.ReactNode }) {
     </span>
   );
 }
-
-/* ─── review data ───────────────────────────────────────── */
-const REVIEWS_CAROUSEL = [
-  { name: "Mickael F.", text: "Excellent expert-comptable de qualité ! Réactif, disponible et de bons conseils ! Je recommande !" },
-  { name: "Remi B.", text: "Je recommande JSA Expertise. J'ai été accompagné de façon très professionnelle et nos échanges sont toujours très fluides. Valeur ajoutée remarquable sur les sujets fiscaux." },
-  { name: "Michael L.", text: "Excellent cabinet comptable ! JSA Expertise m'accompagne depuis 2025 et j'en suis ravi. La gestion est moderne et fluide, et ils sont toujours disponibles." },
-  { name: "Charlotte M.", text: "Cliente du cabinet, je recommande vivement l'accompagnement, l'expertise et la réactivité de Joël Sayag. Nous avons beaucoup de chance de pouvoir compter sur lui." },
-  { name: "Lucie S.", text: "Joël est un expert-comptable réactif, à l'écoute. Je suis très satisfaite de son accompagnement ainsi que des outils qu'il propose (Tiime, super application)." },
-  { name: "Benjamin T.", text: "Merci beaucoup pour l'accompagnement dans la gestion de ma première déclaration LMNP. Et pour les précieux conseils." },
-  { name: "Julien B.", text: "Cabinet très réactif et efficace qui m'a aidé dans la création de mon entreprise. Merci à Joël." },
-  { name: "Thomas D.", text: "Compétence, réactivité et disponibilité, je recommande vivement JSA Expertise." },
-  { name: "Hannah-léa F.", text: "JSA Expertise est d'excellent conseil, humain et fiable." },
-  { name: "Julien G.", text: "Je suis accompagné par Joël Sayag en tant qu'expert-comptable depuis quelques mois et je suis très satisfait de notre collaboration." },
-];
 
 /* ─── check icon ─────────────────────────────────────────── */
 function Check({ small }: { small?: boolean }) {
@@ -267,7 +254,7 @@ export default function Home() {
             </div>
             <div className="text-center">
               <a
-                href="https://g.page/r/CTc5TfiZ6UlwEBM/review"
+                href={LIEN_AVIS_GOOGLE}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 border-2 border-gray-300 hover:border-turquoise-500 text-gray-700 hover:text-turquoise-500 font-semibold px-6 py-3 rounded-full transition-colors"
@@ -300,7 +287,7 @@ export default function Home() {
                   et ce qu&apos;il doit vous apporter au quotidien.
                 </p>
                 <Link href="/expert-comptable-freelance" className="inline-flex items-center gap-1 text-turquoise-700 font-bold hover:text-turquoise-500">
-                  Expert-comptable freelance : le guide →
+                  Expert-comptable freelance : notre accompagnement →
                 </Link>
                 <p className="text-sm text-gray-500 leading-relaxed mt-4">
                   SASU ou EURL ? Comparez vos cotisations et votre revenu net avec notre{" "}

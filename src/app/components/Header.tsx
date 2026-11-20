@@ -32,7 +32,7 @@ const NAV_ITEMS = [
       {
         label: "Expert-comptable Paris 12",
         href: "/expert-comptable-freelance-paris-12",
-        desc: "Pour les freelances du 12e arrondissement",
+        desc: "Bercy, Nation, Gare de Lyon, Daumesnil : le cabinet aux portes du 12e",
       },
     ] as const,
   },

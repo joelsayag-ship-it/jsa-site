@@ -3,18 +3,23 @@ import Link from "next/link";
 import Image from "next/image";
 import Footer from "../components/Footer";
 import ContactSection from "../components/ContactSection";
+import { AVIS_CLIENTS, LIEN_AVIS_GOOGLE } from "../components/avis-clients";
+
+const AVIS_FREELANCE = ["Remi B.", "Michael L.", "Julien B."]
+  .map((nom) => AVIS_CLIENTS.find((a) => a.name === nom))
+  .filter((a): a is (typeof AVIS_CLIENTS)[number] => Boolean(a));
 
 export const metadata: Metadata = {
-  title: "Expert-comptable freelance : accompagnement, tarifs, conseils",
+  title: "Expert-comptable freelance : tarifs et accompagnement | JSA Expertise",
   description:
-    "Expert-comptable pour freelances en SASU, EURL ou micro-entreprise : missions, tarifs, critères de choix. JSA Expertise, cabinet spécialisé freelances, 100 % en ligne.",
+    "Expert-comptable pour freelances en SASU, EURL ou micro-entreprise : forfait tout compris, échange direct avec votre expert-comptable, réponse sous 24h. Premier rendez-vous gratuit.",
   alternates: {
     canonical: "https://www.jsaexpertise.com/expert-comptable-freelance",
   },
   openGraph: {
-    title: "Expert-comptable freelance : accompagnement, tarifs, conseils",
+    title: "Expert-comptable freelance : tarifs et accompagnement | JSA Expertise",
     description:
-      "Expert-comptable pour freelances en SASU, EURL ou micro-entreprise : missions, tarifs, critères de choix.",
+      "Expert-comptable pour freelances en SASU, EURL ou micro-entreprise : forfait tout compris, échange direct avec votre expert-comptable.",
     url: "https://www.jsaexpertise.com/expert-comptable-freelance",
     type: "website",
   },
@@ -28,7 +33,7 @@ const FAQS = [
   },
   {
     q: "Quel est le tarif moyen d'un expert-comptable pour freelance ?",
-    a: "Pour un accompagnement sérieux incluant tenue comptable, déclarations de TVA, bilan, liasse fiscale et conseil illimité, le tarif se situe généralement entre 150 et 250 euros HT par mois. Méfiez-vous des offres à 50 euros qui excluent la majorité des prestations ou facturent chaque acte au forfait.",
+    a: "Pour un accompagnement sérieux incluant tenue comptable, déclarations de TVA, bilan, liasse fiscale et conseil illimité, le tarif se situe généralement entre 150 et 250 euros HT par mois. Pour comparer deux offres, vérifiez toujours ce que comprend le forfait : bilan, liasse fiscale, TVA, conseil.",
   },
   {
     q: "Peut-on changer d'expert-comptable en cours d'année ?",
@@ -40,7 +45,7 @@ const FAQS = [
   },
   {
     q: "Pourquoi choisir un cabinet spécialisé freelances ?",
-    a: "Un cabinet généraliste gère des PME, des artisans, des commerçants. Il applique des process standard, souvent lents. Un cabinet spécialisé freelances connaît les enjeux spécifiques : optimisation salaire/dividendes en SASU, régime TNS en EURL, facturation en portage, revenus mixtes. La différence se ressent immédiatement dans la qualité du conseil et la réactivité.",
+    a: "Un cabinet spécialisé freelances connaît les enjeux propres à cette activité : optimisation salaire/dividendes en SASU, régime TNS en EURL, sortie du portage salarial, revenus mixtes, TJM et facturation. Les bonnes questions sont posées dès le premier rendez-vous, et les réponses arrivent plus vite.",
   },
 ];
 
@@ -81,11 +86,11 @@ export default function ExpertComptableFreelancePage() {
                 </Badge>
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-5">
-                Expert-comptable freelance : le guide pour{" "}
-                <span className="text-turquoise-500">bien choisir</span>
+                Expert-comptable freelance :{" "}
+                <span className="text-turquoise-500">un interlocuteur unique, tout compris</span>
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                Réactivité, spécialisation, digital : ce qui fait la différence quand on est indépendant.
+                Comptabilité, TVA, bilan et conseil pour les freelances en SASU, EURL ou micro-entreprise. Vous échangez directement avec votre expert-comptable, et le quotidien se gère en ligne avec l&apos;application Tiime.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
@@ -184,6 +189,49 @@ export default function ExpertComptableFreelancePage() {
           </div>
         </section>
 
+        {/* ── DÉROULÉ ───────────────────────────────────────── */}
+        <section className="bg-white py-16 md:py-20 px-4 md:px-8">
+          <div className="max-w-4xl mx-auto">
+            <Badge>
+              <span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />
+              Comment ça se passe
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mt-4 mb-8">
+              Votre accompagnement, étape par étape
+            </h2>
+            <ol className="grid md:grid-cols-2 gap-5">
+              {[
+                {
+                  titre: "Premier rendez-vous gratuit",
+                  texte: "Au cabinet à Charenton-le-Pont ou en visio. On fait le point sur votre activité, votre statut et vos besoins, puis vous recevez un devis précis.",
+                },
+                {
+                  titre: "Mise en place",
+                  texte: "Lettre de mission, ouverture de votre espace Tiime connecté à votre banque. Si vous changez de cabinet, nous récupérons votre dossier auprès de l'ancien expert-comptable.",
+                },
+                {
+                  titre: "Tout au long de l'année",
+                  texte: "Vos justificatifs et relevés remontent dans Tiime, nous tenons la comptabilité et déposons la TVA. Vos questions reçoivent une réponse de votre expert-comptable sous 24h.",
+                },
+                {
+                  titre: "Clôture et bilan",
+                  texte: "Bilan, liasse fiscale, puis un point sur l'année : résultat, rémunération, salaire ou dividendes, et ce qu'il faut anticiper pour l'exercice suivant.",
+                },
+              ].map((etape, i) => (
+                <li key={etape.titre} className="bg-[#F1F8EA] rounded-2xl p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="w-8 h-8 rounded-full bg-turquoise-500 text-white flex items-center justify-center text-sm font-extrabold flex-shrink-0">
+                      {i + 1}
+                    </span>
+                    <h3 className="font-extrabold text-gray-900 text-lg">{etape.titre}</h3>
+                  </div>
+                  <p className="text-gray-600 text-sm leading-relaxed">{etape.texte}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
         {/* ── CTA TRANSITIONNEL 1 ───────────────────────────── */}
         <section className="bg-white py-12 px-4 md:px-8">
           <div className="max-w-3xl mx-auto bg-[#F1F8EA] rounded-3xl p-8 md:p-10 text-center border border-turquoise-100">
@@ -222,7 +270,7 @@ export default function ExpertComptableFreelancePage() {
                 {
                   title: "Spécialisation freelances",
                   icon: "🎯",
-                  desc: "Un cabinet généraliste applique des process conçus pour les PME. Un cabinet spécialisé freelances connaît les enjeux SASU/EURL, l'optimisation salaire/dividendes, la facturation en portage. La différence est immédiate dans la qualité du conseil.",
+                  desc: "Un cabinet habitué aux freelances connaît les enjeux SASU/EURL, l'optimisation salaire/dividendes, la sortie du portage ou les revenus mixtes. Demandez combien de freelances il accompagne déjà : la réponse est souvent parlante.",
                 },
                 {
                   title: "Réactivité réelle",
@@ -232,12 +280,12 @@ export default function ExpertComptableFreelancePage() {
                 {
                   title: "Outils digitaux modernes",
                   icon: "💻",
-                  desc: "Tiime, Pennylane, Dext : les outils de comptabilité en ligne suppriment la paperasse et donnent une vision en temps réel de votre trésorerie. Un cabinet qui travaille encore par courrier ou par scan mal organisé vous fera perdre un temps précieux.",
+                  desc: "Tiime, Pennylane, Dext : les outils de comptabilité en ligne suppriment la paperasse et donnent une vision en temps réel de votre trésorerie. Vérifiez que vos relevés bancaires et justificatifs remontent automatiquement : c'est autant de temps gagné chaque mois.",
                 },
                 {
                   title: "Interlocuteur dédié",
                   icon: "🤝",
-                  desc: "Chez certains grands cabinets ou plateformes en ligne, vous parlez à un bot ou à une personne différente à chaque contact. Un interlocuteur unique qui connaît votre dossier par coeur, c'est une différence majeure sur la durée.",
+                  desc: "Demandez qui répondra concrètement à vos messages. Un interlocuteur unique qui connaît votre dossier par cœur vous fait gagner du temps à chaque question, et le conseil gagne en précision au fil des années.",
                 },
               ].map((item) => (
                 <div key={item.title} className="bg-white rounded-2xl p-6 shadow-sm">
@@ -255,20 +303,20 @@ export default function ExpertComptableFreelancePage() {
           <div className="max-w-4xl mx-auto">
             <Badge>
               <span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />
-              Cabinet en ligne ou traditionnel ?
+              Notre façon de travailler
             </Badge>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mt-4 mb-6">
-              Digital, humain ou les deux : quelle formule choisir ?
+              Digital et humain : le meilleur des deux
             </h2>
             <div className="space-y-5 text-gray-600 leading-relaxed">
               <p>
-                Les cabinets en ligne ont démocratisé l'accès à l'expertise comptable. Tarifs plus bas, interfaces modernes, tout en ligne : sur le papier, l'offre est séduisante. Pour un freelance en micro-entreprise avec peu de mouvements, c'est souvent suffisant.
+                Les outils en ligne ont simplifié la comptabilité : vos relevés bancaires remontent automatiquement, vous photographiez vos justificatifs, et vous suivez votre trésorerie en temps réel. Pour un freelance, c'est un vrai gain de temps.
               </p>
               <p>
-                Le piège apparaît dès que la situation se complexifie. Optimiser une rémunération en SASU, anticiper un changement de régime, répondre à un contrôle fiscal : ces situations nécessitent un interlocuteur qui vous connaît, pas un formulaire en ligne ou un conseiller téléphonique qui découvre votre dossier à chaque appel.
+                Mais un freelance a surtout besoin du bon conseil au bon moment : fixer sa rémunération en SASU, anticiper un changement de régime, répondre à un courrier de l'administration. Ces sujets demandent quelqu'un qui connaît votre dossier.
               </p>
               <p>
-                L'idéal pour un freelance sérieux : un cabinet qui combine les outils digitaux (gain de temps, vision en temps réel) et la relation humaine (interlocuteur dédié, conseil personnalisé, réactivité). C'est exactement le modèle que nous avons construit chez JSA Expertise.
+                C'est le modèle de JSA Expertise : l'application Tiime pour le quotidien, et un échange direct avec votre expert-comptable pour les décisions.
               </p>
             </div>
           </div>
@@ -328,25 +376,43 @@ export default function ExpertComptableFreelancePage() {
           <div className="max-w-4xl mx-auto">
             <Badge>
               <span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />
-              Combien ca coute ?
+              Combien ça coûte ?
             </Badge>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mt-4 mb-5">
-              Combien coute un expert-comptable freelance ?
+              Combien coûte un expert-comptable freelance ?
             </h2>
-            <div className="space-y-4 text-gray-600 leading-relaxed mb-7">
+            <div className="space-y-4 text-gray-600 leading-relaxed mb-8">
               <p>
-                Pour un accompagnement sérieux, tenue comptable, déclarations de TVA, bilan annuel, liasse fiscale et conseil illimité inclus, le tarif se situe généralement entre <strong className="text-gray-900">150 et 250 euros HT par mois</strong>. C'est le prix d'un accompagnement réel, pas d'une boite aux lettres numérique.
+                Pour un freelance en société, un accompagnement complet (tenue comptable, déclarations de TVA, bilan annuel, liasse fiscale et conseil) se situe généralement entre <strong className="text-gray-900">150 et 250 euros HT par mois</strong>. Le prix dépend du volume de pièces, du régime de TVA et du niveau de conseil attendu.
               </p>
               <p>
-                Attention aux offres à moins de 100 euros par mois qui affichent un tarif attractif mais facturent chaque acte en supplément : rédaction du bilan, déclaration IS, question ponctuelle... La facture annuelle peut vite doubler.
+                Pour comparer deux devis, regardez ce que comprend le forfait : le bilan et la liasse sont-ils inclus, combien de questions pouvez-vous poser, qui vous répond ?
               </p>
-              <p>
-                Chez JSA Expertise, nos formules sont pensées pour les freelances en SASU et EURL : tout inclus, interlocuteur dédié, réponse garantie sous 24h. Pas de mauvaise surprise en fin d'année.
+            </div>
+            <div className="bg-[#F1F8EA] rounded-3xl p-7 md:p-9 border border-turquoise-100 mb-7">
+              <p className="text-sm font-bold text-turquoise-700 uppercase tracking-wide mb-2">Chez JSA Expertise</p>
+              <p className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-5">
+                Un forfait mensuel tout compris, bilan inclus
+              </p>
+              <ul className="grid sm:grid-cols-2 gap-3 mb-5">
+                {[
+                  "Tenue comptable complète",
+                  "Déclarations de TVA",
+                  "Bilan et liasse fiscale",
+                  "Conseil illimité, réponse sous 24h",
+                  "Application Tiime incluse",
+                  "Optimisation de votre rémunération",
+                ].map((item) => (
+                  <CheckItem key={item}>{item}</CheckItem>
+                ))}
+              </ul>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Le devis est établi après le premier rendez-vous, selon votre situation. Vous créez votre société ? Une offre de lancement est possible les premiers mois.
               </p>
             </div>
             <div className="flex flex-wrap gap-5">
-              <Link href="/#offres" className="text-turquoise-500 hover:underline font-semibold text-sm">
-                Voir nos formules et tarifs →
+              <Link href="/#contact" className="text-turquoise-500 hover:underline font-semibold text-sm">
+                Demander un devis gratuit →
               </Link>
               <Link href="/blog/combien-coute-expert-comptable-freelance" className="text-turquoise-500 hover:underline font-semibold text-sm">
                 Article complet sur les tarifs →
@@ -355,9 +421,50 @@ export default function ExpertComptableFreelancePage() {
           </div>
         </section>
 
+        {/* ── AVIS CLIENTS ──────────────────────────────────── */}
+        <section className="bg-[#F1F8EA] py-16 md:py-20 px-4 md:px-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center flex flex-col items-center mb-10">
+              <Badge>
+                <span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />
+                Avis clients
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mt-4">
+                Ce qu&apos;en disent nos clients
+              </h2>
+              <p className="text-gray-600 mt-3">30 avis Google, tous à 5 étoiles</p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-5 mb-8">
+              {AVIS_FREELANCE.map((avis) => (
+                <figure key={avis.name} className="bg-white rounded-2xl p-6 shadow-sm flex flex-col gap-3">
+                  <div className="flex gap-0.5" aria-label="5 étoiles sur 5">
+                    {[1, 2, 3, 4, 5].map((n) => (
+                      <svg key={n} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <blockquote className="text-gray-700 text-sm leading-relaxed flex-1">{avis.text}</blockquote>
+                  <figcaption className="text-sm font-bold text-gray-900">{avis.name}</figcaption>
+                </figure>
+              ))}
+            </div>
+            <div className="text-center">
+              <a
+                href={LIEN_AVIS_GOOGLE}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-turquoise-500 hover:underline font-semibold text-sm"
+              >
+                Voir tous nos avis Google →
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* ── CTA TRANSITIONNEL 2 ───────────────────────────── */}
-        <section className="bg-[#F1F8EA] py-12 px-4 md:px-8">
-          <div className="max-w-3xl mx-auto bg-white rounded-3xl p-8 md:p-10 text-center border border-turquoise-100 shadow-sm">
+        <section className="bg-white py-12 px-4 md:px-8">
+          <div className="max-w-3xl mx-auto bg-[#F1F8EA] rounded-3xl p-8 md:p-10 text-center border border-turquoise-100">
             <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">
               Simulez vos charges en SASU ou EURL
             </h2>
@@ -391,13 +498,15 @@ export default function ExpertComptableFreelancePage() {
                 Nous fonctionnons en 100% digital, ce qui signifie que vous pouvez travailler avec nous depuis n'importe où. Et si vous préférez un rendez-vous physique, notre cabinet de Charenton est accessible en quelques minutes depuis tout le Val-de-Marne.
               </p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {[
                 { label: "Charenton-le-Pont", href: "/expert-comptable-freelance-charenton-le-pont" },
                 { label: "Vincennes", href: "/expert-comptable-freelance-vincennes" },
                 { label: "Saint-Mandé", href: "/expert-comptable-freelance-saint-mande" },
                 { label: "Saint-Maurice", href: "/expert-comptable-freelance-saint-maurice" },
                 { label: "Joinville-le-Pont", href: "/expert-comptable-freelance-joinville-le-pont" },
+                { label: "Ivry-sur-Seine", href: "/expert-comptable-freelance-ivry-sur-seine" },
+                { label: "Alfortville", href: "/expert-comptable-freelance-alfortville" },
                 { label: "Paris 12e", href: "/expert-comptable-freelance-paris-12" },
               ].map((l) => (
                 <Link

@@ -5,9 +5,9 @@ import Footer from "../components/Footer";
 import ContactSection from "../components/ContactSection";
 
 export const metadata: Metadata = {
-  title: "Expert-comptable Paris 12 pour freelances et indépendants | JSA Expertise",
+  title: "Expert-comptable Paris 12 (Bercy, Nation, Gare de Lyon) | JSA Expertise",
   description:
-    "Expert-comptable aux portes du Paris 12 (Bercy, Nation, Gare de Lyon, Daumesnil) : cabinet spécialisé freelances et indépendants à Charenton. Premier RDV offert.",
+    "Cabinet d'expertise comptable aux portes du 12e (Bercy, Nation, Gare de Lyon, Daumesnil), à Charenton-le-Pont, ligne 8 du métro. Premier rendez-vous offert.",
   alternates: {
     canonical: "https://www.jsaexpertise.com/expert-comptable-freelance-paris-12",
   },
@@ -20,16 +20,16 @@ const FAQS = [
     a: "Oui, notre cabinet JSA Expertise est situé à Charenton-le-Pont, commune immédiatement limitrophe du 12e arrondissement. Nous sommes à 5 à 10 minutes en voiture ou par la ligne 8 du métro. La grande majorité de notre collaboration se fait à distance, mais nous recevons sur rendez-vous.",
   },
   {
-    q: "Accompagnez-vous les startups et freelances de Bercy ?",
-    a: "Absolument. Le quartier Bercy Village et ses alentours concentrent une densité remarquable de freelances tech, startups en amorçage et indépendants du numérique. Nous accompagnons aussi bien les solo-entrepreneurs qui démarrent que des structures plus établies avec quelques salariés.",
+    q: "Quels profils accompagnez-vous dans le 12e ?",
+    a: "Des indépendants et des dirigeants de petites sociétés : consultants, professions libérales, startups en amorçage autour de Bercy et de la Gare de Lyon. Nous suivons aussi bien les créateurs qui démarrent que des structures plus établies avec quelques salariés.",
   },
   {
     q: "Faut-il choisir un expert-comptable installé dans le 12e ?",
     a: "Ce n'est pas obligatoire : toute la comptabilité se fait en ligne avec l'application Tiime, et les échanges réguliers peuvent se faire en visio. La proximité reste un plus pour un premier rendez-vous ou un point annuel au cabinet : depuis le 12e, Charenton-le-Pont est à quelques stations sur la ligne 8.",
   },
   {
-    q: "Combien coûte un expert-comptable pour un freelance du 12e ?",
-    a: "Le prix dépend du statut (SASU, EURL, micro-entreprise), du volume de pièces et du niveau de conseil attendu. Pour un freelance en société, il faut généralement prévoir entre 150 et 250 € HT par mois. JSA Expertise vous remet un devis précis après un premier échange gratuit.",
+    q: "Combien coûte un expert-comptable dans le 12e ?",
+    a: "Le prix dépend de la forme de l'entreprise (SASU, EURL, entreprise individuelle, micro-entreprise), du volume de pièces et du niveau de conseil attendu. JSA Expertise vous remet un devis précis après un premier échange gratuit, au cabinet ou en visio.",
   },
   {
     q: "Comment passer de micro-entreprise à SASU dans le 12e ?",
@@ -75,13 +75,13 @@ export default function Paris12Page() {
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-5">
                 Expert-comptable Paris 12 :{" "}
-                <span className="text-turquoise-500">le cabinet des freelances, à deux pas</span>
+                <span className="text-turquoise-500">votre cabinet aux portes du 12e</span>
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed mb-4">
-                Bercy, Nation, Gare de Lyon, Bastille — le 12e arrondissement est l'un des plus dynamiques de Paris pour les travailleurs indépendants. JSA Expertise est littéralement à la porte du 12e, à Charenton-le-Pont, avec la spécialisation que les grands cabinets généralistes n'ont pas.
+                Bercy, Nation, Gare de Lyon, Daumesnil : JSA Expertise est installé à Charenton-le-Pont, juste à la sortie du 12e arrondissement, à quelques stations sur la ligne 8. Indépendants, sociétés de conseil et professions libérales du quartier nous rencontrent au cabinet ou travaillent avec nous en ligne.
               </p>
               <p className="text-base text-gray-600 leading-relaxed mb-8">
-                Même bassin de vie, même clientèle, même culture du travail indépendant. Un service premium à un tarif raisonnable.
+                Un expert-comptable de proximité, que vous joignez directement, avec les outils d'un cabinet 100 % en ligne.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/#contact" className="bg-turquoise-500 hover:bg-turquoise-700 text-white font-bold px-7 py-3.5 rounded-full transition-colors">
@@ -121,7 +121,7 @@ export default function Paris12Page() {
           </div>
         </section>
 
-        {/* ── LE 12E ET SES FREELANCES ──────────────────── */}
+        {/* ── LE 12E ET SES INDÉPENDANTS ────────────────── */}
         <section className="bg-white py-16 md:py-20 px-4 md:px-8">
           <div className="max-w-4xl mx-auto">
             <Badge>
@@ -136,14 +136,14 @@ export default function Paris12Page() {
                 Le 12e arrondissement concentre une densité remarquable de professionnels à haute valeur ajoutée. Bercy Village accueille une nouvelle génération d'entrepreneurs numériques. Les coworking spaces autour de la Gare de Lyon sont pleins de consultants, designers et développeurs. La proximité avec la Gare de Lyon facilite aussi les déplacements vers Lyon, Marseille ou Bruxelles pour les consultants itinérants.
               </p>
               <p>
-                Un freelance consultant du 12e facturant 10 000 à 20 000 € par mois a tout intérêt à être bien entouré sur le plan comptable et fiscal. JSA Expertise est l'expert-comptable naturel pour ces profils.
+                Consultant, profession libérale ou dirigeant d'une petite société : dans le 12e, vous avez tout intérêt à être entouré par un expert-comptable proche et joignable, qui connaît à la fois le quartier et vos obligations. Le cabinet est à quelques minutes, juste après la Porte de Charenton.
               </p>
               <p>
-                Vous cherchez d'abord à comprendre ce qu'un cabinet doit vous apporter ? Notre guide{" "}
+                Vous êtes consultant indépendant ou développeur en mission ? Notre page{" "}
                 <Link href="/expert-comptable-freelance" className="text-turquoise-700 font-semibold underline underline-offset-2 hover:text-turquoise-500">
-                  expert-comptable freelance : pourquoi et comment bien le choisir
+                  expert-comptable freelance
                 </Link>{" "}
-                répond aux questions les plus fréquentes.
+                détaille notre accompagnement et nos tarifs.
               </p>
             </div>
           </div>
@@ -188,10 +188,10 @@ export default function Paris12Page() {
               Statut juridique
             </Badge>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mt-4 mb-5">
-              Freelance dans le 12e : SASU ou micro-entreprise ?
+              Créer sa société dans le 12e : micro-entreprise, EURL ou SASU ?
             </h2>
             <p className="text-gray-600 leading-relaxed mb-7">
-              La micro-entreprise est pertinente si vous démarrez et restez sous les seuils légaux. Dès que votre activité décolle, une société s'impose — mais laquelle ? L'EURL est souvent plus avantageuse qu'on ne le pense : le régime TNS génère des charges sociales moins élevées qu'en SASU, ce qui laisse plus de trésorerie disponible. La SASU prend l'avantage quand les revenus sont élevés et qu'on veut combiner salaire et dividendes avec flat tax. Pour un consultant du 12e, la différence entre les deux structures peut représenter plusieurs milliers d'euros nets par an.
+              La micro-entreprise est pertinente si vous démarrez et restez sous les seuils légaux. Dès que votre activité décolle, une société devient souvent plus intéressante. Mais laquelle ? L'EURL est souvent plus avantageuse qu'on ne le pense : le régime TNS génère des charges sociales moins élevées qu'en SASU, ce qui laisse plus de trésorerie disponible. La SASU prend l'avantage quand les revenus sont élevés et qu'on veut combiner salaire et dividendes avec flat tax. Pour un indépendant du 12e, la différence entre les deux structures peut représenter plusieurs milliers d'euros nets par an.
             </p>
             <div className="grid md:grid-cols-2 gap-5 mb-6">
               <div className="bg-white rounded-2xl p-6 shadow-sm">
@@ -255,7 +255,7 @@ export default function Paris12Page() {
             <p className="text-gray-600 leading-relaxed mt-7">
               Combien prévoir pour ce suivi ? Nous détaillons les fourchettes de prix et ce qu&apos;elles comprennent dans notre article{" "}
               <Link href="/blog/combien-coute-expert-comptable-freelance" className="text-turquoise-700 font-semibold underline underline-offset-2 hover:text-turquoise-500">
-                combien coûte un expert-comptable pour freelance
+                combien coûte un expert-comptable
               </Link>
               .
             </p>
@@ -286,7 +286,7 @@ export default function Paris12Page() {
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {[
-                { label: "Guide expert-comptable freelance", href: "/expert-comptable-freelance" },
+                { label: "Expert-comptable freelance", href: "/expert-comptable-freelance" },
                 { label: "Charenton-le-Pont", href: "/expert-comptable-freelance-charenton-le-pont" },
                 { label: "Saint-Mandé", href: "/expert-comptable-freelance-saint-mande" },
                 { label: "Vincennes", href: "/expert-comptable-freelance-vincennes" },

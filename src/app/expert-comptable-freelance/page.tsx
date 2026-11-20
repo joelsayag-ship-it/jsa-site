@@ -33,7 +33,7 @@ const FAQS = [
   },
   {
     q: "Quel est le tarif moyen d'un expert-comptable pour freelance ?",
-    a: "Pour un accompagnement sérieux incluant tenue comptable, déclarations de TVA, bilan, liasse fiscale et conseil illimité, le tarif se situe généralement entre 150 et 250 euros HT par mois. Chez JSA Expertise, le forfait démarre à 185 euros HT par mois, bilan inclus. Pour comparer deux offres, vérifiez toujours ce que comprend le forfait : bilan, liasse fiscale, TVA, conseil.",
+    a: "Pour un accompagnement sérieux incluant tenue comptable, déclarations de TVA, bilan, liasse fiscale et conseil illimité, le tarif se situe généralement entre 150 et 250 euros HT par mois. Pour comparer deux offres, vérifiez toujours ce que comprend le forfait : bilan, liasse fiscale, TVA, conseil.",
   },
   {
     q: "Peut-on changer d'expert-comptable en cours d'année ?",
@@ -392,7 +392,7 @@ export default function ExpertComptableFreelancePage() {
             <div className="bg-[#F1F8EA] rounded-3xl p-7 md:p-9 border border-turquoise-100 mb-7">
               <p className="text-sm font-bold text-turquoise-700 uppercase tracking-wide mb-2">Chez JSA Expertise</p>
               <p className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-5">
-                Forfait à partir de 185 € HT par mois, bilan inclus
+                Un forfait mensuel tout compris, bilan inclus
               </p>
               <ul className="grid sm:grid-cols-2 gap-3 mb-5">
                 {[

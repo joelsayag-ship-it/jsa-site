@@ -41,7 +41,7 @@ const FAQS = [
   },
   {
     q: "Quelle différence entre un comptable et un expert-comptable ?",
-    a: "Le titre d'expert-comptable est réglementé et protégé par l'Ordre des Experts-Comptables. Il requiert un diplôme d'État (DEC) après 8 années d'études et de stage. Un comptable salarié peut tenir des livres, mais seul un expert-comptable inscrit à l'Ordre peut certifier les comptes, engager sa responsabilité professionnelle et exercer à titre libéral.",
+    a: "Le titre d'expert-comptable est réglementé et protégé par l'Ordre des Experts-Comptables. Il requiert un diplôme d'État (DEC) après 8 années d'études et de stage. Un comptable salarié peut tenir des livres, mais seul un expert-comptable inscrit à l'Ordre peut tenir et présenter la comptabilité d'entreprises dont il n'est pas salarié, en engageant sa responsabilité professionnelle. La certification des comptes relève, elle, d'un commissaire aux comptes.",
   },
   {
     q: "Pourquoi choisir un cabinet spécialisé freelances ?",
@@ -154,7 +154,7 @@ export default function ExpertComptableFreelancePage() {
               </p>
             </div>
             <ul className="space-y-4">
-              <CheckItem><strong>Sécuriser sa comptabilité et ses déclarations :</strong> TVA, IS, liasse fiscale. Zéro oubli, zéro retard, zéro pénalité.</CheckItem>
+              <CheckItem><strong>Sécuriser sa comptabilité et ses déclarations :</strong> TVA, IS, liasse fiscale : des déclarations préparées et déposées dans les délais.</CheckItem>
               <CheckItem><strong>Optimiser sa rémunération :</strong> le bon mix salaire/dividendes selon votre CA et votre situation personnelle. Souvent plusieurs milliers d'euros en jeu chaque année.</CheckItem>
               <CheckItem><strong>Gagner du temps :</strong> vous vous concentrez sur vos missions, votre expert-comptable gère le reste.</CheckItem>
               <CheckItem><strong>Éviter les erreurs coûteuses :</strong> TVA mal déclarée, IS sous-estimé, charges sociales mal calculées. Les erreurs fréquentes chez les freelances sans accompagnement.</CheckItem>
@@ -262,7 +262,7 @@ export default function ExpertComptableFreelancePage() {
                 Comment choisir le bon expert-comptable freelance
               </h2>
               <p className="text-gray-600 mt-3 max-w-2xl">
-                Tous les cabinets ne se valent pas. Voici les quatre points à vérifier avant de signer.
+                Voici les quatre points à vérifier avant de signer une lettre de mission.
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-5">
@@ -275,7 +275,7 @@ export default function ExpertComptableFreelancePage() {
                 {
                   title: "Réactivité réelle",
                   icon: "⚡",
-                  desc: "Votre question sur un devis client ne peut pas attendre deux semaines. Un bon cabinet répond sous 24h, par mail ou téléphone. Demandez le délai de réponse moyen avant de vous engager : c'est souvent révélateur.",
+                  desc: "Une question sur un devis client ou une facture appelle souvent une réponse rapide. Demandez le délai de réponse habituel et le moyen de contact (mail, téléphone, visio) avant de vous engager. Chez JSA Expertise, la réponse arrive sous 24 h ouvrées.",
                 },
                 {
                   title: "Outils digitaux modernes",
@@ -608,7 +608,7 @@ export default function ExpertComptableFreelancePage() {
                 06 60 73 55 46
               </Link>
             </div>
-            <p className="text-white/60 text-sm mt-5">Réponse sous 24h garantie</p>
+            <p className="text-white/60 text-sm mt-5">Réponse sous 24 h ouvrées</p>
           </div>
         </section>
 

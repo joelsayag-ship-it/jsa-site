@@ -25,7 +25,7 @@ const FAQS = [
   },
   {
     q: "Comment se passe le premier rendez-vous ?",
-    a: "Il dure environ 45 minutes, en visioconférence ou en présentiel à Charenton-le-Pont. On analyse votre situation, vos revenus, votre statut actuel et on vous présente des pistes concrètes. Vous repartez avec des réponses claires, pas un devis vague.",
+    a: "Il dure environ 45 minutes, en visioconférence ou en présentiel à Charenton-le-Pont. On analyse votre situation, vos revenus, votre statut actuel et on vous présente des pistes concrètes. Vous repartez avec des réponses claires et, si vous le souhaitez, un devis précis.",
   },
 ];
 
@@ -202,7 +202,7 @@ export default function IvrySurSeinePage() {
               <Link href="/#contact" className="bg-white text-[#00B6DE] hover:bg-gray-50 font-bold text-lg px-8 py-4 rounded-full transition-colors shadow-lg">Prendre RDV gratuitement</Link>
               <Link href="tel:+33660735546" className="border-2 border-white text-white hover:bg-white/10 font-bold text-lg px-8 py-4 rounded-full transition-colors">06 60 73 55 46</Link>
             </div>
-            <p className="text-white/60 text-sm mt-5">Réponse sous 24h garantie</p>
+            <p className="text-white/60 text-sm mt-5">Réponse sous 24 h ouvrées</p>
           </div>
         </section>
 

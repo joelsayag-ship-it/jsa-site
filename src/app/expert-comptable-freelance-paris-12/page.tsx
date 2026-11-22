@@ -33,7 +33,7 @@ const FAQS = [
   },
   {
     q: "Comment passer de micro-entreprise à SASU dans le 12e ?",
-    a: "Le passage suit plusieurs étapes : décision de fermeture de la micro, création de la SASU (statuts, dépôt du capital, immatriculation), transfert éventuel des contrats clients, mise en place de la nouvelle comptabilité. Votre expert-comptable JSA gère l'intégralité du processus en quelques semaines, sans interruption d'activité.",
+    a: "Le passage suit plusieurs étapes : décision de fermeture de la micro, création de la SASU (statuts, dépôt du capital, immatriculation), transfert éventuel des contrats clients, mise en place de la nouvelle comptabilité. Votre expert-comptable vous accompagne à chaque étape et organise le calendrier pour que vous puissiez continuer à facturer pendant la transition.",
   },
 ];
 
@@ -247,7 +247,7 @@ export default function Paris12Page() {
             <ul className="space-y-4">
               <CheckItem><strong>Création de société :</strong> SASU ou EURL, on s'occupe de tout, statuts, dépôt du capital, immatriculation, Kbis.</CheckItem>
               <CheckItem><strong>Comptabilité mensuelle</strong> via Tiime, saisie automatisée, tableau de bord en temps réel.</CheckItem>
-              <CheckItem><strong>TVA et déclarations fiscales :</strong> aucun délai manqué, gestion des crédits de TVA.</CheckItem>
+              <CheckItem><strong>TVA et déclarations fiscales :</strong> déclarations déposées dans les délais, gestion des crédits de TVA.</CheckItem>
               <CheckItem><strong>Bilan annuel et liasse fiscale,</strong> présentés et expliqués, comptes déposés au greffe dans les délais.</CheckItem>
               <CheckItem><strong>Optimisation fiscale annuelle :</strong> arbitrage salaire/dividendes, PER, frais déductibles.</CheckItem>
               <CheckItem><strong>Conseil réactif :</strong> votre expert-comptable répond personnellement sous 24h.</CheckItem>
@@ -310,7 +310,7 @@ export default function Paris12Page() {
               <Link href="/#contact" className="bg-white text-[#00B6DE] hover:bg-gray-50 font-bold text-lg px-8 py-4 rounded-full transition-colors shadow-lg">Prendre RDV gratuitement</Link>
               <Link href="tel:+33660735546" className="border-2 border-white text-white hover:bg-white/10 font-bold text-lg px-8 py-4 rounded-full transition-colors">06 60 73 55 46</Link>
             </div>
-            <p className="text-white/60 text-sm mt-5">Réponse sous 24h garantie</p>
+            <p className="text-white/60 text-sm mt-5">Réponse sous 24 h ouvrées</p>
           </div>
         </section>
 

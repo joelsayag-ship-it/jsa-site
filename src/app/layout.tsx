@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.jsaexpertise.com'),
   title: "JSA Expertise — Expert-comptable pour freelances & agences",
   description:
-    "JSA Expertise, cabinet d'expertise comptable 100% digital spécialisé pour les freelances, indépendants et agences. Réactivité garantie, outils modernes, sérénité totale.",
+    "JSA Expertise, cabinet d'expertise comptable 100% digital spécialisé pour les freelances, indépendants et agences. Réponse sous 24 h ouvrées, comptabilité en ligne, un expert-comptable joignable directement.",
   robots: {
     index: true,
     follow: true,

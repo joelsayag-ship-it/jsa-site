@@ -67,13 +67,13 @@ export async function generateMetadata({
 
 const CATEGORY_CTA: Record<string, string> = {
   Fiscalité:
-    "Votre situation fiscale est unique. Joël analyse votre cas et vous propose les meilleures options d'optimisation.",
+    "Votre situation fiscale est unique. Joël analyse votre cas et vous présente les options adaptées à votre situation.",
   "Statuts juridiques":
     "Encore incertain sur votre statut ? Joël compare les scénarios chiffrés pour votre activité spécifique.",
   Comptabilité:
     "Déléguer votre comptabilité à un expert, c'est gagner du temps et éviter les erreurs coûteuses.",
   Rémunération:
-    "La bonne stratégie de rémunération peut vous faire économiser plusieurs milliers d'euros par an.",
+    "Le choix de votre rémunération a un effet direct sur votre revenu net : il se décide avec des chiffres.",
   "Création d'entreprise":
     "Vous créez votre entreprise ? Partez sur les bonnes bases avec un accompagnement dès le départ.",
   "Freelance & Indépendance":

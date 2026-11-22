@@ -3,6 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import Footer from "../components/Footer";
 import ContactSection from "../components/ContactSection";
+import { AVIS_CLIENTS } from "../components/avis-clients";
+
+const AVIS = AVIS_CLIENTS.find((a) => a.name === "Michael L.") ?? AVIS_CLIENTS[0];
 
 export const metadata: Metadata = {
   title: "Expert-comptable freelance Vincennes (94300) | JSA Expertise",
@@ -29,7 +32,7 @@ const FAQS = [
   },
   {
     q: "Faut-il habiter Vincennes pour être accompagné par JSA Expertise ?",
-    a: "Non, aucune contrainte de domiciliation. Nos clients vincennois nous choisissent autant pour notre spécialisation freelances que pour la proximité géographique. Mais nous accompagnons aussi des indépendants partout en France, en 100% digital, du moment qu'ils correspondent à notre cible : freelances en SASU ou EURL.",
+    a: "Non, aucune contrainte de domiciliation. Nous accompagnons aussi des indépendants partout en France, à distance.",
   },
 ];
 
@@ -116,20 +119,20 @@ export default function VincennesPage() {
           <div className="max-w-4xl mx-auto">
             <Badge>
               <span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />
-              Vincennes, capitale freelance de l'Est parisien
+              Vincennes et ses indépendants
             </Badge>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mt-4 mb-5">
-              Une ville bourgeoise où se concentrent les indépendants à fort revenu
+              Une ville résidentielle aux portes de Paris
             </h2>
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
-                Vincennes (94300) occupe une place singulière dans la géographie économique de l'Est parisien. Avec ses cinquante mille habitants, une densité parmi les plus élevées de France, et sa proximité directe avec le bois de Vincennes et Paris, la ville cumule un cadre de vie premium et une accessibilité parfaite. Le métro ligne 1 et le RER A rejoignent le centre de Paris en moins de quinze minutes, ce qui en fait une adresse idéale pour qui travaille avec des clients parisiens sans vouloir y résider.
+                Vincennes (94300) occupe une place singulière dans la géographie économique de l'Est parisien. Avec ses cinquante mille habitants, une densité parmi les plus élevées de France, et sa proximité directe avec le bois de Vincennes et Paris, la ville cumule cadre de vie et accès rapide à Paris. Le métro ligne 1 et le RER A rejoignent le centre de Paris en moins de quinze minutes, ce qui en fait une adresse idéale pour qui travaille avec des clients parisiens sans vouloir y résider.
               </p>
               <p>
-                Cette combinaison attire un profil particulier : cadres supérieurs, professionnels libéraux, freelances créatifs, consultants en management. Les revenus médians comptent parmi les plus élevés du Val-de-Marne, et la concentration d'indépendants y est nettement supérieure à la moyenne départementale. Le marché de la Mairie, les commerces du centre, l'animation autour du Château et de l'avenue de Paris, tout l'écosystème reflète cette population aisée et active.
+                On y croise des cadres, des professions libérales, des freelances créatifs et des consultants, autour du marché, des commerces du centre, du Château et de l'avenue de Paris.
               </p>
               <p>
-                Les freelances que nous accompagnons à Vincennes viennent majoritairement de deux mondes. D'un côté, les consultants en stratégie, transformation digitale ou IT qui facturent des prestations à forte valeur ajoutée. De l'autre, les créatifs : designers, directeurs artistiques, professionnels de l'audiovisuel, attirés par la proximité avec les studios de Joinville et les agences de l'Est parisien. Dans les deux cas, les enjeux sont les mêmes : structurer son activité, optimiser sa rémunération, sécuriser sa fiscalité.
+                Les freelances de Vincennes viennent souvent de deux mondes. D'un côté, les consultants en stratégie, transformation digitale ou IT qui facturent des prestations à forte valeur ajoutée. De l'autre, les créatifs : designers, directeurs artistiques, professionnels de l'audiovisuel, attirés par la proximité avec les studios de Joinville et les agences de l'Est parisien. Dans les deux cas, les enjeux sont les mêmes : structurer son activité, optimiser sa rémunération, sécuriser sa fiscalité.
               </p>
             </div>
           </div>
@@ -149,11 +152,11 @@ export default function VincennesPage() {
               {[
                 {
                   title: "À 5 minutes en voiture, 15 en métro",
-                  desc: "Notre cabinet de Charenton-le-Pont est accessible par la Porte de Vincennes en voiture, ou par la ligne 1 puis correspondance à Bastille en métro. La majorité de nos clients vincennois choisit toutefois la visio pour le confort.",
+                  desc: "Notre cabinet de Charenton-le-Pont est accessible par la Porte de Vincennes en voiture, ou par la ligne 1 puis correspondance à Bastille en métro. La plupart des échanges peuvent aussi se faire en visio.",
                 },
                 {
-                  title: "Spécialistes des profils vincennois",
-                  desc: "Nous accompagnons depuis des années des consultants en stratégie, des créatifs et des cadres reconvertis. Le profil type vincennois (CA entre 8 000 et 15 000 euros mensuels, enjeux d'optimisation) est exactement notre cœur de métier.",
+                  title: "Consultants, créatifs, cadres reconvertis",
+                  desc: "Nous accompagnons des consultants en stratégie, des créatifs et des cadres reconvertis à leur compte : choix du statut, rémunération, charges déductibles. C'est notre cœur de métier.",
                 },
                 {
                   title: "Connaissance des métiers créatifs",
@@ -185,10 +188,10 @@ export default function VincennesPage() {
             </h2>
             <div className="space-y-4 text-gray-600 leading-relaxed mb-7">
               <p>
-                Vincennes affiche l'une des plus fortes proportions de cadres et professions intellectuelles supérieures du Val-de-Marne. C'est aussi l'une des villes du département où les professions libérales et les indépendants sont les plus représentés en pourcentage de la population active. Cette densité crée un écosystème particulier, avec des freelances qui se croisent au marché ou aux terrasses du centre.
+                Vincennes compte de nombreux cadres, professions libérales et indépendants, qui travaillent souvent avec des clients parisiens.
               </p>
               <p>
-                Les activités prédominantes que nous accompagnons : conseil en management, stratégie et transformation digitale, design (UX, UI, direction artistique), métiers de l'image et de l'audiovisuel, communication d'entreprise, consulting tech (data, produit, architecture). Une part non négligeable de nos clientes et clients sont des consultants seniors avec une dizaine d'années d'expérience en grande structure.
+                Les activités que nous accompagnons : conseil en management, stratégie et transformation digitale, design (UX, UI, direction artistique), métiers de l'image et de l'audiovisuel, communication d'entreprise, consulting tech (data, produit, architecture).
               </p>
             </div>
             <p className="text-sm font-bold text-gray-500 uppercase tracking-wide mb-3">Quartiers et lieux emblématiques</p>
@@ -222,11 +225,11 @@ export default function VincennesPage() {
                 ))}
               </div>
               <p className="text-gray-700 leading-relaxed italic mb-5">
-                "On a optimisé la rémunération de mon EURL en deux échanges. Joël a fait les calculs, comparé les scénarios, et m'a fait gagner plusieurs milliers d'euros de revenu net annuel. Et tout s'est fait à distance, ce qui me convient parfaitement avec mon emploi du temps."
+                &ldquo;{AVIS.text}&rdquo;
               </p>
               <div>
-                <p className="font-bold text-gray-900 text-sm">Camille L.</p>
-                <p className="text-gray-500 text-xs">Directrice artistique freelance, Vincennes</p>
+                <p className="font-bold text-gray-900 text-sm">{AVIS.name}</p>
+                <p className="text-gray-500 text-xs">Avis Google</p>
               </div>
             </div>
           </div>
@@ -296,7 +299,7 @@ export default function VincennesPage() {
               <Link href="/#contact" className="bg-white text-[#00B6DE] hover:bg-gray-50 font-bold text-lg px-8 py-4 rounded-full transition-colors shadow-lg">Prendre RDV gratuitement</Link>
               <Link href="tel:+33660735546" className="border-2 border-white text-white hover:bg-white/10 font-bold text-lg px-8 py-4 rounded-full transition-colors">06 60 73 55 46</Link>
             </div>
-            <p className="text-white/60 text-sm mt-5">Réponse sous 24h garantie</p>
+            <p className="text-white/60 text-sm mt-5">Réponse sous 24 h ouvrées</p>
           </div>
         </section>
 

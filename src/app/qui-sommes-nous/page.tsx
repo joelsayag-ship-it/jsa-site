@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { AVIS_CLIENTS } from "../components/avis-clients";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 
@@ -135,26 +136,12 @@ export default function QuiSommesNous() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 mb-16">
-              {[
-                {
-                  text: "Enfin un cabinet qui répond le jour même. En 3 ans, pas une seule échéance manquée et des conseils vraiment adaptés à mon activité de consultant.",
-                  name: "Thomas M.",
-                  role: "Consultant IT indépendant",
-                  initiale: "T",
-                },
-                {
-                  text: "JSA Expertise m'a accompagné dans la création de ma SASU et le suivi comptable depuis. Tout est clair, digital, et je n'ai plus à me soucier de rien.",
-                  name: "Sarah K.",
-                  role: "Designer freelance",
-                  initiale: "S",
-                },
-                {
-                  text: "Le passage de micro-entreprise à SASU s'est fait sans stress. L'optimisation fiscale a été immédiate et significative.",
-                  name: "Romain D.",
-                  role: "Développeur freelance",
-                  initiale: "R",
-                },
-              ].map((t) => (
+              {AVIS_CLIENTS.filter((a) => ["Remi B.", "Charlotte M.", "Julien B."].includes(a.name)).map((a) => ({
+                text: a.text,
+                name: a.name,
+                role: "Avis Google",
+                initiale: a.name.charAt(0),
+              })).map((t) => (
                 <div key={t.name} className="bg-white rounded-2xl p-8 flex flex-col gap-5 shadow-sm">
                   <div className="flex gap-1">
                     {[1,2,3,4,5].map((i) => (

@@ -25,7 +25,7 @@ const FAQS = [
   },
   {
     q: "Quels sont vos délais de réponse ?",
-    a: "Nous garantissons une réponse sous 24h ouvrées pour tous nos clients. Pas de standard, pas de boîte mail générique : vous avez accès directement à votre expert-comptable.",
+    a: "Nous nous engageons à répondre sous 24 h ouvrées, par mail ou par téléphone. Vous échangez directement avec votre expert-comptable.",
   },
 ];
 
@@ -70,10 +70,10 @@ export default function JoinvillePage() {
                 <span className="text-turquoise-500">expert-comptable digital</span>
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed mb-4">
-                Joinville-le-Pont attire une nouvelle génération d'entrepreneurs : des créatifs, des consultants, des fondateurs qui cherchent un cadre de vie agréable tout en gardant un pied dans l'économie numérique. JSA Expertise, basé à Charenton à 10 minutes, est exactement le cabinet qu'ils cherchent.
+                Joinville-le-Pont attire une nouvelle génération d'entrepreneurs : des créatifs, des consultants, des fondateurs qui cherchent un cadre de vie agréable tout en gardant un pied dans l'économie numérique. JSA Expertise, basé à Charenton à 10 minutes, les accompagne au cabinet ou à distance.
               </p>
               <p className="text-base text-gray-600 leading-relaxed mb-8">
-                Digital, réactif, spécialisé freelances. Sans la rigidité d'un grand cabinet traditionnel.
+                Comptabilité en ligne avec Tiime, réponse sous 24 h ouvrées, un expert-comptable joignable directement.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/#contact" className="bg-turquoise-500 hover:bg-turquoise-700 text-white font-bold px-7 py-3.5 rounded-full transition-colors">
@@ -171,7 +171,7 @@ export default function JoinvillePage() {
             </h2>
             <ul className="space-y-4">
               <CheckItem><strong>Tenue comptable mensuelle</strong> synchronisée avec votre compte bancaire via Tiime. Chiffres en temps réel.</CheckItem>
-              <CheckItem><strong>Déclarations de TVA</strong> traitées chaque mois ou trimestre. Aucune pénalité de retard.</CheckItem>
+              <CheckItem><strong>Déclarations de TVA</strong> préparées et déposées chaque mois ou chaque trimestre, dans les délais.</CheckItem>
               <CheckItem><strong>Bilan et liasse fiscale</strong> annuels, présentés clairement pour que vous compreniez vos résultats.</CheckItem>
               <CheckItem><strong>Optimisation fiscale :</strong> stratégie salaire/dividendes, frais déductibles, épargne retraite.</CheckItem>
               <CheckItem><strong>Conseil illimité :</strong> votre expert-comptable répond sous 24h, en direct.</CheckItem>
@@ -223,7 +223,7 @@ export default function JoinvillePage() {
               <Link href="/#contact" className="bg-white text-[#00B6DE] hover:bg-gray-50 font-bold text-lg px-8 py-4 rounded-full transition-colors shadow-lg">Prendre RDV gratuitement</Link>
               <Link href="tel:+33660735546" className="border-2 border-white text-white hover:bg-white/10 font-bold text-lg px-8 py-4 rounded-full transition-colors">06 60 73 55 46</Link>
             </div>
-            <p className="text-white/60 text-sm mt-5">Réponse sous 24h garantie</p>
+            <p className="text-white/60 text-sm mt-5">Réponse sous 24 h ouvrées</p>
           </div>
         </section>
 

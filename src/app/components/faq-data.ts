@@ -1,7 +1,7 @@
 export const FAQS = [
   {
     q: "Pourquoi choisir un expert-comptable spécialisé pour les freelances ?",
-    a: "Le statut de freelance comporte des spécificités fiscales et sociales uniques. JSA Expertise maîtrise parfaitement l'optimisation des revenus (arbitrage salaires / dividendes, spécificités France Travail / ARE / ARCE). Nous parlons votre langage et anticipons vos besoins pour sécuriser et optimiser la gestion de votre activité.",
+    a: "Le statut de freelance comporte des spécificités fiscales et sociales uniques. JSA Expertise accompagne ces sujets au quotidien : optimisation des revenus (arbitrage salaires / dividendes, spécificités France Travail / ARE / ARCE). Nous parlons votre langage et anticipons vos besoins pour sécuriser et optimiser la gestion de votre activité.",
   },
   {
     q: "Comment fonctionne l'accompagnement à la création d'entreprise ?",
@@ -9,7 +9,7 @@ export const FAQS = [
   },
   {
     q: "Votre cabinet est-il prêt pour la facturation électronique ?",
-    a: "Oui, absolument. Notre cabinet a déjà anticipé la réforme de la facturation électronique obligatoire qui entrera en vigueur dès 2026. Nous avons mis en place les processus et les outils nécessaires pour assurer la mise en conformité totale de votre entreprise bien avant l'échéance, vous garantissant une transition sereine et sécurisée.",
+    a: "Oui. La réception des factures électroniques est obligatoire depuis le 1er septembre 2026, et l'émission le sera pour les TPE et PME à partir du 1er septembre 2027. Nous accompagnons nos clients dans la mise en place, avec l'application Tiime, bien avant l'échéance.",
   },
   {
     q: "Quels sont les frais que je peux réellement déduire en tant que freelance ?",
@@ -25,11 +25,11 @@ export const FAQS = [
   },
   {
     q: "Votre cabinet est-il inscrit à l'Ordre des experts-comptables ?",
-    a: "Oui, le cabinet JSA Expertise est officiellement inscrit au tableau de l'Ordre des Experts-Comptables de Paris Île-de-France. Cette inscription est une garantie de déontologie, de compétence et de sécurité pour la gestion de votre comptabilité et de vos déclarations fiscales.",
+    a: "Oui, le cabinet JSA Expertise est officiellement inscrit au tableau de l'Ordre des Experts-Comptables de Paris Île-de-France. Cette inscription soumet le cabinet aux règles de la profession : code de déontologie, secret professionnel, formation continue et assurance de responsabilité civile professionnelle.",
   },
   {
     q: "Où est situé le cabinet JSA Expertise ?",
-    a: "Notre siège social est à Charenton-le-Pont (94), mais JSA Expertise est un cabinet digitalisé. Grâce à nos outils en ligne, nous accompagnons des freelances dans les 30 plus grandes villes de France : Paris, Marseille, Lyon, Toulouse, Nice, Nantes, Montpellier, Strasbourg, Bordeaux, Lille, Rennes, Reims, Saint-Étienne, Le Havre, Toulon, Grenoble, Dijon, Angers, Nîmes, Villeurbanne, Mulhouse, Rouen, Caen, Nancy, Orléans, Clermont-Ferrand, Brest, Limoges, Perpignan, et Tours.",
+    a: "Notre siège social est à Charenton-le-Pont (94), mais JSA Expertise est un cabinet digitalisé. Grâce à nos outils en ligne, nous pouvons accompagner des freelances partout en France, à distance.",
   },
   {
     q: "Quel type d'activité accompagnez-vous chez JSA Expertise ?",

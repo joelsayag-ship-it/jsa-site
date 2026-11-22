@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const FAQS = [
   {
     q: "Accompagnez-vous les professions libérales de Saint-Maurice ?",
-    a: "Oui, les professions libérales font partie de nos clients réguliers. Nous connaissons les spécificités de leur comptabilité : BNC, déclaration 2035, cotisations Carpimko ou CARMF selon les cas. Qu'il s'agisse de consultants en santé, psychologues, ostéopathes ou médecins, nous avons l'expérience pour vous accompagner.",
+    a: "Oui, les professions libérales font partie de nos clients réguliers. Nous connaissons les spécificités de leur comptabilité : BNC, déclaration 2035, cotisations Carpimko ou CARMF selon les cas. Qu'il s'agisse de psychologues, d'ostéopathes, de kinésithérapeutes ou de médecins, nous étudions votre situation au premier rendez-vous.",
   },
   {
     q: "Quelle différence entre SASU et EURL pour un indépendant de Saint-Maurice ?",
@@ -25,7 +25,7 @@ const FAQS = [
   },
   {
     q: "Comment se passe le premier rendez-vous ?",
-    a: "Il dure environ 45 minutes, en visioconférence ou en présentiel à Charenton-le-Pont (5 minutes de Saint-Maurice). On analyse votre situation, vos revenus, votre statut actuel et on vous présente des pistes concrètes. Vous repartez avec des réponses claires, pas un devis vague.",
+    a: "Il dure environ 45 minutes, en visioconférence ou en présentiel à Charenton-le-Pont (5 minutes de Saint-Maurice). On analyse votre situation, vos revenus, votre statut actuel et on vous présente des pistes concrètes. Vous repartez avec des réponses claires et, si vous le souhaitez, un devis précis.",
   },
 ];
 
@@ -70,7 +70,7 @@ export default function SaintMauricePage() {
                 <span className="text-turquoise-500">besoins spécifiques des indépendants de Saint-Maurice</span>
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed mb-4">
-                Saint-Maurice, commune calme du Val-de-Marne en bord de Marne, accueille un nombre important de professions libérales et d'indépendants aux besoins comptables variés. JSA Expertise, basé à Charenton-le-Pont à 5 minutes, est l'expert-comptable spécialisé qui comprend ces spécificités.
+                Saint-Maurice, commune du Val-de-Marne en bord de Marne, compte des professions libérales et des indépendants aux besoins comptables variés. JSA Expertise, basé à Charenton-le-Pont à 5 minutes, les accompagne au cabinet ou à distance.
               </p>
               <p className="text-base text-gray-600 leading-relaxed mb-8">
                 Que vous soyez consultant, professionnel de santé libéral ou freelance tech, votre comptabilité mérite une approche dédiée. Et le choix entre SASU et EURL — souvent sous-estimé — peut changer significativement votre revenu net chaque mois.
@@ -202,7 +202,7 @@ export default function SaintMauricePage() {
               <Link href="/#contact" className="bg-white text-[#00B6DE] hover:bg-gray-50 font-bold text-lg px-8 py-4 rounded-full transition-colors shadow-lg">Prendre RDV gratuitement</Link>
               <Link href="tel:+33660735546" className="border-2 border-white text-white hover:bg-white/10 font-bold text-lg px-8 py-4 rounded-full transition-colors">06 60 73 55 46</Link>
             </div>
-            <p className="text-white/60 text-sm mt-5">Réponse sous 24h garantie</p>
+            <p className="text-white/60 text-sm mt-5">Réponse sous 24 h ouvrées</p>
           </div>
         </section>
 

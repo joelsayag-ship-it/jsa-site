@@ -14,6 +14,9 @@ const VILLES = [
 
 const RESSOURCES = [
   { label: "Expert-comptable freelance", href: "/expert-comptable-freelance" },
+  { label: "Professions de santé", href: "/expert-comptable-professions-de-sante" },
+  { label: "Création de société", href: "/creation-de-societe" },
+  { label: "Reprise de dossier comptable", href: "/reprise-dossier-comptable" },
   { label: "Guide : devenir freelance", href: "/devenir-freelance" },
   { label: "Attestation expert-comptable", href: "/attestation-expert-comptable" },
   { label: "Blog", href: "/blog" },
@@ -113,7 +116,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <p className="text-gray-500 font-semibold uppercase tracking-wide mb-3">Ressources</p>
+            <p className="text-gray-500 font-semibold uppercase tracking-wide mb-3">Offres et ressources</p>
             <ul className="flex flex-wrap gap-x-5 gap-y-2">
               {RESSOURCES.map((l) => (
                 <li key={l.href}>

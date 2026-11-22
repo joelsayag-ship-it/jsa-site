@@ -467,7 +467,12 @@ export default function Home() {
 
                 <div className="mb-6">
                   <h3 className="text-xl font-extrabold text-gray-900 mb-2">Création d&apos;entreprise</h3>
-                  <p className="text-gray-500 text-sm">Lancez votre activité sur des bases solides.</p>
+                  <p className="text-gray-500 text-sm">
+                    Lancez votre activité sur des bases solides.{" "}
+                    <Link href="/creation-de-societe" className="text-turquoise-600 font-semibold hover:underline">
+                      Détail de l&apos;offre
+                    </Link>
+                  </p>
                 </div>
 
                 <ul className="space-y-3 flex-1 mb-8">

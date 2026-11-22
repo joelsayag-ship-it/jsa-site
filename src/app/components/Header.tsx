@@ -20,6 +20,21 @@ const NAV_ITEMS = [
         desc: "Régie via une ESN, TJM, SASU ou EURL : l'expert-comptable du freelance IT",
       },
       {
+        label: "Professions de santé",
+        href: "/expert-comptable-professions-de-sante",
+        desc: "Médecins, kinés, psychologues : BNC, 2035, caisses, installation",
+      },
+      {
+        label: "Création de société",
+        href: "/creation-de-societe",
+        desc: "SASU ou EURL : du choix du statut au Kbis",
+      },
+      {
+        label: "Reprise de dossier",
+        href: "/reprise-dossier-comptable",
+        desc: "Changement d'expert-comptable ou bilan à établir",
+      },
+      {
         label: "Formules et tarifs",
         href: "/#tarifs",
         desc: "Création d'entreprise, Offre Freelance, à la carte",

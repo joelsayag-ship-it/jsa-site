@@ -1,231 +1,124 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
-import Footer from "../components/Footer";
-import ContactSection from "../components/ContactSection";
+import OffrePage, { SITE_URL } from "../components/OffrePage";
+
+const CHEMIN = "/expert-comptable-freelance-saint-mande";
 
 export const metadata: Metadata = {
-  title: "Expert-comptable freelance Saint-Mandé (94160) — JSA Expertise",
+  title: "Expert-comptable Saint-Mandé (94160) | JSA Expertise",
   description:
-    "JSA Expertise, expert-comptable proche de Saint-Mandé. Spécialisé freelances et agences. Comptabilité, création SASU, optimisation fiscale. Premier RDV gratuit.",
-  alternates: {
-    canonical: "https://www.jsaexpertise.com/expert-comptable-freelance-saint-mande",
+    "Expert-comptable pour les indépendants, professions libérales et petites sociétés de Saint-Mandé. Cabinet voisin à Charenton-le-Pont, rendez-vous au cabinet ou en visio. Premier rendez-vous gratuit.",
+  alternates: { canonical: `${SITE_URL}${CHEMIN}` },
+  openGraph: {
+    title: "Expert-comptable à Saint-Mandé | JSA Expertise",
+    description: "Indépendants, professions libérales et sociétés de Saint-Mandé : un expert-comptable voisin, joignable directement.",
+    url: `${SITE_URL}${CHEMIN}`,
+    type: "website",
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { card: "summary_large_image" },
 };
-
-const FAQS = [
-  {
-    q: "Travaillez-vous avec des freelances de Saint-Mandé ?",
-    a: "Oui, nous accompagnons régulièrement des freelances et indépendants basés à Saint-Mandé. Notre cabinet est à Charenton-le-Pont, à 10 minutes. Mais dans la majorité des cas, tout se fait en ligne — vous n'avez pas besoin de vous déplacer.",
-  },
-  {
-    q: "Comment optimiser ma rémunération en SASU depuis Saint-Mandé ?",
-    a: "L'optimisation repose sur le bon dosage entre salaire et dividendes. Le salaire génère des charges sociales mais ouvre des droits. Les dividendes sont soumis à la flat tax (30%). On calcule votre scénario optimal lors d'un premier rendez-vous gratuit, en tenant compte de votre CA, de vos charges personnelles et de vos objectifs.",
-  },
-  {
-    q: "Puis-je tout faire en ligne depuis Saint-Mandé ?",
-    a: "Absolument. JSA Expertise est 100% digital. Transmission des documents via Tiime, échanges par mail et téléphone, signature électronique des bilans. Zéro déplacement, zéro papier.",
-  },
-];
-
-function Badge({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex items-center gap-2 bg-turquoise-50 text-turquoise-700 text-sm font-semibold px-4 py-2 rounded-full border border-turquoise-200">
-      {children}
-    </span>
-  );
-}
-
-function CheckItem({ children }: { children: React.ReactNode }) {
-  return (
-    <li className="flex items-start gap-3">
-      <span className="w-5 h-5 rounded-full bg-turquoise-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-        </svg>
-      </span>
-      <span className="text-gray-700 text-sm leading-relaxed">{children}</span>
-    </li>
-  );
-}
 
 export default function SaintMandePage() {
   return (
-    <>
-      <main className="pt-16">
-
-        {/* ── HERO ─────────────────────────────────────── */}
-        <section className="bg-[#F1F8EA] py-20 md:py-28 px-4 md:px-8">
-          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="mb-6">
-                <Badge>
-                  <span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />
-                  Expert-comptable proche de Saint-Mandé
-                </Badge>
-              </div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-5">
-                Saint-Mandé : des freelances discrets qui ont besoin d'un{" "}
-                <span className="text-turquoise-500">expert-comptable réactif</span>
-              </h1>
-              <p className="text-lg text-gray-600 leading-relaxed mb-4">
-                Saint-Mandé est calme, résidentielle, coincée entre Vincennes et Paris. Elle abrite une population de consultants, professions libérales et indépendants qui ont choisi la qualité de vie. Ils ont en commun un niveau d'expertise élevé et le besoin d'un expert-comptable qui répond, pas d'un cabinet qui prend trois jours.
-              </p>
-              <p className="text-base text-gray-600 leading-relaxed mb-8">
-                JSA Expertise, basé à 10 minutes à Charenton-le-Pont, est spécialisé exactement pour ces profils.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link href="/#contact" className="bg-turquoise-500 hover:bg-turquoise-700 text-white font-bold px-7 py-3.5 rounded-full transition-colors">
-                  Prendre RDV gratuitement
-                </Link>
-                <Link href="/#tarifs" className="border-2 border-turquoise-500 text-turquoise-500 hover:bg-turquoise-50 font-bold px-7 py-3.5 rounded-full transition-colors">
-                  Notre offre
-                </Link>
-              </div>
-            </div>
-            <div className="flex justify-center md:justify-end">
-              <div className="relative">
-                <div className="absolute inset-0 bg-turquoise-100 rounded-3xl scale-105 -rotate-2" />
-                <Image
-                  src="/images/joel.png"
-                  alt="Joël Sayag, expert-comptable proche de Saint-Mandé"
-                  width={380}
-                  height={460}
-                  className="relative rounded-3xl object-cover shadow-xl"
-                />
-                <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-lg px-4 py-2.5 border border-gray-100">
-                  <p className="text-xs font-bold text-gray-900">Joël Sayag</p>
-                  <p className="text-xs text-gray-400">Expert-comptable · 10 ans d'expérience</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── PROFIL ────────────────────────────────────── */}
-        <section className="bg-white py-16 md:py-20 px-4 md:px-8">
-          <div className="max-w-4xl mx-auto">
-            <Badge>
-              <span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />
-              Votre profil
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mt-4 mb-5">
-              Le profil type du freelance à Saint-Mandé
-            </h2>
-            <div className="space-y-4 text-gray-600 leading-relaxed">
-              <p>
-                Saint-Mandé (94160) concentre une population atypique : des professionnels bien établis qui ont choisi cette ville pour sa tranquillité et sa proximité immédiate avec Paris. Consultants en stratégie, coachs certifiés, avocats installés à leur compte, experts-métiers en santé ou en finance.
-              </p>
-              <p>
-                Ces freelances ne cherchent pas un expert-comptable qui leur envoie des bilans incompréhensibles. Ils veulent un expert disponible, qui parle clairement, et qui les aide à optimiser leur situation concrètement. C'est exactement la promesse de JSA Expertise.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ── OPTIMISATION FISCALE ──────────────────────── */}
-        <section className="bg-[#F1F8EA] py-16 md:py-20 px-4 md:px-8">
-          <div className="max-w-4xl mx-auto">
-            <Badge>
-              <span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />
-              Fiscalité freelance
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mt-4 mb-5">
-              Optimiser sa fiscalité quand on est freelance à Saint-Mandé
-            </h2>
-            <p className="text-gray-600 leading-relaxed mb-6">
-              L'optimisation fiscale d'un freelance repose sur plusieurs leviers : le choix du statut juridique (SASU ou EURL selon votre situation), la stratégie de rémunération, et les charges déductibles souvent sous-estimées. L'EURL offre des charges sociales moins lourdes via le régime TNS — un avantage concret quand on démarre ou qu'on préfère maximiser sa trésorerie mensuelle. La SASU est plus adaptée quand les revenus sont élevés et qu'on veut combiner salaire et dividendes.
-            </p>
-            <div className="grid md:grid-cols-3 gap-4 mb-6">
-              {[
-                { title: "Choix du statut", desc: "SASU, EURL ou micro : on choisit ce qui vous rapporte le plus net." },
-                { title: "Salaire/dividendes", desc: "Le bon dosage chaque année selon vos revenus et vos projets." },
-                { title: "Frais déductibles", desc: "Audit complet de vos dépenses, rien d'oublié." },
-              ].map((item) => (
-                <div key={item.title} className="bg-white rounded-2xl p-5 shadow-sm">
-                  <h3 className="font-extrabold text-gray-900 mb-2 text-base">{item.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-            <Link href="/ressources/simulateur-sasu-eurl" className="text-turquoise-500 hover:underline font-semibold text-sm">
-              Comparer SASU et EURL avec le simulateur →
-            </Link>
-          </div>
-        </section>
-
-        {/* ── SERVICES ──────────────────────────────────── */}
-        <section className="bg-white py-16 md:py-20 px-4 md:px-8">
-          <div className="max-w-4xl mx-auto">
-            <Badge>
-              <span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />
-              Nos services
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mt-4 mb-7">
-              Ce que votre expert-comptable prend en charge
-            </h2>
-            <ul className="space-y-4">
-              <CheckItem><strong>Comptabilité mensuelle :</strong> saisie, rapprochement, lettrage. Vision claire de votre trésorerie en temps réel.</CheckItem>
-              <CheckItem><strong>TVA et déclarations fiscales :</strong> tout est envoyé à temps. Aucune pénalité de retard.</CheckItem>
-              <CheckItem><strong>Bilan annuel certifié,</strong> présenté clairement pour que vous compreniez vos chiffres.</CheckItem>
-              <CheckItem><strong>Simulation de rémunération</strong> chaque année pour ajuster votre stratégie SASU ou EURL selon l'évolution de votre activité.</CheckItem>
-              <CheckItem><strong>Conseil en temps réel :</strong> un vrai expert-comptable vous répond sous 24h, pas un assistant.</CheckItem>
-            </ul>
-          </div>
-        </section>
-
-        {/* ── FAQ ───────────────────────────────────────── */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQS.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }) }} />
-        <section className="bg-[#F1F8EA] py-16 md:py-20 px-4 md:px-8">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-10 flex flex-col items-center">
-              <Badge><span className="w-2 h-2 rounded-full bg-turquoise-500 inline-block flex-shrink-0" />Questions fréquentes</Badge>
-              <h2 className="text-3xl font-extrabold text-gray-900 mt-4">FAQ Saint-Mandé</h2>
-            </div>
-            <div className="space-y-4">
-              {FAQS.map((faq) => (
-                <div key={faq.q} className="bg-white rounded-2xl p-6 shadow-sm">
-                  <h3 className="font-extrabold text-gray-900 mb-2 text-base">{faq.q}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── MAILLAGE ──────────────────────────────────── */}
-        <section className="bg-white py-10 px-4 md:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {[
-                { label: "Actualités", href: "/blog" },
-                { label: "Vincennes", href: "/expert-comptable-freelance-vincennes" },
-                { label: "Charenton-le-Pont", href: "/expert-comptable-freelance-charenton-le-pont" },
-                { label: "Paris 12e", href: "/expert-comptable-freelance-paris-12" },
-              ].map((l) => (
-                <Link key={l.href} href={l.href} className="bg-[#F1F8EA] border border-turquoise-100 hover:border-turquoise-400 rounded-xl px-4 py-3 text-sm font-semibold text-gray-700 hover:text-turquoise-600 transition-all text-center">{l.label}</Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── CTA ───────────────────────────────────────── */}
-        <section className="bg-[#00B6DE] py-16 md:py-20 px-4 md:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">Prenons rendez-vous</h2>
-            <p className="text-white/80 text-lg mb-8">Premier rendez-vous gratuit et sans engagement. On analyse votre situation et on vous conseille le meilleur statut.</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/#contact" className="bg-white text-[#00B6DE] hover:bg-gray-50 font-bold text-lg px-8 py-4 rounded-full transition-colors shadow-lg">Prendre RDV gratuitement</Link>
-              <Link href="tel:+33660735546" className="border-2 border-white text-white hover:bg-white/10 font-bold text-lg px-8 py-4 rounded-full transition-colors">06 60 73 55 46</Link>
-            </div>
-            <p className="text-white/60 text-sm mt-5">Réponse sous 24h garantie</p>
-          </div>
-        </section>
-
-        <ContactSection />
-      </main>
-      <Footer />
-    </>
+    <OffrePage
+      chemin={CHEMIN}
+      fil="Expert-comptable à Saint-Mandé"
+      badge="Cabinet voisin, à Charenton-le-Pont"
+      h1Debut="Expert-comptable à Saint-Mandé :"
+      h1Fin="un cabinet voisin, joignable directement"
+      intro={[
+        "Entre le bois de Vincennes et Paris, Saint-Mandé compte de nombreux indépendants et professions libérales. JSA Expertise, installé à Charenton-le-Pont de l'autre côté du bois, les accompagne au cabinet ou à distance.",
+        "Vous échangez directement avec votre expert-comptable, et le quotidien se gère en ligne avec l'application Tiime.",
+      ]}
+      zone={{ type: "City", nom: "Saint-Mandé" }}
+      service={{ nom: "Expert-comptable à Saint-Mandé", public: "Indépendants, professions libérales et petites sociétés de Saint-Mandé" }}
+      blocs={[
+        {
+          type: "cartes",
+          badge: "Qui nous accompagnons",
+          titre: "Les Saint-Mandéens que l'on accompagne",
+          cartes: [
+            {
+              titre: "Professions libérales et de santé",
+              texte: "Médecins, kinésithérapeutes, psychologues, en cabinet ou en remplacement : micro-BNC ou déclaration contrôlée, 2035, cotisations. Voir notre page [professions de santé](/expert-comptable-professions-de-sante).",
+            },
+            {
+              titre: "Consultants et freelances",
+              texte: "Conseil, numérique, finance, en SASU, en EURL ou en micro-entreprise : voir notre accompagnement [expert-comptable freelance](/expert-comptable-freelance).",
+            },
+            {
+              titre: "Créateurs d'entreprise",
+              texte: "Statut chiffré avant de signer, statuts, immatriculation jusqu'au Kbis : voir notre offre de [création de société](/creation-de-societe).",
+            },
+            {
+              titre: "Locataires et emprunteurs",
+              texte: "Indépendant récemment installé, vous devez justifier vos revenus pour louer ou acheter : voir notre [attestation de revenus](/attestation-expert-comptable/revenus).",
+            },
+          ],
+        },
+        {
+          type: "liste",
+          badge: "L'accompagnement",
+          titre: "Ce que votre expert-comptable prend en charge",
+          items: [
+            { fort: "Comptabilité et TVA", texte: "banque synchronisée dans Tiime, justificatifs en photo, déclarations de TVA dans les délais." },
+            { fort: "Bilan et déclarations", texte: "comptes annuels et liasse fiscale pour une société, déclaration 2035 pour une profession libérale en entreprise individuelle." },
+            { fort: "Rémunération", texte: "salaire, dividendes ou mise en réserve en SASU ou en EURL, avec une simulation avant chaque décision." },
+            { fort: "Conseil", texte: "vos questions reçoivent une réponse de votre expert-comptable sous 24 h, par téléphone ou par e-mail." },
+          ],
+        },
+        {
+          type: "avis",
+          badge: "Avis clients",
+          titre: "Ce qu'en disent nos clients",
+          noms: ["Benjamin T.", "Julien G.", "Hannah-léa F."],
+        },
+        {
+          type: "texte",
+          badge: "Au cabinet ou à distance",
+          titre: "Depuis Saint-Mandé, comment ça se passe",
+          paragraphes: [
+            "Le premier rendez-vous se fait en visio ou au cabinet de Charenton-le-Pont, selon ce qui vous arrange. Il est gratuit et sans engagement : votre activité, votre statut, vos échéances, puis un devis précis.",
+            "Ensuite, tout se fait à distance : relevés bancaires et justificatifs dans Tiime, lettre de mission et comptes annuels signés en ligne. Le cabinet reste à votre disposition pour un rendez-vous quand c'est utile.",
+            "Le cabinet accompagne aussi les villes voisines : [Vincennes](/expert-comptable-freelance-vincennes), [Charenton-le-Pont](/expert-comptable-freelance-charenton-le-pont), [Saint-Maurice](/expert-comptable-freelance-saint-maurice) et le [12e arrondissement de Paris](/expert-comptable-freelance-paris-12).",
+          ],
+        },
+        {
+          type: "cta",
+          titre: "Un expert-comptable pour votre activité à Saint-Mandé",
+          texte: "Premier rendez-vous gratuit et sans engagement, en visio ou au cabinet.",
+        },
+      ]}
+      faqTitre="Saint-Mandé : vos questions"
+      faqs={[
+        {
+          q: "Accompagnez-vous les professions libérales de Saint-Mandé ?",
+          a: "Oui : médecins, kinésithérapeutes, psychologues et autres professions libérales, en exercice individuel ou en société. Nous connaissons la déclaration 2035 et les caisses propres à chaque profession (CARMF, CARPIMKO, CIPAV).",
+        },
+        {
+          q: "Peut-on tout faire à distance depuis Saint-Mandé ?",
+          a: "Oui. Les documents passent par Tiime, les échanges par téléphone, e-mail ou visio, et les documents se signent en ligne. Le cabinet de Charenton-le-Pont vous reçoit si vous préférez vous rencontrer.",
+        },
+        {
+          q: "Comment se rémunérer en SASU : salaire ou dividendes ?",
+          a: "Le salaire supporte des cotisations sociales mais ouvre des droits (retraite, prévoyance). Les dividendes sont soumis en 2026 au prélèvement forfaitaire unique de 31,4 %, sauf option pour le barème. Le bon dosage dépend de vos revenus et de vos projets : notre chapitre [rémunération en SASU et en EURL](/devenir-freelance/remuneration-sasu-eurl) détaille les règles.",
+        },
+        {
+          q: "Combien coûte un expert-comptable à Saint-Mandé ?",
+          a: "Le prix dépend de la forme de votre entreprise, de votre volume de pièces et du niveau de conseil attendu. Vous recevez un devis précis après le premier rendez-vous. Les fourchettes habituelles sont détaillées dans notre article [combien coûte un expert-comptable](/blog/combien-coute-expert-comptable-freelance).",
+        },
+      ]}
+      liens={[
+        { label: "Professions de santé", href: "/expert-comptable-professions-de-sante" },
+        { label: "Expert-comptable freelance", href: "/expert-comptable-freelance" },
+        { label: "Création de société", href: "/creation-de-societe" },
+        { label: "Reprise de dossier", href: "/reprise-dossier-comptable" },
+        { label: "Attestation de revenus", href: "/attestation-expert-comptable/revenus" },
+        { label: "Simulateur SASU ou EURL", href: "/ressources/simulateur-sasu-eurl" },
+      ]}
+      contact={{
+        titre: "Parlons de votre activité à Saint-Mandé",
+        formulaire: "Formulaire de la page Saint-Mandé",
+      }}
+    />
   );
 }

@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 import Footer from "./Footer";
 import ContactSection from "./ContactSection";
+import { AVIS_CLIENTS, LIEN_AVIS_GOOGLE } from "./avis-clients";
 
 /**
  * Gabarit commun des pages d'offre (reprise de dossier, création de société, professions de santé).
@@ -19,7 +20,8 @@ export type Bloc =
   | { type: "liste"; badge: string; titre: string; intro?: string; items: Item[] }
   | { type: "etapes"; badge: string; titre: string; intro?: string; etapes: Carte[] }
   | { type: "texte"; badge: string; titre: string; paragraphes: string[] }
-  | { type: "cta"; titre: string; texte: string };
+  | { type: "cta"; titre: string; texte: string }
+  | { type: "avis"; badge: string; titre: string; noms: string[] };
 
 export type OffrePageProps = {
   chemin: string;
@@ -30,6 +32,8 @@ export type OffrePageProps = {
   intro: string[];
   lienSecondaire?: { label: string; href: string };
   service: { nom: string; public: string };
+  /** Zone desservie pour les données structurées (par défaut : la France). */
+  zone?: { type: "City" | "Country" | "State"; nom: string };
   blocs: Bloc[];
   faqTitre: string;
   faqs: { q: string; a: string }[];
@@ -121,6 +125,43 @@ function RenduBloc({ bloc, fond }: { bloc: Bloc; fond: string }) {
     );
   }
   const carteFond = fond === "bg-white" ? "bg-[#F1F8EA]" : "bg-white";
+  if (bloc.type === "avis") {
+    const avis = bloc.noms
+      .map((nom) => AVIS_CLIENTS.find((a) => a.name === nom))
+      .filter((a): a is (typeof AVIS_CLIENTS)[number] => Boolean(a));
+    return (
+      <section className={`${fond} py-16 md:py-20 px-4 md:px-8`}>
+        <div className="max-w-5xl mx-auto">
+          <Entete badge={bloc.badge} titre={bloc.titre} centre />
+          <div className="grid md:grid-cols-3 gap-5 mb-8">
+            {avis.map((a) => (
+              <figure key={a.name} className={`${carteFond} rounded-2xl p-6 flex flex-col gap-3`}>
+                <div className="flex gap-0.5" aria-label="5 étoiles sur 5">
+                  {[1, 2, 3, 4, 5].map((n) => (
+                    <svg key={n} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <blockquote className="text-gray-700 text-sm leading-relaxed flex-1">{a.text}</blockquote>
+                <figcaption className="text-sm font-bold text-gray-900">{a.name}</figcaption>
+              </figure>
+            ))}
+          </div>
+          <div className="text-center">
+            <a
+              href={LIEN_AVIS_GOOGLE}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-turquoise-500 hover:underline font-semibold text-sm"
+            >
+              Voir tous nos avis Google →
+            </a>
+          </div>
+        </div>
+      </section>
+    );
+  }
   return (
     <section className={`${fond} py-16 md:py-20 px-4 md:px-8`}>
       {bloc.type === "cartes" && (
@@ -195,7 +236,7 @@ export default function OffrePage(props: OffrePageProps) {
           name: props.service.nom,
           serviceType: "Expertise comptable",
           url,
-          areaServed: { "@type": "Country", name: "France" },
+          areaServed: { "@type": props.zone?.type ?? "Country", name: props.zone?.nom ?? "France" },
           audience: { "@type": "Audience", audienceType: props.service.public },
           provider: { "@type": "AccountingService", name: "JSA Expertise", url: SITE_URL, telephone: "+33660735546" },
         }}
